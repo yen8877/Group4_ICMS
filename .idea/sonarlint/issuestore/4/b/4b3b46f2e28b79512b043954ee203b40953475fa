@@ -1,11 +1,4 @@
 
-±
-java:S1319	"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(—µƒüÿÿÿÿJ$45c8a27e-aa4d-458d-a125-05e1b024bf33
-‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûáÌ¹ÿÿÿÿÿJ$d0d8bccf-e1d1-41e4-81f2-f4fd09a49640
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñĞ ÷J$de1b518b-92bb-4657-b869-ee91f6ac5126
-š	java:S116"ZRename this field "RequestedClaims" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ÉöÿÿÿÿÿJ$c6a059ee-b56a-409f-92f6-fb3b3e7d2290
-ˆ	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŞÒïJ$0610b747-1013-46d9-a107-339d39fefefc
-	java:S116"ORename this field "Name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É¬­ÁøÿÿÿÿJ$a6c5689f-d924-45d6-b479-4cc2e38b64d5
-“	java:S116"SRename this field "Password" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬›™ÂûÿÿÿÿJ$d282bb35-5e3a-45a0-9344-20e781926ddb
-m
-java:S1068",Remove this unused "Password" private field.(¬›™ÂûÿÿÿÿJ$b542f84a-ee31-4500-a8ee-4d703ce7f597
+7
+java:S1220""Move this file to a named package.8àŸ¨ñ1
+]	java:S125"<This block of commented-out lines of code should be removed.(“àıÿÿÿÿ8àŸ¨ñ1

@@ -3,8 +3,6 @@
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 j
 :src/main/java/com/example/group4_icms/HelloController.java,2/4/24fdbab7881840210297a2253912284a1dee8432
-j
-:src/main/resources/com/example/group4_icms/hello-view.fxml,e/8/e89948139c7c9dd771b0b8b44568c81702f17bf6
 k
 ;src/main/java/com/example/group4_icms/HelloApplication.java,2/1/21e2d492fed11df306e9f6f6d008b048da652a63
 N
@@ -243,3 +241,5 @@ G.idea/sonarlint/issuestore/f/5/f512dcae631429b2a00753d46cf2c99709f45010,9/c/9c
 Q.idea/sonarlint/securityhotspotstore/5/d/5d7354fd36b2b8177e6db2ac0d997a779ea9a12f,d/1/d12b4a6f1991d10c85238a6add5757d3991461b4
 Å
 Q.idea/sonarlint/securityhotspotstore/5/1/51427468f21dc9c16cea6cce600a00de5a79ff8c,e/a/ea3cf9fbb545078994a61c75b08648e3180dd788
+{
+Ksrc/main/java/com/example/group4_icms/Functions/DAO/DatabaseConnection.java,5/9/5904614e451fecc54a6c4e614da1ce005d020eac

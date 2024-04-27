@@ -1,4 +1,4 @@
 
-‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ûÄªàøÿÿÿÿJ$3117b643-011f-4109-88e0-9d99473c657f
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñĞ ÷J$634396c7-64fd-4080-a7a5-8861cdc03135
-š	java:S116"ZRename this field "ConfirmedClaims" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×µüÿÿÿÿÿJ$f76ef884-fb4b-4e1c-8483-8c5cfb9db38a
+7
+java:S1220""Move this file to a named package.8Ş¯ ¨ñ1
+]	java:S125"<This block of commented-out lines of code should be removed.(“àıÿÿÿÿ8ß¯ ¨ñ1

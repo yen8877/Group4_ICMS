@@ -1,0 +1,21 @@
+.button{
+    -fx-text-fill: #b6b3b3;
+    -fx-font-size: 25px ;
+    -fx-font-weight: bold;
+    -fx-alignment: baseline-left;
+    -fx-graphic-text-gap: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: none;
+    -fx-padding: 20 0 0 30;
+    -fx-effect: none;
+
+}
+
+.button:hover{
+    -fx-text-fill: #003366;
+}
+
+.button:hover .left-bar {
+    -fx-background-color: #F39C12;
+    -fx-min-width: 5px;
+}
