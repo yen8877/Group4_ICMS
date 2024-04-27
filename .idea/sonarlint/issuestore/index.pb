@@ -243,3 +243,9 @@ Q.idea/sonarlint/securityhotspotstore/5/d/5d7354fd36b2b8177e6db2ac0d997a779ea9a1
 Q.idea/sonarlint/securityhotspotstore/5/1/51427468f21dc9c16cea6cce600a00de5a79ff8c,e/a/ea3cf9fbb545078994a61c75b08648e3180dd788
 {
 Ksrc/main/java/com/example/group4_icms/Functions/DAO/DatabaseConnection.java,5/9/5904614e451fecc54a6c4e614da1ce005d020eac
+t
+Dsrc/main/java/com/example/group4_icms/Functions/DTO/CustomerDTO.java,f/6/f63b84c7dd2ce3dd45dd318d8decdbb15c448066
+q
+Asrc/main/java/com/example/group4_icms/Functions/DAO/JDBCUtil.java,b/e/beb466cd208a414701a12a384d26af79b28c46f7
+q
+Asrc/main/java/com/example/group4_icms/Functions/DAO/AdminDAO.java,a/9/a9e8ffcc14415938eaf88f646c7067b174f0a159

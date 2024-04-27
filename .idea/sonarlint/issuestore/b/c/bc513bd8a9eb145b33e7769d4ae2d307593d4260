@@ -1,4 +1,17 @@
 
 š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$6c4b7ace-22f9-48c1-8ce7-4b18b8603167
-~
-java:S2094"BRemove this empty class, write its code or make it an "interface".(¨¤½îJ$90bff76a-f4dd-461a-9d05-90777e08c54b
+Z
+java:S1117"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8·ú·øñ1
+V
+java:S1117"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8¸ú·øñ1
+Z
+java:S1117!"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8¹ú·øñ1
+V
+java:S1117""9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8ºú·øñ1
+Z
+java:S11174"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Çú·øñ1
+G	java:S106<"+Replace this use of System.out by a logger.(áÏÏÞ8Éú·øñ1
+Z
+java:S1117D"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Éú·øñ1
+V
+java:S1117E"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8Êú·øñ1

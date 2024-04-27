@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
 
-        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/customer_home.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/admin_home.css").toExternalForm());
 
         stage.setTitle("ICMS Application");
         stage.setScene(scene);
