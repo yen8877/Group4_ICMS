@@ -117,12 +117,12 @@
             </BorderPane>
          </children>
       </VBox>
-      <Text fill="#003366" layoutX="370.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" wrappingWidth="325.92034912109375">
+      <Text fx:id="h1" fill="#003366" layoutX="370.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" wrappingWidth="325.92034912109375">
          <font>
             <Font name="System Bold" size="50.0" />
          </font>
       </Text>
-      <Text fill="#003366" layoutX="372.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="👋 Hi (customer name), welcome !" wrappingWidth="413.9132080078125">
+      <Text fx:id="h2" fill="#003366" layoutX="372.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hi (customer name), welcome !" wrappingWidth="413.9132080078125">
          <font>
             <Font size="25.0" />
          </font>
@@ -132,8 +132,8 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="241.8614501953125" minHeight="10.0" prefHeight="45.2120361328125" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="470.56512451171875" minHeight="10.0" prefHeight="454.2879638671875" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="241.8614501953125" minHeight="10.0" prefHeight="45.2120361328125"/>
+          <RowConstraints maxHeight="470.56512451171875" minHeight="10.0" prefHeight="454.2879638671875" />
         </rowConstraints>
          <children>
             <TableView prefHeight="466.0" prefWidth="1018.0" GridPane.rowIndex="1">
