@@ -1,17 +1,17 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$6c4b7ace-22f9-48c1-8ce7-4b18b8603167
-Z
-java:S1117"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8·ú·øñ1
-V
-java:S1117"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8¸ú·øñ1
-Z
-java:S1117!"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8¹ú·øñ1
-V
-java:S1117""9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8ºú·øñ1
-Z
-java:S11174"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Çú·øñ1
-G	java:S106<"+Replace this use of System.out by a logger.(áÏÏÞ8Éú·øñ1
-Z
-java:S1117D"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Éú·øñ1
-V
-java:S1117E"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8Êú·øñ1
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$e3300fd3-d60d-497c-98c3-0a88353cf1f4
+€
+java:S1117"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8·ú·øñ1J$8fe3a2e8-edb8-419d-bfb6-e6d730f1d7d4
+|
+java:S1117"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8¸ú·øñ1J$8fba39d2-58b8-429f-a0d5-ab1b2d9a2608
+€
+java:S1117!"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8¹ú·øñ1J$507328f8-12a2-406d-a16b-72decb435397
+|
+java:S1117""9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8ºú·øñ1J$9352558d-1dcb-41d9-8498-e781bdc24c94
+€
+java:S11174"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Çú·øñ1J$72cfa888-4405-40e5-b3e7-3e7668cbb328
+m	java:S106<"+Replace this use of System.out by a logger.(áÏÏÞ8Éú·øñ1J$2d56d1f6-6e84-4610-aa7d-893f99587a6b
+€
+java:S1117D"8Rename "conn" which hides the field declared at line 11.(¶þö°ÿÿÿÿÿ8Éú·øñ1J$2789f1c7-061f-422a-96c2-d1dc825cd627
+|
+java:S1117E"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8Êú·øñ1J$a714cfd0-1424-4136-a7e8-ce4d02d96ed1

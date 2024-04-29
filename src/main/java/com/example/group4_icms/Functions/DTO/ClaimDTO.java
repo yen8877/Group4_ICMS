@@ -11,9 +11,23 @@ public class ClaimDTO {
     private String CardNum;
     private LocalDate ExamDate;
     private double ClaimAmount;
+    private Status status;
+    private String insuredPersonId;
+    private String submittedById;
 
 //    private String ReceiverBankingInfo;
-
+    public enum Status {
+        NEW, PROCESSING, DONE
+    }
+    public ClaimDTO(String id, LocalDate ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
+        this.Id = id;
+        this.ClaimDate = ClaimDate;
+        this.InsuredPersonId = InsuredPersonId;
+        this.submittedById = submittedById;
+        this.ExamDate = ExamDate;
+        this.ClaimAmount = ClaimAmount;
+        this.status = status;
+    }
 
     public String getId() {
         return Id;
@@ -61,5 +75,12 @@ public class ClaimDTO {
 
     public void setClaimDate(LocalDate claimDate) {
         ClaimDate = claimDate;
+    }
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

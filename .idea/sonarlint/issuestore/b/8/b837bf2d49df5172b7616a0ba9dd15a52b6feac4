@@ -1,0 +1,25 @@
+
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÄœÆµò1J$801c528c-3598-4d31-88de-60127932e007
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8°õÆµò1J$0a25e9a8-ab90-4ff0-b8f9-7d8b3be42f48
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÃáÇµò1J$76da132d-2784-49c6-aecd-a2ad9b94dd07
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8¯„Èµò1J$d88a8c30-7632-4cc4-93d5-b39d7dc0a652
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8§øğò1J$7d53ce17-e3a1-4a90-8088-8acc5fd451dd
+	java:S116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8©øğò1J$b2b47ea5-908c-451e-be15-d384abf379b1
+•	java:S116"TRename this field "ClaimDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àûµu8©øğò1J$92d1d4b0-4208-4a7f-97f2-2247721b9419
+¡	java:S116	"ZRename this field "InsuredPersonId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Çúöûÿÿÿÿ8©øğò1J$1821d35d-c590-4ff4-ae3f-086ecb71d1a4
+”	java:S116"RRename this field "CardNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô±³È8©øğò1J$70697b37-f7c0-465f-a28a-aa0ab1605a41
+š	java:S116"SRename this field "ExamDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ü“òşÿÿÿÿ8©øğò1J$b2624b08-a4c8-4512-b9dd-14843f4659e2
+	java:S116"VRename this field "ClaimAmount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ×‘üÿÿÿÿ8©øğò1J$1f3cd212-49dc-40df-a2ae-497b1114c9a0
+ª
+java:S1845"bRename field "insuredPersonId" to prevent any misunderstanding/clash with field "InsuredPersonId".(Ê—Ì÷üÿÿÿÿ8éëÈµò1J$cc5df276-c70d-4948-9afe-7f3087e1457f
+ƒ	java:S125
+"<This block of commented-out lines of code should be removed.(Á¥¡üÿÿÿÿ8ªøğò1J$ced5e8db-bb8c-494b-8348-a7f942097f68
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(åã¡ÿÿÿÿÿ8«øğò1J$1950e1a3-7ba7-49cc-bbbc-1078cef1b8fa
+—
+java:S4275@"ORefactor this getter so that it actually refers to the field "insuredPersonId".(ÙŠùşÿÿÿÿ8íëÈµò1J$e642d2bc-b295-4b43-a9c7-f8dcd1664665
+—
+java:S4275D"ORefactor this setter so that it actually refers to the field "insuredPersonId".(ˆãïâøÿÿÿÿ8íëÈµò1J$f64d4a47-30bd-4fce-b735-f2762aa50fb5
+{
+java:S1068"3Remove this unused "insuredPersonId" private field.(Ê—Ì÷üÿÿÿÿ8îëÈµò1J$ce8556d3-e032-4a72-831d-e06b06b538cc
+t
+java:S1068"1Remove this unused "submittedById" private field.(¹“ÑÁ8îëÈµò1J$5355d00f-8132-4615-8aec-42e36e3bf9da

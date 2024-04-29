@@ -1,9 +1,10 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÝ”çýÿÿÿÿ
-k	java:S117D"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò»¯Ïüÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ðéöü
-b	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÞÒï
-g	java:S116"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úN
-V	java:S125"<This block of commented-out lines of code should be removed.(š²‰Àýÿÿÿÿ
-Q	java:S125"<This block of commented-out lines of code should be removed.(…¦öã
-Q	java:S125G"<This block of commented-out lines of code should be removed.(³ˆûÓ
+‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ý£ÑþÿÿÿÿJ$44cfcd40-3af5-44dd-a7f0-b8c96a123821
+˜	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÝ”çýÿÿÿÿ8¢ÖŠ±ò1J$0a874787-6fbb-46a4-9490-842966e0a7e6
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ðéöüJ$0a1212b2-ee11-4e6a-8fd0-16ad32949e77
+ˆ	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÞÒïJ$41397359-b056-4317-941c-42e1c3826325
+	java:S116"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úNJ$5c484ccc-69bf-4102-8dd3-111664e08024
+ˆ	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(–ý£Ñþÿÿÿÿ8¨ÖŠ±ò1J$158b86e9-a93e-471b-89ea-df0be01bf2cf
+|	java:S125	"<This block of commented-out lines of code should be removed.(š²‰ÀýÿÿÿÿJ$980b21da-608f-4f76-851d-b5e819eb5ad9
+~	java:S125"<This block of commented-out lines of code should be removed.(³ˆûÓ8©ÖŠ±ò1J$950f1da7-9542-4c4c-908d-f043aadc5cdd
+w	java:S1251"<This block of commented-out lines of code should be removed.(…¦öãJ$9a3eac48-7e52-46aa-bc64-47544bc62d4d

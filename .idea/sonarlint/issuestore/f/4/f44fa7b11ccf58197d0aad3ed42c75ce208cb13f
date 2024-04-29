@@ -1,4 +1,30 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄĞÍ…øÿÿÿÿJ$7cea31d5-21c8-49c0-b54d-515304993cc2
-~
-java:S2094"BRemove this empty class, write its code or make it an "interface".(„èŒîJ$55e6fd9a-e04f-4e40-8646-af1ac34a0209
+‹
+java:S62086"CMerge the previous cases into this one using comma-separated label.(µ»ïşıÿÿÿÿ8Æå·Ÿò1J$e139f4ab-b41d-40f9-beb4-0afeee83feb0
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÄĞÍ…øÿÿÿÿJ$e7d44fa5-dfcd-4014-9ba2-1a0f19e06356
+j
+java:S2189""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8åå·Ÿò1J$60000ad4-0b8d-412c-a7ec-315cafc633d9
+r	java:S106"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8íå·Ÿò1J$2157583d-6cb8-4eb8-85f2-7a942b2895d7
+m	java:S106 "+Replace this use of System.out by a logger.(ÓıæË8íå·Ÿò1J$5e92a31f-7c27-4585-86cf-507a0af826b0
+m	java:S106!"+Replace this use of System.out by a logger.(©á¿¢8íå·Ÿò1J$2602b88a-80ec-46f5-8679-709aa6a1f735
+r	java:S106""+Replace this use of System.out by a logger.(£Õ”Üøÿÿÿÿ8íå·Ÿò1J$f383e953-bcde-4ba5-8a13-80d9f2cc501f
+m	java:S106#"+Replace this use of System.out by a logger.(ÃÒ§8îå·Ÿò1J$d5639917-23d2-4ea5-9c1c-a33b6b79b536
+m	java:S106%"+Replace this use of System.out by a logger.(œÓş…8îå·Ÿò1J$38e1647e-6e44-4c4b-86cf-9cf467557630
+“	java:S128>"LEnd this switch case with an unconditional break, return or throw statement.(˜Çúÿÿÿÿ8ïå·Ÿò1J$ea1918e2-9b91-403e-918c-63ad5cf22acc
+~	java:S125+"<This block of commented-out lines of code should be removed.(Ù¸Ñù8ğå·Ÿò1J$da33edc3-209f-408f-83b4-04992af04511
+~	java:S125;"<This block of commented-out lines of code should be removed.(öˆñÁ8ñå·Ÿò1J$8dde9279-23b6-46a2-85ce-998f63c3eab2
+m	java:S106?"+Replace this use of System.out by a logger.(Ü¶Â˜8ñå·Ÿò1J$75e3f0c7-854f-4d34-a01d-f7fe1d91e362
+m	java:S106C"+Replace this use of System.out by a logger.(®À£—8ñå·Ÿò1J$a298e955-2eb6-4e37-90c8-58743985a6a9
+m	java:S106L"+Replace this use of System.out by a logger.(²ôí„8òå·Ÿò1J$56c9b86a-31c1-4d92-8826-23c19d99ec13
+r	java:S106N"+Replace this use of System.out by a logger.(çÏùÙùÿÿÿÿ8òå·Ÿò1J$96f6076c-5722-4ffe-93ea-a129929e40a5
+m	java:S106Q"+Replace this use of System.out by a logger.(×÷¤ñ8òå·Ÿò1J$adbdd5be-3a2b-4893-9bcb-db37a385a24f
+r	java:S106T"+Replace this use of System.out by a logger.(ÏëòËøÿÿÿÿ8óå·Ÿò1J$883b51c6-6613-4396-9b59-f5778c2a773f
+r	java:S106X"+Replace this use of System.out by a logger.(³›ş¸ıÿÿÿÿ8óå·Ÿò1J$3c5c415c-7c4d-4688-92d4-198b3f3cc85d
+ƒ	java:S125["<This block of commented-out lines of code should be removed.(”á„üÿÿÿÿ8ôå·Ÿò1J$8fb8a645-9315-4bae-928a-b9b9622f8964
+ƒ	java:S125^"<This block of commented-out lines of code should be removed.(ŠÚ¨ãıÿÿÿÿ8ôå·Ÿò1J$b7a8cef2-cb62-4f29-9125-7d515c70489b
+r	java:S106f"+Replace this use of System.out by a logger.(®ıáëûÿÿÿÿ8ôå·Ÿò1J$1f06c7f1-6c4c-4313-8115-11375c4ed41c
+~	java:S125k"<This block of commented-out lines of code should be removed.(„§èÅ8õå·Ÿò1J$d39f9a06-866b-4c30-a014-f8b1d512a110
+Ÿ
+java:S1128"\Remove this unused import 'com.example.group4_icms.Functions.VC.Controller.AdminController'.(¦İÀ§8öå·Ÿò1J$1c66544c-33f4-4c5f-8be3-5e8a292864c3
+t
+java:S1068",Remove this unused "claimDAO" private field.(Êµåîøÿÿÿÿ8÷å·Ÿò1J$2cf5dc0b-46b0-4652-966a-84133655b147

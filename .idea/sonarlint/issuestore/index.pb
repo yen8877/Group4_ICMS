@@ -241,11 +241,15 @@ G.idea/sonarlint/issuestore/f/5/f512dcae631429b2a00753d46cf2c99709f45010,9/c/9c
 Q.idea/sonarlint/securityhotspotstore/5/d/5d7354fd36b2b8177e6db2ac0d997a779ea9a12f,d/1/d12b4a6f1991d10c85238a6add5757d3991461b4
 Å
 Q.idea/sonarlint/securityhotspotstore/5/1/51427468f21dc9c16cea6cce600a00de5a79ff8c,e/a/ea3cf9fbb545078994a61c75b08648e3180dd788
-{
-Ksrc/main/java/com/example/group4_icms/Functions/DAO/DatabaseConnection.java,5/9/5904614e451fecc54a6c4e614da1ce005d020eac
 t
 Dsrc/main/java/com/example/group4_icms/Functions/DTO/CustomerDTO.java,f/6/f63b84c7dd2ce3dd45dd318d8decdbb15c448066
 q
 Asrc/main/java/com/example/group4_icms/Functions/DAO/JDBCUtil.java,b/e/beb466cd208a414701a12a384d26af79b28c46f7
 q
 Asrc/main/java/com/example/group4_icms/Functions/DAO/AdminDAO.java,a/9/a9e8ffcc14415938eaf88f646c7067b174f0a159
+q
+Asrc/main/java/com/example/group4_icms/Functions/DTO/ClaimDTO.java,b/8/b837bf2d49df5172b7616a0ba9dd15a52b6feac4
+w
+Gsrc/main/java/com/example/group4_icms/Functions/DAO/PolicyOwnerDAO.java,5/3/5361d79c270747fa99ad88500949e914c32997f2
+w
+Gsrc/main/java/com/example/group4_icms/Functions/DTO/PolicyOwnerDTO.java,d/3/d3606c58691a4ed5e6c7a24311a0ed675aa10f7f

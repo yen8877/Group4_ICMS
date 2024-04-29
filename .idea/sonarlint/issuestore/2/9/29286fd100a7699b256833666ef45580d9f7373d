@@ -1,3 +1,10 @@
 
-]
-java:S1220""Move this file to a named package.8íý•üð1J$8e98814d-f275-4887-9c19-cb53b9f59f6c
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8Ü‚³Ÿò1J$5737c54c-901f-43c4-bbf3-5dd195ed43af
+}	java:S125"<This block of commented-out lines of code should be removed.(Ó¹ßp8à‚³Ÿò1J$42e8ab0f-b523-49b3-a38e-ae78478b53fd
+š	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿ8á‚³Ÿò1J$3031c2ff-b486-4c6e-89c3-300fc1cce27e
+ƒ	java:S125-"<This block of commented-out lines of code should be removed.(ÝÑ‚§þÿÿÿÿ8å‚³Ÿò1J$33d81dcd-6ba2-4fab-aa03-fb74f524a8d5
+ƒ	java:S125;"<This block of commented-out lines of code should be removed.(†ÃÞìùÿÿÿÿ8æ‚³Ÿò1J$89baba4d-02dc-42f7-9e76-ead79345138b
+‘
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DAO.CustomerDAO'.(øê±ˆ8æ‚³Ÿò1J$d5ebe57b-1a75-4a36-a251-fdc57827a473
+–
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(ôþ±ªøÿÿÿÿ8ç‚³Ÿò1J$2b6da4be-bca4-40f8-81cc-f0f35c3c9375
