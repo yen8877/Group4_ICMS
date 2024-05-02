@@ -1,0 +1,23 @@
+#h1{
+    -fx-font-family: "Arial Black";
+}
+#mainContent{
+    -fx-background-color: #F6F7FB;
+}
+
+.button{
+    -fx-font-family: "Arial";
+    -fx-text-fill: #b6b3b3;
+    -fx-font-size: 25px ;
+    -fx-font-weight: 900;
+    -fx-alignment: baseline-left;
+    -fx-graphic-text-gap: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: none;
+    -fx-padding: 20 15 20 35;
+    -fx-effect: none;
+}
+
+.button:hover{
+    -fx-text-fill: #003366;
+}

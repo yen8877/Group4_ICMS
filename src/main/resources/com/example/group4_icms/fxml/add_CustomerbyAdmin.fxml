@@ -188,6 +188,8 @@
             </AnchorPane>
          </children>
       </VBox>
+
+<!--    navbar    -->
     <VBox id="nav" layoutX="25.0" layoutY="-10.0" prefHeight="1024.0" prefWidth="344.0" style="-fx-background-color: FFFFFF;" stylesheets="@../css/add_CustomerbyAdmin.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
     <children>
         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
