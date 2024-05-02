@@ -1,4 +1,11 @@
 
-F	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1
-L	java:S106"+Replace this use of System.out by a logger.(œ †Ëþÿÿÿÿ8íýŽ÷ñ1
-L	java:S106"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1
+~	java:S125"<This block of commented-out lines of code should be removed.(…öð¤8™œÂöò1J$14a0f826-02fa-4477-8b93-8ad034ff47c4
+ƒ	java:S125"<This block of commented-out lines of code should be removed.( žËþÿÿÿÿ8’òÓœó1J$f731c622-ce2e-4622-ac5f-2b2e288414ba
+~	java:S125"<This block of commented-out lines of code should be removed.(«àŽÜ8®’Åòò1J$99dc2510-4b8c-4da3-a76a-8480724c4dce
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(¥ÇÈòúÿÿÿÿ8®’Åòò1J$4ea29b09-a0cf-4491-b371-23d03b463679
+l	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1J$fac3781a-0f82-4fc7-a99f-1a2a96ecae38
+r	java:S106$"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1J$c7622fb2-f666-4351-aa1f-53f08c83e6f0
+Ž
+java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DAO.ClaimDAO'.(‘Ëÿ˜8Ïúæ§ó1J$1a405447-75dd-44a6-b51d-a961b46335f6
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ïúæ§ó1J$f985a9af-ce8d-4cbe-bafe-f823eea6c1f4

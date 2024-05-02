@@ -3,9 +3,9 @@ package com.example.group4_icms;
 import com.example.group4_icms.Functions.DAO.ClaimDAO;
 import com.example.group4_icms.Functions.DAO.CustomerDAO;
 import com.example.group4_icms.Functions.VC.Controller.AdminController;
-import com.example.group4_icms.Functions.VC.Controller.CustomerContorller;
+//import com.example.group4_icms.Functions.VC.Controller.CustomerContorller;
 import com.example.group4_icms.Functions.VC.View.AdminView;
-import com.example.group4_icms.Functions.VC.View.CustomerView;
+//import com.example.group4_icms.Functions.VC.View.CustomerView;
 
 import java.sql.Connection;
 import java.sql.SQLException;

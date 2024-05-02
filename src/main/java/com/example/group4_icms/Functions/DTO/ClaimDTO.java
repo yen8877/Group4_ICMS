@@ -12,8 +12,7 @@ public class ClaimDTO {
     private LocalDate ExamDate;
     private double ClaimAmount;
     private Status status;
-    private String insuredPersonId;
-    private String submittedById;
+    private String submittedById;  // policy holder or policy owner id
 
 //    private String ReceiverBankingInfo;
     public enum Status {

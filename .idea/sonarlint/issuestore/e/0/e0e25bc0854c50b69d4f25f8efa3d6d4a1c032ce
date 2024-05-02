@@ -1,0 +1,11 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8ÈÜš©ó1J$3ddeab32-9ebd-4c05-a89e-86a3be7922ed
+r	java:S106;"+Replace this use of System.out by a logger.(©¤­şÿÿÿÿ8ßÜš©ó1J$5465d74d-dfb3-489e-ad72-523d8b2e5f3a
+r	java:S106="+Replace this use of System.out by a logger.(Èâ—›ùÿÿÿÿ8ßÜš©ó1J$f9a95009-2c4e-48f6-ba65-ff55c6ec101c
+m	java:S106@"+Replace this use of System.out by a logger.(‰–óÆ8ßÜš©ó1J$28bf546a-fd63-4aef-aa91-be175b00f1e5
+
+java:S5998X"LRefactor this repetition that can lead to a stack overflow for large inputs.(õæˆB8âÜš©ó1J$a3148f92-1aa0-4d2a-9a03-2dcae44151b9
+r
+java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿ8åÜš©ó1J$ac04e31d-c717-4550-b4b5-7d406aa02fb4
+q
+java:S1144a".Remove this unused private "clearForm" method.(ş§¨8åÜš©ó1J$fb7ca614-3820-4130-9182-679465b41c8f

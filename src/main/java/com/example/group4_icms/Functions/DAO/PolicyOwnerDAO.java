@@ -21,7 +21,7 @@ public class PolicyOwnerDAO {
             pstmt.setString(5, policyOwner.getEmail());
             pstmt.setString(6, policyOwner.getPassword());
             pstmt.setString(7, policyOwner.getType());
-            pstmt.setString(8, policyOwner.getPolicyHolder());
+            pstmt.setString(8, policyOwner.getPolicyOwnerName());
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
@@ -42,7 +42,7 @@ public class PolicyOwnerDAO {
             pstmt.setString(4, policyOwner.getEmail());
             pstmt.setString(5, policyOwner.getPassword());
             pstmt.setString(6, policyOwner.getType());
-            pstmt.setString(7, policyOwner.getPolicyHolder());
+            pstmt.setString(7, policyOwner.getPolicyOwnerName());
             pstmt.setString(8, policyOwner.getID());
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;

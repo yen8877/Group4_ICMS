@@ -1,0 +1,58 @@
+#h1{
+    -fx-font-family: "Arial Black";
+}
+#main_BackgroundColor{
+    -fx-background-color: #F6F7FB;
+}
+
+.button{
+    -fx-font-family: "Arial";
+    -fx-text-fill: #b6b3b3;
+    -fx-font-size: 25px ;
+    -fx-font-weight: 900;
+    -fx-alignment: baseline-left;
+    -fx-graphic-text-gap: 10;
+    -fx-background-color: transparent;
+    -fx-border-color: none;
+    -fx-padding: 20 15 20 35;
+    -fx-effect: none;
+}
+
+.button:hover{
+    -fx-text-fill: #003366;
+}
+
+#add_newCustomerFoarm   {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 50px;
+}
+
+#mainContent{
+    -fx-background-color: transparent;
+}
+
+.foarmText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 22px;}
+
+.foarmTextField{
+    -fx-border-color: #7D7F7A;
+    -fx-background-color: rgba(182, 179, 179, 0.3);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+#customerSave-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F39C12;
+    -fx-padding: 10 80 10 80;
+    -fx-font-size: 25px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+#customerSave-btn:hover{
+    -fx-border-color: #f37012;
+    -fx-background-color: rgba(243, 112, 18, 0.8);
+}
