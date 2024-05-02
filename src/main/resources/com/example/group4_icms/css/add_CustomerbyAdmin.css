@@ -56,3 +56,14 @@
     -fx-border-color: #f37012;
     -fx-background-color: rgba(243, 112, 18, 0.8);
 }
+
+#customerReset-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #B6B3B3;
+    -fx-padding: 10 80 10 80;
+    -fx-font-size: 25px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
