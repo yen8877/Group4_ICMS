@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.group4_icms.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.HelloController" prefWidth="800" prefHeight="600">
+    <VBox spacing="10">
+        <TextField fx:id="filterField" promptText="Enter search term..." />
+        <TableView fx:id="tableView" prefWidth="1400" prefHeight="550">
+            <columns>
+                <TableColumn text="Claim ID" fx:id="colFId" prefWidth="100"/>
+                <TableColumn text="Claim Date" fx:id="colClaimDate" prefWidth="150"/>
+                <TableColumn text="Exam Date" fx:id="colExamDate" prefWidth="150"/>
+                <TableColumn text="Claim Amount" fx:id="colClaimAmount" prefWidth="100"/>
+                <TableColumn text="Insured Person ID" fx:id="colInsuredPersonId" prefWidth="120"/>
+                <TableColumn text="Submitted By ID" fx:id="colSubmittedById" prefWidth="120"/>
+                <TableColumn text="Status" fx:id="colStatus" prefWidth="100"/>
+                <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="140"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

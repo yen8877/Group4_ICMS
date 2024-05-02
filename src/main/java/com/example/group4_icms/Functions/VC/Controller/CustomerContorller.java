@@ -49,6 +49,61 @@ public class CustomerContorller {
     @FXML private TextField claimAmountField;
     @FXML private Label resultLabel;
 
+    @FXML
+    private TextField addCustomerPolicyHolderIdfield;
+
+    @FXML
+    private TextField addCustomerIdfield;
+
+    @FXML
+    private TextField addCustomerPwfield;
+    @FXML
+    private TextField addCustomeNamefield;
+    @FXML
+    private TextField addCustomerEmailfield;
+    @FXML
+    private TextField addCustomerPhonefield;
+    @FXML
+    private TextField addCustomerAddressfield;
+//    @FXML
+//    private TextField addCustomerTypefield;
+//    @FXML
+//    private TextField addCustomerPoliyownerfield;
+//    @FXML
+//    private TextField addCustomerExdatefield;
+//    @FXML
+//    private TextField addCustomerEffdatefield;
+//    @FXML
+//    private TextField addCustomerInsuranceCardfield;
+
+    public void handleDependentSubmit() {
+        try {
+            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
+            String dependentId = addCustomerIdfield.getText();
+            String dependentPassword = addCustomerPwfield.getText();
+            String dependentName = addCustomeNamefield.getText();
+            String dependentEmail = addCustomerEmailfield.getText();
+            String dependentPhone = addCustomerPhonefield.getText();
+            String dependentAddress = addCustomerAddressfield.getText();
+
+            DependentDTO dependent = new DependentDTO();
+            dependent.setPolicyHolderId(policyHolderId);
+            dependent.setID(dependentId);
+            dependent.setPassword(dependentPassword);
+            dependent.setFullName(dependentName);
+            dependent.setPhone(dependentPhone);
+            dependent.setAddress(dependentAddress);
+            dependent.setEmail(dependentEmail);
+
+            boolean isAdded = dependentDao.addCustomerAndDependent(dependent);
+            String result = isAdded ? "Claim added successfully" : "Failed to add claim";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the claim: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
     public void handleSubmit() {
         try {
             String policyHolderId = policyHolderIdField.getText();

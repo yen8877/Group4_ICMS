@@ -15,7 +15,7 @@ public class DependentDAO {
         PreparedStatement pstmt2 = null;
         boolean success = false;
 
-        String sql1 = "INSERT INTO customer (c_id, password, phonenumber, address, email) VALUES (?, ?, ?, ?, ?)";
+        String sql1 = "INSERT INTO customer (c_id, password, phonenumber, address, email, full_name) VALUES (?, ?, ?, ?, ?, ?)";
         String sql2 = "INSERT INTO dependents (c_id, policyholderid) VALUES (?, ?)";
 
         try {
@@ -29,6 +29,7 @@ public class DependentDAO {
             pstmt1.setString(3, dependent.getPhone());
             pstmt1.setString(4, dependent.getAddress());
             pstmt1.setString(5, dependent.getEmail());
+            pstmt1.setString(6, dependent.getFullName());
             pstmt1.executeUpdate();
 
             // dependents 테이블에 데이터 추가

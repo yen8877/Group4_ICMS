@@ -12,6 +12,9 @@ public class CustomerDTO {
     public CustomerDTO() {
     }
 
+    public CustomerDTO(String text, String text1, String text2, String text3, String text4, String text5, String text6, String text7) {
+    }
+
     public void setID(String ID) {
 
         this.ID = ID;
