@@ -26,6 +26,9 @@ import com.example.group4_icms.Functions.DAO.DependentDAO;
 import com.example.group4_icms.Functions.DTO.ClaimDTO;
 import com.example.group4_icms.Functions.DTO.CustomerDTO;
 import com.example.group4_icms.Functions.DTO.DependentDTO;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -36,6 +39,43 @@ public class CustomerContorller {
     private DependentDAO dependentDao = new DependentDAO();
 
     private CustomerDAO customerDao = new CustomerDAO();
+
+    @FXML private TextField policyHolderIdField;
+    @FXML private TextField claimTypeField;
+    @FXML private TextField dependentIdField;
+    @FXML
+    private TextField claimIdField;
+    @FXML private TextField examDateField;
+    @FXML private TextField claimAmountField;
+    @FXML private Label resultLabel;
+
+    public void handleSubmit() {
+        try {
+            String policyHolderId = policyHolderIdField.getText();
+            String claimType = claimTypeField.getText().toLowerCase();
+            String insuredPersonId = "self".equals(claimType) ? policyHolderId : dependentIdField.getText();
+            String claimId = claimIdField.getText();
+            LocalDate examDate = LocalDate.parse(examDateField.getText());
+            double claimAmount = Double.parseDouble(claimAmountField.getText());
+
+            ClaimDTO claim = new ClaimDTO();
+            claim.setId(claimId);
+            claim.setClaimDate(LocalDateTime.now());  // 현재 시간으로 청구 날짜 설정
+            claim.setExamDate(examDate);
+            claim.setClaimAmount(claimAmount);
+            claim.setInsuredPersonId(insuredPersonId);
+            claim.setSubmittedById(policyHolderId);
+
+            boolean isAdded = ClaimDao.addClaim(claim);
+            String result = isAdded ? "Claim added successfully" : "Failed to add claim";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the claim: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
 
     public String addDependent(String policyHolderId, String c_id, String password, String phoneNumber, String address, String email) {
         DependentDTO dependent = new DependentDTO();
@@ -52,20 +92,20 @@ public class CustomerContorller {
         }
     }
 
-    public String addClaim(String claimId,LocalDate examDate, double claimAmount, String insuredPersonId, String policyHolderId) {
-        ClaimDTO claim = new ClaimDTO();
-        claim.setId(claimId);
-        claim.setClaimDate(LocalDateTime.now());
-        claim.setExamDate(examDate);
-        claim.setClaimAmount(claimAmount);
-        claim.setInsuredPersonId(insuredPersonId);
-        claim.setSubmittedById(policyHolderId);
-        if (ClaimDao.addClaim(claim)) {
-            return "Claim added successfully";
-        } else {
-            return "Failed to add Claim";
-        }
-    }
+//    public String addClaim(String claimId,LocalDate examDate, double claimAmount, String insuredPersonId, String policyHolderId) {
+//        ClaimDTO claim = new ClaimDTO();
+//        claim.setId(claimId);
+//        claim.setClaimDate(LocalDateTime.now());
+//        claim.setExamDate(examDate);
+//        claim.setClaimAmount(claimAmount);
+//        claim.setInsuredPersonId(insuredPersonId);
+//        claim.setSubmittedById(policyHolderId);
+//        if (ClaimDao.addClaim(claim)) {
+//            return "Claim added successfully";
+//        } else {
+//            return "Failed to add Claim";
+//        }
+//    }
 
     public String updateClaim(String customerId, String claimId, LocalDate examDate, double claimAmount) {
         ClaimDTO claim = new ClaimDTO();

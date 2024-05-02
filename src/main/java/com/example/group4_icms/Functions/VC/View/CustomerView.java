@@ -58,8 +58,8 @@ public class CustomerView {
 //                    break;
 
                 case 4:
-                    addClaim();
-                    break;
+//                    addClaim();
+//                    break;
 
                 case 5:
                     updateClaim();
@@ -117,37 +117,37 @@ public class CustomerView {
 
     }
 
-    public void addClaim() {
-        List<String> customers = customerDao.getAllCustomers();
-        customers.forEach(System.out::println);  // 모든 고객 정보 출력
-
-        System.out.println("PolicyHolder의 ID를 입력하세요:");
-        String policyHolderId = scan.next();
-
-        System.out.println("이 청구가 귀하의 것입니까, 아니면 귀하의 종속인 것입니까? (자신/종속인):");
-        String claimType = scan.next().toLowerCase();
-        String insuredPersonId;
-
-        if ("자신".equals(claimType)) {
-            insuredPersonId = policyHolderId; // PolicyHolder 자신의 청구
-        } else {
-            System.out.println("종속인의 ID를 입력해주세요:");
-            insuredPersonId = scan.next(); // Dependent의 청구
-        }
-
-        System.out.println("청구 ID를 입력해주세요:");
-        String claimId = scan.next();
-
-        System.out.println("exam date를 입력해주세요:");
-        String dateInput = scan.next();
-        LocalDate examDate = LocalDate.parse(dateInput);
-
-        System.out.println("청구 금액을 입력해주세요:");
-        double claimAmount = scan.nextDouble();
-
-        String result = controller.addClaim(claimId, examDate, claimAmount, insuredPersonId, policyHolderId);
-        System.out.println(result);
-    }
+//    public void addClaim() {
+//        List<String> customers = customerDao.getAllCustomers();
+//        customers.forEach(System.out::println);  // 모든 고객 정보 출력
+//
+//        System.out.println("PolicyHolder의 ID를 입력하세요:");
+//        String policyHolderId = scan.next();
+//
+//        System.out.println("이 청구가 귀하의 것입니까, 아니면 귀하의 종속인 것입니까? (자신/종속인):");
+//        String claimType = scan.next().toLowerCase();
+//        String insuredPersonId;
+//
+//        if ("자신".equals(claimType)) {
+//            insuredPersonId = policyHolderId; // PolicyHolder 자신의 청구
+//        } else {
+//            System.out.println("종속인의 ID를 입력해주세요:");
+//            insuredPersonId = scan.next(); // Dependent의 청구
+//        }
+//
+//        System.out.println("청구 ID를 입력해주세요:");
+//        String claimId = scan.next();
+//
+//        System.out.println("exam date를 입력해주세요:");
+//        String dateInput = scan.next();
+//        LocalDate examDate = LocalDate.parse(dateInput);
+//
+//        System.out.println("청구 금액을 입력해주세요:");
+//        double claimAmount = scan.nextDouble();
+//
+//        String result = controller.addClaim(claimId, examDate, claimAmount, insuredPersonId, policyHolderId);
+//        System.out.println(result);
+//    }
 
     public void updateClaim() {
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" alignment="center" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.CustomerContorller">
+    <Label text="Enter Policy Holder ID:"/>
+    <TextField fx:id="policyHolderIdField"/>
+    <Label text="Claim Type (Self/Dependent):"/>
+    <TextField fx:id="claimTypeField"/>
+    <Label text="Enter Dependent ID (if applicable):"/>
+    <TextField fx:id="dependentIdField"/>
+    <Label text="Enter Claim ID:"/>
+    <TextField fx:id="claimIdField"/>
+    <Label text="Enter Exam Date (YYYY-MM-DD):"/>
+    <TextField fx:id="examDateField"/>
+    <Label text="Enter Claim Amount:"/>
+    <TextField fx:id="claimAmountField"/>
+    <Button text="Submit Claim" onAction="#handleSubmit"/>
+    <Label fx:id="resultLabel"/>
+</VBox>
