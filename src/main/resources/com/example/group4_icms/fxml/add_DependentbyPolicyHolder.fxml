@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="main_BackgroundColor" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/add_DependentbyPolicyHolder.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.CustomerFormController">
+    <children>
+        <VBox id="mainContent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Text fx:id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Add New Customer" wrappingWidth="579.7972412109375">
+                    <font>
+                        <Font name="System Bold" size="50.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="30.0" top="30.0" />
+                    </VBox.margin>
+                </Text>
+                <AnchorPane id="add_newCustomerFoarm" prefHeight="948.0" prefWidth="1036.0">
+                    <VBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </VBox.margin>
+                    <children>
+                        <GridPane stylesheets="@../css/add_DependentbyPolicyHolder.css" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="0.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="ID">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin></Text>
+                                <TextField fx:id="addCustomerIdfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Password" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerPwfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Full Name" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomeNamefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Email" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerEmailfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Phone Number" GridPane.rowIndex="4">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerPhonefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Address" GridPane.rowIndex="5">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerAddressfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Customer Type" GridPane.rowIndex="6">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerTypefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Policy Onwer Name" GridPane.rowIndex="7">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerPoliyownerfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="8">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerExdatefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Effective Date" GridPane.rowIndex="9">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerEffdatefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                            <children>
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Insurance Card" GridPane.rowIndex="10">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Text>
+                                <TextField fx:id="addCustomerInsuranceCardfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                    </GridPane.margin>
+                                </TextField>
+                            </children>
+                        </GridPane>
+                        <Button onAction="#saveCustomer" id="customerSave-btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="Save" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <VBox id="nav" layoutX="25.0" layoutY="-10.0" prefHeight="1024.0" prefWidth="344.0" style="-fx-background-color: FFFFFF;" stylesheets="@../css/add_DependentbyPolicyHolder.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../img/ICMS.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets left="30.0" top="30.0" />
+                    </VBox.margin>
+                </ImageView>
+                <Button styleClass="button" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="Home" BorderPane.alignment="CENTER">
+                    <VBox.margin>
+                        <Insets top="50.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Button>
+                <Button styleClass="button" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="User Management" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button styleClass="button" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="Entity Management" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button styleClass="button" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="Report Management" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button styleClass="button" stylesheets="@../css/add_DependentbyPolicyHolder.css" text="Profile" BorderPane.alignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <BorderPane prefHeight="575.0" prefWidth="344.0">
+                    <bottom>
+                        <Button alignment="BASELINE_LEFT" text="Log out" BorderPane.alignment="BASELINE_LEFT">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="10.0" top="10.0" />
+                            </padding>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <BorderPane.margin>
+                                <Insets bottom="40.0" />
+                            </BorderPane.margin>
+                        </Button>
+                    </bottom>
+                </BorderPane>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
