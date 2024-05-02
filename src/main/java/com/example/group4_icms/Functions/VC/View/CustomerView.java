@@ -239,7 +239,7 @@ public class CustomerView {
         System.out.println("Enter the My ID:");
         String policyHolderId = scan.next();
 
-        List<CustomerDTO> customers = controller.getInfoByP licyHolder(policyHolderId);
+        List<CustomerDTO> customers = controller.getInfoByPolicyHolder(policyHolderId);
         if (customers.isEmpty()) {
             System.out.println("No Customer found for this policy holder.");
         } else {
