@@ -26,6 +26,8 @@ public class Claim {
     private String ReceiverBankingInfo; */
 /*Bank – Name – Number*//*
 
+    private String submittedById; // 설명
+
 
     public String getID() {
         return ID;

@@ -3,7 +3,7 @@ package com.example.group4_icms.Functions.DTO;
 public class CustomerDTO {
     private String ID;
     private String FullName;
-//    private entities.InsuranceCard InsuranceCard;
+//    private entities.InsuranceCard InsuranceCard; // String
     private String phone;
     private String address;
     private String email;
@@ -75,4 +75,14 @@ public class CustomerDTO {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "ID='" + ID + '\'' +
+                ", PASSWORD=" + password +
+                ", EMAIL=" + email +
+                ", PHONENUMBER='" + phone + '\'' +
+                ", ADDRESS='" + address + '\'' +
+                '}';
+    }
 }

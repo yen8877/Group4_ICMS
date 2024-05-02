@@ -1,17 +1,40 @@
 package com.example.group4_icms.Functions.DTO;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ClaimDTO {
 
     private String Id;
-    private LocalDate ClaimDate;
+    private LocalDateTime ClaimDate;
     private String InsuredPersonId;
-//    private InsuranceCard Card;
     private String CardNum;
     private LocalDate ExamDate;
     private double ClaimAmount;
 
+    private String policyHolderId;
+
+    private String submittedById;
+
+    public String getSubmittedById() {
+        return submittedById;
+    }
+
+    public void setSubmittedById(String submittedById) {
+        this.submittedById = submittedById;
+    }
+
+    public String getPolicyHolderId() {
+        return policyHolderId;
+    }
+
+
+
+    public void setPolicyHolderId(String policyHolderId) {
+        this.policyHolderId = policyHolderId;
+    }
 //    private String ReceiverBankingInfo;
 
 
@@ -55,11 +78,22 @@ public class ClaimDTO {
         InsuredPersonId = insuredPersonId;
     }
 
-    public LocalDate getClaimDate() {
+    public LocalDateTime getClaimDate() {
         return ClaimDate;
     }
 
-    public void setClaimDate(LocalDate claimDate) {
+    public void setClaimDate(LocalDateTime claimDate) {
         ClaimDate = claimDate;
+    }
+
+    @Override
+    public String toString() {
+        return "ClaimDTO{" +
+                "id='" + Id + '\'' +
+                ", examDate=" + ExamDate +
+                ", claimAmount=" + ClaimAmount +
+                ", insuredPersonId='" + InsuredPersonId + '\'' +
+                ", submittedById='" + submittedById + '\'' +
+                '}';
     }
 }
