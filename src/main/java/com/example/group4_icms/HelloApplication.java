@@ -20,14 +20,15 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
 //    }
+
     @Override
     public void start(Stage stage) throws IOException {
-        // Change the path to point to your add_CustomerbyPolicyOwner.fxml file
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/add_CustomerbyPolicyOwner.fxml"));
+        // Change the path to point to your add_CustomerbyAdmin.fxml file
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/add_CustomerbyAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
 
         // Adjust the CSS file if needed or use the existing one if it applies to the new FXML as well
-        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/admin_home.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/add_CustomerbyAdmin.css").toExternalForm());
 
         stage.setTitle("ICMS Application - Add Customer");
         stage.setScene(scene);
