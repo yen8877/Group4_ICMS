@@ -9,6 +9,11 @@
     -fx-background-radius: 10px;
 }
 
+#add-new-btn:hover {
+    -fx-background-color: #e67e22;  /* 밝은 주황색으로 변경 */
+    -fx-text-fill: #f8f9f9;  /* 거의 흰색으로 변경 */
+}
+
 #search-btn{
     -fx-background-color: transparent;
 }
@@ -57,5 +62,5 @@
     -fx-text-fill: #ffffff;
 }
 .category-btn:hover{
-    -fx-text-fill: #B6B3B3;
+    -fx-text-fill: #c4c0c0;
 }
