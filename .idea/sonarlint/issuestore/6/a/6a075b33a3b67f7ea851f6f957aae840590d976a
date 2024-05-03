@@ -1,11 +1,18 @@
 
-~	java:S125"<This block of commented-out lines of code should be removed.(…öð¤8™œÂöò1J$14a0f826-02fa-4477-8b93-8ad034ff47c4
-ƒ	java:S125"<This block of commented-out lines of code should be removed.( žËþÿÿÿÿ8’òÓœó1J$f731c622-ce2e-4622-ac5f-2b2e288414ba
-~	java:S125"<This block of commented-out lines of code should be removed.(«àŽÜ8®’Åòò1J$99dc2510-4b8c-4da3-a76a-8480724c4dce
-ƒ	java:S125"<This block of commented-out lines of code should be removed.(¥ÇÈòúÿÿÿÿ8®’Åòò1J$4ea29b09-a0cf-4491-b371-23d03b463679
-l	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1J$fac3781a-0f82-4fc7-a99f-1a2a96ecae38
-r	java:S106$"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1J$c7622fb2-f666-4351-aa1f-53f08c83e6f0
-Ž
-java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DAO.ClaimDAO'.(‘Ëÿ˜8Ïúæ§ó1J$1a405447-75dd-44a6-b51d-a961b46335f6
-s
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ïúæ§ó1J$f985a9af-ce8d-4cbe-bafe-f823eea6c1f4
+~	java:S125"<This block of commented-out lines of code should be removed.(…öð¤8™œÂöò1J$7fe4a76d-d7c0-498a-a8bd-cf103f9099a0
+\
+java:S1854"?Remove this useless assignment to local variable "customerDao".(î«È¸8¥Ü¥÷ó1
+`
+java:S1854">Remove this useless assignment to local variable "controller".(ŒÀð¡þÿÿÿÿ8¥Ü¥÷ó1
+Q
+java:S1481"/Remove this unused "controller" local variable.(ŒÀð¡þÿÿÿÿ8¦Ü¥÷ó1
+M
+java:S1481"0Remove this unused "customerDao" local variable.(î«È¸8§Ü¥÷ó1
+]	java:S125"<This block of commented-out lines of code should be removed.(Ôà–®ûÿÿÿÿ8§Ü¥÷ó1
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(¥ÇÈòúÿÿÿÿ8®’Åòò1J$e045b7d8-23c2-42bf-a039-508ed5b07151
+l	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1J$46786214-b494-4ec9-ad9b-aff6aac065e4
+r	java:S106$"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1J$f5e17f88-26cc-4d44-a006-08ea8703e7c2
+h
+java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DAO.ClaimDAO'.(‘Ëÿ˜8¨Ü¥÷ó1
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8©Ü¥÷ó1

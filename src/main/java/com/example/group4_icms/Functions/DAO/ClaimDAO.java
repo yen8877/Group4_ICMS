@@ -3,6 +3,7 @@ package com.example.group4_icms.Functions.DAO;
 import com.example.group4_icms.Functions.DTO.ClaimDTO;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -151,7 +152,6 @@ public class ClaimDAO {
         }
         return claims;
     }
-
 
 
 }

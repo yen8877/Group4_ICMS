@@ -1,3 +1,13 @@
 
-˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñœïÆÿÿÿÿÿ8ä­¢ò1J$7cc05869-31d4-4ffb-bb18-50dd438f7cf8
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8å­¢ò1J$20ac94df-851b-42d2-a08a-71f230dcc606
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8è’÷ó1J$a1afbdc2-9bad-4267-83f7-306165cdfa50
+]	java:S1253"<This block of commented-out lines of code should be removed.(Ã¸ûáşÿÿÿÿ8´Ñıøó1
+¡
+java:S1171M"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ßĞ ÷ó1J$283b3c6f-b9c8-4aa9-94c2-6a30cc4c6661
+p
+java:S1602–",Remove useless curly braces around statement(ò¡¤ë8¸è’÷ó1J$f1efe802-d305-48e3-9648-67f811531325
+n	java:S106—"+Replace this use of System.out by a logger.(†ş£–8¸è’÷ó1J$4218182a-ce31-4a06-8c82-2684571c288a
+s	java:S106¤"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8¹è’÷ó1J$4dbc313a-b23c-422a-ad9c-5ab1c6a5225f
+s	java:S106¦"+Replace this use of System.out by a logger.(ß¤œüÿÿÿÿ8¹è’÷ó1J$c2eefcea-6fce-43e9-a598-3db76d1438ca
+„	java:S125­"<This block of commented-out lines of code should be removed.(ô¶ÿåüÿÿÿÿ8¹è’÷ó1J$d5c28225-85fb-4af6-b095-8a19ff397b28
+~
+java:S1144G";Remove this unused private "initializeActionColumn" method.(¿˜ï‘8Åíüøó1J$3afb5ee8-8df4-4c49-b541-013b8546248c

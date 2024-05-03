@@ -45,3 +45,17 @@
     -fx-border-width: 0 0 1 1;
     -fx-padding: 5px;
 }
+#category-nav{
+    -fx-background-color: #003366;
+}
+.category-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 700;
+    -fx-background-color: transparant;
+    -fx-font-size: 20px;
+    -fx-padding: 10 100 10 5;
+    -fx-text-fill: #ffffff;
+}
+.category-btn:hover{
+    -fx-text-fill: #B6B3B3;
+}

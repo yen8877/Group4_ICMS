@@ -1,10 +1,19 @@
 package com.example.group4_icms.Functions.DTO;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+// Assuming getters in CustomerDTO for fullName, phone, address, email
 
 public class CustomerDTO {
+// Assuming getters in CustomerDTO for fullName, phone, address, email
+
     private String ID;
     private String FullName;
 //    private entities.InsuranceCard InsuranceCard;
@@ -128,6 +137,10 @@ public class CustomerDTO {
 
     public void setEffectiveDate(LocalDate effectiveDate) {
         this.effectiveDate = effectiveDate;
+    }
+
+    public void setFullName(String Fullname) {
+        this.FullName = FullName;
     }
 
 }
