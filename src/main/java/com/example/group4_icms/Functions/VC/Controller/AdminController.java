@@ -67,7 +67,10 @@ public class AdminController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> phonenumColumn;
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeActionColumn();
+    }
     private void initializeActionColumn() {
         actionColumn.setCellFactory(param -> new TableCell<CustomerDTO, String>() { // This must be CustomerDTO, String
             final Button editButton = new Button("Edit");

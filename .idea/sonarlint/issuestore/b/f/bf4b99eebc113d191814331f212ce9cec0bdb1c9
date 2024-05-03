@@ -1,13 +1,23 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8è’÷ó1J$a1afbdc2-9bad-4267-83f7-306165cdfa50
-]	java:S1253"<This block of commented-out lines of code should be removed.(Ã¸ûáşÿÿÿÿ8´Ñıøó1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8è’÷ó1J$cd94c925-b614-45b9-8bea-6c3f2788f1d0
+ƒ	java:S1253"<This block of commented-out lines of code should be removed.(Ã¸ûáşÿÿÿÿ8´Ñıøó1J$b390689d-56db-4b30-b5df-22dd240ab433
 ¡
-java:S1171M"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ßĞ ÷ó1J$283b3c6f-b9c8-4aa9-94c2-6a30cc4c6661
+java:S1171P"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ßĞ ÷ó1J$74043391-c27c-4e54-9f65-b76148cc837d
 p
-java:S1602–",Remove useless curly braces around statement(ò¡¤ë8¸è’÷ó1J$f1efe802-d305-48e3-9648-67f811531325
-n	java:S106—"+Replace this use of System.out by a logger.(†ş£–8¸è’÷ó1J$4218182a-ce31-4a06-8c82-2684571c288a
-s	java:S106¤"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8¹è’÷ó1J$4dbc313a-b23c-422a-ad9c-5ab1c6a5225f
-s	java:S106¦"+Replace this use of System.out by a logger.(ß¤œüÿÿÿÿ8¹è’÷ó1J$c2eefcea-6fce-43e9-a598-3db76d1438ca
-„	java:S125­"<This block of commented-out lines of code should be removed.(ô¶ÿåüÿÿÿÿ8¹è’÷ó1J$d5c28225-85fb-4af6-b095-8a19ff397b28
-~
-java:S1144G";Remove this unused private "initializeActionColumn" method.(¿˜ï‘8Åíüøó1J$3afb5ee8-8df4-4c49-b541-013b8546248c
+java:S1602™",Remove useless curly braces around statement(ò¡¤ë8¸è’÷ó1J$ffaa4a5d-0717-4733-b982-fbaae7609003
+n	java:S106š"+Replace this use of System.out by a logger.(†ş£–8¸è’÷ó1J$6cc6b0aa-5467-42c0-bdcc-83253136e9c7
+s	java:S106§"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8¹è’÷ó1J$04d84165-c50d-4423-a758-2e7ae03054c9
+s	java:S106©"+Replace this use of System.out by a logger.(ß¤œüÿÿÿÿ8¹è’÷ó1J$90c66ed6-276c-4503-ba20-638e26f99568
+„	java:S125°"<This block of commented-out lines of code should be removed.(ô¶ÿåüÿÿÿÿ8¹è’÷ó1J$c95d76b0-50c5-457c-ba50-dc61f609e466
+h
+java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DTO.ClaimDTO'.(õé‘™8¶£„úó1
+Z
+java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8¶£„úó1
+`
+java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8¶£„úó1
+S
+java:S1128 "1Remove this unused import 'javafx.util.Callback'.(¢œ»²ıÿÿÿÿ8¶£„úó1
+R
+java:S1128#"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8¶£„úó1
+M
+java:S1128$"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8·£„úó1
