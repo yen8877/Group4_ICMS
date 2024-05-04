@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        // Change the path to point to your Admin_addCustomer.fxml file
+        // Change the path to point to your Admin_addCustomerForm.fxml file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/Admin_UserManagement.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
 
