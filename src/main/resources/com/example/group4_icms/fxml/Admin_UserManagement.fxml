@@ -56,7 +56,7 @@
             </HBox>
             <AnchorPane>
                <children>
-                  <Button id="add-new-btn" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                  <Button id="add-new-btn" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
