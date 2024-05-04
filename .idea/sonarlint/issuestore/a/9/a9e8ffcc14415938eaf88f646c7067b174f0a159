@@ -1,4 +1,4 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ
-I
-java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$c63ae775-d3e0-42cd-86d6-cd405e5a2782
+o
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿJ$d8d03b63-2385-4cf7-855d-50c06c5a8922

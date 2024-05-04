@@ -1,23 +1,22 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8žè’÷ó1J$cd94c925-b614-45b9-8bea-6c3f2788f1d0
-ƒ	java:S1253"<This block of commented-out lines of code should be removed.(Ã¸ûáþÿÿÿÿ8´Ñýøó1J$b390689d-56db-4b30-b5df-22dd240ab433
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8žè’÷ó1J$08c286b9-96b7-4bd6-a442-b497da9293ac
+ƒ	java:S1253"<This block of commented-out lines of code should be removed.(Ã¸ûáþÿÿÿÿ8´Ñýøó1J$e1753ce0-7ce3-44ce-b176-b5a5a3f7ba85
 ¡
-java:S1171P"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ßÐ ÷ó1J$74043391-c27c-4e54-9f65-b76148cc837d
+java:S1171P"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8ßÐ ÷ó1J$9f7fabf8-a1cf-440c-9f61-a1abc90fe745
 p
-java:S1602™",Remove useless curly braces around statement(ò¡¤ë8¸è’÷ó1J$ffaa4a5d-0717-4733-b982-fbaae7609003
-n	java:S106š"+Replace this use of System.out by a logger.(†þ£–8¸è’÷ó1J$6cc6b0aa-5467-42c0-bdcc-83253136e9c7
-s	java:S106§"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8¹è’÷ó1J$04d84165-c50d-4423-a758-2e7ae03054c9
-s	java:S106©"+Replace this use of System.out by a logger.(žß¤œüÿÿÿÿ8¹è’÷ó1J$90c66ed6-276c-4503-ba20-638e26f99568
-„	java:S125°"<This block of commented-out lines of code should be removed.(ô¶ÿåüÿÿÿÿ8¹è’÷ó1J$c95d76b0-50c5-457c-ba50-dc61f609e466
-h
-java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DTO.ClaimDTO'.(õé‘™8¶£„úó1
-Z
-java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8¶£„úó1
-`
-java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8¶£„úó1
-S
-java:S1128 "1Remove this unused import 'javafx.util.Callback'.(¢œ»²ýÿÿÿÿ8¶£„úó1
-R
-java:S1128#"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8¶£„úó1
-M
-java:S1128$"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8·£„úó1
+java:S1602™",Remove useless curly braces around statement(ò¡¤ë8¸è’÷ó1J$88c95546-fa73-4748-84e5-855c0bf60fa0
+n	java:S106š"+Replace this use of System.out by a logger.(†þ£–8¸è’÷ó1J$d0c342e7-6494-44a9-8990-04b3392f6116
+s	java:S106§"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8¹è’÷ó1J$f355c305-dbd7-4088-9e58-3948e15fcd58
+s	java:S106©"+Replace this use of System.out by a logger.(žß¤œüÿÿÿÿ8¹è’÷ó1J$e435d18d-7816-4174-9783-4abb72327ce6
+Ž
+java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DTO.ClaimDTO'.(õé‘™8¶£„úó1J$33dada4b-8cb9-466b-be29-7ac22db4301c
+€
+java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8¶£„úó1J$bd3a478a-8db9-44e2-b09f-1184f66ae008
+†
+java:S1128">Remove this unused import 'javafx.collections.ObservableList'.(ÄÜ€éüÿÿÿÿ8¶£„úó1J$70946bb8-421c-4af8-96d5-8e4655243f33
+y
+java:S1128 "1Remove this unused import 'javafx.util.Callback'.(¢œ»²ýÿÿÿÿ8¶£„úó1J$453a2d3e-e628-4cfe-8f9d-90a54410128c
+x
+java:S1128#"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8¶£„úó1J$ee262a9d-bdea-428c-a76a-55540ef3117a
+s
+java:S1128$"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8·£„úó1J$3c62a3c8-8825-4ae7-838e-500e17bbeea1

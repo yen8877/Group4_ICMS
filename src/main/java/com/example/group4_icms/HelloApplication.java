@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
 //        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/hello-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
 //
-//        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/admin_home.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/home.css").toExternalForm());
 //
 //        stage.setTitle("ICMS Application");
 //        stage.setScene(scene);
@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
 
 //        // Adjust the CSS file if needed or use the existing one if it applies to the new FXML as well
-//        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/add_CustomerbyAdmin.css").toExternalForm());
+//        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/form.css").toExternalForm());
 
         stage.setTitle("ICMS Application - Add Customer");
         stage.setScene(scene);
