@@ -15,94 +15,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: F6F7FB;" stylesheets="@../css/admin_home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="25.0" layoutY="-10.0" prefHeight="1024.0" prefWidth="344.0" style="-fx-background-color: FFFFFF;" stylesheets="@../css/admin_home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/ICMS.png" />
-               </image>
-               <VBox.margin>
-                  <Insets left="30.0" top="30.0" />
-               </VBox.margin>
-            </ImageView>
-            <Button styleClass="button" stylesheets="@../css/admin_home.css" text="Home" BorderPane.alignment="CENTER">
-               <VBox.margin>
-                  <Insets top="50.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </Button>
-            <Button styleClass="button" stylesheets="@../css/admin_home.css" text="User Management" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button styleClass="button" stylesheets="@../css/admin_home.css" text="Entity Management" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button styleClass="button" stylesheets="@../css/admin_home.css" text="Report Management" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <Button styleClass="button" stylesheets="@../css/admin_home.css" text="Profile" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
-            <BorderPane prefHeight="575.0" prefWidth="344.0">
-               <bottom>
-                  <Button alignment="BASELINE_LEFT" text="Log out" BorderPane.alignment="BASELINE_LEFT">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                     <padding>
-                        <Insets bottom="10.0" top="10.0" />
-                     </padding>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <BorderPane.margin>
-                        <Insets bottom="40.0" />
-                     </BorderPane.margin>
-                  </Button>
-               </bottom>
-            </BorderPane>
-         </children>
-      </VBox>
       <Text fx:id="h1" fill="#003366" layoutX="370.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOME" wrappingWidth="325.92034912109375">
          <font>
             <Font name="System Bold" size="50.0" />
@@ -126,4 +38,94 @@
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
+
+   <!--    navbar    -->
+   <VBox id="nav" layoutX="25.0" layoutY="-10.0" prefHeight="1024.0" prefWidth="344.0" style="-fx-background-color: FFFFFF;" stylesheets="@../css/add_CustomerbyAdmin.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../img/ICMS.png" />
+            </image>
+            <VBox.margin>
+               <Insets left="30.0" top="30.0" />
+            </VBox.margin>
+         </ImageView>
+         <Button styleClass="button" stylesheets="@../css/add_CustomerbyAdmin.css" text="Home" BorderPane.alignment="CENTER">
+            <VBox.margin>
+               <Insets top="50.0" />
+            </VBox.margin>
+            <padding>
+               <Insets bottom="10.0" left="30.0" top="10.0" />
+            </padding>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+         </Button>
+         <Button styleClass="button" stylesheets="@../css/add_CustomerbyAdmin.css" text="User Management" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+            <padding>
+               <Insets bottom="10.0" left="30.0" top="10.0" />
+            </padding>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </Button>
+         <Button styleClass="button" stylesheets="@../css/add_CustomerbyAdmin.css" text="Entity Management" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+            <padding>
+               <Insets bottom="10.0" left="30.0" top="10.0" />
+            </padding>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </Button>
+         <Button styleClass="button" stylesheets="@../css/add_CustomerbyAdmin.css" text="Report Management" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="System Bold" size="25.0" />
+            </font>
+            <padding>
+               <Insets bottom="10.0" left="30.0" top="10.0" />
+            </padding>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </Button>
+         <Button styleClass="button" stylesheets="@../css/add_CustomerbyAdmin.css" text="Profile" BorderPane.alignment="CENTER">
+            <font>
+               <Font name="System Bold" size="30.0" />
+            </font>
+            <padding>
+               <Insets bottom="10.0" left="30.0" top="10.0" />
+            </padding>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </Button>
+         <BorderPane prefHeight="575.0" prefWidth="344.0">
+            <bottom>
+               <Button alignment="BASELINE_LEFT" text="Log out" BorderPane.alignment="BASELINE_LEFT">
+                  <font>
+                     <Font name="System Bold" size="25.0" />
+                  </font>
+                  <padding>
+                     <Insets bottom="10.0" top="10.0" />
+                  </padding>
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <BorderPane.margin>
+                     <Insets bottom="40.0" />
+                  </BorderPane.margin>
+               </Button>
+            </bottom>
+         </BorderPane>
+      </children>
+   </VBox>
 </AnchorPane>
