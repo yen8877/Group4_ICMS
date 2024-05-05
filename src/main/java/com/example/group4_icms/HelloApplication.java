@@ -25,20 +25,7 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
 //    }
-
-//    @Override
-//    public void start(Stage stage) throws IOException {
-//        // Change the path to point to your Admin_addCustomer.fxml file
-//        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
-//        Scene scene = new Scene(fxmlLoader.load(), 1440, 1024);
-//
-////        // Adjust the CSS file if needed or use the existing one if it applies to the new FXML as well
-////        scene.getStylesheets().add(getClass().getResource("/com/example/group4_icms/css/form.css").toExternalForm());
-//
-//        stage.setTitle("ICMS Application - Add Customer");
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    
 @Override
 public void start(Stage primaryStage) throws Exception {
     // FXML 파일 로드

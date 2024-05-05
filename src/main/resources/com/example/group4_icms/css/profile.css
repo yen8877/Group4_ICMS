@@ -1,0 +1,64 @@
+#container{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+}
+
+#upload-img-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #003366;
+    -fx-background-radius: 10px;
+    -fx-padding: 10 10 10 10;
+}
+#reject-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #7D7F7A;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-background-color: #B6B3B3;
+    -fx-background-radius: 10px;
+    -fx-padding: 10 10 10 10;
+}
+
+#save-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F39C12;
+    -fx-padding: 10 30 10 30;
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-border-color: #F39C12;
+}
+
+#reset-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #7D7F7A;
+    -fx-background-color: #B6B3B3;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-padding: 10 20 10 20;
+    -fx-font-size: 20px;
+    -fx-background-radius: 10px;
+}
+
+.profile-text{
+    -fx-font-size: 20px;
+    -fx-font-family: Arial;
+    -fx-font-weight: 900;
+}
+.profile-textfield{
+    -fx-border-color: #7D7F7A;
+    -fx-background-color: rgba(182, 179, 179, 0.3);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
