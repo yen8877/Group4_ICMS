@@ -1,17 +1,17 @@
 
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÄœÆµò1J$4ebb71d5-ce41-497e-b5aa-cf7a363dd1e6
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8°õÆµò1J$5381bbe0-a94f-4378-9f71-05d0e451e41a
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÃáÇµò1J$ff064329-00aa-45dd-9562-c99de033a90f
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8¯„Èµò1J$90c5b263-0c1f-49cd-90c1-cacac1e9003e
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8§øğò1J$5aae55a0-7c61-4d74-9941-5ce173858da9
-	java:S116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8©øğò1J$a75d54fa-a371-4fcb-ba83-90f53a39d882
-•	java:S116"TRename this field "ClaimDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àûµu8©øğò1J$055a3991-c95d-44f0-b4da-3f1368cdc32a
-¡	java:S116	"ZRename this field "InsuredPersonId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Çúöûÿÿÿÿ8©øğò1J$4edb2cca-dd82-45ad-bf77-1604ae395b75
-”	java:S116"RRename this field "CardNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô±³È8©øğò1J$993711be-1c74-4ab5-8d41-212580288efb
-š	java:S116"SRename this field "ExamDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ü“òşÿÿÿÿ8©øğò1J$aa6b5ccd-7c26-40c4-85a1-db119d71733a
-	java:S116"VRename this field "ClaimAmount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ×‘üÿÿÿÿ8©øğò1J$07458d4f-e5c7-4339-b8e1-b0db340e9832
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÄœÆµò1J$e0e3d2cb-178a-4aa2-ac6b-f3a931a5c4c8
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8°õÆµò1J$e1b30aa5-170e-4b85-82ea-2bb218099a2a
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÃáÇµò1J$e0218835-82b2-46be-8228-3669cbc12a3c
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8¯„Èµò1J$d3d13c00-2179-4381-bc2d-479583eb2306
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8§øğò1J$37c96d9c-a383-44a3-bc9d-48192497432b
+	java:S116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8©øğò1J$d7f7d9d2-d30d-4ced-aa5d-33379498e595
+•	java:S116"TRename this field "ClaimDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àûµu8©øğò1J$8c291bee-0ec3-4018-9e81-b0c921122aec
+¡	java:S116	"ZRename this field "InsuredPersonId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Çúöûÿÿÿÿ8©øğò1J$3967b5cd-9863-4650-811e-2634a92c7580
+”	java:S116"RRename this field "CardNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô±³È8©øğò1J$34015e7e-c0cc-466e-8784-60aca4064a79
+š	java:S116"SRename this field "ExamDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ü“òşÿÿÿÿ8©øğò1J$30d8713b-46e6-4aa6-b3ce-03068b241bb6
+	java:S116"VRename this field "ClaimAmount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ×‘üÿÿÿÿ8©øğò1J$1c2fb236-4d00-46e3-b114-16bacc8bc542
 ƒ	java:S125
-"<This block of commented-out lines of code should be removed.(Á¥¡üÿÿÿÿ8ªøğò1J$8a8b654c-c580-4b93-a72f-13ee393c3c0a
-ƒ	java:S125"<This block of commented-out lines of code should be removed.(åã¡ÿÿÿÿÿ8«øğò1J$9f9783bd-e2d6-4307-a0a6-6d457407573b
+"<This block of commented-out lines of code should be removed.(Á¥¡üÿÿÿÿ8ªøğò1J$9b3fe6e3-d1c9-4730-9f4d-ce477f57cc49
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(åã¡ÿÿÿÿÿ8«øğò1J$583b2422-7fb4-460b-be5a-c218fe241065
 y
-java:S1068"1Remove this unused "submittedById" private field.(© Æôıÿÿÿÿ8îëÈµò1J$de1c5f94-37f3-46ef-bd16-68e6b4c580c1
+java:S1068"1Remove this unused "submittedById" private field.(© Æôıÿÿÿÿ8îëÈµò1J$7f974ec9-edda-46cb-a2e0-82594dbc5a31

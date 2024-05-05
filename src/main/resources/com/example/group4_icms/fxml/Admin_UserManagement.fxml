@@ -90,13 +90,13 @@
                   </Button>
                   <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
-                      <TableColumn fx:id="passwordColumn" prefWidth="111.91110229492188" text="Password" />
-                        <TableColumn fx:id="fullNameColumn" prefWidth="165.5888671875" text="Full Name" />
-                        <TableColumn fx:id="emailColumn" prefWidth="87.22357177734375" text="Email" />
-                        <TableColumn fx:id="phonenumColumn" prefWidth="181.1346435546875" text="Phone Number" />
-                        <TableColumn fx:id="addressColumn" prefWidth="137.6947021484375" text="Address" />
-                        <TableColumn fx:id="actionColumn" minWidth="200.0" text="Actions" />
+                      <TableColumn prefWidth="75.0" text="Id" />
+                      <TableColumn prefWidth="111.91110229492188" text="Password" />
+                        <TableColumn prefWidth="165.5888671875" text="Full Name" />
+                        <TableColumn prefWidth="87.22357177734375" text="Email" />
+                        <TableColumn prefWidth="181.1346435546875" text="Phone Number" />
+                        <TableColumn prefWidth="137.6947021484375" text="Address" />
+                        <TableColumn minWidth="200.0" text="Actions" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
