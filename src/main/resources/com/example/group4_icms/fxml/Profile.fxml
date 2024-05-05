@@ -1,14 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.group4_icms.fxml.Profile"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <!--   Main Contents   -->
+    <VBox id="mainContent" layoutX="330.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="579.7972412109375">
+                <VBox.margin>
+                    <Insets left="30.0" top="30.0" />
+                </VBox.margin>
+            </Text>
+         <VBox id="container" stylesheets="@../css/profile.css">
+            <children>
+               <HBox alignment="CENTER" stylesheets="@../css/profile.css">
+                  <children>
+                     <BorderPane stylesheets="@../css/profile.css">
+                        <center>
+                           <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                              <image>
+                                 <Image url="@../img/profile-user.png" />
+                              </image>
+                              <BorderPane.margin>
+                                 <Insets top="50.0" />
+                              </BorderPane.margin>
+                           </ImageView>
+                        </center>
+                        <bottom>
+                           <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="BOTTOM_CENTER">
+                              <children>
+                                 <Button id="upload-img-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Upload Img" />
+                                 <Button id="reject-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Reject" />
+                              </children>
+                              <padding>
+                                 <Insets top="20.0" />
+                              </padding>
+                           </HBox>
+                        </bottom>
+                     </BorderPane>
+                  </children>
+                  <padding>
+                     <Insets bottom="20.0" />
+                  </padding>
+                  <VBox.margin>
+                     <Insets top="20.0" />
+                  </VBox.margin>
+               </HBox>
+               <GridPane stylesheets="@../css/profile.css">
+                 <columnConstraints>
+                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.1278076171875" minWidth="10.0" prefWidth="176.34967041015625" />
+                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="665.6503295898438" minWidth="10.0" prefWidth="665.6503295898438" />
+                 </columnConstraints>
+                 <rowConstraints>
+                   <RowConstraints vgrow="SOMETIMES" />
+                   <RowConstraints vgrow="SOMETIMES" />
+                   <RowConstraints vgrow="SOMETIMES" />
+                     <RowConstraints vgrow="SOMETIMES" />
+                     <RowConstraints vgrow="SOMETIMES" />
+                 </rowConstraints>
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Full Name:">
+                        <GridPane.margin>
+                           <Insets />
+                        </GridPane.margin>
+                     </Text>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Password:" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </Text>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Email:" GridPane.rowIndex="2">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </Text>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Phone Number:" GridPane.rowIndex="3">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </Text>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Address:" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </Text>
+                     <TextField prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" />
+                     <TextField prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </TextField>
+                     <TextField prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </TextField>
+                     <TextField prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </TextField>
+                     <TextField prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                           <Insets top="20.0" />
+                        </GridPane.margin>
+                     </TextField>
+                  </children>
+                  <VBox.margin>
+                     <Insets bottom="50.0" left="100.0" right="100.0" top="20.0" />
+                  </VBox.margin>
+                  <padding>
+                     <Insets top="20.0" />
+                  </padding>
+               </GridPane>
+               <HBox alignment="CENTER_RIGHT" stylesheets="@../css/profile.css">
+                  <VBox.margin>
+                     <Insets bottom="20.0" right="30.0" top="30.0" />
+                  </VBox.margin>
+                  <children>
+                     <Button id="save-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Save">
+                        <HBox.margin>
+                           <Insets right="20.0" />
+                        </HBox.margin>
+                     </Button>
+                     <Button id="reset-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Reset" />
+                  </children>
+                  <padding>
+                     <Insets bottom="50.0" />
+                  </padding>
+               </HBox>
+            </children>
+            <VBox.margin>
+               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+            </VBox.margin>
+         </VBox>
+        </children>
+    </VBox>
+    <!--    navbar    -->
+    <VBox id="nav" layoutX="25.0" layoutY="-10.0" prefHeight="1024.0" prefWidth="344.0" style="-fx-background-color: FFFFFF;" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../img/ICMS.png" />
+                </image>
+                <VBox.margin>
+                    <Insets left="30.0" top="30.0" />
+                </VBox.margin>
+            </ImageView>
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER">
+                <VBox.margin>
+                    <Insets top="50.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="10.0" left="30.0" top="10.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+            </Button>
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="User Management" BorderPane.alignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+                <padding>
+                    <Insets bottom="10.0" left="30.0" top="10.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+            <Button styleClass="nav-btn" text="Entity Management" BorderPane.alignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+                <padding>
+                    <Insets bottom="10.0" left="30.0" top="10.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+            <Button styleClass="nav-btn" text="Report Management" BorderPane.alignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="25.0" />
+                </font>
+                <padding>
+                    <Insets bottom="10.0" left="30.0" top="10.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+            <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="30.0" />
+                </font>
+                <padding>
+                    <Insets bottom="10.0" left="30.0" top="10.0" />
+                </padding>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </Button>
+            <BorderPane prefHeight="575.0" prefWidth="344.0" styleClass="nav-btn" stylesheets="@../css/nav.css">
+                <bottom>
+                    <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out" BorderPane.alignment="BASELINE_LEFT">
+                        <font>
+                            <Font name="System Bold" size="25.0" />
+                        </font>
+                        <padding>
+                            <Insets bottom="10.0" top="10.0" />
+                        </padding>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                        <BorderPane.margin>
+                            <Insets bottom="40.0" />
+                        </BorderPane.margin>
+                    </Button>
+                </bottom>
+            </BorderPane>
+        </children>
+    </VBox>
 </AnchorPane>
