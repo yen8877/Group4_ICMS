@@ -18,6 +18,7 @@
                 <TableColumn text="Submitted By ID" fx:id="colSubmittedById" prefWidth="120"/>
                 <TableColumn text="Status" fx:id="colStatus" prefWidth="100"/>
                 <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="140"/>
+                <TableColumn text="삭제" fx:id="colDelete" prefWidth="80"/>
             </columns>
         </TableView>
     </VBox>
