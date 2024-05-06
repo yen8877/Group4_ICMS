@@ -25,12 +25,13 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
 //    }
-    
 @Override
 public void start(Stage primaryStage) throws Exception {
-    // FXML 파일 로드
+    // FXML 파일 로드 (policyHolder)
     Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
 
+    // FXML 파일 로드 (admin)
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
     // Scene 생성 및 스테이지 설정
     Scene scene = new Scene(root, 1440, 1024);  // 창의 초기 크기 설정
     primaryStage.setScene(scene);

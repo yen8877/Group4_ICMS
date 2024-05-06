@@ -24,7 +24,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 
-public class PolicyHolderNavigationController {
+public class AdminNavigationController {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
 
@@ -64,12 +64,22 @@ public class PolicyHolderNavigationController {
 
     @FXML
     private void loadUserManagement() {
-        loadUI("/com/example/group4_icms/fxml/PolicyHolder_UserManagement.fxml");
+        loadUI("/com/example/group4_icms/fxml/Admin_UserManagement.fxml");
     }
 
     @FXML
-    private void loadClaimManagement() {
-        loadUI("/com/example/group4_icms/fxml/PolicyHolder_ClaimManagement.fxml");
+    private void loadAddUserManagement() {
+        loadUI("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml");
+    }
+
+    @FXML
+    private void loadEntityManagement() {
+        loadUI("/com/example/group4_icms/fxml/Admin_EntityManagement.fxml");
+    }
+
+    @FXML
+    private void loadReportManagement() {
+        loadUI("/com/example/group4_icms/fxml/Admin_ReportManagement.fxml");
     }
 
     private void loadUI(String ui) {
@@ -153,5 +163,4 @@ public class PolicyHolderNavigationController {
         addCustomerEffdatefield.clear();
         addCustomerInsuranceCardfield.clear();
     }
-}
-
+    }
