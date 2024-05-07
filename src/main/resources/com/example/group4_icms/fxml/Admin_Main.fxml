@@ -6,10 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
+<?import javafx.scene.layout.StackPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.AdminNavigationController">
    <children>
       <!--   Main Contents   -->
@@ -42,7 +43,7 @@
                   <Insets left="30.0" top="30.0" />
                </VBox.margin>
             </ImageView>
-            <Button onAction="#loadHome" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER" onAction="#loadHome">
                <VBox.margin>
                   <Insets top="50.0" />
                </VBox.margin>
@@ -56,7 +57,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Button>
-            <Button onAction="#loadUserManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="User Management" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="User Management" BorderPane.alignment="CENTER" onAction="#loadUserManagement">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -67,7 +68,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button onAction="#loadAddUserManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Manage Customer" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Add Customer" BorderPane.alignment="CENTER" onAction="#loadCustomerTable">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -78,7 +79,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button onAction="#loadReportManagement" styleClass="nav-btn" text="Report Management" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" text="Entity Management" BorderPane.alignment="CENTER" onAction="#loadEntityManagement">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -89,7 +90,18 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" text="Report Management" BorderPane.alignment="CENTER" onAction="#loadReportManagement">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="30.0" top="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER" onAction="#loadProfile">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
