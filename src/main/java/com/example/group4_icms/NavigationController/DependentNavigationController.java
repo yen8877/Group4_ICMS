@@ -25,7 +25,10 @@ public class DependentNavigationController {
         loadUI("/com/example/group4_icms/fxml/Dependent_ViewClaim.fxml");
     }
 
-
+    @FXML
+    private void loadProfile() {
+        loadUI("/com/example/group4_icms/fxml/Profile.fxml");
+    }
 
     private void loadUI(String ui) {
         Node node;

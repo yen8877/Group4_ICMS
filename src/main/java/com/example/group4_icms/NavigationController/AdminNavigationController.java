@@ -1,7 +1,13 @@
 package com.example.group4_icms.NavigationController;
 //import com.example.group4_icms.HelloController;
 import com.example.group4_icms.Functions.DAO.CustomerDAO;
+import com.example.group4_icms.Functions.DAO.DependentDAO;
+import com.example.group4_icms.Functions.DAO.PolicyHolderDAO;
+import com.example.group4_icms.Functions.DAO.PolicyOwnerDAO;
 import com.example.group4_icms.Functions.DTO.CustomerDTO;
+import com.example.group4_icms.Functions.DTO.DependentDTO;
+import com.example.group4_icms.Functions.DTO.PolicyHolderDTO;
+import com.example.group4_icms.Functions.DTO.PolicyOwnerDTO;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,13 +27,20 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 
 public class AdminNavigationController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
+    private DependentDAO dependentDao = new DependentDAO();
+    private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
+    private PolicyOwnerDAO policyOwnerDao = new PolicyOwnerDAO();
 
+    private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
+    public StackPane TableContentArea;
+    @FXML private Label resultLabel;
     @FXML
     private TextField addCustomerIdfield;
     @FXML
@@ -58,6 +71,123 @@ public class AdminNavigationController {
     private StackPane contentArea;
 
     @FXML
+    private TextField addCustomerPolicyHolderIdfield;
+
+    @FXML
+    private TextField addCustomerPoliyownerNamefield;
+    @FXML
+    private TextField addCustomerPolicyOwnerIdfield;
+
+    public void saveCustomer() {
+        try {
+            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
+            String dependentId = addCustomerIdfield.getText();
+            String dependentPassword = addCustomerPwfield.getText();
+            String dependentName = addCustomeNamefield.getText();
+            String dependentEmail = addCustomerEmailfield.getText();
+            String dependentPhone = addCustomerPhonefield.getText();
+            String dependentAddress = addCustomerAddressfield.getText();
+            String customerType = addCustomerTypefield.getText();
+            // policyOwner는 자동으로 입력되어야함.
+            LocalDate expirationDate = LocalDate.parse(addCustomerExdatefield.getText());
+            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
+
+            DependentDTO dependent = new DependentDTO();
+            dependent.setPolicyHolderId(policyHolderId);
+            dependent.setID(dependentId);
+            dependent.setPassword(dependentPassword);
+            dependent.setFullName(dependentName);
+            dependent.setPhone(dependentPhone);
+            dependent.setAddress(dependentAddress);
+            dependent.setEmail(dependentEmail);
+            dependent.setCustomerType(customerType);
+            dependent.setExpirationDate(expirationDate);
+            dependent.setEffectiveDate(LocalDateTime.now());
+            dependent.setInsuranceCard(insuranceCardNumber);
+
+            boolean isAdded = dependentDao.addCustomerAndDependent(dependent);
+            String result = isAdded ? "Dependent added successfully" : "Failed to add dependent";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the dependent: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void savePolicyHolder() {
+        try {
+            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
+            String policyHolderPassword = addCustomerPwfield.getText();
+            String policyHolderName = addCustomeNamefield.getText();
+            String policyHolderEmail = addCustomerEmailfield.getText();
+            String policyHolderPhone = addCustomerPhonefield.getText();
+            String policyHolderAddress = addCustomerAddressfield.getText();
+            String customerType = addCustomerTypefield.getText();
+            String policyOwnerId = addCustomerPoliyownerfield.getText();
+            String policyOwnerName = addCustomerPoliyownerNamefield.getText();
+            LocalDate expirationDate = LocalDate.parse(addCustomerExdatefield.getText());
+            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
+
+            PolicyHolderDTO policyHolder = new PolicyHolderDTO();
+            policyHolder.setID(policyHolderId);
+            policyHolder.setPassword(policyHolderPassword);
+            policyHolder.setFullName(policyHolderName);
+            policyHolder.setPhone(policyHolderPhone);
+            policyHolder.setAddress(policyHolderAddress);
+            policyHolder.setEmail(policyHolderEmail);
+            policyHolder.setCustomerType(customerType);
+            policyHolder.setExpirationDate(expirationDate);
+            policyHolder.setEffectiveDate(LocalDateTime.now());
+            policyHolder.setInsuranceCard(insuranceCardNumber);
+            policyHolder.setPolicyOwnerId(policyOwnerId);
+            policyHolder.setPolicyOwnerName(policyOwnerName);
+
+
+            boolean isAdded = policyHolderDao.addCustomerAndPolicyHolder(policyHolder);
+            String result = isAdded ? "PolicyHolder added successfully" : "Failed to add policyHolder";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the policyHolder: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void savePolicyOwner() {
+        try {
+            String policyOwnerId = addCustomerPolicyOwnerIdfield.getText();
+            String policyOwnerPassword = addCustomerPwfield.getText();
+            String policyOwnerName = addCustomeNamefield.getText();
+            String policyOwnerEmail = addCustomerEmailfield.getText();
+            String policyOwnerPhone = addCustomerPhonefield.getText();
+            String policyOwnerAddress = addCustomerAddressfield.getText();
+            String customerType = addCustomerTypefield.getText();
+            LocalDate expirationDate = LocalDate.parse(addCustomerExdatefield.getText());
+            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
+
+            PolicyOwnerDTO policyOwner = new PolicyOwnerDTO();
+            policyOwner.setID(policyOwnerId);
+            policyOwner.setPassword(policyOwnerPassword);
+            policyOwner.setFullName(policyOwnerName);
+            policyOwner.setPhone(policyOwnerPhone);
+            policyOwner.setAddress(policyOwnerAddress);
+            policyOwner.setEmail(policyOwnerEmail);
+            policyOwner.setCustomerType(customerType);
+            policyOwner.setExpirationDate(expirationDate);
+            policyOwner.setEffectiveDate(LocalDateTime.now());
+            policyOwner.setInsuranceCard(insuranceCardNumber);
+            policyOwner.setPolicyOwnerName(policyOwnerName);
+
+
+            boolean isAdded = policyOwnerDao.addCustomerAndPolicyOwner(policyOwner);
+            String result = isAdded ? "PolicyOwner added successfully" : "Failed to add PolicyOwner";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the PolicyOwner: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void loadHome() {
         loadUI("/com/example/group4_icms/fxml/PolicyHolder_Main2.fxml");
     }
@@ -82,11 +212,43 @@ public class AdminNavigationController {
         loadUI("/com/example/group4_icms/fxml/Admin_ReportManagement.fxml");
     }
 
+    @FXML
+    private void loadProfile() {
+        loadUI("/com/example/group4_icms/fxml/Profile.fxml");
+    }
+
+    @FXML
+    private void loadCustomerTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_CustomerTable.fxml");
+    }
+
+    @FXML
+    private void loadAdminTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_AdminTable.fxml");
+    }
+
+    @FXML
+    private void loadProviderTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_ProviderTable.fxml");
+    }
+
+
+
     private void loadUI(String ui) {
         Node node;
         try {
             node = FXMLLoader.load(getClass().getResource(ui));
             contentArea.getChildren().setAll(node);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadUIForTable(String ui) {
+        Node node;
+        try {
+            node = FXMLLoader.load(getClass().getResource(ui));
+            TableContentArea.getChildren().setAll(node);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -162,5 +324,35 @@ public class AdminNavigationController {
         addCustomerExdatefield.clear();
         addCustomerEffdatefield.clear();
         addCustomerInsuranceCardfield.clear();
+    }
+
+    public void loadAddPolicyHolderForm(ActionEvent actionEvent) {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addPolicyHolderForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+    }
+
+    public void loadAddPolicyOwnerForm(ActionEvent actionEvent) {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addPolicyOwnerForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+    }
+
+    public void loadAddCustomerForm() {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
     }
     }

@@ -16,7 +16,7 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.control.Label?>
-<Pane id="main_BackgroundColor" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/form.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
+<Pane id="main_BackgroundColor" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/form.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.AdminNavigationController">
     <children>
         <VBox id="mainContent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>

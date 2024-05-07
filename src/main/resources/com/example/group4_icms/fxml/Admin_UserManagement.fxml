@@ -19,7 +19,7 @@
 
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
+<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.AdminNavigationController">
     <children>
         <VBox id="mainContent" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -32,21 +32,20 @@
 <!--                    </VBox.margin>-->
 <!--                </Text>-->
                 <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
-                    <!-- 내부 컨텐츠가 동적으로 로드될 위치 -->
                 </StackPane>
             <HBox id="category-nav" stylesheets="@../css/table.css">
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="i. Customer">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="i. Customer" onAction="#loadCustomerTable">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="ii. Provider">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="ii. Provider" onAction="#loadProviderTable">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="iii. Admin">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" styleClass="category-btn" stylesheets="@../css/table.css" text="iii. Admin" onAction="#loadAdminTable">
                      <HBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
@@ -109,6 +108,8 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                   <StackPane fx:id="TableContentArea" VBox.vgrow="ALWAYS">
+                   </StackPane>
                </children>
             </GridPane>
             </children>

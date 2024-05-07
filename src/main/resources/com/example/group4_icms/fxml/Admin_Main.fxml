@@ -68,7 +68,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Add Customer" BorderPane.alignment="CENTER" onAction="#loadAddUserManagement">
+            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Add Customer" BorderPane.alignment="CENTER" onAction="#loadCustomerTable">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -101,7 +101,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
+            <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER" onAction="#loadProfile">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
