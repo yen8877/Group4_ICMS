@@ -6,11 +6,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.StackPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
     <children>
         <!--   Main Contents   -->
@@ -43,7 +42,7 @@
                         <Insets left="30.0" top="30.0" />
                     </VBox.margin>
                 </ImageView>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER" onAction="#loadHome">
+                <Button onAction="#loadHome" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER">
                     <VBox.margin>
                         <Insets top="50.0" />
                     </VBox.margin>
@@ -57,7 +56,7 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Manage Claim" onAction="#loadClaimManagement">
+                <Button onAction="#loadClaimManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Manage Claim">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
@@ -68,7 +67,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Manage Customer" BorderPane.alignment="CENTER" onAction="#loadUserManagement">
+                <Button onAction="#loadUserManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Manage Customer" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
@@ -79,7 +78,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Annual Calculator" onAction="#loadCalculator">
+                <Button onAction="#loadCalculator" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Annual Calculator">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
@@ -90,7 +89,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER" onAction="#loadProfile">
+                <Button onAction="#loadProfile" styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
@@ -101,24 +100,18 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <BorderPane prefHeight="575.0" prefWidth="344.0" styleClass="nav-btn" stylesheets="@../css/nav.css">
-                    <bottom>
-                        <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out" BorderPane.alignment="BASELINE_LEFT">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <padding>
-                                <Insets bottom="10.0" top="10.0" />
-                            </padding>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <BorderPane.margin>
-                                <Insets bottom="40.0" />
-                            </BorderPane.margin>
-                        </Button>
-                    </bottom>
-                </BorderPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out">
+                      <font>
+                          <Font name="System Bold" size="25.0" />
+                      </font>
+                      <padding>
+                          <Insets bottom="10.0" top="10.0" />
+                      </padding>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                  </Button>
             </children>
         </VBox>
     </children>

@@ -22,21 +22,21 @@ public class ManagerNavigationController {
 
     @FXML
     private void loadConfirmedClaim() {
-        loadUI("/com/example/group4_icms/fxml/Surveyor_ViewClaim.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_ApproveRejectClaim.fxml");
     }
 
     @FXML
     private void loadRejectedClaim() {
-        loadUI("/com/example/group4_icms/fxml/Surveyor_RequestClaim.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_ApproveRejectClaim.fxml");
     }
 
     @FXML
     private void loadViewAllClaims() {
-        loadUI("/com/example/group4_icms/fxml/Surveyor_CustomerOverview.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_ViewAllClaims.fxml");
     }
     @FXML
-    private void loadCustomerOverview() {
-        loadUI("/com/example/group4_icms/fxml/Surveyor_CustomerOverview.fxml");
+    private void loadSurveyorOverview() {
+        loadUI("/com/example/group4_icms/fxml/Manager_SurveyorOverview.fxml");
     }
 
     @FXML

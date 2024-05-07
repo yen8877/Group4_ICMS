@@ -413,3 +413,5 @@ Ysrc/main/java/com/example/group4_icms/Functions/VC/Controller/AdminUserBtnContr
 Vsrc/main/java/com/example/group4_icms/Functions/VC/Controller/TableViewController.java,c/2/c298b454220088e598284631401522ce863a0f60
 ƒ
 Ssrc/main/java/com/example/group4_icms/Functions/VC/Controller/annualCalculator.java,8/2/8262dcc304cf2c5e479f3a11aa0e1ec8b318ac7b
+‹
+[src/main/java/com/example/group4_icms/NavigationController/ManagerNavigationController.java,d/e/de05e7bb66c540541a3450fe0fb40e7f65d005db
