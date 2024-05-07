@@ -79,7 +79,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER" onAction="#loadProfile">
+                <Button onAction="#loadProfile" styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
@@ -90,24 +90,18 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <BorderPane prefHeight="575.0" prefWidth="344.0" styleClass="nav-btn" stylesheets="@../css/nav.css">
-                    <bottom>
-                        <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out" BorderPane.alignment="BASELINE_LEFT">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <padding>
-                                <Insets bottom="10.0" top="10.0" />
-                            </padding>
-                            <opaqueInsets>
-                                <Insets />
-                            </opaqueInsets>
-                            <BorderPane.margin>
-                                <Insets bottom="40.0" />
-                            </BorderPane.margin>
-                        </Button>
-                    </bottom>
-                </BorderPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out">
+                      <font>
+                          <Font name="System Bold" size="25.0" />
+                      </font>
+                      <padding>
+                          <Insets bottom="10.0" top="10.0" />
+                      </padding>
+                      <opaqueInsets>
+                          <Insets />
+                      </opaqueInsets>
+                  </Button>
             </children>
         </VBox>
     </children>
