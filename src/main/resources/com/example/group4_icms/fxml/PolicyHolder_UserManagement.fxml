@@ -13,7 +13,7 @@
 
 <Pane id="mainContent" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/nav.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyHolderNavigationController">
     <children>
-        <VBox id="mainContent" prefHeight="1024.0" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Customer" wrappingWidth="579.7972412109375">
                     <VBox.margin>
@@ -179,9 +179,6 @@
                     </children>
                 </AnchorPane>
             </children>
-         <padding>
-            <Insets left="344.0" />
-         </padding>
         </VBox>
 
     </children>
