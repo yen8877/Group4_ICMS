@@ -6,15 +6,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.StackPane?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.SurveyorNavigationController">
     <children>
         <!--   Main Contents   -->
-        <VBox id="mainContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox id="mainContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="334.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
             </children>
         </VBox>
@@ -33,7 +32,7 @@
                         <Insets left="30.0" top="30.0" />
                     </VBox.margin>
                 </ImageView>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER" onAction="#loadHome">
+                <Button onAction="#loadHome" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Home" BorderPane.alignment="CENTER">
                     <VBox.margin>
                         <Insets top="50.0" />
                     </VBox.margin>
@@ -47,7 +46,7 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="View Claim" onAction="#loadViewClaim">
+                <Button onAction="#loadViewClaim" styleClass="nav-btn" stylesheets="@../css/nav.css" text="View Claim">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
@@ -58,7 +57,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Request Claim" BorderPane.alignment="CENTER" onAction="#loadRequestedViewClaim">
+                <Button onAction="#loadRequestedViewClaim" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Request Claim" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
@@ -69,7 +68,7 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
-                <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Customer Overview" onAction="#loadCustomerOverview">
+                <Button onAction="#loadCustomerOverview" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Customer Overview">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>

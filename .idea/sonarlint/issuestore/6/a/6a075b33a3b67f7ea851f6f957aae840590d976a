@@ -1,18 +1,18 @@
 
-~	java:S125"<This block of commented-out lines of code should be removed.(…öð¤8™œÂöò1J$7fe4a76d-d7c0-498a-a8bd-cf103f9099a0
-\
-java:S1854"?Remove this useless assignment to local variable "customerDao".(î«È¸8¥Ü¥÷ó1
-`
-java:S1854">Remove this useless assignment to local variable "controller".(ŒÀð¡þÿÿÿÿ8¥Ü¥÷ó1
-Q
-java:S1481"/Remove this unused "controller" local variable.(ŒÀð¡þÿÿÿÿ8¦Ü¥÷ó1
-M
-java:S1481"0Remove this unused "customerDao" local variable.(î«È¸8§Ü¥÷ó1
-]	java:S125"<This block of commented-out lines of code should be removed.(Ôà–®ûÿÿÿÿ8§Ü¥÷ó1
-ƒ	java:S125"<This block of commented-out lines of code should be removed.(¥ÇÈòúÿÿÿÿ8®’Åòò1J$e045b7d8-23c2-42bf-a039-508ed5b07151
-l	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1J$46786214-b494-4ec9-ad9b-aff6aac065e4
-r	java:S106$"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1J$f5e17f88-26cc-4d44-a006-08ea8703e7c2
-h
-java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DAO.ClaimDAO'.(‘Ëÿ˜8¨Ü¥÷ó1
-M
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8©Ü¥÷ó1
+~	java:S125"<This block of commented-out lines of code should be removed.(…öð¤8™œÂöò1J$6e4ba635-cce3-4fb2-8ec3-a10bd671eaf5
+‚
+java:S1854"?Remove this useless assignment to local variable "customerDao".(î«È¸8¥Ü¥÷ó1J$eedeb88d-8152-4995-84f9-bae63a89e5a4
+†
+java:S1854">Remove this useless assignment to local variable "controller".(ŒÀð¡þÿÿÿÿ8¥Ü¥÷ó1J$816edb52-af99-432d-9005-dd00e60fa6a7
+w
+java:S1481"/Remove this unused "controller" local variable.(ŒÀð¡þÿÿÿÿ8¦Ü¥÷ó1J$37b28ad0-d8a9-4db8-9ecc-fb90ac0f3bf2
+s
+java:S1481"0Remove this unused "customerDao" local variable.(î«È¸8§Ü¥÷ó1J$70c3f0e8-9154-4ff3-b6fc-68f839a5eefb
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(Ôà–®ûÿÿÿÿ8§Ü¥÷ó1J$a0e6f566-6711-4c78-98e8-226d28f1a113
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(¥ÇÈòúÿÿÿÿ8®’Åòò1J$ca564e63-f37d-4540-ab9b-5bbe8480b3b7
+l	java:S106"+Replace this use of System.out by a logger.(¼ô¸R8ìýŽ÷ñ1J$4b33abc0-d860-41ef-b1f0-51de50a27482
+r	java:S106$"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8îýŽ÷ñ1J$15e6c5e4-c6b8-428f-9ab9-fa5d8f1168ad
+Ž
+java:S1128"KRemove this unused import 'com.example.group4_icms.Functions.DAO.ClaimDAO'.(‘Ëÿ˜8¨Ü¥÷ó1J$f9967d39-af5c-47df-8394-1f411ee6596f
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8©Ü¥÷ó1J$150ae139-f26f-4286-b0ec-86e98f4c983c

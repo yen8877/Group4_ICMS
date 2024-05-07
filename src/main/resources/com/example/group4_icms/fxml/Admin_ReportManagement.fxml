@@ -8,26 +8,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.Pane?>
 <Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.AdminNavigationController">
 
     <!--   Main Contents   -->
-    <VBox id="mainContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <VBox id="mainContent" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Report Management" wrappingWidth="579.7972412109375">
                 <VBox.margin>
                     <Insets left="30.0" top="30.0" />
                 </VBox.margin>
             </Text>
-            <GridPane prefHeight="873.0" prefWidth="1036.0">
+            <GridPane prefHeight="760.0" prefWidth="1036.0">
                 <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 </columnConstraints>
@@ -53,9 +51,9 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">
+                    <TableView prefHeight="700.0" prefWidth="200.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">
                         <columns>
-                            <TableColumn  prefWidth="75.0" text="Claim Id" />
+                            <TableColumn prefWidth="75.0" text="Claim Id" />
                             <TableColumn prefWidth="111.91110229492188" text="Insurance Card" />
                             <TableColumn prefWidth="210.06536865234375" text="Document Name (cId_claimDate)" />
                         </columns>
@@ -66,6 +64,9 @@
                 </children>
             </GridPane>
         </children>
+      <padding>
+         <Insets left="344.0" />
+      </padding>
     </VBox>
 
 </Pane>

@@ -1,41 +1,41 @@
 
-r	java:S117""QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ı£Ñşÿÿÿÿ8¤½şøó1
-r	java:S1171"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òİ”çıÿÿÿÿ8¤½şøó1
-n	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÍÂ8¤½şøó1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8¥½şøó1
-
-java:S4165-"lRemove this useless assignment; "expirationDate" already holds the assigned value along all execution paths.(Á«”ûÿÿÿÿ8¨½şøó1
-Š
-java:S4165,"mRemove this useless assignment; "policyOwnerName" already holds the assigned value along all execution paths.(›­úÎ8¨½şøó1
-
-java:S4165."kRemove this useless assignment; "effectiveDate" already holds the assigned value along all execution paths.(€çƒûÿÿÿÿ8¨½şøó1
+r	java:S1177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–ı£Ñşÿÿÿÿ8Ûú®“õ1
+r	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òİ”çıÿÿÿÿ8Ûú®“õ1
+n	java:S117£"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÍÂ8Ûú®“õ1
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8¥½şøó1J$36ab8d90-d22c-4efd-878b-495a0eb8f314
 „
-java:S4165"fRemove this useless assignment; "FullName" already holds the assigned value along all execution paths.(ÚûŸí8¨½şøó1
-i	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŞÒï8©½şøó1
-n	java:S116"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úN8©½şøó1
-b	java:S107""AConstructor has 8 parameters, which is greater than 7 authorized.(–ı£Ñşÿÿÿÿ8ª½şøó1
-]	java:S125"<This block of commented-out lines of code should be removed.(š²‰Àıÿÿÿÿ8«½şøó1
+java:S4165¤"fRemove this useless assignment; "FullName" already holds the assigned value along all execution paths.(ÚûŸí8Şú®“õ1
+
+java:S4165B"lRemove this useless assignment; "expirationDate" already holds the assigned value along all execution paths.(Á«”ûÿÿÿÿ8Şú®“õ1
+Š
+java:S4165A"mRemove this useless assignment; "policyOwnerName" already holds the assigned value along all execution paths.(›­úÎ8Şú®“õ1
+
+java:S4165C"kRemove this useless assignment; "effectiveDate" already holds the assigned value along all execution paths.(€çƒûÿÿÿÿ8Şú®“õ1
+i	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŞÒï8ßú®“õ1
+n	java:S116"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úN8ßú®“õ1
+y	java:S116"XRename this field "InsuranceCard" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éª†üÿÿÿÿ8ßú®“õ1
+b	java:S1077"AConstructor has 8 parameters, which is greater than 7 authorized.(–ı£Ñşÿÿÿÿ8àú®“õ1
 U
-java:S1172""3Remove this unused method parameter "policyHolder".(–ı£Ñşÿÿÿÿ8¬½şøó1
-X	java:S125%"<This block of commented-out lines of code should be removed.(³ˆûÓ8¬½şøó1
-X	java:S125@"<This block of commented-out lines of code should be removed.(…¦öã8­½şøó1
+java:S11727"3Remove this unused method parameter "policyHolder".(–ı£Ñşÿÿÿÿ8áú®“õ1
+X	java:S125:"<This block of commented-out lines of code should be removed.(³ˆûÓ8âú®“õ1
+X	java:S125U"<This block of commented-out lines of code should be removed.(…¦öã8âú®“õ1
 M
-java:S1172"/Remove this unused method parameter "Fullname".(»ÍÂ8¯½şøó1
-Q
-java:S1656."/Remove or correct this useless self-assignment.(€çƒûÿÿÿÿ8¯½şøó1
+java:S1172£"/Remove this unused method parameter "Fullname".(»ÍÂ8äú®“õ1
 L
-java:S1656,"/Remove or correct this useless self-assignment.(›­úÎ8¯½şøó1
-M
-java:S1656"/Remove or correct this useless self-assignment.(ÚûŸí8¯½şøó1
+java:S1656A"/Remove or correct this useless self-assignment.(›­úÎ8åú®“õ1
 Q
-java:S1656-"/Remove or correct this useless self-assignment.(Á«”ûÿÿÿÿ8¯½şøó1
-O
-java:S1128"-Remove this unused import 'javafx.fxml.FXML'.(ÃÚ¢„şÿÿÿÿ8¯½şøó1
-_
-java:S1128"=Remove this unused import 'javafx.scene.control.TableColumn'.(›¢øùÿÿÿÿ8¯½şøó1
-X
-java:S1128";Remove this unused import 'javafx.scene.control.TableView'.(Ãàè˜8¯½şøó1
-h
-java:S1128"KRemove this unused import 'javafx.scene.control.cell.PropertyValueFactory'.(àÎ¬õ8¯½şøó1
+java:S1656C"/Remove or correct this useless self-assignment.(€çƒûÿÿÿÿ8åú®“õ1
+M
+java:S1656¤"/Remove or correct this useless self-assignment.(ÚûŸí8åú®“õ1
+Q
+java:S1656B"/Remove or correct this useless self-assignment.(Á«”ûÿÿÿÿ8åú®“õ1
+u
+java:S1128"-Remove this unused import 'javafx.fxml.FXML'.(ÃÚ¢„şÿÿÿÿ8¯½şøó1J$0d8254ee-12f8-4d20-b1d3-55354841f673
+…
+java:S1128"=Remove this unused import 'javafx.scene.control.TableColumn'.(›¢øùÿÿÿÿ8¯½şøó1J$0e1c486c-9cc1-497b-8d83-6210a46eb09a
+~
+java:S1128";Remove this unused import 'javafx.scene.control.TableView'.(Ãàè˜8¯½şøó1J$c26a4057-bfa5-48f9-9821-9cfa362acf06
+
+java:S1128"KRemove this unused import 'javafx.scene.control.cell.PropertyValueFactory'.(àÎ¬õ8¯½şøó1J$396589a7-a0a3-4638-b985-0293bf788a94
 W
-java:S1128"5Remove this unused import 'java.util.ResourceBundle'.(ıÆ£¯øÿÿÿÿ8¯½şøó1
+java:S1128"5Remove this unused import 'java.util.ResourceBundle'.(ıÆ£¯øÿÿÿÿ8åú®“õ1

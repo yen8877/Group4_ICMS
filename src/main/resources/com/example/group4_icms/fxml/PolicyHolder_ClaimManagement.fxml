@@ -8,21 +8,18 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
     <children>
         <!--   Main Contents   -->
-        <VBox id="mainContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox id="mainContent" prefHeight="1024.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="View All Claims" wrappingWidth="579.7972412109375">
                     <VBox.margin>
@@ -34,19 +31,19 @@
 
                     </StackPane>
                     <children>
-                        <Button id="add-new-btn" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" onAction="#loadAddClaimForm"/>
+                        <Button id="add-new-btn" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddClaimForm" stylesheets="@../css/table.css" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
                     </children>
                     <VBox.margin>
                         <Insets top="10.0" />
                     </VBox.margin>
                 </AnchorPane>
-                <GridPane prefHeight="873.0" prefWidth="1036.0">
+                <GridPane prefHeight="760.0" prefWidth="1036.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="401.4093017578125" minHeight="49.190765380859375" prefHeight="56.34968566894531" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="770.8092346191406" minHeight="10.0" prefHeight="763.6503143310547" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="401.4093017578125" minHeight="49.190765380859375" prefHeight="65.94000244140625" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="770.8092346191406" minHeight="10.0" prefHeight="694.5599975585938" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <VBox.margin>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
@@ -84,6 +81,9 @@
                     </children>
                 </GridPane>
             </children>
+         <padding>
+            <Insets left="344.0" />
+         </padding>
         </VBox>
     </children>
 </Pane>
