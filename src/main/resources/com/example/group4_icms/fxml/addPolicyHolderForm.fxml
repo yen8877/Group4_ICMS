@@ -55,7 +55,7 @@
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin></Text>
-                                <TextField fx:id="addCustomerIdfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1">
+                                <TextField fx:id="addCustomerPolicyHolderIdfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
@@ -134,7 +134,7 @@
                                 </TextField>
                             </children>
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Policy Onwer Name" GridPane.rowIndex="7">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Policy Onwer ID" GridPane.rowIndex="7">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
@@ -146,24 +146,24 @@
                                 </TextField>
                             </children>
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="8">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Policy Onwer Name" GridPane.rowIndex="8">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerExdatefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                <TextField fx:id="addCustomerPoliyownerNamefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="8">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
                             </children>
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="PolicyHolderId" GridPane.rowIndex="9">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="9">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerPolicyHolderIdfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                <TextField fx:id="addCustomerExdatefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
@@ -182,7 +182,7 @@
                                 </TextField>
                             </children>
                         </GridPane>
-                        <Button onAction="#saveCustomer" id="customerSave-btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/form.css" text="Save" AnchorPane.bottomAnchor="150" AnchorPane.rightAnchor="30.0" />
+                        <Button onAction="#savePolicyHolder" id="customerSave-btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" stylesheets="@../css/form.css" text="Save" AnchorPane.bottomAnchor="150" AnchorPane.rightAnchor="30.0" />
                         <Label fx:id="resultLabel"/>
                     </children>
                 </AnchorPane>

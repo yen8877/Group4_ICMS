@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -16,7 +17,8 @@ public class CustomerDTO {
 
     private String ID;
     private String FullName;
-//    private entities.InsuranceCard InsuranceCard;
+    private String InsuranceCard;
+
     private String phone;
     private String address;
     private String email;
@@ -24,9 +26,28 @@ public class CustomerDTO {
     private String type;
     private List<ClaimDTO> claims;
 
+    private String policyOwnerId;
+
     private String policyOwnerName;
     private LocalDate expirationDate;
-    private LocalDate effectiveDate;
+    private LocalDateTime effectiveDate;
+    private String customerType;
+
+    public String getPolicyOwnerId() {
+        return policyOwnerId;
+    }
+
+    public void setPolicyOwnerId(String policyOwnerId) {
+        this.policyOwnerId = policyOwnerId;
+    }
+
+    public String getCustomerType() {
+        return customerType;
+    }
+
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
+    }
 
     public CustomerDTO() {
         this.claims = new ArrayList<>();
@@ -131,16 +152,24 @@ public class CustomerDTO {
         this.expirationDate = expirationDate;
     }
 
-    public LocalDate getEffectiveDate() {
+    public LocalDateTime getEffectiveDate() {
         return effectiveDate;
     }
 
-    public void setEffectiveDate(LocalDate effectiveDate) {
+    public void setEffectiveDate(LocalDateTime effectiveDate) {
         this.effectiveDate = effectiveDate;
     }
 
     public void setFullName(String Fullname) {
         this.FullName = FullName;
+    }
+
+    public String getInsuranceCard() {
+        return InsuranceCard;
+    }
+
+    public void setInsuranceCard(String insuranceCard) {
+        InsuranceCard = insuranceCard;
     }
 
 }

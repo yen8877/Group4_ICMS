@@ -1,32 +1,42 @@
 package com.example.group4_icms.Functions.DTO;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class ClaimDTO {
 
     private String Id;
-    private LocalDate ClaimDate;
+    private LocalDateTime ClaimDate;
     private String InsuredPersonId;
-//    private InsuranceCard Card;
     private String CardNum;
     private LocalDate ExamDate;
     private double ClaimAmount;
-    private Status status;
-    private String submittedById;  // policy holder or policy owner id
 
-//    private String ReceiverBankingInfo;
-    public enum Status {
-        NEW, PROCESSING, DONE
+    private String policyHolderId;
+
+    private String submittedById;
+
+    public String getSubmittedById() {
+        return submittedById;
     }
-    public ClaimDTO(String id, LocalDate ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
-        this.Id = id;
-        this.ClaimDate = ClaimDate;
-        this.InsuredPersonId = InsuredPersonId;
+
+    public void setSubmittedById(String submittedById) {
         this.submittedById = submittedById;
-        this.ExamDate = ExamDate;
-        this.ClaimAmount = ClaimAmount;
-        this.status = status;
     }
+
+    public String getPolicyHolderId() {
+        return policyHolderId;
+    }
+
+
+
+    public void setPolicyHolderId(String policyHolderId) {
+        this.policyHolderId = policyHolderId;
+    }
+//    private String ReceiverBankingInfo;
+
 
     public String getId() {
         return Id;
@@ -68,18 +78,22 @@ public class ClaimDTO {
         InsuredPersonId = insuredPersonId;
     }
 
-    public LocalDate getClaimDate() {
+    public LocalDateTime getClaimDate() {
         return ClaimDate;
     }
 
-    public void setClaimDate(LocalDate claimDate) {
+    public void setClaimDate(LocalDateTime claimDate) {
         ClaimDate = claimDate;
     }
-    public Status getStatus() {
-        return status;
-    }
 
-    public void setStatus(Status status) {
-        this.status = status;
-    }
+//    @Override
+//    public String toString() {
+//        return "ClaimDTO{" +
+//                "id='" + Id + '\'' +
+//                ", examDate=" + ExamDate +
+//                ", claimAmount=" + ClaimAmount +
+//                ", insuredPersonId='" + InsuredPersonId + '\'' +
+//                ", submittedById='" + submittedById + '\'' +
+//                '}';
+//    }
 }

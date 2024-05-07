@@ -153,5 +153,6 @@ public class PolicyHolderNavigationController {
         addCustomerEffdatefield.clear();
         addCustomerInsuranceCardfield.clear();
     }
+
 }
 

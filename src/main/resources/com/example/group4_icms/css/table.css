@@ -9,6 +9,17 @@
     -fx-background-radius: 10px;
 }
 
+#add-new-PolicyHolder-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 700;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F39C12;
+    -fx-padding: 10 10 10 10;
+    -fx-font-size: 15px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
 #add-new-btn:hover {
     -fx-background-color: #e67e22;  /* 밝은 주황색으로 변경 */
     -fx-text-fill: #f8f9f9;  /* 거의 흰색으로 변경 */
