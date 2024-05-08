@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
 @Override
 public void start(Stage primaryStage) throws Exception {
     // FXML 파일 로드 (policyHolder)
-//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
 
     // FXML 파일 로드 (admin)
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
@@ -40,7 +40,7 @@ public void start(Stage primaryStage) throws Exception {
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
 
     // FXML 파일 로드 (policyOwner)
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyOwner_Main.fxml"));
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyOwner_Main.fxml"));
 
     // FXML 파일 로드 (dependent)
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Dependent_Main.fxml"));
