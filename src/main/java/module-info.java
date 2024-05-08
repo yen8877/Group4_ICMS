@@ -8,6 +8,8 @@ module com.example.group4_icms {
     requires org.slf4j;
     requires jdk.javadoc;
 
+    opens com.example.group4_icms.Functions to javafx.fxml, javafx.base;
+
     opens com.example.group4_icms to javafx.fxml;
 
     opens com.example.group4_icms.Functions.VC.Controller to javafx.fxml;
