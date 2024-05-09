@@ -22,7 +22,18 @@ public class LoginController {
     @FXML
     Button btnLogin;
 
-    public void handleLogin(ActionEvent event) {
+    private String userID = txtUserId.getText().trim();
+    private String userPassword = txtPassword.getText().trim();
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void handleLogin(ActionEvent event) throws SQLException {
         System.out.println("Login button clicked");
         String userID = txtUserId.getText().trim();
         String password = txtPassword.getText().trim();
@@ -36,6 +47,9 @@ public class LoginController {
                 showAlert("Database Error", "Failed to retrieve user role.");
                 ex.printStackTrace();
             }
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Login user : " + userID);
+
         } else {
             System.out.println("Authentication failed for user: " + userID);
             showAlert("Login Failed", "Invalid username or password.");
@@ -114,7 +128,7 @@ public class LoginController {
 
 
 
-    private String getUserRole(String userID) throws SQLException {
+    public String getUserRole(String userID) throws SQLException { //private에서 public으로 수정함
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;

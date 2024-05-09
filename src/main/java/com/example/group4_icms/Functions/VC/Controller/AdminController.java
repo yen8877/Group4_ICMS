@@ -32,6 +32,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -84,7 +85,11 @@ public class AdminController implements Initializable {
                 });
                 deleteButton.setOnAction(event -> {
                     CustomerDTO customer = getTableView().getItems().get(getIndex());
-                    deleteCustomer(customer);
+                    try {
+                        deleteCustomer(customer);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     getTableView().getItems().remove(getIndex());
                 });
             }
@@ -155,7 +160,7 @@ public class AdminController implements Initializable {
         });
     }
 
-    private void deleteCustomer(CustomerDTO customer) {
+    private void deleteCustomer(CustomerDTO customer) throws SQLException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Delete Customer");
         alert.setHeaderText("Delete Customer");
@@ -165,6 +170,9 @@ public class AdminController implements Initializable {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             if (customerDao.deleteCustomer(customer)) {
                 System.out.println("Customer deleted successfully.");
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Delete customer : " + customer.getID());
+
             } else {
                 System.out.println("Failed to delete customer.");
             }
