@@ -1,13 +1,7 @@
 package com.example.group4_icms.NavigationController;
 //import com.example.group4_icms.HelloController;
-import com.example.group4_icms.Functions.DAO.CustomerDAO;
-import com.example.group4_icms.Functions.DAO.DependentDAO;
-import com.example.group4_icms.Functions.DAO.PolicyHolderDAO;
-import com.example.group4_icms.Functions.DAO.PolicyOwnerDAO;
-import com.example.group4_icms.Functions.DTO.CustomerDTO;
-import com.example.group4_icms.Functions.DTO.DependentDTO;
-import com.example.group4_icms.Functions.DTO.PolicyHolderDTO;
-import com.example.group4_icms.Functions.DTO.PolicyOwnerDTO;
+import com.example.group4_icms.Functions.DAO.*;
+import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,6 +31,10 @@ public class AdminNavigationController {
     private DependentDAO dependentDao = new DependentDAO();
     private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
     private PolicyOwnerDAO policyOwnerDao = new PolicyOwnerDAO();
+
+    private InsuranceProviderDAO providerDao = new InsuranceProviderDAO();
+
+    private AdminDAO adminDao = new AdminDAO();
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
     public StackPane TableContentArea;
@@ -183,6 +181,61 @@ public class AdminNavigationController {
             resultLabel.setText(result);
         } catch (Exception e) {
             resultLabel.setText("Error processing the PolicyOwner: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void saveProvider() {
+        try {
+            String providerId = addCustomerPolicyOwnerIdfield.getText();
+            String providerPassword = addCustomerPwfield.getText();
+            String providerName = addCustomeNamefield.getText();
+            String providerEmail = addCustomerEmailfield.getText();
+            String providerPhone = addCustomerPhonefield.getText();
+            String providerAddress = addCustomerAddressfield.getText();
+            String providerRole = addCustomerTypefield.getText();
+
+            ProviderDTO provider = new ProviderDTO();
+            provider.setID(providerId);
+            provider.setPassword(providerPassword);
+            provider.setFullName(providerName);
+            provider.setPhone(providerPhone);
+            provider.setAddress(providerAddress);
+            provider.setEmail(providerEmail);
+            provider.setRole(providerRole);
+
+
+            boolean isAdded = providerDao.addProvider(provider);
+            String result = isAdded ? "Provider added successfully" : "Failed to add Provider";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the Provider: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public void saveAdmin() {
+        try {
+            String adminId = addCustomerPolicyOwnerIdfield.getText();
+            String adminPassword = addCustomerPwfield.getText();
+            String adminName = addCustomeNamefield.getText();
+            String adminEmail = addCustomerEmailfield.getText();
+            String adminPhone = addCustomerPhonefield.getText();
+            String adminAddress = addCustomerAddressfield.getText();
+
+            AdminDTO admin = new AdminDTO();
+            admin.setID(adminId);
+            admin.setPassword(adminPassword);
+            admin.setFullName(adminName);
+            admin.setPhone(adminPhone);
+            admin.setAddress(adminAddress);
+            admin.setEmail(adminEmail);
+
+            boolean isAdded = adminDao.addAdmin(admin);
+            String result = isAdded ? "Admin added successfully" : "Failed to add Admin";
+            resultLabel.setText(result);
+        } catch (Exception e) {
+            resultLabel.setText("Error processing the Admin: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -349,6 +402,25 @@ public class AdminNavigationController {
     public void loadAddCustomerForm() {
         try {
             Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+    }
+    public void loadAddProviderForm() {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addProviderForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+    }
+
+    public void loadAddAdminForm() {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addAdminForm.fxml"));
             contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
         } catch (IOException e) {
             e.printStackTrace();

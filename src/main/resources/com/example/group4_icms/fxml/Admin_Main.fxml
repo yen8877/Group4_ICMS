@@ -68,17 +68,6 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button styleClass="nav-btn" stylesheets="@../css/nav.css" text="Add Customer" BorderPane.alignment="CENTER" onAction="#loadCustomerTable">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="30.0" top="10.0" />
-               </padding>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Button>
             <Button styleClass="nav-btn" text="Entity Management" BorderPane.alignment="CENTER" onAction="#loadEntityManagement">
                <font>
                   <Font name="System Bold" size="25.0" />
