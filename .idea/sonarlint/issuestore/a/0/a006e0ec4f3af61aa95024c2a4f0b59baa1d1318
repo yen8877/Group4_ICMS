@@ -1,8 +1,10 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8™Ò‘óõ1J$fa90a2d8-70d8-4557-bd65-bb760e4a7068
-o
-java:S1172",Remove this unused method parameter "event".(úÔ8«ü…ôõ1J$0cfede34-b9b6-49e6-8349-d3cf058b6adb
-m	java:S106"+Replace this use of System.out by a logger.(¬ôÃ8¬ü…ôõ1J$eb7a7e6e-c978-49c2-9897-c5b31c76e42f
-l	java:S106"+Replace this use of System.out by a logger.(É›œ48¬ü…ôõ1J$d382a590-d77f-4de5-a447-5ff44216e91e
-r	java:S106"+Replace this use of System.out by a logger.(ÆÁì¸ùÿÿÿÿ8¬ü…ôõ1J$24992ba6-b85f-452e-a364-1720c0a8a007
-m	java:S106("+Replace this use of System.out by a logger.(ï©•±8­ü…ôõ1J$f0c7a7da-ce42-4b7f-8e5d-a5319d894560
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8™Ò‘óõ1J$1daca9ca-4df7-4424-856d-9f2a56c27e37
+N
+java:S1172$",Remove this unused method parameter "event".(°ÌĞÇÿÿÿÿÿ8Óœ¯ôõ1
+G	java:S106%"+Replace this use of System.out by a logger.(¬ôÃ8Ôœ¯ôõ1
+\
+java:S1117&":Rename "userID" which hides the field declared at line 25.(ÆçÏÿıÿÿÿÿ8Õœ¯ôõ1
+F	java:S106("+Replace this use of System.out by a logger.(É›œ48Öœ¯ôõ1
+L	java:S106*"+Replace this use of System.out by a logger.(ÆÁì¸ùÿÿÿÿ8×œ¯ôõ1
+G	java:S1066"+Replace this use of System.out by a logger.(ï©•±8Øœ¯ôõ1

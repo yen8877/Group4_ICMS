@@ -1,5 +1,6 @@
-package com.example.group4_icms.Functions;
+package com.example.group4_icms.Functions.VC.Controller;
 
+import com.example.group4_icms.Functions.Claim;
 import com.example.group4_icms.Functions.DAO.LogHistoryDAO;
 import com.example.group4_icms.Functions.DTO.LogHistoryDTO;
 import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
