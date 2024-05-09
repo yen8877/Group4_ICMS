@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
 @Override
 public void start(Stage primaryStage) throws Exception {
     // FXML 파일 로드 (policyHolder)
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
 
     // FXML 파일 로드 (admin)
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
@@ -44,10 +44,13 @@ public void start(Stage primaryStage) throws Exception {
 
     // FXML 파일 로드 (dependent)
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Dependent_Main.fxml"));
+
+    //FXML 파일 로드 (Login)
+        Parent root =FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Login.fxml"));
     // Scene 생성 및 스테이지 설정
     Scene scene = new Scene(root, 1440, 1024);  // 창의 초기 크기 설정
     primaryStage.setScene(scene);
-    primaryStage.setTitle("Policy Holder Dashboard");  // 창의 제목 설정
+    primaryStage.setTitle("ICMS");  // 창의 제목 설정
 
     // 스테이지 스타일 설정 (옵션: 창 모서리 없애기)
     primaryStage.initStyle(StageStyle.DECORATED);  // UNDECORATED를 사용하면 타이틀 바가 없는 창이 됩니다.

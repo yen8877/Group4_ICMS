@@ -1,11 +1,11 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ8·€Û§ó1J$dbfb7695-059f-4766-87fb-dba768dcad1f
-W
-java:S1118":Add a private constructor to hide the implicit public one.(‚µÏ‘8Ìú®“õ1
-X
-java:S6437"6Revoke and change this password, as it is compromised.(ŠÖÿìûÿÿÿÿ8Íú®“õ1
-T
-java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Îú®“õ1
-L	java:S106""+Replace this use of System.err by a logger.(îÉ´Ùÿÿÿÿÿ8Îú®“õ1
-L	java:S106."+Replace this use of System.err by a logger.(ßê’ûÿÿÿÿ8Ïú®“õ1
-G	java:S106:"+Replace this use of System.err by a logger.(Å¤Ì¯8Ïú®“õ1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ8·€Û§ó1J$3fbcf7fb-bfc1-4502-bcef-5018970419b7
+}
+java:S1118":Add a private constructor to hide the implicit public one.(‚µÏ‘8Ìú®“õ1J$f6dd1073-e3b9-4449-b28b-eca50c0272c3
+~
+java:S6437"6Revoke and change this password, as it is compromised.(ŠÖÿìûÿÿÿÿ8Íú®“õ1J$17e0dcfd-8a69-466d-b1db-cff74895eb74
+z
+java:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ8Îú®“õ1J$5f668420-abd6-4ac0-838b-7d1abf926eda
+r	java:S106""+Replace this use of System.err by a logger.(îÉ´Ùÿÿÿÿÿ8Ïú®“õ1J$d9b6f899-d655-4297-886a-4ebb34fc1db2
+r	java:S106."+Replace this use of System.err by a logger.(ßê’ûÿÿÿÿ8Ïú®“õ1J$951604c7-1d68-438a-830d-c2ddcda3315f
+m	java:S106:"+Replace this use of System.err by a logger.(Å¤Ì¯8Š­Şæõ1J$6249c12a-31fd-49c9-87d9-71ad4e06f7f5

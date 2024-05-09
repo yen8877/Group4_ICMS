@@ -1,0 +1,12 @@
+
+ø
+java:S1598I"ÜThis file "CustomerController.java" should be located in "com/example/group4_icms/Functions" directory, not in "/Users/hanyeeun/Documents/GitHub/Group4_ICMS/src/main/java/com/example/group4_icms/Functions/VC/Controller".(¥ºžýþÿÿÿÿ
+t	java:S120I"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥ºžýþÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(šÄÖèøÿÿÿÿ
+F	java:S106”"+Replace this use of System.err by a logger.(Ø˜¯Áýÿÿÿÿ
+h
+java:S3776›"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(î‚šM
+H
+java:S1602ž",Remove useless curly braces around statement(ÚÆŒÅÿÿÿÿÿ
+K
+java:S1128Z"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ

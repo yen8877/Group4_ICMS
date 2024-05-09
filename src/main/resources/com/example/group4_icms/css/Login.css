@@ -24,4 +24,10 @@ textfie1ld{
     -fx-padding: 15 40 15 40;
     -fx-font-size: 30px;
     -fx-border-radius: 20px;
+    -fx-background-radius: 10px;
+}
+
+#login-btn:hover{
+    -fx-border-color: #f37012;
+    -fx-background-color: rgba(243, 112, 18, 0.8);
 }
