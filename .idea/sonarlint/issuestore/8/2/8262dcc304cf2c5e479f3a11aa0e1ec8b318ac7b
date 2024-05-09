@@ -1,11 +1,11 @@
 
-”	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(åŸä¬øÿÿÿÿ8•Ë“õ1J$48f4f40c-432f-4514-b7a2-c656a7ae7f16
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿJ$5d50d6b9-5b80-4622-9d22-63b93fc5d87f
+”	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(åŸä¬øÿÿÿÿ8•Ë“õ1J$4875e425-707b-426a-9214-b8311c66bc78
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿJ$7dc7cb55-fd43-4b9d-99a2-9f19cd86d08e
 ’
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£…Ï8»Ç«“õ1J$a3dd1ccb-c58e-49ad-ae54-6ada8e34b58b
+java:S20954"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(á–İ†8Ñø©“õ1J$d925fb77-ac5a-4524-916d-885485210d6b
 ’
-java:S20954"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(á–İ†8Ñø©“õ1J$806121db-a1d8-4731-b774-12b0281740f2
-m	java:S106"+Replace this use of System.out by a logger.(ˆ´µ¿8Ôø©“õ1J$b3a19215-584d-41ba-bbd9-b3e64c2a090f
-r	java:S106"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8Ôø©“õ1J$28eec64f-dd50-46b4-9979-e07b2b4c3451
-r	java:S106)"+Replace this use of System.out by a logger.(ØÍàÙøÿÿÿÿ8Öø©“õ1J$949375d1-ad67-4b26-814b-d9b12521d32e
-r	java:S106."+Replace this use of System.out by a logger.(¥™ş™øÿÿÿÿ8Öø©“õ1J$b2d22d3e-707d-4c02-9f3a-59ba051360dd
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£…Ï8»Ç«“õ1J$fe38ead0-899b-4b27-b946-3db54566b8a8
+m	java:S106"+Replace this use of System.out by a logger.(ˆ´µ¿8Ôø©“õ1J$a4bfe23b-cb4b-4674-9bfb-595f28bbad00
+r	java:S106"+Replace this use of System.out by a logger.(µ½¨Òüÿÿÿÿ8Ôø©“õ1J$4523fcb7-901d-4447-8b0b-0f625e2219bf
+r	java:S106)"+Replace this use of System.out by a logger.(ØÍàÙøÿÿÿÿ8Öø©“õ1J$29d78b95-d6a4-43ca-97b7-120db478d530
+r	java:S106."+Replace this use of System.out by a logger.(¥™ş™øÿÿÿÿ8Öø©“õ1J$839dab52-2ce2-4b89-bd90-0cd5ffa29104

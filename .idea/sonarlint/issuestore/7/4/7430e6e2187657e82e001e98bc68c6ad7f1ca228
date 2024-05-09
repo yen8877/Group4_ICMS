@@ -1,0 +1,17 @@
+
+—
+java:S1104*"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸ž:J$46a93be6-96b0-442f-b3af-123b4cae1795
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽJ$f9922ed7-ff52-40da-a5f3-8ece299a03a6
+w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$c0e78b73-2296-460a-890f-6120030887be
+•	java:S116*"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸ž:J$ebf00224-4a09-4b8d-bebd-d06f5aa1fa49
+}
+java:S3416)"<Update this logger to use "AdminNavigationController.class".(™ÙØÊÿÿÿÿÿJ$3af68dc7-8021-43cd-8011-c93e278d01a0
+l	java:S106Ì"+Replace this use of System.out by a logger.(©¤­þÿÿÿÿJ$29889e66-2af4-4e3b-bdc2-ad26fdfecaff
+l	java:S106Î"+Replace this use of System.out by a logger.(Èâ—›ùÿÿÿÿJ$87429f10-58e7-45ba-af5a-b7f185605cc0
+g	java:S106Ñ"+Replace this use of System.out by a logger.(‰–óÆJ$b5bbe53a-10e1-4866-a844-c52cf0132df9
+ˆ
+java:S5998é"LRefactor this repetition that can lead to a stack overflow for large inputs.(õæˆBJ$722660ed-e472-4d29-9537-f281b581f644
+k
+java:S1068)"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$204f9026-46a7-492e-a157-c4b348bb4a0e
+k
+java:S1144ò".Remove this unused private "clearForm" method.(þ§¨ŽJ$4fa75ed8-b351-4536-9f4a-392ac01ff4c6

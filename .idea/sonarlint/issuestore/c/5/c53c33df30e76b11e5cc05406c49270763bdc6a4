@@ -1,0 +1,14 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄJ$e1147624-5e58-41ce-a6de-241e5033776f
+w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$2602460a-11de-4822-b7f3-060335e435cc
+„
+java:S3416"CUpdate this logger to use "PolicyHolderNavigationController.class".(™ÙØÊÿÿÿÿÿJ$bc196887-86eb-4bfb-8493-e1140e3e178a
+k	java:S106p"+Replace this use of System.out by a logger.(©¤­şÿÿÿÿJ$50570f54-cf8e-49a8-8dee-c7039e6d12fb
+k	java:S106r"+Replace this use of System.out by a logger.(Èâ—›ùÿÿÿÿJ$f85037bd-c605-48e7-aebc-f8dc0e49ee7c
+f	java:S106u"+Replace this use of System.out by a logger.(‰–óÆJ$bf58434c-74f1-414e-8db1-b1a03e60a4d9
+ˆ
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(õæˆBJ$0f1845cb-e60a-4cf7-b1df-a6eb100d2244
+k
+java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$5e2d6942-a526-4402-a785-360ce3b04e2c
+k
+java:S1144–".Remove this unused private "clearForm" method.(ş§¨J$ac2385f2-e0d3-4f9d-84a1-9063f4a1d095

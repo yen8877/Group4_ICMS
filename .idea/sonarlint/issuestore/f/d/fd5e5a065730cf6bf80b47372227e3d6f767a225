@@ -1,12 +1,12 @@
 
-ø
-java:S1598I"ÜThis file "CustomerController.java" should be located in "com/example/group4_icms/Functions" directory, not in "/Users/hanyeeun/Documents/GitHub/Group4_ICMS/src/main/java/com/example/group4_icms/Functions/VC/Controller".(¥ºžýþÿÿÿÿ
-t	java:S120I"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥ºžýþÿÿÿÿ
-V	java:S125"<This block of commented-out lines of code should be removed.(šÄÖèøÿÿÿÿ
-F	java:S106”"+Replace this use of System.err by a logger.(Ø˜¯Áýÿÿÿÿ
-h
-java:S3776›"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(î‚šM
-H
-java:S1602ž",Remove useless curly braces around statement(ÚÆŒÅÿÿÿÿÿ
-K
-java:S1128Z"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ
+ž
+java:S1598I"ÜThis file "CustomerController.java" should be located in "com/example/group4_icms/Functions" directory, not in "/Users/hanyeeun/Documents/GitHub/Group4_ICMS/src/main/java/com/example/group4_icms/Functions/VC/Controller".(¥ºžýþÿÿÿÿJ$ac64f752-0041-46d0-a643-4edd8f96d5c9
+š	java:S120I"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥ºžýþÿÿÿÿJ$9102c354-966d-432c-b250-bd716614735c
+|	java:S125"<This block of commented-out lines of code should be removed.(šÄÖèøÿÿÿÿJ$14e78719-d375-458b-93f3-755ce6fe1301
+l	java:S106”"+Replace this use of System.err by a logger.(Ø˜¯ÁýÿÿÿÿJ$0f627416-9c5e-4d1e-927c-56d5cc7fc83e
+Ž
+java:S3776›"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(î‚šMJ$45161a60-bcbb-4b51-a313-255bd0250797
+n
+java:S1602ž",Remove useless curly braces around statement(ÚÆŒÅÿÿÿÿÿJ$014d63a1-dcc3-4688-acb0-a3a5a2d96d23
+q
+java:S1128Z"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿJ$41dfda41-ee3a-48a2-91ad-578f815e9c86

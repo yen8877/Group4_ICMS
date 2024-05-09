@@ -3,6 +3,7 @@ package com.example.group4_icms.NavigationController;
 import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
+import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
@@ -26,7 +28,7 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 
-public class PolicyOwnerNavigationController {
+public class PolicyOwnerNavigationController extends BaseController {
     private ClaimDAO ClaimDao = new ClaimDAO();
     private DependentDAO dependentDao = new DependentDAO();
     private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
@@ -48,6 +50,8 @@ public class PolicyOwnerNavigationController {
     @FXML private TextField examDateField;
     @FXML private TextField claimAmountField;
     @FXML private Label resultLabel;
+    @FXML
+    private Button btnLogout;
 
     @FXML
     private TextField addCustomerPolicyHolderIdfield;

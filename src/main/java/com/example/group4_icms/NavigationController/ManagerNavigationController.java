@@ -1,14 +1,16 @@
 package com.example.group4_icms.NavigationController;
 
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
+import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ManagerNavigationController {
+public class ManagerNavigationController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
 
@@ -38,6 +40,8 @@ public class ManagerNavigationController {
     private void loadSurveyorOverview() {
         loadUI("/com/example/group4_icms/fxml/Manager_SurveyorOverview.fxml");
     }
+    @FXML
+    private Button btnLogout;
 
     @FXML
     private void loadProfile() {

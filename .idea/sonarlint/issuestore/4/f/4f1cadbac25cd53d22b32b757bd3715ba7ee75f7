@@ -1,0 +1,8 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄJ$f581d020-7429-4f02-b526-f34e0cdc57b5
+
+java:S3416"@Update this logger to use "DependentNavigationController.class".(™ÙØÊÿÿÿÿÿJ$bc8c9b64-f45f-4a38-a118-65b794a8f9da
+~
+java:S1128"\Remove this unused import 'com.example.group4_icms.Functions.VC.Controller.LoginController'.(ğ™Ûÿşÿÿÿÿ8º›üóõ1
+k
+java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$cdbd8ebe-af84-4f77-b54f-6157cc99a259

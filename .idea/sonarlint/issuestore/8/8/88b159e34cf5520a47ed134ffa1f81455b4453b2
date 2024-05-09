@@ -1,0 +1,11 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄJ$a532ab3d-1538-4c50-a98a-05cc19a49580
+w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$6d7c12c3-999b-4e14-a955-cc6b0c020aba
+“	java:S116 "SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿJ$530270f1-2d24-4ba2-bb4a-8ef6ed360a1f
+ƒ
+java:S3416("BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$48644116-b26f-46ec-ab52-536714ccc2a9
+}	java:S125ª"<This block of commented-out lines of code should be removed.(Ï±ó“ıÿÿÿÿJ$eee2101c-6b54-490f-8a61-1424df777efb
+p
+java:S1068%"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿJ$2b7808c6-bf4e-455c-bdb9-2d1e672cd8a2
+k
+java:S1068("*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$35c0a610-cdb8-4b16-8ba1-dabc27555875

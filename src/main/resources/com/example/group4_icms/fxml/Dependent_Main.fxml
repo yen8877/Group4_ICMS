@@ -81,7 +81,7 @@
                 </Button>
                 <BorderPane prefHeight="575.0" prefWidth="344.0" styleClass="nav-btn" stylesheets="@../css/nav.css">
                     <bottom>
-                        <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out" BorderPane.alignment="BASELINE_LEFT">
+                        <Button fx:id="btnLogout" onAction="#handleLogout" alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out" BorderPane.alignment="BASELINE_LEFT">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>

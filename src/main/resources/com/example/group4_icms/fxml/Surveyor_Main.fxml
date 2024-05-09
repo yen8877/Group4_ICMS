@@ -91,7 +91,7 @@
                     </opaqueInsets>
                 </Button>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-                  <Button alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out">
+                  <Button fx:id="btnLogout" onAction="#handleLogout"  alignment="BASELINE_LEFT" styleClass="nav-btn" text="Log out">
                       <font>
                           <Font name="System Bold" size="25.0" />
                       </font>
