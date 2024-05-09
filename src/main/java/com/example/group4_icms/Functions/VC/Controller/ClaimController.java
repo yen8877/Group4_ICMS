@@ -12,7 +12,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
-
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import java.io.IOException;
+import javafx.scene.layout.StackPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,6 +50,8 @@ public class ClaimController {
     private TableColumn<Claim, String> colBankingInfo;
     @FXML
     private TableColumn<Claim, Void> colDelete; // 삭제 버튼을 위한 TableColumn 추가
+    @FXML
+    private StackPane contentArea;
 
     private ObservableList<Claim> masterData = FXCollections.observableArrayList();
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -183,4 +189,24 @@ public class ClaimController {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
         tableView.setItems(sortedData);
     }
+
+    @FXML
+    private void loadAddClaimForm(ActionEvent actionEvent) {
+        System.out.println("Current children count before loading new form: " + contentArea.getChildren().size());
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addClaimFormByPolicyOwner.fxml"));
+            if (contentArea != null) {
+                contentArea.getChildren().setAll(form);  // 모든 자식 요소를 새 요소로 대체
+                System.out.println("New form loaded, current children count: " + contentArea.getChildren().size());
+            } else {
+                System.out.println("contentArea is not initialized");
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to load the form: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+
 }
