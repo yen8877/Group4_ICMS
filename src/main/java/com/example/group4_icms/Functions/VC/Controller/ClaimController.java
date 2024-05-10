@@ -1,6 +1,5 @@
-package com.example.group4_icms.Functions.VC.Controller;
+package com.example.group4_icms.Functions;
 
-import com.example.group4_icms.Functions.Claim;
 import com.example.group4_icms.Functions.DAO.LogHistoryDAO;
 import com.example.group4_icms.Functions.DTO.LogHistoryDTO;
 import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
@@ -87,7 +86,14 @@ public class ClaimController {
             {
                 deleteButton.setOnAction(event -> {
                     com.example.group4_icms.Functions.Claim claim = getTableView().getItems().get(getIndex());
-                    deleteClaim(claim);
+                    try {
+                        deleteClaim(claim); // 예외가 발생할 수 있는 메소드 호출
+                    } catch (SQLException e) {
+                        // 예외 처리 로직
+                        System.err.println("Error deleting claim: " + e.getMessage());
+                        e.printStackTrace();
+                        // UI에서 사용자에게 오류 메시지 표시 (예: 오류 대화 상자)
+                    }
                 });
             }
 
@@ -102,6 +108,7 @@ public class ClaimController {
             }
         });
     }
+
 
     private void deleteClaim(com.example.group4_icms.Functions.Claim claim) throws SQLException {
         masterData.remove(claim);
