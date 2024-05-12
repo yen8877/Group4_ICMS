@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class InsuranceProviderDAO {
 
     public boolean addProvider(ProviderDTO provider) {
-        String sql = "INSERT INTO insuranceprovider (p_id, fullname, password, email, address, phonenumber, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO insuranceprovider (p_id, full_name, password, email, address, phonenumber, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, provider.getID());

@@ -31,7 +31,7 @@ public void start(Stage primaryStage) throws Exception {
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyHolder_Main.fxml"));
 
     // FXML 파일 로드 (admin)
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
 
     // FXML 파일 로드 (surveyor)
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
