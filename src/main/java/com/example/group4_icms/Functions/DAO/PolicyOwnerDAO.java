@@ -16,7 +16,7 @@ public class PolicyOwnerDAO {
         PreparedStatement pstmt2 = null;
         boolean success = false;
 
-        String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, customer_type, expirationdate, effectivedate, full_name, policyowner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sql2 = "INSERT INTO policyowner (c_id) VALUES (?)";
 
         try {

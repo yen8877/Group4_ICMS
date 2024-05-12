@@ -1,13 +1,17 @@
 #h1{
     -fx-font-family: "Arial Black";
-    -fx-font-size: 50px;
+    -fx-font-size: 40px;
 }
 #h2{
     -fx-font-family: "Arial";
     -fx-font-weight: bold;
     -fx-font-size: 25px;
-
 }
+#h3{
+    -fx-font-family: "Arial Black";
+    -fx-font-size: 40px;
+}
+
 #mainContent{
     -fx-background-color: #F6F7FB;
 }

@@ -16,7 +16,6 @@ import java.io.IOException;
 public abstract class BaseController {
     @FXML private Button btnLogout;
 
-
 //    logout logic
     @FXML
     protected void handleLogout(ActionEvent event) {
