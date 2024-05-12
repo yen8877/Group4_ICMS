@@ -22,16 +22,16 @@ public class LoginController {
     @FXML
     Button btnLogin;
 
-    private String userID = txtUserId.getText().trim();
-    private String userPassword = txtPassword.getText().trim();
+//    private String userID = txtUserId.getText().trim();
+//    private String userPassword = txtPassword.getText().trim();
 
-    public String getUserID() {
-        return userID;
-    }
+//    public String getUserID() {
+//        return userID;
+//    }
 
-    public String getUserPassword() {
-        return userPassword;
-    }
+//    public String getUserPassword() {
+//        return userPassword;
+//    }
 
     public void handleLogin(ActionEvent event) throws SQLException {
         System.out.println("Login button clicked");
@@ -40,8 +40,10 @@ public class LoginController {
         System.out.println("Authenticating User: " + userID);
         if (authenticate(userID, password)) {
             System.out.println("Authentication successful for user: " + userID);
+            Session.getInstance().setUserId(userID);
             try {
                 String role = getUserRole(userID);
+                Session.getInstance().setUserRole(role);
                 navigateTo(role);
             } catch (SQLException ex) {
                 showAlert("Database Error", "Failed to retrieve user role.");
