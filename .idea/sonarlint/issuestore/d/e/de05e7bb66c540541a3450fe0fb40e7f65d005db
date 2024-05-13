@@ -1,6 +1,8 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽJ$c87ca242-2acf-4262-9bd0-a0b4fccc988e
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽJ$ea97c510-72fa-4a15-99bb-1f50255dd7fc
 
-java:S3416">Update this logger to use "ManagerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$9e80f961-8273-43e3-b226-dd9ae5a1253f
+java:S3416">Update this logger to use "ManagerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$ee3ab9e0-7966-4a30-8f76-69f8a1ff28a7
+~
+java:S1128"\Remove this unused import 'com.example.group4_icms.Functions.VC.Controller.LoginController'.(ð™Ûÿþÿÿÿÿ8»ÞÆ”ö1
 k
-java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$976f596e-acd4-4315-851a-e9d0fb1a6b98
+java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$8d279b15-479e-4954-9d29-a95c95ea7881

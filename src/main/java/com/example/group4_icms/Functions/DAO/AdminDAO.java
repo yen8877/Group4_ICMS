@@ -13,7 +13,7 @@ public class AdminDAO {
     PreparedStatement  pstmt;
 
     public boolean addAdmin(AdminDTO admin) {
-        String sql = "INSERT INTO systemadmin (a_id, password, fullname, email, phonenumber, address) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO systemadmin (a_id, password, full_name, email, phonenumber, address) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, admin.getID());

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,7 +22,7 @@
                         <Insets left="30.0" top="30.0" />
                     </VBox.margin>
                 </Text>
-                <AnchorPane id="formContainer" prefHeight="760.0" prefWidth="1036.0" stylesheets="@../css/form.css">
+                <AnchorPane id="formContainer" prefHeight="700.0" prefWidth="1036.0" stylesheets="@../css/form.css">
                     <VBox.margin>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                     </VBox.margin>
@@ -39,111 +40,80 @@
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             </rowConstraints>
                             <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="ID">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin></Text>
-                                <TextField fx:id="addCustomerPolicyOwnerIdfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Password" GridPane.rowIndex="1">
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Password">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerPwfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <TextField fx:id="addCustomerPwfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Full Name" GridPane.rowIndex="2">
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Full Name" GridPane.rowIndex="1">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomeNamefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <TextField fx:id="addCustomerNamefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Email" GridPane.rowIndex="3">
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Email" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerEmailfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                <TextField fx:id="addCustomerEmailfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Phone Number" GridPane.rowIndex="4">
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Phone Number" GridPane.rowIndex="3">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerPhonefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                <TextField fx:id="addCustomerPhonefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Address" GridPane.rowIndex="5">
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Address" GridPane.rowIndex="4">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerAddressfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                <TextField fx:id="addCustomerAddressfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Customer Type" GridPane.rowIndex="6">
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="5">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerTypefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                <DatePicker fx:id="addCustomerExdatefield" prefHeight="39.0" prefWidth="792.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
-                                </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="7">
+                                </DatePicker>
+
+                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Insurance Card" GridPane.rowIndex="6">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="addCustomerExdatefield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </TextField>
-                            </children>
-                            <children>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Insurance Card" GridPane.rowIndex="8">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <TextField fx:id="addCustomerInsuranceCardfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                <TextField fx:id="addCustomerInsuranceCardfield" prefHeight="200.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="6">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>

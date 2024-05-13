@@ -1,4 +1,13 @@
 
-΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ϋβ£ωÿÿÿÿ8Χξ°ς1J$f68fe58a-d26d-40be-ba29-e51528e737a2
-r	java:S106Z"+Replace this use of System.out by a logger.(…΅΄ϋÿÿÿÿ8γξ°ς1J$e3b0a7a1-5520-4ac7-a927-9a508c1ac130
-l	java:S106u"+Replace this use of System.out by a logger.(ί…ζ8εξ°ς1J$11ad67df-6e3c-430d-9451-c034da74453c
+΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ϋβ£ωÿÿÿÿ8Χξ°ς1J$cf2a4189-8b6d-4b38-b6d1-06bd0528cdc2
+z
+java:S25891"7Remove this expression which always evaluates to "true"(΅ζζϊ8ψλ“αφ1J$0f9734af-c462-41f7-b91d-8b3ab85b645d
+~	java:S125D"<This block of commented-out lines of code should be removed.(ΦοΜ8ύλ“αφ1J$423a89e2-c80a-4d99-8cfb-e37752b530e1
+–
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(τώ±ªψÿÿÿÿ8ύλ“αφ1J$a0dd588d-3c7d-498d-ba0f-1d5876671c64
+•
+java:S1128"RRemove this unused import 'com.example.group4_icms.Functions.DTO.PolicyHolderDTO'.(‹²Α8ύλ“αφ1J$5ebc1e57-9931-4d4c-8532-2a2cc87bc2b0
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(χ‰ξƒ8ύλ“αφ1J$a61c4cf3-fe53-4ea7-a3e0-309ba7a80b55
+s
+java:S1128	"+Remove this unused import 'java.util.List'.(Υλ±Δψÿÿÿÿ8ύλ“αφ1J$361d0351-b6bf-4a4f-b8b5-90bbab444fde

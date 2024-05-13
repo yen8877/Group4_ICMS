@@ -1,24 +1,27 @@
 
-΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘φΣ—ϊÿÿÿÿ8½ªτυ1J$e48966d4-d52a-4186-a1f0-2080530be9bb
+ό
+java:S1598"ΩThis file "ClaimController.java" should be located in "com/example/group4_icms/Functions" directory, not in "/Users/hanyeeun/Documents/GitHub/Group4_ICMS/src/main/java/com/example/group4_icms/Functions/VC/Controller".(¥Ίύώÿÿÿÿ8λ‹”φ1
+΅	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥Ίύώÿÿÿÿ8½ªτυ1J$52f630d3-b4c7-4405-a72b-c377b2d666dd
 ‡
-java:S2583Ν"CChange this condition so that it does not always evaluate to "true"(Ήΐλ8€ªτυ1J$0e24bfe7-28e6-4af6-b50c-8c8a92eafb6d
-΅
-java:S1171W"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒΜβ–ψÿÿÿÿ8¤―τυ1J$91076b8d-29f9-4bb4-b7c5-d289eee1e00e
-‹
-java:S1130j"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(ΛλƒΨ8¦Ξ°τυ1
-m	java:S106w"+Replace this use of System.err by a logger.(‚Ε›8ªτυ1J$3c978798-ae1d-4cd6-b10c-632a2eff8db5
-r	java:S106y"+Replace this use of System.out by a logger.(Ν»βνύÿÿÿÿ8ªτυ1J$0ea475b5-b899-4dbb-a127-b502e077095c
-m	java:S106~"+Replace this use of System.err by a logger.(Νª³ΰ8‰ªτυ1J$8eed06e9-3a82-4be8-b7d3-0c48871783b4
-s	java:S106—"+Replace this use of System.err by a logger.(Ψ―Αύÿÿÿÿ8©―τυ1J$33843116-9238-4360-8d86-17ed7104868d
+java:S2583Τ"CChange this condition so that it does not always evaluate to "true"(Ήΐλ8€ªτυ1J$b484aef8-8126-4593-af8e-c5f9129398fe
+{
+java:S1171V"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒΜβ–ψÿÿÿÿ8²”φ1
+r	java:S106]"+Replace this use of System.err by a logger.(—Ώ–ώÿÿÿÿ8ªτυ1J$93fa8169-e71f-4d05-b5f3-6de0ce2fb7a7
+±
+java:S1130q"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(ΛλƒΨ8¦Ξ°τυ1J$31e3f016-974b-46d1-b543-78b9695a96fd
+m	java:S106~"+Replace this use of System.err by a logger.(‚Ε›8‰ªτυ1J$87bdd58b-f04d-4005-ad90-7a1f3abd0c6a
+s	java:S106€"+Replace this use of System.out by a logger.(Ν»βνύÿÿÿÿ8ªτυ1J$cdf5657f-86ea-40b8-9140-cda9c4a0708c
+n	java:S106…"+Replace this use of System.err by a logger.(Νª³ΰ8©―τυ1J$f664fb12-439a-4b76-80bb-e8ea04dbe294
+M	java:S106"+Replace this use of System.err by a logger.(Ψ―Αύÿÿÿÿ8¶”φ1
 •
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ξ‚M8ªτυ1J$a2419be9-db06-4de4-a257-8230f8b9c6da
+java:S3776¦"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ξ‚M8ªτυ1J$c56c55d1-7da8-4555-90da-a6761b681d04
 u
-java:S1602΅",Remove useless curly braces around statement(ΪΖΕÿÿÿÿÿ8‹ªτυ1J$7ffc488e-f57a-436a-a544-3e78ae8e3bbd
+java:S1602¨",Remove useless curly braces around statement(ΪΖΕÿÿÿÿÿ8‹ªτυ1J$ef619a36-9cef-4aa3-a2e9-927d5f37608a
 …
-java:S1126Ί"AReplace this if-then-else statement by a single return statement.( µΒ”8ªτυ1J$005d168b-a6fa-4d9d-9b76-538378498d5b
-s	java:S106Κ"+Replace this use of System.out by a logger.(•™Πώÿÿÿÿ8ªτυ1J$bf93cf70-1fe3-4bf7-8dbf-26e3eb9bf65f
-n	java:S106Ο"+Replace this use of System.out by a logger.(υϋ8ªτυ1J$dda1f628-485a-4783-a197-a8b4061bbbc7
-s	java:S106Ρ"+Replace this use of System.out by a logger.(Μζ’Ίύÿÿÿÿ8ªτυ1J$3b8d9fbb-3982-4fb5-8dbd-f6b3fc5f7bc5
-s	java:S106Τ"+Replace this use of System.out by a logger.(χκ‚€ÿÿÿÿÿ8――τυ1J$8eb738b4-807b-47c4-82b2-eb4e07da3a02
-y
-java:S1068>"1Remove this unused "dateFormatter" private field.(«®Νώÿÿÿÿ8――τυ1J$ea450a1f-4d3e-4065-8c05-85d134ffcef5
+java:S1126Α"AReplace this if-then-else statement by a single return statement.( µΒ”8ªτυ1J$01fdd72b-55c0-4e8f-b970-ac7eddfcd833
+s	java:S106Ρ"+Replace this use of System.out by a logger.(•™Πώÿÿÿÿ8ªτυ1J$8ddb1fd7-1e34-474a-b23a-367d3752c6fd
+n	java:S106Φ"+Replace this use of System.out by a logger.(υϋ8ªτυ1J$cb68efdb-ce25-44a8-99e3-07e26b6ca84f
+s	java:S106Ψ"+Replace this use of System.out by a logger.(Μζ’Ίύÿÿÿÿ8ªτυ1J$3c0b0855-ea35-4532-91a0-5f5f276c1787
+s	java:S106Ϋ"+Replace this use of System.out by a logger.(χκ‚€ÿÿÿÿÿ8――τυ1J$8adc221c-abe4-4db4-aca3-502b9cb49fee
+S
+java:S1068="1Remove this unused "dateFormatter" private field.(«®Νώÿÿÿÿ8Ό”φ1

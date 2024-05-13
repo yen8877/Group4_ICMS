@@ -16,9 +16,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.ProfileController">
+<?import javafx.scene.layout.Pane?>
+<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.ProfileController">
     <!--   Main Contents   -->
-    <VBox id="mainContent" layoutX="330.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <VBox id="mainContent" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile" wrappingWidth="579.7972412109375">
                 <VBox.margin>
@@ -73,44 +74,50 @@
                             <RowConstraints vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
-                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="User ID" GridPane.halignment="RIGHT">
+                            <!-- User ID Field -->
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="User ID" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
-                            <TextField fx:id="txtUserId" alignment="CENTER" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" />
-                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Password" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                            <TextField fx:id="txtUserId" alignment="CENTER" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="false" />
+
+                            <!-- Name Field -->
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
-                            <TextField fx:id="txtPassword" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <TextField fx:id="txtFullName" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="1" editable="false" />
+                            <!-- Email Field -->
                             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Email" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
                             <TextField fx:id="txtEmail" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            <Button fx:id="btnUpdateEmail" onAction="#updateEmail" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="2" minWidth="100.0" prefWidth="150.0" maxWidth="200.0"/>
                             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Phone Number" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
                             <TextField fx:id="txtPhoneNumber" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                            <Button id="btnUpdatePhoneNumber" onAction="#updatePhoneNumber" mnemonicParsing="false"
-                                    stylesheets="@../css/profile.css" text="Update"/>
+                            <Button fx:id="btnUpdatePhoneNumber" onAction="#updatePhoneNumber" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="3" minWidth="100.0" prefWidth="150.0" maxWidth="200.0"/>
                             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Address" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
                             <TextField fx:id="txtAddress" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Name" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                            <Button fx:id="btnUpdateAddress" onAction="#updateAddress" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="4" minWidth="100.0" prefWidth="150.0" maxWidth="200.0"/>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="profile-text" text="Password" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
                                 <GridPane.margin>
                                     <Insets right="30.0" />
                                 </GridPane.margin>
                             </Text>
-                            <TextField fx:id="txtFullName" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            <TextField fx:id="txtPassword" prefHeight="40.0" styleClass="profile-textfield" stylesheets="@../css/profile.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                            <Button fx:id="btnUpdatePassword" onAction="#updatePassword" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="5" minWidth="100.0" prefWidth="150.0" maxWidth="200.0"/>
                         </children>
                         <VBox.margin>
                             <Insets bottom="50.0" left="100.0" right="100.0" top="20.0" />
@@ -142,4 +149,4 @@
             </VBox>
         </children>
     </VBox>
-</AnchorPane>
+</Pane>
