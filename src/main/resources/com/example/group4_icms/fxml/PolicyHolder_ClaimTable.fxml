@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.ClaimController" prefWidth="1440.0" prefHeight="1024.0">
+    <VBox prefHeight="1024.0" prefWidth="1140.0" spacing="10" stylesheets="@../css/home.css" AnchorPane.leftAnchor="0.0">
+        <TextField fx:id="filterField" promptText="Enter search term..." prefWidth="1000.0" stylesheets="@../css/table.css"/>
+        <TableView fx:id="tableView" prefWidth="1140" prefHeight="550" stylesheets="@../css/table.css">
+            <columns>
+                <TableColumn text="Claim ID" fx:id="colFId" prefWidth="100"/>
+                <TableColumn text="Claim Date" fx:id="colClaimDate" prefWidth="150"/>
+                <TableColumn text="Exam Date" fx:id="colExamDate" prefWidth="150"/>
+                <TableColumn text="Claim Amount" fx:id="colClaimAmount" prefWidth="100"/>
+                <TableColumn text="Insured Person ID" fx:id="colInsuredPersonId" prefWidth="120"/>
+                <TableColumn text="Submitted By ID" fx:id="colSubmittedById" prefWidth="120"/>
+                <TableColumn text="Status" fx:id="colStatus" prefWidth="100"/>
+                <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="140"/>
+                <TableColumn text="삭제" fx:id="colDelete" prefWidth="80"/>
+            </columns>
+        </TableView>
+        <!-- 추가된 StackPane 영역 -->
+        <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
+
+        </StackPane>
+    </VBox>
+</Pane>

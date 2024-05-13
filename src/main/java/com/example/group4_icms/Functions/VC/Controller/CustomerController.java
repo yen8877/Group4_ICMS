@@ -111,7 +111,6 @@ public class CustomerController {
         tableView.getColumns().add(createColumn("Phone Number", "phoneNumber", 120));
         tableView.getColumns().add(createColumn("Address", "address", 200));
         tableView.getColumns().add(createColumn("Email", "email", 150));
-        tableView.getColumns().add(createColumn("Customer Type", "customerType", 130));
         tableView.getColumns().add(createColumn("Expiration Date", "expirationDate", 110));
         tableView.getColumns().add(createColumn("Effective Date", "effectiveDate", 110));
         tableView.getColumns().add(createColumn("Insurance Card", "insuranceCard", 150));
@@ -128,7 +127,7 @@ public class CustomerController {
 
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();
-        String query = "SELECT c_id, phonenumber, address, email, customer_type, expirationdate, effectivedate, insurancecard, full_name, policyowner_name FROM public.customer";
+        String query = "SELECT c_id, phonenumber, address, email, expirationdate, effectivedate, insurancecard, full_name, policyowner_name FROM public.customer";
         try (PreparedStatement pstmt = conn.prepareStatement(query); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 masterData.add(new Customer(
@@ -136,7 +135,6 @@ public class CustomerController {
                         rs.getString("phonenumber"),
                         rs.getString("address"),
                         rs.getString("email"),
-                        rs.getString("customer_type"),
                         rs.getDate("expirationdate") != null ? rs.getDate("expirationdate").toLocalDate() : null,
                         rs.getDate("effectivedate") != null ? rs.getDate("effectivedate").toLocalDate() : null,
                         rs.getString("insurancecard"),
@@ -167,7 +165,6 @@ public class CustomerController {
                         (customer.getPhoneNumber() != null && customer.getPhoneNumber().toLowerCase().contains(lowerCaseFilter)) ||
                         (customer.getAddress() != null && customer.getAddress().toLowerCase().contains(lowerCaseFilter)) ||
                         (customer.getEmail() != null && customer.getEmail().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getCustomerType() != null && customer.getCustomerType().toLowerCase().contains(lowerCaseFilter)) ||
                         (customer.getFullName() != null && customer.getFullName().toLowerCase().contains(lowerCaseFilter)) ||
                         (customer.getPolicyOwnerName() != null && customer.getPolicyOwnerName().toLowerCase().contains(lowerCaseFilter));
             });
@@ -178,4 +175,5 @@ public class CustomerController {
         tableView.setItems(sortedData);
     }
 }
+
 
