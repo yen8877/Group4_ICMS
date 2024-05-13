@@ -11,10 +11,25 @@
 <?import javafx.scene.layout.VBox?>
 
 <Pane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.CustomerController" prefWidth="1440.0" prefHeight="1024.0">
-    <VBox prefHeight="1024.0" prefWidth="1140.0" spacing="10" stylesheets="@../css/home.css" AnchorPane.leftAnchor="360.0">
+    <VBox prefHeight="1024.0" prefWidth="1140.0" spacing="10" stylesheets="@../css/home.css" AnchorPane.leftAnchor="0.0">
         <TextField fx:id="filterField" promptText="Enter search term..." prefWidth="1000.0" stylesheets="@../css/table.css"/>
         <TableView fx:id="tableView" prefWidth="1140" prefHeight="550" stylesheets="@../css/table.css">
-            <!-- Columns are set up in the controller -->
+            <columns>
+                <TableColumn text="Customer ID" fx:id="colCId" prefWidth="100"/>
+                <TableColumn text="Full Name" fx:id="colFullName" prefWidth="150"/>
+                <TableColumn text="Phone Number" fx:id="colPhoneNumber" prefWidth="150"/>
+                <TableColumn text="Email" fx:id="colEmail" prefWidth="150"/>
+                <TableColumn text="Address" fx:id="colAddress" prefWidth="150"/>
+                <TableColumn text="Role" fx:id="colRole" prefWidth="100"/>
+                <TableColumn text="Insurance Card" fx:id="colInsuranceCard" prefWidth="150"/>
+                <TableColumn text="Policy Owner Name" fx:id="colPolicyOwnerName" prefWidth="150"/>
+                <TableColumn text="Effective Date" fx:id="colEffectiveDate" prefWidth="100"/>
+                <TableColumn text="Expiration Date" fx:id="colExpirationDate" prefWidth="100"/>
+                <TableColumn text="삭제" fx:id="colDelete" prefWidth="80"/>
+            </columns>
         </TableView>
+        <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
+            <!-- Additional content can be added here -->
+        </StackPane>
     </VBox>
 </Pane>
