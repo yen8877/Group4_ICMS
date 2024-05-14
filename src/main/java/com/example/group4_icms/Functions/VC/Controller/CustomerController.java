@@ -77,6 +77,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -95,53 +97,97 @@ public class CustomerController {
     private TextField filterField;
     @FXML
     private TableView<Customer> tableView;
+    @FXML
+    private TableColumn<Customer, String> colCId, colFullName, colPhoneNumber, colEmail, colAddress, colRole, colInsuranceCard, colPolicyOwnerName;
+    @FXML
+    private TableColumn<Customer, LocalDate> colEffectiveDate, colExpirationDate;
+    @FXML
+    private TableColumn<Customer, Void> colDelete;
 
     private ObservableList<Customer> masterData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         setupColumns();
+        setupDeleteColumn();
         loadData();
         setupFilterAndSorting();
     }
 
     private void setupColumns() {
-        tableView.getColumns().clear();
-        tableView.getColumns().add(createColumn("Customer ID", "cId", 100));
-        tableView.getColumns().add(createColumn("Phone Number", "phoneNumber", 120));
-        tableView.getColumns().add(createColumn("Address", "address", 200));
-        tableView.getColumns().add(createColumn("Email", "email", 150));
-        tableView.getColumns().add(createColumn("Customer Type", "customerType", 130));
-        tableView.getColumns().add(createColumn("Expiration Date", "expirationDate", 110));
-        tableView.getColumns().add(createColumn("Effective Date", "effectiveDate", 110));
-        tableView.getColumns().add(createColumn("Insurance Card", "insuranceCard", 150));
-        tableView.getColumns().add(createColumn("Full Name", "fullName", 130));
-        tableView.getColumns().add(createColumn("Policy Owner Name", "policyOwnerName", 150));
+        colCId.setCellValueFactory(new PropertyValueFactory<>("cId"));
+        colFullName.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colRole.setCellValueFactory(new PropertyValueFactory<>("role"));
+        colInsuranceCard.setCellValueFactory(new PropertyValueFactory<>("insuranceCard"));
+        colPolicyOwnerName.setCellValueFactory(new PropertyValueFactory<>("policyOwnerName"));
+        colEffectiveDate.setCellValueFactory(new PropertyValueFactory<>("effectiveDate"));
+        colExpirationDate.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
     }
 
-    private TableColumn<Customer, String> createColumn(String title, String property, int width) {
-        TableColumn<Customer, String> column = new TableColumn<>(title);
-        column.setCellValueFactory(new PropertyValueFactory<>(property));
-        column.setPrefWidth(width);
-        return column;
+    private void setupDeleteColumn() {
+        colDelete.setCellFactory(param -> new TableCell<Customer, Void>() {
+            private final Button deleteButton = new Button("삭제");
+
+            {
+                deleteButton.setOnAction(event -> {
+                    Customer customer = getTableView().getItems().get(getIndex());
+                    deleteCustomer(customer);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+    }
+
+    private void deleteCustomer(Customer customer) {
+        if (deleteCustomerFromDatabase(customer.getCId())) {
+            masterData.remove(customer);
+            tableView.refresh();
+        }
+    }
+
+    private boolean deleteCustomerFromDatabase(String cId) {
+        Connection conn = JDBCUtil.connectToDatabase();
+        String sql = "DELETE FROM customer WHERE c_id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, cId);
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        } catch (SQLException e) {
+            System.err.println("SQL error during customer deletion: " + e.getMessage());
+            return false;
+        } finally {
+            JDBCUtil.close(conn);
+        }
     }
 
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();
-        String query = "SELECT c_id, phonenumber, address, email, customer_type, expirationdate, effectivedate, insurancecard, full_name, policyowner_name FROM public.customer";
+        String query = "SELECT * FROM public.customer";
         try (PreparedStatement pstmt = conn.prepareStatement(query); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 masterData.add(new Customer(
                         rs.getString("c_id"),
-                        rs.getString("phonenumber"),
-                        rs.getString("address"),
-                        rs.getString("email"),
-                        rs.getString("customer_type"),
-                        rs.getDate("expirationdate") != null ? rs.getDate("expirationdate").toLocalDate() : null,
-                        rs.getDate("effectivedate") != null ? rs.getDate("effectivedate").toLocalDate() : null,
-                        rs.getString("insurancecard"),
                         rs.getString("full_name"),
-                        rs.getString("policyowner_name")
+                        rs.getString("phonenumber"),
+                        rs.getString("email"),
+                        rs.getString("address"),
+                        rs.getString("role"),
+                        rs.getString("insurancecard"),
+                        rs.getString("policyowner_name"),
+                        rs.getDate("effectivedate") != null ? rs.getDate("effectivedate").toLocalDate() : null,
+                        rs.getDate("expirationdate") != null ? rs.getDate("expirationdate").toLocalDate() : null
                 ));
             }
         } catch (SQLException e) {
@@ -154,22 +200,13 @@ public class CustomerController {
 
     private void setupFilterAndSorting() {
         FilteredList<Customer> filteredData = new FilteredList<>(masterData, p -> true);
-
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(customer -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-
-                // 각 필드가 null이 아닐 때만 검사를 수행합니다.
-                return (customer.getCId() != null && customer.getCId().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getPhoneNumber() != null && customer.getPhoneNumber().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getAddress() != null && customer.getAddress().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getEmail() != null && customer.getEmail().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getCustomerType() != null && customer.getCustomerType().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getFullName() != null && customer.getFullName().toLowerCase().contains(lowerCaseFilter)) ||
-                        (customer.getPolicyOwnerName() != null && customer.getPolicyOwnerName().toLowerCase().contains(lowerCaseFilter));
+                return customer.toString().toLowerCase().contains(lowerCaseFilter);
             });
         });
 
@@ -178,4 +215,3 @@ public class CustomerController {
         tableView.setItems(sortedData);
     }
 }
-

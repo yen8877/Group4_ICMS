@@ -1,9 +1,5 @@
 package com.example.group4_icms.Functions;
 
-import com.example.group4_icms.Functions.DAO.LogHistoryDAO;
-import com.example.group4_icms.Functions.DTO.LogHistoryDTO;
-import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
-import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -16,11 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import java.io.IOException;
-import javafx.scene.layout.StackPane;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,8 +46,6 @@ public class ClaimController {
     private TableColumn<Claim, String> colBankingInfo;
     @FXML
     private TableColumn<Claim, Void> colDelete; // 삭제 버튼을 위한 TableColumn 추가
-    @FXML
-    private StackPane contentArea;
 
     private ObservableList<Claim> masterData = FXCollections.observableArrayList();
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -80,20 +70,13 @@ public class ClaimController {
     }
 
     private void setupDeleteColumn() {
-        colDelete.setCellFactory(param -> new TableCell<com.example.group4_icms.Functions.Claim, Void>() {
+        colDelete.setCellFactory(param -> new TableCell<Claim, Void>() {
             private final Button deleteButton = new Button("삭제");
 
             {
                 deleteButton.setOnAction(event -> {
-                    com.example.group4_icms.Functions.Claim claim = getTableView().getItems().get(getIndex());
-                    try {
-                        deleteClaim(claim); // 예외가 발생할 수 있는 메소드 호출
-                    } catch (SQLException e) {
-                        // 예외 처리 로직
-                        System.err.println("Error deleting claim: " + e.getMessage());
-                        e.printStackTrace();
-                        // UI에서 사용자에게 오류 메시지 표시 (예: 오류 대화 상자)
-                    }
+                    Claim claim = getTableView().getItems().get(getIndex());
+                    deleteClaim(claim);
                 });
             }
 
@@ -109,8 +92,7 @@ public class ClaimController {
         });
     }
 
-
-    private void deleteClaim(com.example.group4_icms.Functions.Claim claim) throws SQLException {
+    private void deleteClaim(Claim claim) {
         masterData.remove(claim);
         tableView.refresh(); // 테이블 뷰 새로 고침
         deleteClaimFromDatabase(claim.getFId());
@@ -126,8 +108,6 @@ public class ClaimController {
                 System.err.println("Deleting claim failed, no rows affected.");
             } else {
                 System.out.println("Claim deleted successfully.");
-                LogHistoryController logHistoryController = new LogHistoryController();
-                logHistoryController.updateLogHistory("Delete claim : " + claimId);
             }
         } catch (SQLException e) {
             System.err.println("SQL error during claim deletion: " + e.getMessage());
@@ -203,24 +183,4 @@ public class ClaimController {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
         tableView.setItems(sortedData);
     }
-
-    @FXML
-    private void loadAddClaimForm(ActionEvent actionEvent) {
-        System.out.println("Current children count before loading new form: " + contentArea.getChildren().size());
-        try {
-            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addClaimFormByPolicyOwner.fxml"));
-            if (contentArea != null) {
-                contentArea.getChildren().setAll(form);  // 모든 자식 요소를 새 요소로 대체
-                System.out.println("New form loaded, current children count: " + contentArea.getChildren().size());
-            } else {
-                System.out.println("contentArea is not initialized");
-            }
-        } catch (IOException e) {
-            System.out.println("Failed to load the form: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-
-
 }

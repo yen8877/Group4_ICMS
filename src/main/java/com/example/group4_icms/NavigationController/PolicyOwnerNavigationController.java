@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class PolicyOwnerNavigationController extends BaseController {
+public class PolicyOwnerNavigationController extends BaseController implements Initializable {
     private ClaimDAO ClaimDao = new ClaimDAO();
     private DependentDAO dependentDao = new DependentDAO();
     private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
@@ -252,6 +252,8 @@ public class PolicyOwnerNavigationController extends BaseController {
     @FXML
     private StackPane contentArea;
 
+    public StackPane TableContentArea;
+
     @FXML
     private void loadHome() {
         loadUI("/com/example/group4_icms/fxml/PolicyHolder_Main2.fxml");
@@ -271,16 +273,66 @@ public class PolicyOwnerNavigationController extends BaseController {
     private void loadCalculator() {
         loadUI("/com/example/group4_icms/fxml/PolicyOwner_AnnualCalculator.fxml");
     }
+
+    @FXML
+    private void loadClaimTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/PolicyHolder_ClaimTable.fxml");
+    }
+
+    @FXML
+    private void loadCustomerTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/PolicyHolder_CustomerTable.fxml");
+    }
+
     @FXML
     private void loadProfile() {
         loadUI("/com/example/group4_icms/fxml/Profile.fxml");
     }
+
+//    @FXML private void claimManagementContainer() {
+//            loadClaimTable();
+//    }
+//
+//
+//    public void initialize() {
+//        // 컨트롤러가 로드될 때 자동으로 테이블을 로드하도록 초기화 메서드 구현
+//        loadClaimTable();
+//    }
+
+    @FXML
+    private VBox claimManagementContainer; // FXML에서 fx:id로 지정된 컨테이너
+    @FXML
+    private VBox customerManagementContainer;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // claimManagementContainer가 존재하는지 확인하여 조건적으로 loadClaimTable() 호출
+        if (claimManagementContainer != null) {
+            loadClaimTable();
+        }
+        if (customerManagementContainer != null) {
+            loadCustomerTable();
+        }
+    }
+
+
+
     private void loadUI(String ui) {
         Node node;
         try {
             node = FXMLLoader.load(getClass().getResource(ui));
             contentArea.getChildren().setAll(node);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void loadUIForTable(String ui) {
+        Node node;
+        try {
+            node = FXMLLoader.load(getClass().getResource(ui));
+            TableContentArea.getChildren().setAll(node);  // StackPane에 로드
+        } catch (Exception e) {
+            logger.error("Failed to load FXML file: " + ui, e);
             e.printStackTrace();
         }
     }

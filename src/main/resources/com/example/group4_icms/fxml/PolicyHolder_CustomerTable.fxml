@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.CustomerController" prefWidth="1440.0" prefHeight="1024.0">
+    <VBox prefHeight="1024.0" prefWidth="1140.0" spacing="10" stylesheets="@../css/home.css" AnchorPane.leftAnchor="360.0">
+        <TextField fx:id="filterField" promptText="Enter search term..." prefWidth="1000.0" stylesheets="@../css/table.css"/>
+        <TableView fx:id="tableView" prefWidth="1140" prefHeight="550" stylesheets="@../css/table.css">
+            <!-- Columns are set up in the controller -->
+        </TableView>
+    </VBox>
+</Pane>
