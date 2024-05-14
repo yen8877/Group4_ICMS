@@ -1,17 +1,19 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽJ$2001c721-ccdf-4ef3-8fdc-7a2c0e6ecda2
-w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$a7073cb0-296c-422d-a93f-b37189ce71b6
-“	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿJ$629ae584-7042-4fbc-85f5-27fbe18c0844
+Ÿ
+java:S1104‚"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸ž:8åÖèÄ÷1J$bc3832cf-7aff-43d2-881a-b97a9081b498
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽJ$845bf7ed-ea4a-428a-b08c-15b39a3fe162
+w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$379bfa3a-afcb-415e-b6fe-84f07a1a0697
+“	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿJ$54b91293-ab3a-48cd-98d7-580d29756d7c
+	java:S116‚"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸ž:8–×èÄ÷1J$3ff6edb6-b96a-4960-a875-088f6758c7c7
 ƒ
-java:S3416"BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$be2c6824-c466-4139-9217-9e18c7d5f639
-}	java:S125¡"<This block of commented-out lines of code should be removed.(Ï±ó“ýÿÿÿÿJ$c1ede13d-c301-4109-85a5-732e20034a94
+java:S3416""BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$a6e181b8-8a6e-4180-b3bb-6ab7d7b2dc58
+„	java:S125§"<This block of commented-out lines of code should be removed.(Ù¦ïÛûÿÿÿÿ8«×èÄ÷1J$c137a4e3-9dc5-4329-8b8e-6dae585bc69e
+}	java:S125Ø"<This block of commented-out lines of code should be removed.(Ï±ó“ýÿÿÿÿJ$304a9141-03d2-4ef5-9338-445c33e23360
 v
-java:S1172ò"2Remove this unused method parameter "actionEvent".(à‹ó†8ºá•Õö1J$6976fcc1-02bc-4aab-9056-2ff2ec525b14
+java:S1172©"2Remove this unused method parameter "actionEvent".(à‹ó†8©›éÄ÷1J$4090d84d-5e9d-40eb-9307-b48586c4c684
 {
-java:S1172ü"2Remove this unused method parameter "actionEvent".(ºËŒÏþÿÿÿÿ8»á•Õö1J$d690ad62-d5aa-4954-b219-f2caf028a911
+java:S1172³"2Remove this unused method parameter "actionEvent".(ºËŒÏþÿÿÿÿ8©›éÄ÷1J$44f0864f-ce80-4ce9-8227-17f2d09fd385
 v
-java:S1172†"2Remove this unused method parameter "actionEvent".(¸ß’¤8»á•Õö1J$4217a62a-cc4f-4cf1-9a84-bb8bdeea2a14
+java:S1172½"2Remove this unused method parameter "actionEvent".(¸ß’¤8ª›éÄ÷1J$c10dde07-1cdd-48e4-b458-8044dcdf77e8
 p
-java:S1068"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿJ$4312206a-b782-42ed-9c9c-fbf0409bf52f
-k
-java:S1068"*Remove this unused "logger" private field.(™ÙØÊÿÿÿÿÿJ$cf68137b-09f9-4ba1-a486-6ec28bd9b575
+java:S1068"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿJ$00190ac8-4351-4c16-8c3d-5002ce5931a8

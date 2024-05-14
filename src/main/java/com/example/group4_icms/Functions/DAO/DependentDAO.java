@@ -2,6 +2,9 @@ package com.example.group4_icms.Functions.DAO;
 
 import com.example.group4_icms.Functions.DTO.CustomerDTO;
 import com.example.group4_icms.Functions.DTO.DependentDTO;
+import com.example.group4_icms.Functions.DTO.InsuranceCardDTO;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -102,31 +105,6 @@ public class DependentDAO {
         }
     }
 
-    private void updateListOfDependents(Connection conn, String policyHolderId, String dependentId) throws SQLException {
-        String query = "SELECT alistofdependents FROM policyholder WHERE c_id = ?";
-        PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1, policyHolderId);
-        ResultSet rs = pstmt.executeQuery();
-
-        List<String> dependents = new ArrayList<>();
-        if (rs.next()) {
-            Array sqlArray = rs.getArray("alistofdependents");
-            if (sqlArray != null) {
-                String[] array = (String[]) sqlArray.getArray();
-                dependents.addAll(Arrays.asList(array));
-            }
-        }
-        dependents.add(dependentId);  // Add the new dependent's ID
-
-        // Convert the list back to a PostgreSQL array
-        String updateQuery = "UPDATE policyholder SET alistofdependents = ? WHERE c_id = ?";
-        pstmt = conn.prepareStatement(updateQuery);
-        Array newArray = conn.createArrayOf("text", dependents.toArray(new String[0]));
-        pstmt.setArray(1, newArray);
-        pstmt.setString(2, policyHolderId);
-        pstmt.executeUpdate();
-    }
-
 
     public boolean policyHolderExists(Connection conn, String policyHolderId) throws SQLException {
         String query = "SELECT COUNT(*) FROM policyholder WHERE c_id = ?";
@@ -134,21 +112,6 @@ public class DependentDAO {
             pstmt.setString(1, policyHolderId);
             ResultSet rs = pstmt.executeQuery();
             return rs.next() && rs.getInt(1) > 0;
-        }
-    }
-
-    public void populateDependentDetailsFromPolicyHolder(Connection conn, DependentDTO dependent, String policyHolderId) throws SQLException {
-        String query = "SELECT c.insurancecard, c.policyowner_name " +
-                "FROM policyholder ph " +
-                "JOIN customer c ON ph.c_id = c.c_id " +
-                "WHERE ph.c_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, policyHolderId);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                dependent.setInsuranceCard(rs.getString("insurancecard"));
-                dependent.setPolicyOwnerName(rs.getString("policyowner_name"));
-            }
         }
     }
 

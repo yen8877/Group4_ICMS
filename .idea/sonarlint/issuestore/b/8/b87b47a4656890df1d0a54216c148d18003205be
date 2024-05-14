@@ -1,0 +1,5 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ
+@	java:S106"+Replace this use of System.err by a logger.(ÊàËí
+i
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(ôþ±ªøÿÿÿÿ

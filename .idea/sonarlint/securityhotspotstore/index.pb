@@ -309,3 +309,13 @@ t
 Dsrc/main/java/com/example/group4_icms/Functions/DTO/ProviderDTO.java,6/c/6ccfeaa2a737cf1a1a89c8265ce652fcd5ea5e08
 t
 Dsrc/main/java/com/example/group4_icms/Functions/DAO/ProviderDAO.java,3/b/3bf87c9ca5fc8b41a7740af2b56db74629c7f984
+y
+Isrc/main/java/com/example/group4_icms/Functions/DTO/InsurancecardDTO.java,4/3/4364f72a6bfb6d86d1a6c2224aa267c4cfaa6dfc
+q
+Asrc/main/java/com/example/group4_icms/Functions/DTO/AdminDTO.java,9/d/9df1329865dd9dc8cb14917cbb36abcea7db3c13
+}
+Msrc/main/java/com/example/group4_icms/Functions/DAO/InsuranceProviderDAO.java,b/8/b87b47a4656890df1d0a54216c148d18003205be
+y
+Isrc/main/java/com/example/group4_icms/Functions/DTO/InsuranceCardDTO.java,3/6/368e5e474bdcdb3458b7c7d23dc6732514c8dbea
+v
+Fsrc/main/java/com/example/group4_icms/Functions/DAO/LogHistoryDAO.java,e/3/e3650b26e8ee85a3b369f5e40c0b212785dc58c7
