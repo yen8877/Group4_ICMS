@@ -1,0 +1,17 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$e4eaae9f-d9af-40d4-a744-efedfd0174c3
+’
+java:S2095{"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(©½è™8À¯êðö1J$4884b14a-94e3-4d3e-bee6-eb2c178b3154
+’
+java:S2095k"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£Ž…Ï8À¯êðö1J$83b9e750-2fa3-46ab-acba-e57c9d1052fa
+T
+java:S2589@"7Remove this expression which always evaluates to "true"(¡ææú8¼Ä¿™÷1
+–
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(ôþ±ªøÿÿÿÿ8É¯êðö1J$5365de17-1148-4128-af77-c79d983ec627
+x
+java:S1128
+"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8É¯êðö1J$24d47dc8-942d-4fb0-a280-e62243a390ef
+|
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8É¯êðö1J$36b56ca1-70f2-4178-9dc1-724ef5b22886
+X
+java:S1144i";Remove this unused private "updateListOfDependents" method.(…ê‹ú8ÄÄ¿™÷1
