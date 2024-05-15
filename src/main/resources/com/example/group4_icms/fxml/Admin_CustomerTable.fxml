@@ -22,7 +22,7 @@
                 <TableColumn text="Address" fx:id="colAddress" prefWidth="150"/>
                 <TableColumn text="Role" fx:id="colRole" prefWidth="100"/>
                 <TableColumn text="Insurance Card" fx:id="colInsuranceCard" prefWidth="150"/>
-                <TableColumn text="Policy Owner Name" fx:id="colPolicyOwnerName" prefWidth="150"/>
+                <TableColumn text="Policy Owner ID" fx:id="colPolicyOwner_Id" prefWidth="150"/>
                 <TableColumn text="Effective Date" fx:id="colEffectiveDate" prefWidth="100"/>
                 <TableColumn text="Expiration Date" fx:id="colExpirationDate" prefWidth="100"/>
                 <TableColumn text="삭제" fx:id="colDelete" prefWidth="80"/>
