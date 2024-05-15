@@ -9,7 +9,6 @@ public class DependentDTO {
     private String FullName;
     private String InsuranceCard;
 
-
     private String phone;
     private String address;
     private String email;
@@ -108,5 +107,8 @@ public class DependentDTO {
 
     public void setInsuranceCard(String insuranceCard) {
         InsuranceCard = insuranceCard;
+    }
+
+    public void setPolicyOwnerName(String policyownerName) {
     }
 }

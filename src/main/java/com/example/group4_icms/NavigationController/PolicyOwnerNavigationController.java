@@ -3,21 +3,16 @@ package com.example.group4_icms.NavigationController;
 import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
-import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +21,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 
 public class PolicyOwnerNavigationController extends BaseController implements Initializable {
     private ClaimDAO ClaimDao = new ClaimDAO();
@@ -420,7 +414,7 @@ public class PolicyOwnerNavigationController extends BaseController implements I
 
     public void loadAddCustomerForm() {
         try {
-            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml"));
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addDependentForm.fxml"));
             contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
         } catch (IOException e) {
             e.printStackTrace();

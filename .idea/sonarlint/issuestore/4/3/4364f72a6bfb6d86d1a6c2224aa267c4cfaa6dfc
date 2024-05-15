@@ -1,0 +1,13 @@
+
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöüJ$a3153310-519c-4a51-8544-95956d37166a
+q
+java:S1068".Remove this unused "cardNumber" private field.(Û¾ïÇ8•£ÊÀ÷1J$80851333-83e0-4f3f-973c-64fbe1e041b6
+v
+java:S1068".Remove this unused "cardHolder" private field.(ß±Ïüÿÿÿÿ8•£ÊÀ÷1J$17831fa3-559a-4f30-a53e-1f0ff6fea13a
+z
+java:S1068	"2Remove this unused "expirationDate" private field.(ßÀÜÆúÿÿÿÿ8•£ÊÀ÷1J$7cb09e16-76b1-4ca7-b345-c8064737a835
+t
+java:S1068
+"1Remove this unused "effectiveDate" private field.(ÔÕº‚8•£ÊÀ÷1J$17278560-dd3a-47a1-ab9b-1df7801a1175
+w
+java:S1068"/Remove this unused "policyOwner" private field.(„úùíøÿÿÿÿ8•£ÊÀ÷1J$2ca737b0-d219-4a64-a13d-662687009db0

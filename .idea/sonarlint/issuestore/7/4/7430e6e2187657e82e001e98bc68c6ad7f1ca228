@@ -1,58 +1,64 @@
 
 ‘
-java:S1192¶"HDefine a constant instead of duplicating this literal "Success" 3 times.(¥Ê•şÿÿÿÿ8ßË¥áö1J$6bdae59e-4836-485d-9e96-93c9f6622938
-•
-java:S1192—"QDefine a constant instead of duplicating this literal "Validation Error" 3 times.(»Öö¶8¢ÅÖö1J$f403be11-f58a-495f-aaf3-24ec07b8f786
+java:S1192ª"HDefine a constant instead of duplicating this literal "Success" 5 times.(¸É¼­úÿÿÿÿ8§¥ôÊ÷1J$1600f9e5-d89e-41ee-a889-a86876bd2d50
 ”
-java:S1192¼"PDefine a constant instead of duplicating this literal "Insertion Error" 3 times.(º˜¤Ô8ßË¥áö1J$bd6d592b-3f3a-410c-8bbd-66fd6b2ba2c8
-§
-java:S1192Œ"cDefine a constant instead of duplicating this literal "Failed to connect to the database." 3 times.(îíÔä8³ûãÖö1J$7192a7e7-4d63-440d-9b85-2a3383c15b0c
-“
-java:S1192Œ"ODefine a constant instead of duplicating this literal "Database Error" 4 times.(îíÔä8ßË¥áö1J$167cb559-6534-4b84-ae20-aa4ee9e759dc
+java:S1192w"QDefine a constant instead of duplicating this literal "Validation Error" 4 times.( ÓÒ8§¥ôÊ÷1J$b0c4ccea-f419-4e24-aa08-85b9b7147b67
+¨
+java:S1192µ"_Define a constant instead of duplicating this literal "An unexpected error occurred: " 3 times.(¶ºöÔüÿÿÿÿ8§¥ôÊ÷1J$cbe42650-16b7-44e3-9c11-ad8c5cc8c5f9
+”
+java:S1192‰"PDefine a constant instead of duplicating this literal "Insertion Error" 7 times.(İ¼»ù8§¥ôÊ÷1J$ccd03cd1-0e1a-4d00-8965-dc9b6ab680ab
+¦
+java:S1192k"cDefine a constant instead of duplicating this literal "Failed to connect to the database." 5 times.(îíÔä8§¥ôÊ÷1J$de082902-20e7-4baa-a704-35f79fb428ab
+’
+java:S1192k"ODefine a constant instead of duplicating this literal "Database Error" 8 times.(îíÔä8§¥ôÊ÷1J$6ec54663-4874-4810-9126-ecf10dd648e7
+–
+java:S1192µ"MDefine a constant instead of duplicating this literal "System Error" 3 times.(¶ºöÔüÿÿÿÿ8§¥ôÊ÷1J$2755df28-9643-4a32-8517-5ece82ce001b
 
-java:S1104-"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸:8ÃšÀÈö1J$9629fc4e-6cba-47bf-ba5f-677e8b57a28e
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄ8ÅšÀÈö1J$d09360fc-ca74-48f7-ad8a-e152fa50f64c
+java:S1104*"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸:8’¥†Â÷1J$04c58f0c-6271-49ee-aaea-07d3ef2491e5
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄ8”¥†Â÷1J$8ff19e9a-51da-437c-b253-aa9cf53f03f9
 {
-java:S2589¿"7Remove this expression which always evaluates to "true"(¡ææú8‡³ˆ×ö1J$d51954bd-7e86-49b6-8b17-65b206329101
+java:S2589®"7Remove this expression which always evaluates to "true"(¡ææú8Š‡²É÷1J$829156d7-ba33-4489-8637-06da6f063a60
 {
-java:S2589‰"7Remove this expression which always evaluates to "true"(¡ææú8œÌ¥áö1J$201a2a0c-be7d-4c19-8164-fb6a3a546bc8
-~	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢8àšÀÈö1J$211761b6-b1c2-49c5-b131-74f7cb82ad53
-œ	java:S116-"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸:8àšÀÈö1J$3b85aa05-8a48-42cb-b6f8-833875ca1108
+java:S2589×"7Remove this expression which always evaluates to "true"(¡ææú8ô¥ôÊ÷1J$d26bffe0-eb40-4cb9-bbf0-f1dd2e6bc746
+{
+java:S2589®"7Remove this expression which always evaluates to "true"(¡ææú8’ûÕÊ÷1J$71f20560-055d-440d-97de-0be51576235d
+{
+java:S2589ú"7Remove this expression which always evaluates to "true"(©˜Ÿ8ıíãÊ÷1J$64e3f2f9-b52c-4e4f-a271-3401989b058c
+~	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢8Ï¥†Â÷1J$aea55d5c-03f9-4026-a882-16216e235dab
+œ	java:S116*"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸:8Ï¥†Â÷1J$e8b7e50f-c5e6-4253-816c-1d8536a7e6ff
 „
-java:S3416,"<Update this logger to use "AdminNavigationController.class".(™ÙØÊÿÿÿÿÿ8ášÀÈö1J$b046408b-07a8-46ab-a841-9db0b0718a59
-q
-java:S2140V")Use "java.util.Random.nextInt()" instead.(åì¿äıÿÿÿÿ8˜ëÍö1J$42896f8a-aea8-4b8a-824c-292961d04baf
-~	java:S125e"<This block of commented-out lines of code should be removed.(ÚŠ©÷8ÿÙÊÖö1J$e9df0700-f3f5-42be-9606-4eb758af170d
-n	java:S106·"+Replace this use of System.out by a logger.(µ¬ÓÂ8¿ãäÈö1J$52d364e0-02d3-459f-9e01-c9fb813fa02e
-s	java:S106¹"+Replace this use of System.out by a logger.(ªˆıÔûÿÿÿÿ8îüäÈö1J$462855e2-a8a6-4912-af78-a6d71b8bcb00
-	java:S125–"<This block of commented-out lines of code should be removed.(Ş©ª8«Ì¥áö1J$8ded057b-3e4e-433e-8de8-a89c10bb2f5f
-m
-java:S2140Ø")Use "java.util.Random.nextInt()" instead.(¿ø’Ã8ğûôÓö1J$a999028e-f7a6-4ff9-9d7a-782bf838cdba
-n	java:S106’"+Replace this use of System.out by a logger.(ÉÕØø8ŞßäÖö1J$0bacae84-9192-43e0-a255-012aac1a08f3
-s	java:S106‡"+Replace this use of System.out by a logger.(©¤­şÿÿÿÿ8×ÕôÖö1J$94f2dc24-6aa5-4eaa-9dbd-a08ed22f5dbb
-s	java:S106‰"+Replace this use of System.out by a logger.(Èâ—›ùÿÿÿÿ8ÁÁƒ×ö1J$658fa430-66df-4c51-80e0-c8d77e7580be
-n	java:S106Œ"+Replace this use of System.out by a logger.(‰–óÆ8Ÿœ×ö1J$1abac66d-0826-4b4c-95d0-6ad488981ba5
-
-java:S5998¤"LRefactor this repetition that can lead to a stack overflow for large inputs.(õæˆB8óšÀÈö1J$6925aa3b-8eef-4cf5-bd10-1fa5fac3a5fc
-v
-java:S1172­"2Remove this unused method parameter "actionEvent".(à‹ó†8ôšÀÈö1J$8ce46359-4b21-4645-8de6-bdbbe29b006d
-{
-java:S1172·"2Remove this unused method parameter "actionEvent".(ºËŒÏşÿÿÿÿ8õšÀÈö1J$b5f4acfb-9708-4d7b-bec8-80d060fd5e76
-¤
-java:S1128"\Remove this unused import 'com.example.group4_icms.Functions.VC.Controller.LoginController'.(ğ™Ûÿşÿÿÿÿ8Ÿ’Ùáö1J$33a2c272-759e-4b5f-b77f-cd911fc8d335
-y
-java:S1128"6Remove this unused import 'javafx.fxml.Initializable'.(™ÎùÆ8Ÿ’Ùáö1J$46b03e74-789d-4cce-9adf-bbd580628ca3
-s
-java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8Ÿ’Ùáö1J$b333a106-1e1d-48b3-8eb4-a2c5fa5a2fd7
+java:S3416)"<Update this logger to use "AdminNavigationController.class".(™ÙØÊÿÿÿÿÿ8Ğ¥†Â÷1J$c0d9da07-c347-42be-959b-1a7123eb2adf
+¢
+java:S1845'"ZRename field "providerDAO" to prevent any misunderstanding/clash with field "providerDao".(´ÜŠ¦øÿÿÿÿ8Ğ¥†Â÷1J$5c78af34-9936-4f86-a905-745e9f2425bf
 r
-java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8 ’Ùáö1J$c6f04fb5-ced2-4c16-b49b-34234d836e09
-w
-java:S1128"/Remove this unused import 'javafx.stage.Stage'.(æÄ¸²úÿÿÿÿ8 ’Ùáö1J$7b154c57-4673-4ecf-a7f2-c03858d517b5
+java:S1659R"*Declare "radioManager" on a separate line.(îôÃóÿÿÿÿÿ8Ñ¥†Â÷1J$686e1c92-725c-4f43-8893-d21bfdea8319
 q
-java:S1128")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ8 ’Ùáö1J$12be10fa-bb9d-4600-beac-d2edc89f43ab
-}
-java:S1128"5Remove this unused import 'java.util.ResourceBundle'.(ıÆ£¯øÿÿÿÿ8 ’Ùáö1J$bd40b43e-5614-4081-a544-8a1a44fbb5a8
-w
-java:S1128 "4Remove this unused import 'java.util.logging.Level'.(…µÛ¶8 ’Ùáö1J$6c567690-7905-4a47-af61-89f36104754e
+java:S2140Z")Use "java.util.Random.nextInt()" instead.(åì¿äıÿÿÿÿ8Õ¥†Â÷1J$51df40ed-c239-45be-adcc-e680219f7b0e
+„	java:S125Ê"<This block of commented-out lines of code should be removed.(‘´À¨ùÿÿÿÿ8Èé½È÷1J$3af02926-56b6-4308-a92c-e0bbae3ac704
+v
+java:S1481¤"2Remove this unused "effectiveDate" local variable.(¯õ’×8ÌÇîÇ÷1J$1ff6a197-7884-406a-855c-aae584be7548
+r
+java:S2140¿")Use "java.util.Random.nextInt()" instead.(åì¿äıÿÿÿÿ8æ¥†Â÷1J$9b0af6f3-2f4e-4aab-baa7-35198ce53081
+~	java:S125…"<This block of commented-out lines of code should be removed.(À³‰P8ŞŠ Æ÷1J$10e6096a-ece2-4a14-a222-e0f4e51af126
+m
+java:S2140¥")Use "java.util.Random.nextInt()" instead.(¿ø’Ã8ŞŠ Æ÷1J$ac5d462c-5212-49f6-a211-5e682d4eb7a6
+n	java:S106ß"+Replace this use of System.out by a logger.(ÉÕØø8àŠ Æ÷1J$bde64b7a-4ab4-4e24-b14f-01a2729eb274
+„	java:S125½"<This block of commented-out lines of code should be removed.(Ï±ó“ıÿÿÿÿ8äŠ Æ÷1J$6f5a7564-567e-41f6-ad9e-c924ae2d914f
+r
+java:S2140İ")Use "java.util.Random.nextInt()" instead.(·¤ò×úÿÿÿÿ8åŠ Æ÷1J$7c5ccab5-86f6-4146-bca2-243cd89c6e5e
+m
+java:S2140Ş")Use "java.util.Random.nextInt()" instead.(¶ºÙÜ8åŠ Æ÷1J$beb9fc16-a1da-4b61-b10e-0e34eb55542a
+
+java:S5998ÿ"LRefactor this repetition that can lead to a stack overflow for large inputs.(õæˆB8æŠ Æ÷1J$866b4adf-4094-4ea7-82f5-de1af9231838
+v
+java:S1172ˆ"2Remove this unused method parameter "actionEvent".(à‹ó†8çŠ Æ÷1J$2df7a915-6c92-4558-ad28-2e5aa53fe20b
+{
+java:S1172’"2Remove this unused method parameter "actionEvent".(ºËŒÏşÿÿÿÿ8çŠ Æ÷1J$6d635ebc-5ed9-4635-ab24-ff732167d500
+Z
+java:S1128"=Remove this unused import 'javafx.collections.FXCollections'.(´¶²Æ8½ğ„Ë÷1
 s
-java:S1068$"0Remove this unused "dependentDao" private field.(×¤Ş8“ÚÊÖö1J$4db2a76f-2313-4771-b1a6-45fed3ea168b
+java:S1068"0Remove this unused "dependentDao" private field.(×¤Ş8ÑèÈ÷1J$2d08a085-2406-456b-9e96-c0e89836f2a8
+r
+java:S1068#"/Remove this unused "providerDao" private field.(’ŞÜæ8ê¥†Â÷1J$c74b4b0c-7540-43e3-9ffc-6f6245cea474
+{
+java:S1144ô"2Remove this unused private "validateInput" method.(ë•öùÿÿÿÿ8éŠ Æ÷1J$8a9480cd-6df4-4052-a0fd-aa1119df5615

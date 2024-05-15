@@ -68,6 +68,14 @@
         </dependency>
     </dependencies>
 
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>gluon-nexus</id>-->
+<!--            <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
+
+
     <build>
         <plugins>
             <plugin>

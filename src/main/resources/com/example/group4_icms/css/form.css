@@ -4,6 +4,12 @@
 
 }
 
+.radioText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 500;
+    -fx-font-size: 18px;
+}
+
 .foarmText{
     -fx-font-family: "Arial";
     -fx-font-weight: 900;

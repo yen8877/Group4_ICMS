@@ -1,2 +1,6 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$f13cdaaa-47d3-423a-b83d-da9e3914808a
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$33c40730-c9c4-4238-8c69-2c2d218f889e
+z
+java:S25892"7Remove this expression which always evaluates to "true"(¡ææú8§¤¬Ÿ÷1J$f43c5b55-ae79-4816-acd3-1c6fbf8abcc0
+—
+java:S1128"ORemove this unused import 'com.example.group4_icms.Functions.DTO.DependentDTO'.(¶’¦®ýÿÿÿÿ8«¤¬Ÿ÷1J$05c93895-f762-4a54-b04f-9392a42ae5d6

@@ -3,33 +3,28 @@ package com.example.group4_icms.NavigationController;
 import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
-import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.RadioButton;
 
 public class AdminNavigationController extends BaseController {
 
@@ -38,8 +33,10 @@ public class AdminNavigationController extends BaseController {
     private PolicyOwnerDAO policyOwnerDao = new PolicyOwnerDAO();
 
     private InsuranceProviderDAO providerDao = new InsuranceProviderDAO();
+    private InsuranceCardDAO insuranceCardDao = new InsuranceCardDAO();
 
     private AdminDAO adminDao = new AdminDAO();
+    private ProviderDAO providerDAO = new ProviderDAO();
 
     private static final Logger logger = LoggerFactory.getLogger(CustomerFormController.class);
     public StackPane TableContentArea;
@@ -81,6 +78,13 @@ public class AdminNavigationController extends BaseController {
     @FXML
     private TextField addCustomerPolicyOwnerIdfield;
 
+    @FXML
+    private RadioButton radioSurveyor, radioManager;
+    @FXML
+    private ToggleGroup roleToggleGroup;
+
+
+    // Add Customer
     private String generateCustomerId(Connection conn) throws SQLException {
         while (true) {
             int number = (int) (Math.random() * 10000000);
@@ -97,111 +101,258 @@ public class AdminNavigationController extends BaseController {
         }
     }
 
+    public void saveDependent() {
+        Connection conn = JDBCUtil.connectToDatabase();
+        if (conn == null) {
+            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to connect to the database."));
+            return;
+        }
 
-//    public void saveCustomer() {
-//        try {
-//            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
-//            String dependentId = addCustomerIdfield.getText();
-//            String dependentPassword = addCustomerPwfield.getText();
-//            String dependentName = addCustomeNamefield.getText();
-//            String dependentEmail = addCustomerEmailfield.getText();
-//            String dependentPhone = addCustomerPhonefield.getText();
-//            String dependentAddress = addCustomerAddressfield.getText();
-//            String customerType = addCustomerTypefield.getText();
-//            // policyOwner는 자동으로 입력되어야함.
-//            LocalDate expirationDate = LocalDate.parse(addCustomerExdatefield.getValue());
-//            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
-//
-//            DependentDTO dependent = new DependentDTO();
-//            dependent.setPolicyHolderId(policyHolderId);
-//            dependent.setID(dependentId);
-//            dependent.setPassword(dependentPassword);
-//            dependent.setFullName(dependentName);
-//            dependent.setPhone(dependentPhone);
-//            dependent.setAddress(dependentAddress);
-//            dependent.setEmail(dependentEmail);
-//            dependent.setCustomerType(customerType);
-//            dependent.setExpirationDate(expirationDate);
-//            dependent.setEffectiveDate(LocalDateTime.now());
-//            dependent.setInsuranceCard(insuranceCardNumber);
-//
-//            boolean isAdded = dependentDao.addCustomerAndDependent(dependent);
-//            String result = isAdded ? "Dependent added successfully" : "Failed to add dependent";
-//            resultLabel.setText(result);
-//        } catch (Exception e) {
-//            resultLabel.setText("Error processing the dependent: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//    }
+        try {
+            conn.setAutoCommit(false);  // Start transaction
 
-public void savePolicyHolder() {
-    Connection conn = JDBCUtil.connectToDatabase();
-    if (conn == null) {
-        Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to connect to the database."));
-        return;
-    }
+            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
 
-    try {
-            conn.setAutoCommit(false);  // Disable auto-commit to manage transaction manually
-
-            String policyOwnerId = addCustomerPoliyownerfield.getText();
-            String policyOwnerName = addCustomerPoliyownerNamefield.getText();
-
-            if (!policyOwnerExists(conn, policyOwnerId, policyOwnerName)) {
-                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Validation Error", "Non-existent or mismatched Policy Owner, or incorrect role."));
+            // Validate policy holder existence and role
+            if (!new DependentDAO().policyHolderExists(conn, policyHolderId)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid or non-existent Policy Holder ID"));
                 return;
             }
 
-            String policyHolderId = generateCustomerId(conn); // Generate new PolicyHolder ID
-            String policyHolderPassword = addCustomerPwfield.getText();
-            String policyHolderName = addCustomerNamefield.getText();
-            String policyHolderEmail = addCustomerEmailfield.getText();
-            String policyHolderPhone = addCustomerPhonefield.getText();
-            String policyHolderAddress = addCustomerAddressfield.getText();
-            LocalDate expirationDate = addCustomerExdatefield.getValue();  // Get the date from DatePicker
-            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
+            // Generate ID for the dependent
+            String dependentId = generateCustomerId(conn);
 
+            // Generate and insert insurance card first
+            String insuranceCardNumber = generateInsuranceCardId(conn);
+            InsuranceCardDTO insuranceCard = new InsuranceCardDTO();
+            insuranceCard.setCardNumber(insuranceCardNumber);
+            insuranceCard.setCardHolder(null);  // Initially null, updated later
+            insuranceCard.setPolicyOwner(findPolicyOwnerByPolicyHolderId(conn, policyHolderId));
+            insuranceCard.setEffectiveDate(LocalDateTime.now());
+            insuranceCard.setExpirationDate(addCustomerExdatefield.getValue());
+
+            if (!new InsuranceCardDAO().addInsuranceCard(insuranceCard)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add insurance card"));
+                return;
+            }
+
+            // Now insert the dependent with the insurance card number included
+            DependentDTO dependent = new DependentDTO();
+            dependent.setID(dependentId);
+            dependent.setPolicyHolderId(policyHolderId);
+            dependent.setPassword(addCustomerPwfield.getText());
+            dependent.setFullName(addCustomerNamefield.getText());
+            dependent.setPhone(addCustomerPhonefield.getText());
+            dependent.setAddress(addCustomerAddressfield.getText());
+            dependent.setEmail(addCustomerEmailfield.getText());
+            dependent.setCustomerType("Dependent");
+            dependent.setEffectiveDate(LocalDateTime.now());
+            dependent.setExpirationDate(addCustomerExdatefield.getValue());
+            dependent.setInsuranceCard(insuranceCardNumber);
+
+            if (!new DependentDAO().addCustomerAndDependent(dependent)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add dependent"));
+                return;
+            }
+
+            // Update the insurance card to set the dependent as the cardholder
+            if (!new InsuranceCardDAO().updateCardholder(insuranceCardNumber, dependentId)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Update Error", "Failed to update insurance card with cardholder ID"));
+                return;
+            }
+
+            conn.commit();
+            Platform.runLater(() -> {
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Dependent and insurance card added successfully");
+                clearForm();  // Clear the form fields on successful addition
+            });
+        } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "System Error", "An unexpected error occurred: " + e.getMessage()));
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(conn);
+        }
+    }
+
+    private String findPolicyOwnerByPolicyHolderId(Connection conn, String policyHolderId) throws SQLException {
+        String query = "SELECT policyownerid FROM policyholder WHERE c_id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, policyHolderId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("policyownerid");
+            }
+        }
+        return null; // Return null if no policy owner found
+    }
+
+
+
+//    public void saveDependent() {
+//        Connection conn = JDBCUtil.connectToDatabase();
+//        if (conn == null) {
+//            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to connect to the database."));
+//            return;
+//        }
+//
+//        try {
+//            conn.setAutoCommit(false);  // Start transaction
+//
+//            String policyHolderId = addCustomerPolicyHolderIdfield.getText();
+//            String dependentId = generateCustomerId(conn); // Generate a unique customer ID for the dependent
+//            DependentDTO dependent = new DependentDTO();
+//            dependent.setID(dependentId);
+//            dependent.setPolicyHolderId(policyHolderId);
+//            dependent.setPassword(addCustomerPwfield.getText());
+//            dependent.setFullName(addCustomerNamefield.getText());
+//            dependent.setPhone(addCustomerPhonefield.getText());
+//            dependent.setAddress(addCustomerAddressfield.getText());
+//            dependent.setEmail(addCustomerEmailfield.getText());
+//            dependent.setCustomerType("Dependent");
+//            dependent.setEffectiveDate(java.time.LocalDateTime.now());
+//            dependent.setInsuranceCard(addCustomerInsuranceCardfield.getText());  // Set the insurance card
+//
+//            if (addCustomerExdatefield.getValue() != null) {
+//                dependent.setExpirationDate(addCustomerExdatefield.getValue());
+//            }
+//
+//            DependentDAO dependentDao = new DependentDAO();
+//            if (dependentDao.addCustomerAndDependent(dependent)) {
+//                conn.commit(); // Commit the transaction
+//                Platform.runLater(() -> {
+//                    showAlert(Alert.AlertType.INFORMATION, "Success", "Dependent added successfully");
+//                    clearForm();  // Clear the form fields on successful addition
+//                });
+//            } else {
+//                conn.rollback();
+//                Platform.runLater(() -> {
+//                    showAlert(Alert.AlertType.ERROR, "Validation Error", "Failed to add dependent");
+//                    clearForm();  // Optionally, clear form even on failure to allow new entries
+//                });
+//            }
+//        } catch (Exception e) {
+//            if (conn != null) {
+//                try {
+//                    conn.rollback();
+//                } catch (SQLException ex) {
+//                    ex.printStackTrace();
+//                }
+//            }
+//            Platform.runLater(() -> {
+//                showAlert(Alert.AlertType.ERROR, "System Error", "An unexpected error occurred: " + e.getMessage());
+//                clearForm();  // Ensure form is cleared even on exception
+//            });
+//            e.printStackTrace();
+//        } finally {
+//            JDBCUtil.close(conn);
+//        }
+//    }
+
+    // Add Policy Holder
+    public void savePolicyHolder() {
+        Connection conn = JDBCUtil.connectToDatabase();
+        if (conn == null) {
+            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to connect to the database."));
+            return;
+        }
+
+        try {
+            conn.setAutoCommit(false);
+
+            // Retrieve data from text fields
+            String policyOwnerId = addCustomerPoliyownerfield.getText();
+            String policyOwnerName = getPolicyOwnerName(conn, policyOwnerId);
+            if (policyOwnerName == null || !policyOwnerExists(conn, policyOwnerId, policyOwnerName)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Policy Owner ID or Name"));
+                return;
+            }
+
+            // Generate IDs for the policy holder and their insurance card
+            String policyHolderId = generateCustomerId(conn);
+            String insuranceCardNumber = generateInsuranceCardId(conn);
+
+            // Collect additional information from the form
+            String holderName = addCustomerNamefield.getText();
+            String holderEmail = addCustomerEmailfield.getText();
+            String holderAddress = addCustomerAddressfield.getText();
+            String holderPhone = addCustomerPhonefield.getText();
+            String holderPassword = addCustomerPwfield.getText(); // Retrieve the password
+            LocalDate effectiveDate = LocalDate.now(); // Use current date for the effective date
+            LocalDate expirationDate = addCustomerExdatefield.getValue();
+
+            // Step 1: Add insurance card with NULL cardholder initially
+            InsuranceCardDTO insuranceCard = new InsuranceCardDTO();
+            insuranceCard.setCardNumber(insuranceCardNumber);
+            insuranceCard.setCardHolder(null); // Initially null
+            insuranceCard.setEffectiveDate(java.time.LocalDateTime.now());
+            insuranceCard.setExpirationDate(expirationDate);
+            insuranceCard.setPolicyOwner(policyOwnerId);
+
+            if (!insuranceCardDao.addInsuranceCard(insuranceCard)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add insurance card"));
+                return;
+            }
+
+            // Step 2: Add policy holder with the role "PolicyHolder"
             PolicyHolderDTO policyHolder = new PolicyHolderDTO();
             policyHolder.setID(policyHolderId);
-            policyHolder.setPassword(policyHolderPassword);
-            policyHolder.setFullName(policyHolderName);
-            policyHolder.setPhone(policyHolderPhone);
-            policyHolder.setAddress(policyHolderAddress);
-            policyHolder.setEmail(policyHolderEmail);
-            policyHolder.setCustomerType("PolicyHolder");
-            policyHolder.setExpirationDate(expirationDate);
-            policyHolder.setEffectiveDate(LocalDateTime.now());
+            policyHolder.setFullName(holderName);
+            policyHolder.setEmail(holderEmail);
+            policyHolder.setAddress(holderAddress);
+            policyHolder.setPhone(holderPhone);
+            policyHolder.setPassword(holderPassword);
             policyHolder.setInsuranceCard(insuranceCardNumber);
             policyHolder.setPolicyOwnerId(policyOwnerId);
             policyHolder.setPolicyOwnerName(policyOwnerName);
+            policyHolder.setCustomerType("PolicyHolder");
+            policyHolder.setEffectiveDate(java.time.LocalDateTime.now());
+            policyHolder.setExpirationDate(expirationDate);
 
-        boolean isAdded = policyHolderDao.addCustomerAndPolicyHolder(policyHolder);
-        if (isAdded) {
-            conn.commit(); // Commit transaction
-            Platform.runLater(() -> {
-                showAlert(Alert.AlertType.INFORMATION, "Success", "PolicyHolder added successfully");
-                System.out.println("Clearing form now...");
-                clearForm(); // Clear form after successful addition
-                System.out.println("Form cleared.");
-            });
-        } else {
-            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add PolicyHolder"));
-        }
-    } catch (Exception e) {
-        if (conn != null) {
-            try {
-                conn.rollback();  // Rollback transaction in case of error
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            if (!policyHolderDao.addCustomerAndPolicyHolder(policyHolder)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add PolicyHolder"));
+                return;
             }
-        }
-        Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "System Error", "An unexpected error occurred: " + e.getMessage()));
-        e.printStackTrace();
-    } finally {
-        JDBCUtil.close(conn);
-    }
-    }
 
+            // Step 3: Update insurance card with cardholder ID
+            if (!insuranceCardDao.updateCardholder(insuranceCardNumber, policyHolderId)) {
+                conn.rollback();
+                Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Update Error", "Failed to update insurance card with cardholder ID"));
+                return;
+            }
+
+            conn.commit();
+            Platform.runLater(() -> {
+                showAlert(Alert.AlertType.INFORMATION, "Success", "PolicyHolder and insurance card added successfully");
+                clearForm(); // Clear all form fields on successful transaction
+            });
+        } catch (Exception e) {
+            if (conn != null) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "System Error", "An unexpected error occurred: " + e.getMessage()));
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(conn);
+        }
+    }
 
     private boolean policyOwnerExists(Connection conn, String policyOwnerId, String policyOwnerName) throws SQLException {
         String query = "SELECT COUNT(*) FROM policyowner po " +
@@ -219,6 +370,20 @@ public void savePolicyHolder() {
         return false;  // Policy Owner does not exist or does not match
     }
 
+    private String getPolicyOwnerName(Connection conn, String policyOwnerId) throws SQLException {
+        String sql = "SELECT full_name FROM customer WHERE c_id = ? AND role = 'PolicyOwner'";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, policyOwnerId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("full_name");
+            }
+        }
+        return null; // Policy owner not found or not a policy owner
+    }
+
+
+    // Add Policy Owner
     public void savePolicyOwner() {
         Connection conn = JDBCUtil.connectToDatabase();
         if (conn == null) {
@@ -227,9 +392,9 @@ public void savePolicyHolder() {
         }
 
         try {
-            conn.setAutoCommit(false);  // Disable auto-commit to manage transaction manually
+            conn.setAutoCommit(false);
 
-            String policyOwnerId = generateCustomerId(conn);  // Generate new PolicyOwner ID automatically
+            String policyOwnerId = generateCustomerId(conn);
             String policyOwnerPassword = addCustomerPwfield.getText();
             String policyOwnerName = addCustomerNamefield.getText();
             String policyOwnerEmail = addCustomerEmailfield.getText();
@@ -245,7 +410,7 @@ public void savePolicyHolder() {
             policyOwner.setPhone(policyOwnerPhone);
             policyOwner.setAddress(policyOwnerAddress);
             policyOwner.setEmail(policyOwnerEmail);
-            policyOwner.setCustomerType("PolicyOwner"); // Always set as "PolicyOwner"
+            policyOwner.setCustomerType("PolicyOwner");
             policyOwner.setExpirationDate(expirationDate);
             policyOwner.setEffectiveDate(LocalDateTime.now());
             policyOwner.setInsuranceCard(insuranceCardNumber);
@@ -275,70 +440,110 @@ public void savePolicyHolder() {
             JDBCUtil.close(conn);
         }
     }
-//    public void savePolicyOwner() {
+
+    // Add Provider
+    private String generateProviderId(Connection conn) throws SQLException {
+        while (true) {
+            int number = (int) (Math.random() * 10000000);
+            String candidateId = String.format("p%07d", number);
+
+            String checkQuery = "SELECT COUNT(*) FROM insuranceprovider WHERE p_id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(checkQuery)) {
+                pstmt.setString(1, candidateId);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next() && rs.getInt(1) == 0) {
+                    return candidateId;  // Return if no duplicates are found
+                }
+            }
+        }
+    }
+
+    public void saveProvider() {
+        // Ensure that necessary fields are initialized and not null
+        if (addCustomerNamefield.getText().trim().isEmpty() || addCustomerPwfield.getText().trim().isEmpty() ||
+                addCustomerEmailfield.getText().trim().isEmpty() || addCustomerPhonefield.getText().trim().isEmpty() ||
+                addCustomerAddressfield.getText().trim().isEmpty()) {
+            showAlert(Alert.AlertType.ERROR, "Input Error", "All fields must be filled out.");
+            return;
+        }
+
+        // Check if a role is selected
+        RadioButton selectedRadioButton = (RadioButton) roleToggleGroup.getSelectedToggle();
+        if (selectedRadioButton == null) {
+            showAlert(Alert.AlertType.ERROR, "Input Error", "Role must be selected.");
+            return;
+        }
+        String providerRole = selectedRadioButton.getText();
+
+        Connection conn = JDBCUtil.connectToDatabase();
+        if (conn == null) {
+            showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to connect to the database.");
+            return;
+        }
+
+        try {
+            conn.setAutoCommit(false);
+            String providerId = generateProviderId(conn);
+            ProviderDTO provider = new ProviderDTO();
+            provider.setID(providerId);
+            provider.setPassword(addCustomerPwfield.getText());
+            provider.setFullName(addCustomerNamefield.getText());
+            provider.setPhone(addCustomerPhonefield.getText());
+            provider.setAddress(addCustomerAddressfield.getText());
+            provider.setEmail(addCustomerEmailfield.getText());
+            provider.setRole(providerRole);
+
+            if (providerDAO.addProvider(provider)) {
+                conn.commit();
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Provider added successfully");
+                clearForm(); // Clear all text fields after successful operation
+            } else {
+                conn.rollback();
+                showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add provider");
+            }
+        } catch (SQLException e) {
+            try {
+                if (conn != null) conn.rollback();
+            } catch (SQLException ex) {
+                showAlert(Alert.AlertType.ERROR, "Database Error", "Error rolling back transaction: " + ex.getMessage());
+            }
+            showAlert(Alert.AlertType.ERROR, "Database Error", "Error processing the provider: " + e.getMessage());
+        } finally {
+            JDBCUtil.close(conn);
+        }
+    }
+
+
+//    public void saveProvider() {
 //        try {
-//            String policyOwnerId = addCustomerPolicyOwnerIdfield.getText();
-//            String policyOwnerPassword = addCustomerPwfield.getText();
-//            String policyOwnerName = addCustomeNamefield.getText();
-//            String policyOwnerEmail = addCustomerEmailfield.getText();
-//            String policyOwnerPhone = addCustomerPhonefield.getText();
-//            String policyOwnerAddress = addCustomerAddressfield.getText();
-//            String customerType = addCustomerTypefield.getText();
-//            LocalDate expirationDate = LocalDate.parse(addCustomerExdatefield.getValue());
-//            String insuranceCardNumber = addCustomerInsuranceCardfield.getText();
+//            String providerId = addCustomerPolicyOwnerIdfield.getText();
+//            String providerPassword = addCustomerPwfield.getText();
+//            String providerName = addCustomerNamefield.getText();
+//            String providerEmail = addCustomerEmailfield.getText();
+//            String providerPhone = addCustomerPhonefield.getText();
+//            String providerAddress = addCustomerAddressfield.getText();
+//            String providerRole = addCustomerTypefield.getText();
 //
-//            PolicyOwnerDTO policyOwner = new PolicyOwnerDTO();
-//            policyOwner.setID(policyOwnerId);
-//            policyOwner.setPassword(policyOwnerPassword);
-//            policyOwner.setFullName(policyOwnerName);
-//            policyOwner.setPhone(policyOwnerPhone);
-//            policyOwner.setAddress(policyOwnerAddress);
-//            policyOwner.setEmail(policyOwnerEmail);
-//            policyOwner.setCustomerType(customerType);
-//            policyOwner.setExpirationDate(expirationDate);
-//            policyOwner.setEffectiveDate(LocalDateTime.now());
-//            policyOwner.setInsuranceCard(insuranceCardNumber);
-//            policyOwner.setPolicyOwnerName(policyOwnerName);
+//            ProviderDTO provider = new ProviderDTO();
+//            provider.setID(providerId);
+//            provider.setPassword(providerPassword);
+//            provider.setFullName(providerName);
+//            provider.setPhone(providerPhone);
+//            provider.setAddress(providerAddress);
+//            provider.setEmail(providerEmail);
+//            provider.setRole(providerRole);
 //
 //
-//            boolean isAdded = policyOwnerDao.addCustomerAndPolicyOwner(policyOwner);
-//            String result = isAdded ? "PolicyOwner added successfully" : "Failed to add PolicyOwner";
+//            boolean isAdded = providerDao.addProvider(provider);
+//            String result = isAdded ? "Provider added successfully" : "Failed to add Provider";
 //            resultLabel.setText(result);
 //        } catch (Exception e) {
-//            resultLabel.setText("Error processing the PolicyOwner: " + e.getMessage());
+//            resultLabel.setText("Error processing the Provider: " + e.getMessage());
 //            e.printStackTrace();
 //        }
 //    }
 
-    public void saveProvider() {
-        try {
-            String providerId = addCustomerPolicyOwnerIdfield.getText();
-            String providerPassword = addCustomerPwfield.getText();
-            String providerName = addCustomerNamefield.getText();
-            String providerEmail = addCustomerEmailfield.getText();
-            String providerPhone = addCustomerPhonefield.getText();
-            String providerAddress = addCustomerAddressfield.getText();
-            String providerRole = addCustomerTypefield.getText();
-
-            ProviderDTO provider = new ProviderDTO();
-            provider.setID(providerId);
-            provider.setPassword(providerPassword);
-            provider.setFullName(providerName);
-            provider.setPhone(providerPhone);
-            provider.setAddress(providerAddress);
-            provider.setEmail(providerEmail);
-            provider.setRole(providerRole);
-
-
-            boolean isAdded = providerDao.addProvider(provider);
-            String result = isAdded ? "Provider added successfully" : "Failed to add Provider";
-            resultLabel.setText(result);
-        } catch (Exception e) {
-            resultLabel.setText("Error processing the Provider: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
+    // Add Admin
     private String generateAdminId(Connection conn) throws SQLException {
         while (true) {
             int number = (int) (Math.random() * 10000000);  // Generate a random seven-digit number
@@ -409,6 +614,7 @@ public void savePolicyHolder() {
         addCustomerPoliyownerNamefield.clear();
         addCustomerPolicyOwnerIdfield.clear();
         addCustomerInsuranceCardfield.clear();
+        addCustomerPolicyHolderIdfield.clear();
         if (addCustomerExdatefield != null) {
             addCustomerExdatefield.setValue(null);
         }
@@ -441,12 +647,7 @@ public void savePolicyHolder() {
 
     @FXML
     private void loadAddUserManagement() {
-        loadUI("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml");
-    }
-
-    @FXML
-    private void loadEntityManagement() {
-        loadUI("/com/example/group4_icms/fxml/Admin_EntityManagement.fxml");
+        loadUI("/com/example/group4_icms/fxml/Admin_addDependentForm.fxml");
     }
 
     @FXML
@@ -501,33 +702,51 @@ public void savePolicyHolder() {
         }
     }
 
-    @FXML
-    private void saveCustomer(ActionEvent event) {
-        if (!validateInput()) {
-            return; // Validation failed
-        }
+//    @FXML
+//    private void saveCustomer(ActionEvent event) {
+//        if (!validateInput()) {
+//            return; // Validation failed
+//        }
+//
+//        try {
+//            CustomerDTO customer = new CustomerDTO(
+//                    addCustomerIdfield.getText(),
+//                    addCustomerNamefield.getText(),
+//                    addCustomerPhonefield.getText(),
+//                    addCustomerAddressfield.getText(),
+//                    addCustomerEmailfield.getText(),
+//                    addCustomerPwfield.getText(),
+//                    addCustomerTypefield.getText(),
+//                    addCustomerPoliyownerfield.getText() // Ensure this matches the name in the DTO constructor
+//            );
+//
+//            CustomerDAO dao = new CustomerDAO();
+//            if (dao.addCustomer(customer)) {
+//                System.out.println("Customer added successfully");
+//            } else {
+//                System.out.println("Failed to add customer");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error adding customer: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
 
-        try {
-            CustomerDTO customer = new CustomerDTO(
-                    addCustomerIdfield.getText(),
-                    addCustomerNamefield.getText(),
-                    addCustomerPhonefield.getText(),
-                    addCustomerAddressfield.getText(),
-                    addCustomerEmailfield.getText(),
-                    addCustomerPwfield.getText(),
-                    addCustomerTypefield.getText(),
-                    addCustomerPoliyownerfield.getText() // Ensure this matches the name in the DTO constructor
-            );
+    // insurance card
+    private String generateInsuranceCardId(Connection conn) throws SQLException {
+        while (true) {
+            int part1 = (int) (Math.random() * 100000);
+            int part2 = (int) (Math.random() * 100000);
+            String candidateId = String.format("%05d-%05d", part1, part2);
 
-            CustomerDAO dao = new CustomerDAO();
-            if (dao.addCustomer(customer)) {
-                System.out.println("Customer added successfully");
-            } else {
-                System.out.println("Failed to add customer");
+            String checkQuery = "SELECT COUNT(*) FROM insurancecard WHERE cardnumber = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(checkQuery)) {
+                pstmt.setString(1, candidateId);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next() && rs.getInt(1) == 0) {
+                    return candidateId;
+                }
             }
-        } catch (Exception e) {
-            System.out.println("Error adding customer: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -581,7 +800,7 @@ public void savePolicyHolder() {
 
     public void loadAddCustomerForm() {
         try {
-            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addCustomerForm.fxml"));
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_addDependentForm.fxml"));
             contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
         } catch (IOException e) {
             e.printStackTrace();
