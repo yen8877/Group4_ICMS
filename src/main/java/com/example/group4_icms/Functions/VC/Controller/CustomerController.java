@@ -159,18 +159,87 @@ public class CustomerController {
 
     private boolean deleteCustomerFromDatabase(String cId) {
         Connection conn = JDBCUtil.connectToDatabase();
-        String sql = "DELETE FROM customer WHERE c_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, cId);
-            int affectedRows = pstmt.executeUpdate();
-            return affectedRows > 0;
+        try {
+            conn.setAutoCommit(false);  // 트랜잭션 시작
+
+            // policyholder 테이블에서 참조를 먼저 삭제합니다.
+            String deletePolicyholderSQL = "DELETE FROM policyholder WHERE c_id = ?";
+            try (PreparedStatement pstmtPolicyholder = conn.prepareStatement(deletePolicyholderSQL)) {
+                pstmtPolicyholder.setString(1, cId);
+                pstmtPolicyholder.executeUpdate();
+            }
+
+            // claim 테이블에서 'insuredPersonId' 참조를 먼저 삭제합니다.
+            String deleteClaimInsuredSQL = "DELETE FROM claim WHERE insuredpersonid = ?";
+            try (PreparedStatement pstmtClaimInsured = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                pstmtClaimInsured.setString(1, cId);
+                pstmtClaimInsured.executeUpdate();
+            }
+
+            // claim 테이블에서 'submittedById' 참조도 삭제합니다.
+            String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
+            try (PreparedStatement pstmtClaimSubmitted = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                pstmtClaimSubmitted.setString(1, cId);
+                pstmtClaimSubmitted.executeUpdate();
+            }
+
+
+            // dependents 테이블에서 참조를 먼저 삭제합니다.
+            String deleteDependentsSQL = "DELETE FROM dependents WHERE c_id = ?";
+            try (PreparedStatement pstmtDependents = conn.prepareStatement(deleteDependentsSQL)) {
+                pstmtDependents.setString(1, cId);
+                pstmtDependents.executeUpdate();
+            }
+
+            // insurancecard 테이블에서 'cardholder' 참조를 삭제합니다.
+            String deleteInsuranceCardHolderSQL = "DELETE FROM insurancecard WHERE cardholder = ?";
+            try (PreparedStatement pstmtInsuranceCardHolder = conn.prepareStatement(deleteInsuranceCardHolderSQL)) {
+                pstmtInsuranceCardHolder.setString(1, cId);
+                pstmtInsuranceCardHolder.executeUpdate();
+            }
+
+            // insurancecard 테이블에서 'policyowner' 참조도 삭제합니다.
+            String deleteInsurancePolicyOwnerSQL = "DELETE FROM insurancecard WHERE policyowner = ?";
+            try (PreparedStatement pstmtInsurancePolicyOwner = conn.prepareStatement(deleteInsurancePolicyOwnerSQL)) {
+                pstmtInsurancePolicyOwner.setString(1, cId);
+                pstmtInsurancePolicyOwner.executeUpdate();
+            }
+
+            // customer 테이블에서 insurancecard 참조를 먼저 삭제하거나 업데이트합니다.
+            String updateCustomerSQL = "UPDATE customer SET cardnumber = NULL WHERE c_id = ?";
+            try (PreparedStatement pstmtCustomerUpdate = conn.prepareStatement(updateCustomerSQL)) {
+                pstmtCustomerUpdate.setString(1, cId);
+                pstmtCustomerUpdate.executeUpdate();
+            }
+
+            // customer 테이블에서 데이터를 삭제합니다.
+            String deleteCustomerSQL = "DELETE FROM customer WHERE c_id = ?";
+            try (PreparedStatement pstmtCustomer = conn.prepareStatement(deleteCustomerSQL)) {
+                pstmtCustomer.setString(1, cId);
+                int affectedRows = pstmtCustomer.executeUpdate();
+                if (affectedRows > 0) {
+                    conn.commit();  // 트랜잭션 커밋
+                    return true;
+                } else {
+                    conn.rollback();  // 트랜잭션 롤백
+                    return false;
+                }
+            }
         } catch (SQLException e) {
             System.err.println("SQL error during customer deletion: " + e.getMessage());
+            try {
+                conn.rollback();  // 에러 발생시 롤백
+            } catch (SQLException ex) {
+                System.err.println("Transaction rollback failed: " + ex.getMessage());
+            }
             return false;
         } finally {
             JDBCUtil.close(conn);
         }
     }
+
+
+
 
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();

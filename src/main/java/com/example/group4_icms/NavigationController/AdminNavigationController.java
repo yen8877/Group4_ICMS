@@ -474,6 +474,11 @@ public void savePolicyHolder() {
         loadUIForTable("/com/example/group4_icms/fxml/Admin_ProviderTable.fxml");
     }
 
+    @FXML
+    private void loadUpadteCustomerForm() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_CustomerUpdate.fxml");
+    }
+
 
 
     private void loadUI(String ui) {
