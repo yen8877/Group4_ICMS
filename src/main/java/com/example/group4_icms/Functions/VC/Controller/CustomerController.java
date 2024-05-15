@@ -98,7 +98,7 @@ public class CustomerController {
     @FXML
     private TableView<Customer> tableView;
     @FXML
-    private TableColumn<Customer, String> colCId, colFullName, colPhoneNumber, colEmail, colAddress, colRole, colInsuranceCard, colPolicyOwnerName;
+    private TableColumn<Customer, String> colCId, colFullName, colPhoneNumber, colEmail, colAddress, colRole, colInsuranceCard, colPolicyOwner_Id;
     @FXML
     private TableColumn<Customer, LocalDate> colEffectiveDate, colExpirationDate;
     @FXML
@@ -122,7 +122,7 @@ public class CustomerController {
         colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colRole.setCellValueFactory(new PropertyValueFactory<>("role"));
         colInsuranceCard.setCellValueFactory(new PropertyValueFactory<>("insuranceCard"));
-        colPolicyOwnerName.setCellValueFactory(new PropertyValueFactory<>("policyOwnerName"));
+        colPolicyOwner_Id.setCellValueFactory(new PropertyValueFactory<>("policyowner_id"));
         colEffectiveDate.setCellValueFactory(new PropertyValueFactory<>("effectiveDate"));
         colExpirationDate.setCellValueFactory(new PropertyValueFactory<>("expirationDate"));
     }
@@ -254,7 +254,7 @@ public class CustomerController {
                         rs.getString("address"),
                         rs.getString("role"),
                         rs.getString("insurancecard"),
-                        rs.getString("policyowner_name"),
+                        rs.getString("policyowner_id"),
                         rs.getDate("effectivedate") != null ? rs.getDate("effectivedate").toLocalDate() : null,
                         rs.getDate("expirationdate") != null ? rs.getDate("expirationdate").toLocalDate() : null
                 ));
