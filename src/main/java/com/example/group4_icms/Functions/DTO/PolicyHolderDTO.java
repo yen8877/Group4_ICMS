@@ -117,4 +117,8 @@ public class PolicyHolderDTO {
     public void setInsuranceCard(String insuranceCard) {
         InsuranceCard = insuranceCard;
     }
+
+    public String getPolicyOwnerid() {
+        return policyOwnerId;
+    }
 }

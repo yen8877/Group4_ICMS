@@ -14,10 +14,11 @@ public class PolicyHolderDAO {
         Connection conn = null;
         PreparedStatement pstmt1 = null;
         PreparedStatement pstmt2 = null;
+        PreparedStatement pstmt3 = null;
         boolean success = false;
 
-        String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        String sql2 = "INSERT INTO policyholder (c_id, policyownerid, policyownername) VALUES (?, ?, ?)";
+        String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql2 = "INSERT INTO policyholder (c_id, policyownerid) VALUES (?, ?)";
 
         try {
             conn = JDBCUtil.connectToDatabase();
@@ -35,14 +36,13 @@ public class PolicyHolderDAO {
             pstmt1.setObject(8, policyholder.getExpirationDate());
             pstmt1.setObject(9, policyholder.getEffectiveDate());
             pstmt1.setString(10, policyholder.getFullName());
-            pstmt1.setString(11, policyholder.getPolicyOwnerName());
+            pstmt1.setString(11, policyholder.getPolicyOwnerid());
             pstmt1.executeUpdate();
 
             // dependents 테이블에 데이터 추가
             pstmt2 = conn.prepareStatement(sql2);
             pstmt2.setString(1, policyholder.getID());
             pstmt2.setString(2, policyholder.getPolicyOwnerId());
-            pstmt2.setString(3, policyholder.getPolicyOwnerName());
             pstmt2.executeUpdate();
 
             conn.commit();  // 트랜잭션 커밋
