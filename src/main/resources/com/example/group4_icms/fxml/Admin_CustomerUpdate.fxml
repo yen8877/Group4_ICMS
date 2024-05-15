@@ -56,16 +56,6 @@
                                     </GridPane.margin>
                                 </TextField>
 
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Customer ID" GridPane.rowIndex="1">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <TextField fx:id="newCustomerIdField" prefHeight="30.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </TextField>
 
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Password" GridPane.rowIndex="2">
                                     <GridPane.margin>
@@ -149,7 +139,7 @@
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                                     </GridPane.margin>
                                 </Text>
-                                <TextField fx:id="newPolicyOwnerNameField" prefHeight="30.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                <TextField fx:id="newPolicyOwner_IdField" prefHeight="30.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>

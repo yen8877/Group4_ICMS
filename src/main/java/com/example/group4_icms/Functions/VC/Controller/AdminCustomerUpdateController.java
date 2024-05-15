@@ -32,7 +32,7 @@ public class AdminCustomerUpdateController {
     @FXML
     private TextField newFullNameField;
     @FXML
-    private TextField newPolicyOwnerNameField;
+    private TextField newPolicyOwner_IdField;
     @FXML
     private TextField newRoleField;
     @FXML
@@ -50,7 +50,7 @@ public class AdminCustomerUpdateController {
         java.sql.Date newExpirationDate = newExpirationDateField.getValue() != null ? Date.valueOf(newExpirationDateField.getValue()) : null;
         java.sql.Date newEffectiveDate = newEffectiveDateField.getValue() != null ? Date.valueOf(newEffectiveDateField.getValue()) : null;
         String newFullName = newFullNameField.getText();
-        String newPolicyOwnerName = newPolicyOwnerNameField.getText();
+        String newPolicyOwner_Id = newPolicyOwner_IdField.getText();
         String newRole = newRoleField.getText();
 
         Connection connection = null;
@@ -58,7 +58,7 @@ public class AdminCustomerUpdateController {
 
         try {
             connection = JDBCUtil.connectToDatabase();
-            String updateSQL = "UPDATE public.customer SET password = ?, phonenumber = ?, address = ?, email = ?, expirationdate = ?, effectivedate = ?, full_name = ?, policyowner_name = ?, role = ? WHERE c_id = ?";
+            String updateSQL = "UPDATE public.customer SET password = ?, phonenumber = ?, address = ?, email = ?, expirationdate = ?, effectivedate = ?, full_name = ?, policyowner_id = ?, role = ? WHERE c_id = ?";
             preparedStatement = connection.prepareStatement(updateSQL);
             preparedStatement.setString(1, newPassword);
             preparedStatement.setString(2, newPhoneNumber);
@@ -67,7 +67,7 @@ public class AdminCustomerUpdateController {
             preparedStatement.setDate(5, newExpirationDate);
             preparedStatement.setDate(6, newEffectiveDate);
             preparedStatement.setString(7, newFullName);
-            preparedStatement.setString(8, newPolicyOwnerName);
+            preparedStatement.setString(8, newPolicyOwner_Id);
             preparedStatement.setString(9, newRole);
             preparedStatement.setString(10, customerIdToUpdate);
 

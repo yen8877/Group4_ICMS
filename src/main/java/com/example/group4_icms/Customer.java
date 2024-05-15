@@ -12,11 +12,11 @@ public class Customer {
     private LocalDate effectiveDate;
     private LocalDate expirationDate;
     private String insuranceCard;
-    private String policyOwnerName;
+    private String policyowner_id;
 
     // Constructor
     public Customer(String cId, String fullName, String phoneNumber, String email, String address,
-                    String role, String insuranceCard, String policyOwnerName,
+                    String role, String insuranceCard, String policyowner_id,
                     LocalDate effectiveDate, LocalDate expirationDate) {
         this.cId = cId;
         this.fullName = fullName;
@@ -25,7 +25,7 @@ public class Customer {
         this.address = address;
         this.role = role;
         this.insuranceCard = insuranceCard;
-        this.policyOwnerName = policyOwnerName;
+        this.policyowner_id = policyowner_id;
         this.effectiveDate = effectiveDate;
         this.expirationDate = expirationDate;
     }
@@ -103,12 +103,20 @@ public class Customer {
         this.insuranceCard = insuranceCard;
     }
 
-    public String getPolicyOwnerName() {
-        return policyOwnerName;
+    public String getPolicyowner_id() {
+        return policyowner_id;
     }
 
-    public void setPolicyOwnerName(String policyOwnerName) {
-        this.policyOwnerName = policyOwnerName;
+    public void setPolicyowner_id(String policyowner_id) {
+        this.policyowner_id = policyowner_id;
+    }
+
+    public String getcId() {
+        return cId;
+    }
+
+    public void setcId(String cId) {
+        this.cId = cId;
     }
 
     // toString() method to assist in debugging and logging
@@ -122,7 +130,7 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", role='" + role + '\'' +
                 ", insuranceCard='" + insuranceCard + '\'' +
-                ", policyOwnerName='" + policyOwnerName + '\'' +
+                ", policyowner_id='" + policyowner_id + '\'' +
                 ", effectiveDate=" + effectiveDate +
                 ", expirationDate=" + expirationDate +
                 '}';
