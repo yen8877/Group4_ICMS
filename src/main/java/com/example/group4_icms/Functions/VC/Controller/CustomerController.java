@@ -70,8 +70,9 @@
 //
 ////}
 //
-package com.example.group4_icms.Functions;
+package com.example.group4_icms.Functions.VC.Controller;
 
+import com.example.group4_icms.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -129,7 +130,7 @@ public class CustomerController {
 
     private void setupDeleteColumn() {
         colDelete.setCellFactory(param -> new TableCell<Customer, Void>() {
-            private final Button deleteButton = new Button("삭제");
+            private final Button deleteButton = new Button("delete");
 
             {
                 deleteButton.setOnAction(event -> {
