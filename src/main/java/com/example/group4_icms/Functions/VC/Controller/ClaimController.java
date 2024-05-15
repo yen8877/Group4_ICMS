@@ -66,7 +66,7 @@ public class ClaimController {
         colInsuredPersonId.setCellValueFactory(new PropertyValueFactory<>("insuredPersonId"));
         colSubmittedById.setCellValueFactory(new PropertyValueFactory<>("submittedById"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-        colBankingInfo.setCellValueFactory(new PropertyValueFactory<>("bankingInfo"));
+        colBankingInfo.setCellValueFactory(new PropertyValueFactory<>("bankinginfo"));
     }
 
     private void setupDeleteColumn() {
@@ -120,7 +120,7 @@ public class ClaimController {
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();
         // 데이터베이스에서 정확한 컬럼명을 반영하여 쿼리 수정
-        String query = "SELECT f_id, claimdate, examdate, claimamount, insuredpersonid, submittedbyid, status, \"bankingInfo\" FROM public.claim";
+        String query = "SELECT f_id, claimdate, examdate, claimamount, insuredpersonid, submittedbyid, status, \"bankinginfo\" FROM public.claim";
         try (PreparedStatement pstmt = conn.prepareStatement(query); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 masterData.add(new Claim(
@@ -131,7 +131,7 @@ public class ClaimController {
                         rs.getString("insuredpersonid"),
                         rs.getString("submittedbyid"),
                         rs.getString("status"),
-                        rs.getString("bankingInfo")  // 대소문자를 정확히 반영
+                        rs.getString("bankinginfo")  // 대소문자를 정확히 반영
                 ));
             }
         } catch (SQLException e) {
