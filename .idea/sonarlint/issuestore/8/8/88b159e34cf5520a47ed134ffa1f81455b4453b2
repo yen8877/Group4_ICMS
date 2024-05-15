@@ -1,19 +1,32 @@
 
+–
+java:S1192á"MDefine a constant instead of duplicating this literal "PolicyHolder" 3 times.(³¡Ùşÿÿÿÿ8Š÷½ñ÷1J$a8ebfcf4-0fa7-489f-a52c-eec478eaa61f
+š
+java:S1192â"QDefine a constant instead of duplicating this literal "Validation Error" 5 times.(ĞÃáÛúÿÿÿÿ8ê²²ğ÷1J$95a4e2e2-1dd5-40d5-8abf-69f0916950f2
 Ÿ
-java:S1104‚"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸:8åÖèÄ÷1J$bc3832cf-7aff-43d2-881a-b97a9081b498
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄJ$845bf7ed-ea4a-428a-b08c-15b39a3fe162
-w	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢J$379bfa3a-afcb-415e-b6fe-84f07a1a0697
-“	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿJ$54b91293-ab3a-48cd-98d7-580d29756d7c
-	java:S116‚"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸:8–×èÄ÷1J$3ff6edb6-b96a-4960-a875-088f6758c7c7
-ƒ
-java:S3416""BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿJ$a6e181b8-8a6e-4180-b3bb-6ab7d7b2dc58
-„	java:S125§"<This block of commented-out lines of code should be removed.(Ù¦ïÛûÿÿÿÿ8«×èÄ÷1J$c137a4e3-9dc5-4329-8b8e-6dae585bc69e
-}	java:S125Ø"<This block of commented-out lines of code should be removed.(Ï±ó“ıÿÿÿÿJ$304a9141-03d2-4ef5-9338-445c33e23360
-v
-java:S1172©"2Remove this unused method parameter "actionEvent".(à‹ó†8©›éÄ÷1J$4090d84d-5e9d-40eb-9307-b48586c4c684
-{
-java:S1172³"2Remove this unused method parameter "actionEvent".(ºËŒÏşÿÿÿÿ8©›éÄ÷1J$44f0864f-ce80-4ce9-8227-17f2d09fd385
-v
-java:S1172½"2Remove this unused method parameter "actionEvent".(¸ß’¤8ª›éÄ÷1J$c10dde07-1cdd-48e4-b458-8044dcdf77e8
-p
-java:S1068"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿJ$00190ac8-4351-4c16-8c3d-5002ce5931a8
+java:S1104 "\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸:8³¹®ğ÷1J$53f3964d-a27f-4923-bbe4-ebdee4a3257c
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄ8¶¹®ğ÷1J$0b753ffa-ac97-439e-ac5f-02344eb59889
+~	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢8¡º®ğ÷1J$b63c83d3-22d9-4933-b5ba-300deac202f2
+š	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿ8¢º®ğ÷1J$51c3a950-6a21-42c6-bbde-60db514ed896
+w	java:S116 "[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸:8Èœò÷1
+Š
+java:S3416 "BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿ8¢º®ğ÷1J$55f65b0f-df72-42db-b757-d19c366ada46
+h
+java:S1659V"KDeclare "claimSelfRadio" and all following declarations on a separate line.(ò«ƒË8Éœò÷1
+L
+java:S2140Í")Use "java.util.Random.nextInt()" instead.(İù˜ şÿÿÿÿ8Ôœò÷1
+R
+java:S2209Î"5Change this instance-reference to a static reference.(èÓ²8Ôœò÷1
+X
+java:S2209Š"5Change this instance-reference to a static reference.(ÇºÂ¡şÿÿÿÿ8Øœò÷1
+^	java:S125ö"<This block of commented-out lines of code should be removed.(¯¦¹úÿÿÿÿ8ãœò÷1
+^	java:S125Å"<This block of commented-out lines of code should be removed.(Ù¦ïÛûÿÿÿÿ8äœò÷1
+^	java:S125ö"<This block of commented-out lines of code should be removed.(Ï±ó“ıÿÿÿÿ8æœò÷1
+P
+java:S1172Ç"2Remove this unused method parameter "actionEvent".(à‹ó†8çœò÷1
+U
+java:S1172Ñ"2Remove this unused method parameter "actionEvent".(ºËŒÏşÿÿÿÿ8çœò÷1
+P
+java:S1172Û"2Remove this unused method parameter "actionEvent".(¸ß’¤8èœò÷1
+w
+java:S1068"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿ8·‚Ïğ÷1J$55faff7f-7169-4d0d-b756-abc37e74c84f

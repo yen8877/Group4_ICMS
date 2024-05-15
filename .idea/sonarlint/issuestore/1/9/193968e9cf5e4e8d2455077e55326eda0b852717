@@ -1,24 +1,24 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$de5b5046-a6b1-40d5-8714-2172e5372bb6
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$835156ab-8e60-4a0e-9c03-d96579b59e81
 z
-java:S2589C"7Remove this expression which always evaluates to "true"(¡ææú8¼Ä¿™÷1J$2596037d-a3fb-41b0-a0d3-ade0f78161e9
+java:S2589C"7Remove this expression which always evaluates to "true"(¡ææú8¼Ä¿™÷1J$3b677f2a-d405-4f42-8ebc-e2370f9428a0
 –
-java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(ôş±ªøÿÿÿÿ8÷ÕÉ÷1J$835914de-d6e6-4b3a-8e9a-10aaf4616f21
+java:S1128"NRemove this unused import 'com.example.group4_icms.Functions.DTO.CustomerDTO'.(ôş±ªøÿÿÿÿ8œ£óé÷1J$eb205f59-e4d0-4839-ae45-95d359f6169c
 –
-java:S1128"SRemove this unused import 'com.example.group4_icms.Functions.DTO.InsuranceCardDTO'.(ÎĞĞÔ8™âãÉ÷1J$24289ce1-499c-4399-bda4-1f1fc3454e3e
+java:S1128"SRemove this unused import 'com.example.group4_icms.Functions.DTO.InsuranceCardDTO'.(ÎĞĞÔ8œ£óé÷1J$844e10e6-ff94-46d5-a02a-5f1c94fbbd62
 €
-java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8™âãÉ÷1J$cffc6d4f-c29c-40a2-9637-0551410e6895
-S
-java:S1128"7Remove this unused import 'javafx.scene.control.Alert'.(ÊÇê:8‰úãÉ÷1
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8œ£óé÷1J$ac327ffc-01e9-4f5e-8253-a3cd727cab91
+y
+java:S1128"7Remove this unused import 'javafx.scene.control.Alert'.(ÊÇê:8œ£óé÷1J$ab432310-bc65-47e8-bc25-2eeea18bfa70
 x
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8÷ÕÉ÷1J$1e9aa88d-435c-412c-ab22-1b6fd4bf6456
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8£óé÷1J$4addd97f-187a-484e-a4d1-a09a2c0fc09c
 |
-java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8™âãÉ÷1J$391d5a30-72fb-4f03-881a-8a5685663208
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8£óé÷1J$b3a6309c-af94-4175-a5c8-da3e81fa2157
 s
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8÷ÕÉ÷1J$69cd5aab-66db-41eb-94ac-9ab7d9932a08
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8£óé÷1J$527e901d-9714-4435-8a5a-79f7b8253688
 u
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8÷ÕÉ÷1J$d02bf763-2d4e-4a15-8393-1f69d05299e7
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8£óé÷1J$1573bf1d-87b2-423f-90b0-1e51e686a8f7
 s
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8÷ÕÉ÷1J$27553e4e-453f-4ebb-a3f9-ecc882b0878b
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8£óé÷1J$e0a4d415-6620-44a6-966b-74304043c712
 s
-java:S1128"+Remove this unused import 'java.sql.Array'.(éìÜıÿÿÿÿÿ8÷ÕÉ÷1J$140abe16-d714-4e68-934f-f2dc55ee44d8
+java:S1128"+Remove this unused import 'java.sql.Array'.(éìÜıÿÿÿÿÿ8£óé÷1J$988c3b54-79ab-4972-9c16-7b331abaeae3

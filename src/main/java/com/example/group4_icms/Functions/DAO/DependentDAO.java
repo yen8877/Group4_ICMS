@@ -114,5 +114,51 @@ public class DependentDAO {
             return rs.next() && rs.getInt(1) > 0;
         }
     }
+    public DependentDTO findDependentById(String dependentId) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE c_id = ? AND role = 'Dependent'";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, dependentId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return mapRowToDependentDTO(rs);
+            }
+            return null;
+        }
+    }
+
+    public DependentDTO findDependentByIdAndPolicyHolderId(String dependentId, String policyHolderId) throws SQLException {
+        // Ensure the SQL query matches your actual database schema
+        String sql = "SELECT * FROM dependents d JOIN customer c ON d.c_id = c.c_id WHERE d.c_id = ? AND d.policyholderid = ? AND c.role = 'Dependent'";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, dependentId);
+            pstmt.setString(2, policyHolderId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return mapRowToDependentDTO(rs);
+            }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    private DependentDTO mapRowToDependentDTO(ResultSet rs) throws SQLException {
+        DependentDTO dependent = new DependentDTO();
+        dependent.setID(rs.getString("c_id"));
+        dependent.setFullName(rs.getString("full_name"));
+        dependent.setEmail(rs.getString("email"));
+        dependent.setPhone(rs.getString("phonenumber"));
+        dependent.setAddress(rs.getString("address"));
+        dependent.setCustomerType(rs.getString("role"));
+        dependent.setInsuranceCard(rs.getString("insurancecard"));
+        dependent.setExpirationDate(rs.getDate("expirationdate").toLocalDate());
+        dependent.setEffectiveDate(rs.getTimestamp("effectivedate").toLocalDateTime());
+        return dependent;
+    }
+
+
 
 }

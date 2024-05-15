@@ -123,5 +123,52 @@ public boolean addCustomer(CustomerDTO customer) {
         }
         return null;
     }
+    public static boolean isValidRole(String userId, String role) {
+        String sql = "SELECT COUNT(*) FROM customer WHERE c_id = ? AND role = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, userId);
+            pstmt.setString(2, role);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean isValidPolicyOwner(String policyOwnerId) {
+        String sql = "SELECT COUNT(*) FROM customer WHERE c_id = ? AND role = 'PolicyOwner'";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, policyOwnerId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt(1) > 0;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    // Fetch the full name of the customer by ID
+    public static String findFullNameById(String customerId) {
+        String sql = "SELECT full_name FROM customer WHERE c_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, customerId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("full_name");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error finding full name by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }
