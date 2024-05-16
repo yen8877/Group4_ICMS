@@ -5,6 +5,7 @@ import com.example.group4_icms.Functions.DTO.ClaimDTO;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -118,6 +119,53 @@ public class ClaimDAO {
         } while (claimIdExists(id));
         return id;
     }
+
+    public void addClaimDocument(ClaimDTO claimDTO, functions.ClaimDocumentsDTO claimDocumentsDTO){
+        String documents = claimDTO.getClaim_Documents() + ","+claimDocumentsDTO.getDocument_name();
+        claimDTO.setClaim_Documents(documents);
+        updateClaim(claimDTO);
+    }
+    public boolean deleteClaimDocumentByDocumentName(ClaimDTO claim, String documentName) {
+        // 클레임에서 문서를 제거
+        List<String> documents = new ArrayList<>(Arrays.asList(claim.getClaim_Documents().split(",")));
+        documents.remove(documentName);
+        String updatedDocuments = String.join(",", documents);
+        claim.setClaim_Documents(updatedDocuments);
+        boolean claimUpdated = updateClaim(claim);
+        if (!claimUpdated) {
+            System.err.println("Failed to update claim after removing document.");
+            return false;
+        }
+        functions.ClaimDocumentsDAO claimDocumentsDAO = new functions.ClaimDocumentsDAO();
+        return claimDocumentsDAO.deleteDocumentByName(documentName);
+    }
+//    public ClaimDTO getClaimByID(String claimID) {
+//        String sql = "SELECT * FROM claim WHERE f_id = ?";
+//        try (Connection conn = JDBCUtil.connectToDatabase();
+//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//            pstmt.setString(1, claimID);
+//            ResultSet rs = pstmt.executeQuery();
+//
+//            if (rs.next()) {
+//                ClaimDTO claim = new ClaimDTO();
+//                claim.setId(rs.getString("f_id"));
+//                claim.setClaimDate(rs.getTimestamp("claimdate"));
+//                claim.setExamDate(rs.getDate("examdate"));
+//                claim.setClaimAmount(rs.getDouble("claimamount"));
+//                claim.setInsuredPersonId(rs.getString("insuredpersonid"));
+//                claim.setSubmittedById(rs.getString("submittedbyid"));
+//                claim.setStatus(rs.getString("status"));
+//                claim.setBankingInfo(rs.getString("bankinginfo"));
+//                claim.setClaim_Documents(rs.getString("claim_documents"));
+//
+//                return claim;
+//            }
+//        } catch (SQLException e) {
+//            System.err.println("Error fetching claim by ID: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
 
 }

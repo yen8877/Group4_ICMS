@@ -7,6 +7,7 @@ module com.example.group4_icms {
     requires java.sql;
     requires org.slf4j;
     requires jdk.javadoc;
+    requires java.desktop;
 
     opens com.example.group4_icms.Functions to javafx.fxml, javafx.base;
 
