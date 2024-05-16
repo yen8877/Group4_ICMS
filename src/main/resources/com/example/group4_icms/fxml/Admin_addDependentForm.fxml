@@ -106,16 +106,6 @@
                                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                     </GridPane.margin>
                                 </TextField>
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="Expiration Date" GridPane.rowIndex="6">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <DatePicker fx:id="addCustomerExdatefield" prefHeight="26.0" prefWidth="774.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </DatePicker>
                             </children>
                         </GridPane>
                         <Button id="customerSave-btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#saveDependent" stylesheets="@../css/form.css" text="Save" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />

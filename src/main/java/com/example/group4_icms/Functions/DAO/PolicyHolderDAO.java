@@ -59,6 +59,7 @@ public class PolicyHolderDAO {
         } finally {
             JDBCUtil.close(pstmt1);
             JDBCUtil.close(pstmt2);
+            JDBCUtil.close(pstmt3);
             JDBCUtil.close(conn);
         }
         return success;
