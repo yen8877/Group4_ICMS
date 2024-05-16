@@ -15,14 +15,14 @@
 
 <Pane id="mainContent" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.AdminCustomerUpdateController">
     <children>
-        <VBox prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/form.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox prefHeight="1024.0" prefWidth="1385.0" stylesheets="@../css/form.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Customer" wrappingWidth="579.7972412109375">
                     <VBox.margin>
                         <Insets left="0.0" top="0.0" />
                     </VBox.margin>
                 </Text>
-                <AnchorPane id="formContainer" prefHeight="700.0" prefWidth="1036.0" stylesheets="@../css/form.css">
+                <AnchorPane id="formContainer" prefHeight="700.0" prefWidth="1385.0" stylesheets="@../css/form.css">
                     <VBox.margin>
                         <Insets bottom="30.0" left="0.0" right="30.0" top="0.0" />
                     </VBox.margin>
