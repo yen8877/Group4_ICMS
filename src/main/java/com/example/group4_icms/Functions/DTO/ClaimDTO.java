@@ -15,8 +15,10 @@ public class ClaimDTO {
     private double ClaimAmount;
 
     private String policyHolderId;
+    private String bankingInfo;
 
     private String submittedById;
+    private String status;
 
     public String getSubmittedById() {
         return submittedById;
@@ -30,7 +32,13 @@ public class ClaimDTO {
         return policyHolderId;
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public void setPolicyHolderId(String policyHolderId) {
         this.policyHolderId = policyHolderId;
@@ -84,6 +92,14 @@ public class ClaimDTO {
 
     public void setClaimDate(LocalDateTime claimDate) {
         ClaimDate = claimDate;
+    }
+
+    public void setBankingInfo(String bankingInfo) {
+        this.bankingInfo = bankingInfo;
+    }
+
+    public String getBankingInfo() {
+        return bankingInfo;
     }
 
 //    @Override

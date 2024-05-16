@@ -1,31 +1,17 @@
 
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ8ñ·…öó1J$0d8412c6-7cf4-4e20-8155-edc48b8aa9e4
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ8«Èâê÷1J$5c90bf5c-490b-4eed-882b-f8298d4945ac
+}	java:S125*"<This block of commented-out lines of code should be removed.(±Žâ18Ã–Àñ÷1J$b2566186-741b-4b76-ac32-483ac1041734
 €
-java:S1117"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8€¸…öó1J$6da6f55d-f701-49b7-8655-37b114786d44
+java:S1117V"8Rename "conn" which hides the field declared at line 13.(¶þö°ÿÿÿÿÿ8³®Àñ÷1J$b9257129-fd78-4bce-bfd8-cb62cb134a87
 |
-java:S1117"9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8€¸…öó1J$0a4b7d27-79d9-4b3f-af54-77519e56082a
-€
-java:S1117!"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8¸…öó1J$22f75604-1985-4f2f-b6e6-47d1f3bded86
-|
-java:S1117""9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8¸…öó1J$cdf1312e-82af-472c-9bcc-f247a7cf35cc
-ƒ	java:S125/"<This block of commented-out lines of code should be removed.(—š–Üýÿÿÿÿ8ƒ¸…öó1J$76f25774-34da-48aa-b1a8-b2019ca0a9d6
-~	java:S125@"<This block of commented-out lines of code should be removed.(¾áâ¥8ƒ¸…öó1J$885a4707-dd70-4f4d-8afd-221170198e7c
-€
-java:S1117P"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8ƒ¸…öó1J$2fdab0ff-c74c-4d48-996f-51b1cd7976e6
-|
-java:S1117Q"9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8ƒ¸…öó1J$5c2fd3dd-76c9-49f2-ab5b-b9b365b4e6ab
-€
-java:S1117d"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8…¸…öó1J$4472d72d-b699-4aa5-bcc1-d7df61eb4a8a
-|
-java:S1117e"9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8…¸…öó1J$d95b731c-07ec-4689-a7b7-85944ee7f648
-€
-java:S1117x"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8†¸…öó1J$44f1b218-35f3-4891-8866-44695f692a47
-|
-java:S1117y"9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8†¸…öó1J$0c451562-05de-4c80-b29b-d85d0485b372
-
-java:S1117‡"8Rename "conn" which hides the field declared at line 12.(¶þö°ÿÿÿÿÿ8ˆ¸…öó1J$831f06e5-e200-442f-8eb9-d13b25cf0f84
-}
-java:S1117ˆ"9Rename "pstmt" which hides the field declared at line 13.(…»‘Š8ˆ¸…öó1J$2057e9c6-9446-4cb6-8816-6d97ff9e3254
-n	java:S106–"+Replace this use of System.out by a logger.(–Äæ½8‰¸…öó1J$3afd8582-bb1c-4d2a-b9d7-8d2ee056f461
+java:S1117W"9Rename "pstmt" which hides the field declared at line 14.(…»‘Š8³®Àñ÷1J$101a5e6b-0730-405c-9f11-2b591083d3f3
+`
+java:S2119q"Save and re-use this "Random".(¼ÝÅf8¬…¾ð÷1J$50ccd2ca-98cf-4099-a217-dee94978184c
+ƒ	java:S125~"<This block of commented-out lines of code should be removed.(—š–Üýÿÿÿÿ8´Èâê÷1J$e874a077-ee3e-427f-9945-37cd219651d9
+	java:S125"<This block of commented-out lines of code should be removed.(¾áâ¥8´Èâê÷1J$ac2ffe0b-1434-4128-8479-9986c06e98bd
 x
-java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8´Î£öó1J$8ce993ab-0340-4a13-ba65-25b211a0233b
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8ÕÃ—ñ÷1J$03403689-00de-43c4-a03d-55b8150cdbf4
+s
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÕÃ—ñ÷1J$0a47f0d7-d8a1-479f-a40a-0bc46b07ab56
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ÕÃ—ñ÷1J$cc5ae91a-a42f-4a80-ab56-d493cbd51223

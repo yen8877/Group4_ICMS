@@ -10,6 +10,13 @@
     -fx-font-size: 18px;
 }
 
+.resultText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 30px;
+    -fx-text-fill:#C00D0D ;
+}
+
 .foarmText{
     -fx-font-family: "Arial";
     -fx-font-weight: 900;

@@ -6,15 +6,61 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ClaimDAO {
 
     Connection conn;
     PreparedStatement pstmt;
+    public static boolean isValidRole(String customerId, String role) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM customer WHERE c_id = ? AND role = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, customerId);
+            pstmt.setString(2, role);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1) > 0;
+        }
+    }
 
-    public boolean addClaim(ClaimDTO claim) {
+    // Fetch full name by customer ID
+    public static String findFullNameById(String customerId) throws SQLException {
+        String sql = "SELECT full_name FROM customer WHERE c_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, customerId);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getString("full_name");
+            }
+            return null;  // Or throw an exception if preferred
+        }
+    }
 
-        String sql = "INSERT INTO claim (f_id, claimdate,examdate, claimamount, insuredpersonid, submittedbyid) VALUES (?, ?, ?, ?, ?, ?)";
+    // Adding a new claim
+//    public static boolean addClaim(ClaimDTO claim) throws SQLException {
+//        String sql = "INSERT INTO claim (f_id, claimdate, examdate, claimamount, insuredpersonid, submittedbyid, status, bankinginfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+//        try (Connection conn = JDBCUtil.connectToDatabase();
+//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//            pstmt.setString(1, claim.getId());
+//            pstmt.setTimestamp(2, Timestamp.valueOf(claim.getClaimDate()));
+//            pstmt.setDate(3, Date.valueOf(claim.getExamDate()));
+//            pstmt.setDouble(4, claim.getClaimAmount());
+//            pstmt.setString(5, claim.getInsuredPersonId());
+//            pstmt.setString(6, claim.getSubmittedById());
+//            pstmt.setString(7, claim.getStatus());
+//            pstmt.setString(8, claim.getBankingInfo());
+//            int affectedRows = pstmt.executeUpdate();
+//            return affectedRows > 0;
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//        }
+    public static boolean addClaim(ClaimDTO claim) {
+
+        String sql = "INSERT INTO claim (f_id, claimdate,examdate, claimamount, insuredpersonid, submittedbyid, status, bankinginfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, claim.getId());
@@ -23,7 +69,8 @@ public class ClaimDAO {
             pstmt.setDouble(4, claim.getClaimAmount());
             pstmt.setString(5, claim.getInsuredPersonId());
             pstmt.setString(6, claim.getSubmittedById());
-
+            pstmt.setString(7, claim.getStatus());
+            pstmt.setString(8, claim.getBankingInfo());
 
             int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
@@ -32,6 +79,7 @@ public class ClaimDAO {
             return false;
         }
     }
+
 
     public boolean updateClaim(ClaimDTO claim) {
         String sql = "UPDATE claim SET examdate = ?, claimamount = ? WHERE f_id = ?";
@@ -48,6 +96,32 @@ public class ClaimDAO {
             return false;
         }
     }
+    public static boolean claimIdExists(String claimId) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM claim WHERE f_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, claimId);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();  // Advance cursor to the first record
+            return rs.getInt(1) > 0;  // True if there is at least one entry
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;  // Assume failure means not found
+        }
+    }
+    public static String generateUniqueClaimId() throws SQLException {
+        Random random = new Random();
+        String id;
+        do {
+            long number = random.nextLong(10_000_000_000L);
+            id = "f" + String.format("%010d", number);
+        } while (claimIdExists(id));
+        return id;
+    }
+
+
+}
+
 
 //    public List<String> getAllClaims() {
 //        List<String> claims = new ArrayList<>();
@@ -157,6 +231,3 @@ public class ClaimDAO {
 //        }
 //        return claims;
 //    }
-
-
-}

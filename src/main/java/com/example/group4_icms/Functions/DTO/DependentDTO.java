@@ -19,6 +19,7 @@ public class DependentDTO {
     private LocalDate expirationDate;
     private LocalDateTime effectiveDate;
     private String customerType;
+    private String policyownerId;
 
     public String getCustomerType() {
         return customerType;
@@ -109,6 +110,10 @@ public class DependentDTO {
         InsuranceCard = insuranceCard;
     }
 
-    public void setPolicyOwnerName(String policyownerName) {
+
+    public String getPolicyOwnerId(){return policyownerId;}
+
+    public void setPolicyOwnerId(String policyOwnerId) {
+        this.policyownerId = policyOwnerId;
     }
 }

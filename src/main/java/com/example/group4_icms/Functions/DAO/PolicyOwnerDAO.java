@@ -16,7 +16,7 @@ public class PolicyOwnerDAO {
         PreparedStatement pstmt2 = null;
         boolean success = false;
 
-        String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql1 = "INSERT INTO customer (c_id, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_id) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         String sql2 = "INSERT INTO policyowner (c_id) VALUES (?)";
 
         try {
@@ -26,16 +26,15 @@ public class PolicyOwnerDAO {
             // customer 테이블에 데이터 추가
             pstmt1 = conn.prepareStatement(sql1);
             pstmt1.setString(1, policyowner.getID());
-            pstmt1.setString(2, policyowner.getInsuranceCard());
-            pstmt1.setString(3, policyowner.getPassword());
-            pstmt1.setString(4, policyowner.getPhone());
-            pstmt1.setString(5, policyowner.getAddress());
-            pstmt1.setString(6, policyowner.getEmail());
-            pstmt1.setString(7, policyowner.getCustomerType());
-            pstmt1.setObject(8, policyowner.getExpirationDate());
-            pstmt1.setObject(9, policyowner.getEffectiveDate());
-            pstmt1.setString(10, policyowner.getFullName());
-            pstmt1.setString(11, policyowner.getPolicyOwnerName());
+            pstmt1.setString(2, policyowner.getPassword());
+            pstmt1.setString(3, policyowner.getPhone());
+            pstmt1.setString(4, policyowner.getAddress());
+            pstmt1.setString(5, policyowner.getEmail());
+            pstmt1.setString(6, policyowner.getCustomerType());
+            pstmt1.setObject(7, policyowner.getExpirationDate());
+            pstmt1.setObject(8, policyowner.getEffectiveDate());
+            pstmt1.setString(9, policyowner.getFullName());
+            pstmt1.setString(10, policyowner.getPolicyOwnerId());
             pstmt1.executeUpdate();
 
             // dependents 테이블에 데이터 추가

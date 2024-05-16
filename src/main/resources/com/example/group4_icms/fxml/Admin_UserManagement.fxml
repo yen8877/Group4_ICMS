@@ -66,6 +66,8 @@
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddProviderForm" stylesheets="@../css/table.css" text="Add New Provider" />
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddAdminForm" stylesheets="@../css/table.css" text="Add New Admin" />
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadUpadteCustomerForm" stylesheets="@../css/table.css" text="Update Customer" />
+                        <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadUpadteProviderForm" stylesheets="@../css/table.css" text="Update Provider" />
+                        <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadUpadteSystemAdminForm" stylesheets="@../css/table.css" text="Update Admin" />
                     </children>
                     <padding>
                         <Insets bottom="0.0" left="30.0" right="30.0" top="10.0" />

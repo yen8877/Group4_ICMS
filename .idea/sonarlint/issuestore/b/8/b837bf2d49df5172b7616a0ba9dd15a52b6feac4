@@ -1,17 +1,15 @@
 
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÄœÆµò1J$e0e3d2cb-178a-4aa2-ac6b-f3a931a5c4c8
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8°õÆµò1J$e1b30aa5-170e-4b85-82ea-2bb218099a2a
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8ÃáÇµò1J$e0218835-82b2-46be-8228-3669cbc12a3c
-“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯…Û“8¯„Èµò1J$d3d13c00-2179-4381-bc2d-479583eb2306
-œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8§øğò1J$37c96d9c-a383-44a3-bc9d-48192497432b
-	java:S116"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8©øğò1J$d7f7d9d2-d30d-4ced-aa5d-33379498e595
-•	java:S116"TRename this field "ClaimDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àûµu8©øğò1J$8c291bee-0ec3-4018-9e81-b0c921122aec
-¡	java:S116	"ZRename this field "InsuredPersonId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Çúöûÿÿÿÿ8©øğò1J$3967b5cd-9863-4650-811e-2634a92c7580
-”	java:S116"RRename this field "CardNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô±³È8©øğò1J$34015e7e-c0cc-466e-8784-60aca4064a79
-š	java:S116"SRename this field "ExamDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ü“òşÿÿÿÿ8©øğò1J$30d8713b-46e6-4aa6-b3ce-03068b241bb6
-	java:S116"VRename this field "ClaimAmount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ×‘üÿÿÿÿ8©øğò1J$1c2fb236-4d00-46e3-b114-16bacc8bc542
-ƒ	java:S125
-"<This block of commented-out lines of code should be removed.(Á¥¡üÿÿÿÿ8ªøğò1J$9b3fe6e3-d1c9-4730-9f4d-ce477f57cc49
-ƒ	java:S125"<This block of commented-out lines of code should be removed.(åã¡ÿÿÿÿÿ8«øğò1J$583b2422-7fb4-460b-be5a-c218fe241065
-y
-java:S1068"1Remove this unused "submittedById" private field.(© Æôıÿÿÿÿ8îëÈµò1J$7f974ec9-edda-46cb-a2e0-82594dbc5a31
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8ŸÚÑé÷1J$09f78998-fa62-4a39-bc41-594793a3d6c1
+	java:S116
+"MRename this field "Id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ÖÒß8¡ÚÑé÷1J$0ea5ea34-b447-4baf-8cf8-664e91e88991
+›	java:S116"TRename this field "ClaimDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùçÍÚüÿÿÿÿ8¡ÚÑé÷1J$e4573ee4-381c-47e4-8c01-5682eee2905f
+¡	java:S116"ZRename this field "InsuredPersonId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Çúöûÿÿÿÿ8¡ÚÑé÷1J$f6619c20-d62c-4903-8a40-b1b97141bb95
+”	java:S116"RRename this field "CardNum" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô±³È8¡ÚÑé÷1J$24440d6a-9339-43b0-90c3-3c70993b1840
+š	java:S116"SRename this field "ExamDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ü“òşÿÿÿÿ8¡ÚÑé÷1J$60e8d80c-9e85-4169-9f68-08381d1aa610
+	java:S116"VRename this field "ClaimAmount" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ×‘üÿÿÿÿ8¡ÚÑé÷1J$52d8e3a1-b2d8-4240-bd4e-17878a6a57e6
+ƒ	java:S125."<This block of commented-out lines of code should be removed.(åã¡ÿÿÿÿÿ8¢ÚÑé÷1J$bec65f5f-9ba5-4fb7-b80e-f516e0a01d63
+ƒ	java:S125j"<This block of commented-out lines of code should be removed.(òß¿•üÿÿÿÿ8¤ÚÑé÷1J$b9ef3f3b-c467-4394-8637-f2f847fac0c8
+q
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8„ú¢í÷1J$736144a3-2061-4b55-bd51-e6968484d3f9
+u
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8„ú¢í÷1J$cdcdcd23-0a0b-47f4-8955-1b003c719cf7

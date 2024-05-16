@@ -22,97 +22,114 @@ public class DependentDAO {
 
     public boolean addCustomerAndDependent(DependentDTO dependent) {
         Connection conn = null;
-        PreparedStatement pstmt1 = null;
-        PreparedStatement pstmt2 = null;
+        PreparedStatement pstmtCustomer = null;
+        PreparedStatement pstmtDependent = null;
         boolean success = false;
+
+        String sqlCustomer = "INSERT INTO customer (c_id, password, full_name, phonenumber, address, email, role, expirationdate, effectivedate, policyowner_id, insurancecard) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlDependent = "INSERT INTO dependents (c_id, policyholderid) VALUES (?, ?)";
 
         try {
             conn = JDBCUtil.connectToDatabase();
-            conn.setAutoCommit(false);  // Start transaction
-
-            // Check if the policy holder exists and has the correct role
-            if (!policyHolderHasCorrectRole(conn, dependent.getPolicyHolderId())) {
-                throw new SQLException("No valid policy holder found with the correct role.");
-            }
-
-            // Fetch policy owner name from the policyholder referenced by policyholderid
-            String policyOwnerName = getPolicyOwnerNameByPolicyHolderId(conn, dependent.getPolicyHolderId());
+            conn.setAutoCommit(false);
 
             // Insert into customer table
-            String sql1 = "INSERT INTO customer (c_id, insurancecard, password, phonenumber, address, email, role, expirationdate, effectivedate, full_name, policyowner_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            pstmt1 = conn.prepareStatement(sql1);
-            pstmt1.setString(1, dependent.getID());
-            pstmt1.setString(2, dependent.getInsuranceCard());
-            pstmt1.setString(3, dependent.getPassword());
-            pstmt1.setString(4, dependent.getPhone());
-            pstmt1.setString(5, dependent.getAddress());
-            pstmt1.setString(6, dependent.getEmail());
-            pstmt1.setString(7, "Dependent");
-            pstmt1.setObject(8, dependent.getExpirationDate());
-            pstmt1.setObject(9, dependent.getEffectiveDate());
-            pstmt1.setString(10, dependent.getFullName());
-            pstmt1.setString(11, policyOwnerName);
-            pstmt1.executeUpdate();
+            pstmtCustomer = conn.prepareStatement(sqlCustomer);
+            pstmtCustomer.setString(1, dependent.getID());
+            pstmtCustomer.setString(2, dependent.getPassword());
+            pstmtCustomer.setString(3, dependent.getFullName());
+            pstmtCustomer.setString(4, dependent.getPhone());
+            pstmtCustomer.setString(5, dependent.getAddress());
+            pstmtCustomer.setString(6, dependent.getEmail());
+            pstmtCustomer.setString(7, dependent.getCustomerType());
+            pstmtCustomer.setObject(8, dependent.getExpirationDate());
+            pstmtCustomer.setObject(9, dependent.getEffectiveDate());
+            pstmtCustomer.setString(10, dependent.getPolicyOwnerId());
+            pstmtCustomer.setString(11, dependent.getInsuranceCard());
+            pstmtCustomer.executeUpdate();
 
-            // Insert into dependents table
-            String sql2 = "INSERT INTO dependents (c_id, policyholderid) VALUES (?, ?)";
-            pstmt2 = conn.prepareStatement(sql2);
-            pstmt2.setString(1, dependent.getID());
-            pstmt2.setString(2, dependent.getPolicyHolderId());
-            pstmt2.executeUpdate();
+            // Insert into dependent table
+            pstmtDependent = conn.prepareStatement(sqlDependent);
+            pstmtDependent.setString(1, dependent.getID());
+            pstmtDependent.setString(2, dependent.getPolicyHolderId());
+            pstmtDependent.executeUpdate();
 
-            conn.commit();  // Commit transaction
+            conn.commit();  // Commit the transaction
             success = true;
         } catch (SQLException e) {
             if (conn != null) {
                 try {
-                    conn.rollback();
+                    conn.rollback();  // Rollback in case of failure
+                    Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to execute transaction. Changes were rolled back."));
                 } catch (SQLException ex) {
+                    Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to roll back transaction: " + ex.getMessage()));
                     ex.printStackTrace();
                 }
             }
+            Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Database Error", "An error occurred: " + e.getMessage()));
             e.printStackTrace();
         } finally {
-            JDBCUtil.close(pstmt1);
-            JDBCUtil.close(pstmt2);
+            JDBCUtil.close(pstmtCustomer);
+            JDBCUtil.close(pstmtDependent);
             JDBCUtil.close(conn);
         }
         return success;
     }
 
-    private boolean policyHolderHasCorrectRole(Connection conn, String policyHolderId) throws SQLException {
-        String query = "SELECT role FROM customer WHERE c_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, policyHolderId);
+
+
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+    public DependentDTO findDependentById(String dependentId) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE c_id = ? AND role = 'Dependent'";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, dependentId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return "PolicyHolder".equals(rs.getString("role"));
+                return mapRowToDependentDTO(rs);
             }
-            return false;
+            return null;
         }
     }
 
-    private String getPolicyOwnerNameByPolicyHolderId(Connection conn, String policyHolderId) throws SQLException {
-        String query = "SELECT policyowner_name FROM customer WHERE c_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, policyHolderId);
+    public DependentDTO findDependentByIdAndPolicyHolderId(String dependentId, String policyHolderId) throws SQLException {
+        // Ensure the SQL query matches your actual database schema
+        String sql = "SELECT * FROM dependents d JOIN customer c ON d.c_id = c.c_id WHERE d.c_id = ? AND d.policyholderid = ? AND c.role = 'Dependent'";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, dependentId);
+            pstmt.setString(2, policyHolderId);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return rs.getString("policyowner_name");
-            } else {
-                return null; // Return null if no policy owner name is found
+                return mapRowToDependentDTO(rs);
             }
+            return null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
         }
     }
 
-
-    public boolean policyHolderExists(Connection conn, String policyHolderId) throws SQLException {
-        String query = "SELECT COUNT(*) FROM policyholder WHERE c_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, policyHolderId);
-            ResultSet rs = pstmt.executeQuery();
-            return rs.next() && rs.getInt(1) > 0;
-        }
+    private DependentDTO mapRowToDependentDTO(ResultSet rs) throws SQLException {
+        DependentDTO dependent = new DependentDTO();
+        dependent.setID(rs.getString("c_id"));
+        dependent.setFullName(rs.getString("full_name"));
+        dependent.setEmail(rs.getString("email"));
+        dependent.setPhone(rs.getString("phonenumber"));
+        dependent.setAddress(rs.getString("address"));
+        dependent.setCustomerType(rs.getString("role"));
+        dependent.setInsuranceCard(rs.getString("insurancecard"));
+        dependent.setExpirationDate(rs.getDate("expirationdate").toLocalDate());
+        dependent.setEffectiveDate(rs.getTimestamp("effectivedate").toLocalDateTime());
+        return dependent;
     }
+
+
 
 }
