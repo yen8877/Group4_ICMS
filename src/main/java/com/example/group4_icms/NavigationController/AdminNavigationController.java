@@ -80,6 +80,10 @@ public class AdminNavigationController extends BaseController {
     @FXML
     private ToggleGroup roleToggleGroup;
 
+        public void initialize() {
+        // 컨트롤러가 로드될 때 자동으로 테이블을 로드하도록 초기화 메서드 구현
+        loadCustomerTable();
+    }
 
     // Add Customer
     private String generateCustomerId(Connection conn) throws SQLException {
