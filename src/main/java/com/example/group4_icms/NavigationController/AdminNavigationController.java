@@ -776,6 +776,15 @@ public class AdminNavigationController extends BaseController {
         loadUIForTable("/com/example/group4_icms/fxml/Admin_CustomerUpdate.fxml");
     }
 
+    @FXML
+    private void loadUpadteProviderForm() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_ProviderUpdate.fxml");
+    }
+    @FXML
+    private void loadUpadteSystemAdminForm() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_SystemAdminUpdate.fxml");
+    }
+
 
 
     private void loadUI(String ui) {
