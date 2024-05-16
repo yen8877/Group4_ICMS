@@ -20,6 +20,25 @@ public class ClaimDTO {
     private String submittedById;
     private String status;
 
+    private String claim_Documents;
+    private String message;
+
+    public String getClaim_Documents() {
+        return claim_Documents;
+    }
+
+    public void setClaim_Documents(String claim_Documents) {
+        this.claim_Documents = claim_Documents;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String getSubmittedById() {
         return submittedById;
     }
