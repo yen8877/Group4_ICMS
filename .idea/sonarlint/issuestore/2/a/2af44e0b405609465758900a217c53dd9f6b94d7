@@ -1,9 +1,7 @@
 
-‘	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òİ”çıÿÿÿÿJ$15787080-77ed-4fb6-b366-145da223e681
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöüJ$0602a286-7318-43cd-b935-44931369107c
-ˆ	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŞÒïJ$cc980146-9444-42e0-9cfb-d7cbec53d465
-	java:S116	"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úNJ$d30feddb-892a-4f0a-b841-c5eaf89568fa
-˜	java:S116
-"XRename this field "InsuranceCard" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éª†üÿÿÿÿJ$d68d0abf-4b70-495b-8ab4-89f725c747cb
-É
-java:S1186p"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ñµÓåúÿÿÿÿ8÷ªÊåö1J$cb424192-09ba-49ad-ad9f-75e798fb52f0
+˜	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òİ”çıÿÿÿÿ8£¤²ô÷1J$69105467-65f9-40f6-8b0a-7ce27f7ae49f
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğéöü8£¤²ô÷1J$9633bac9-d89a-4e11-8e33-0977bc1a2018
+	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ŞÒï8¤¤²ô÷1J$c78fb8b2-5edd-4cf1-912a-99a3e89038f5
+”	java:S116	"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úN8¤¤²ô÷1J$fb507384-2ed1-4a43-b54f-ce2040f13614
+Ÿ	java:S116
+"XRename this field "InsuranceCard" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éª†üÿÿÿÿ8¥¤²ô÷1J$d7b20a66-db82-4ba3-b3a5-b8a3fb9b0650

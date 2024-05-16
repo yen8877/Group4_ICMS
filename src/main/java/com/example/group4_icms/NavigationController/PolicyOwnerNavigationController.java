@@ -11,11 +11,13 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -37,6 +39,11 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     @FXML private TextField policyOwnerIdField;
     @FXML private TextField claimTypeField;
     @FXML private TextField dependentIdField;
+    @FXML private DatePicker startDate;
+    @FXML private DatePicker endDate;
+    @FXML private Button calculateBtn;
+    @FXML private Text resultText;
+
     @FXML
     private TextField claimIdField;
     @FXML private TextField claimAmountField;
@@ -476,7 +483,52 @@ public class PolicyOwnerNavigationController extends BaseController implements I
         }
     }
 
+    public void annualCalculator() {
+        String policyOwnerId = policyOwnerIdField.getText();
+        LocalDate start = startDate.getValue();
+        LocalDate end = endDate.getValue();
 
+        double totalAmount = calculateAnnualAmount(policyOwnerId, start, end);
+
+        // Display result
+        resultText.setText("#" + policyOwnerId + " has to pay $" + String.format("%.2f", totalAmount));
+    }
+
+    private double calculateAnnualAmount(String policyOwnerId, LocalDate start, LocalDate end) {
+        double totalAmount = 0.0;
+        // Assume a hypothetical premium rate for policyholders
+        double policyHolderRate = 120.00;  // Example rate: $120 per month
+        double dependentRate = policyHolderRate * 0.6;  // Dependents pay 60% of the policyholder's rate
+
+        // SQL to count the number of dependents and policyholders within the effective date range
+        String sql = "SELECT role, COUNT(*) AS num_people FROM customer WHERE policyowner_id = ? " +
+                "AND role IN ('Dependent', 'PolicyHolder') AND effectivedate <= ? AND expirationdate >= ? " +
+                "GROUP BY role";
+
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, policyOwnerId);
+            pstmt.setDate(2, Date.valueOf(start));
+            pstmt.setDate(3, Date.valueOf(end));
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    String role = rs.getString("role");
+                    int numPeople = rs.getInt("num_people");  // This gets the count of rows grouped by role
+                    if (role.equals("Dependent")) {
+                        totalAmount += dependentRate * numPeople;
+                    } else if (role.equals("PolicyHolder")) {
+                        totalAmount += policyHolderRate * numPeople;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return totalAmount;
+    }
 
     private void loadUI(String ui) {
         Node node;
