@@ -1,5 +1,6 @@
 package com.example.group4_icms.Functions.VC.Controller;
 
+import com.example.group4_icms.Functions.DTO.InsuranceCardDTO;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -12,8 +13,11 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 public class AdminCustomerUpdateController {
+
+
 
     @FXML
     private TextField customerIdToUpdateField;
@@ -42,47 +46,65 @@ public class AdminCustomerUpdateController {
 
     @FXML
     private void savePolicyOwner() {
+        InsuranceCardDTO insuranceCard = new InsuranceCardDTO();
+
         String customerIdToUpdate = customerIdToUpdateField.getText();
         String newPassword = newPasswordField.getText();
         String newPhoneNumber = newPhoneNumberField.getText();
         String newAddress = newAddressField.getText();
         String newEmail = newEmailField.getText();
         java.sql.Date newExpirationDate = newExpirationDateField.getValue() != null ? Date.valueOf(newExpirationDateField.getValue()) : null;
-        java.sql.Date newEffectiveDate = newEffectiveDateField.getValue() != null ? Date.valueOf(newEffectiveDateField.getValue()) : null;
+        insuranceCard.setExpirationDate(newExpirationDate.toLocalDate());
         String newFullName = newFullNameField.getText();
-        String newPolicyOwner_Id = newPolicyOwner_IdField.getText();
-        String newRole = newRoleField.getText();
 
         Connection connection = null;
-        PreparedStatement preparedStatement = null;
+        PreparedStatement updateCustomerStmt = null;
+        PreparedStatement updateCardStmt = null;
 
         try {
             connection = JDBCUtil.connectToDatabase();
-            String updateSQL = "UPDATE public.customer SET password = ?, phonenumber = ?, address = ?, email = ?, expirationdate = ?, effectivedate = ?, full_name = ?, policyowner_id = ?, role = ? WHERE c_id = ?";
-            preparedStatement = connection.prepareStatement(updateSQL);
-            preparedStatement.setString(1, newPassword);
-            preparedStatement.setString(2, newPhoneNumber);
-            preparedStatement.setString(3, newAddress);
-            preparedStatement.setString(4, newEmail);
-            preparedStatement.setDate(5, newExpirationDate);
-            preparedStatement.setDate(6, newEffectiveDate);
-            preparedStatement.setString(7, newFullName);
-            preparedStatement.setString(8, newPolicyOwner_Id);
-            preparedStatement.setString(9, newRole);
-            preparedStatement.setString(10, customerIdToUpdate);
+            connection.setAutoCommit(false);  // Start transaction
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            if (rowsAffected > 0) {
+            // Update customer table
+            String updateCustomerSQL = "UPDATE public.customer SET password = ?, phonenumber = ?, address = ?, email = ?, expirationdate = ?, full_name = ? WHERE c_id = ?";
+            updateCustomerStmt = connection.prepareStatement(updateCustomerSQL);
+            updateCustomerStmt.setString(1, newPassword);
+            updateCustomerStmt.setString(2, newPhoneNumber);
+            updateCustomerStmt.setString(3, newAddress);
+            updateCustomerStmt.setString(4, newEmail);
+            updateCustomerStmt.setObject(5, newExpirationDate);
+            updateCustomerStmt.setString(6, newFullName);
+            updateCustomerStmt.setString(7, customerIdToUpdate);
+            int customerRowsAffected = updateCustomerStmt.executeUpdate();
+
+            // Update insurancecard table
+            String updateCardSQL = "UPDATE insurancecard SET expirationdate = ? WHERE cardholder = ?";
+            updateCardStmt = connection.prepareStatement(updateCardSQL);
+            updateCardStmt.setObject(1, newExpirationDate);
+            updateCardStmt.setString(2, customerIdToUpdate);
+            int cardRowsAffected = updateCardStmt.executeUpdate();
+
+            // Commit transaction
+            connection.commit();
+
+            if (customerRowsAffected > 0 && cardRowsAffected > 0) {
                 resultLabel.setText("Customer information updated successfully.");
             } else {
-                resultLabel.setText("No customer found with the given ID.");
+                resultLabel.setText("No updates were made to the database.");
             }
         } catch (SQLException e) {
+            try {
+                if (connection != null) connection.rollback(); // Roll back transaction on error
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
             resultLabel.setText("An error occurred while updating customer information.");
         } finally {
-            JDBCUtil.close(preparedStatement);
+            JDBCUtil.close(updateCustomerStmt);
+            JDBCUtil.close(updateCardStmt);
             JDBCUtil.close(connection);
         }
     }
+
 }

@@ -112,17 +112,6 @@
                                     </GridPane.margin>
                                 </DatePicker>
 
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Effective Date" GridPane.rowIndex="7">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <DatePicker fx:id="newEffectiveDateField" prefHeight="39.0" prefWidth="792.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </DatePicker>
-
                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Full Name" GridPane.rowIndex="8">
                                     <GridPane.margin>
                                         <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
@@ -134,27 +123,6 @@
                                     </GridPane.margin>
                                 </TextField>
 
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Policy Owner Name" GridPane.rowIndex="9">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <TextField fx:id="newPolicyOwner_IdField" prefHeight="30.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </TextField>
-
-                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="foarmText" text="New Role" GridPane.rowIndex="10">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                    </GridPane.margin>
-                                </Text>
-                                <TextField fx:id="newRoleField" prefHeight="30.0" prefWidth="200.0" styleClass="foarmTextField" GridPane.columnIndex="1" GridPane.rowIndex="10">
-                                    <GridPane.margin>
-                                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                                    </GridPane.margin>
-                                </TextField>
                             </children>
                         </GridPane>
                         <Button id="customerSave-btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#savePolicyOwner" stylesheets="@../css/form.css" text="Update Information" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" />
