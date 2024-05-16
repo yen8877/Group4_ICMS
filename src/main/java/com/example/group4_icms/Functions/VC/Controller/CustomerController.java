@@ -164,13 +164,13 @@ public class CustomerController {
         boolean deletionSuccess = false;
 
         switch (customer.getRole()) {
-            case "policyOwner":
+            case "PolicyOwner":
                 deletionSuccess = deletePolicyowner(customer.getCId());
                 break;
-            case "policyHolder":
+            case "PolicyHolder":
                 deletionSuccess = deletePolicyholder(customer.getCId());
                 break;
-            case "dependent":
+            case "Dependent":
                 deletionSuccess = deleteDependent(customer.getCId());
                 break;
             default:
@@ -187,67 +187,134 @@ public class CustomerController {
         }
     }
     private boolean deletePolicyowner(String policyownerId) {
+        Connection conn = JDBCUtil.connectToDatabase();
+        String sqlDeletePolicyOwnerInsuranceCards = "DELETE FROM insurancecard WHERE policyowner = ?";
+        String sqlDeleteDependents = "DELETE FROM dependents WHERE policyholderid = ?";
         String deleteClaimInsuredSQL = "DELETE FROM claim WHERE insuredpersonid = ?";
         String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
-        String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE c_id = ?";
+        String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE policyownerid = ?";
+        String sqlDeleteCustomer = "DELETE FROM customer WHERE c_id = ?";
 
-        Connection conn = JDBCUtil.connectToDatabase();
+
+
         try {
             conn.setAutoCommit(false);
             List<String> dependentIds = new ArrayList<>();
             List<String> policyholderIds = new ArrayList<>();
 
-            // Policyholder와 그의 dependents ID 조회 및 저장
+            // policyholder 테이블에서 policyholder IDs 조회 및 저장
             String sqlSelectPolicyholders = "SELECT c_id FROM policyholder WHERE policyownerid = ?";
             try (PreparedStatement ps = conn.prepareStatement(sqlSelectPolicyholders)) {
                 ps.setString(1, policyownerId);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    String phId = rs.getString("c_id");
-                    policyholderIds.add(phId);
-                    // Dependents ID 조회
-                    String sqlSelectDependents = "SELECT c_id FROM dependents WHERE policyholderid = ?";
-                    try (PreparedStatement dps = conn.prepareStatement(sqlSelectDependents)) {
-                        dps.setString(1, phId);
-                        ResultSet drs = dps.executeQuery();
-                        while (drs.next()) {
-                            dependentIds.add(drs.getString("c_id"));
-                        }
+                    policyholderIds.add(rs.getString("c_id"));
+                }
+            }
+
+            // dependents 테이블에서 policyholder IDs를 이용해 dependent IDs 조회 및 저장
+            String sqlSelectDependents = "SELECT c_id FROM dependents WHERE policyholderid = ?";
+            for (String policyholderid : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectDependents)) {
+                    ps.setString(1, policyholderid);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        dependentIds.add(rs.getString("c_id"));
                     }
                 }
             }
 
-            // Dependents 삭제
-            String sqlDeleteDependents = "DELETE FROM dependents WHERE policyholderid = ?";
-            deleteForIds(conn, sqlDeleteDependents, policyholderIds);
-
-            try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyOwnerInsuranceCards)) {
                 ps.setString(1, policyownerId);
                 ps.executeUpdate();
             }
+
+//            // dependents의 insurance cards 삭제
+//            String sqlDeleteDependentInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
+//            for (String id : dependentIds) {
+//                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependentInsuranceCards)) {
+//                    ps.setString(1, id);
+//                    ps.executeUpdate();
+//                }
+//            }
+
+            // dependents 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
+                for (String policyholderId : policyholderIds) {
+                    ps.setString(1, policyholderId);
+                    ps.executeUpdate();
+                }
+            }
+
+
+            // policyholders 및 dependents의 클레임 삭제
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
             try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
                 ps.setString(1, policyownerId);
                 ps.executeUpdate();
             }
 
-            // Insurance Cards 삭제
-            String sqlDeleteInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
-            deleteForIds(conn, sqlDeleteInsuranceCards, dependentIds);
-            deleteForIds(conn, sqlDeleteInsuranceCards, policyholderIds);
 
-            // Customer Records에서 Dependents 삭제
-            String sqlDeleteCustomers = "DELETE FROM customer WHERE c_id = ?";
-            deleteForIds(conn, sqlDeleteCustomers, dependentIds);
-//            deleteForIds(conn, sqlDeleteCustomers, policyholderIds);
+            // customer 테이블에서 dependents 삭제
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
 
-            // Policyholder 테이블에서 삭제
-//            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholderTable)) {
-//                ps.setString(1, policyholderId);
-//                ps.executeUpdate();
+            // policyholders 테이블에서 policyholders 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholderTable)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+            // policyowner 테이블에서 policyowner 삭제
+            String sqlDeletePolicyowner = "DELETE FROM policyowner WHERE c_id = ?";
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyowner)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+//            // policyholders의 insurance cards 삭제
+//            for (String id : policyholderIds) {
+//                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInsuranceCards)) {
+//                    ps.setString(1, id);
+//                    ps.executeUpdate();
+//                }
 //            }
 
-            // PolicyOwner 삭제
-            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomers)) {
+            // customer 테이블에서 policyholders 삭제
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            // customer 테이블에서 policyowner 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
                 ps.setString(1, policyownerId);
                 ps.executeUpdate();
             }
@@ -262,17 +329,6 @@ public class CustomerController {
                 ex.printStackTrace();
             }
             return false;
-        } finally {
-            JDBCUtil.close(conn);
-        }
-    }
-
-    private void deleteForIds(Connection conn, String sql, List<String> ids) throws SQLException {
-        for (String id : ids) {
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, id);
-                ps.executeUpdate();
-            }
         }
     }
 
