@@ -68,7 +68,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-<!--            <Button styleClass="nav-btn" text="Entity Management" BorderPane.alignment="CENTER" onAction="#loadEntityManagement">-->
+<!--            <Button styleClass="nav-btn" text="Log History" BorderPane.alignment="CENTER" onAction="#loadLogHistory">-->
 <!--               <font>-->
 <!--                  <Font name="System Bold" size="25.0" />-->
 <!--               </font>-->

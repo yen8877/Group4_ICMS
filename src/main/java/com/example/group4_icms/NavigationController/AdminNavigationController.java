@@ -16,7 +16,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -174,6 +174,10 @@ public class AdminNavigationController extends BaseController implements Initial
             }
 
             conn.commit();
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Added Dependent with ID: " + dependentId);
+
             Platform.runLater(() -> {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Dependent and insurance card added successfully");
                 clearForm();  // Clear the form fields on successful addition
@@ -276,6 +280,11 @@ public class AdminNavigationController extends BaseController implements Initial
             }
 
             conn.commit();
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Added PolicyHolder with ID: " + policyHolderId);
+
             Platform.runLater(() -> {
                 showAlert(Alert.AlertType.INFORMATION, "Success", "PolicyHolder and insurance card added successfully");
                 clearForm(); // Clear all form fields on successful transaction
@@ -347,6 +356,11 @@ public class AdminNavigationController extends BaseController implements Initial
             boolean isAdded = policyOwnerDao.addCustomerAndPolicyOwner(policyOwner);
             if (isAdded) {
                 conn.commit(); // Commit transaction
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Added PolicyOwner with ID: " + policyOwnerId);
+
                 Platform.runLater(() -> {
                     showAlert(Alert.AlertType.INFORMATION, "Success", "PolicyOwner added successfully");
                     clearForm(); // Clear form after successful addition
@@ -425,6 +439,11 @@ public class AdminNavigationController extends BaseController implements Initial
 
             if (providerDAO.addProvider(provider)) {
                 conn.commit();
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Added Provider with ID: " + providerId);
+
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Provider added successfully");
                 clearForm(); // Clear all text fields after successful operation
             } else {
@@ -516,11 +535,16 @@ public class AdminNavigationController extends BaseController implements Initial
 
             boolean isAdded = adminDao.addAdmin(admin);
             if (isAdded) {
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Added Admin with ID: " + adminId);
                 Platform.runLater(() -> {
+
                     showAlert(Alert.AlertType.INFORMATION, "Success", "Admin added successfully");
                     clearForm(); // Clear form after successful addition
                     logger.info("clearForm method called"); // Log message added for debugging
                     loadUserManagement(); // Load User Management UI after successful addition
+
                 });
             } else {
                 Platform.runLater(() -> showAlert(Alert.AlertType.ERROR, "Insertion Error", "Failed to add Admin"));

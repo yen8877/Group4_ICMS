@@ -4,6 +4,15 @@ public class Session {
     private static Session instance = new Session();
     private String userId;
     private String userRole;
+    private String userName;
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public String getUserRole() {
         return userRole;

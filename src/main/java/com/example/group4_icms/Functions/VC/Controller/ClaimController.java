@@ -1,11 +1,13 @@
 package com.example.group4_icms.Functions;
 
+import com.example.group4_icms.Functions.DTO.InsuranceCardDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,17 +15,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.awt.*;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class ClaimController {
-
     @FXML
     private TextField filterField;
     @FXML
@@ -49,6 +48,7 @@ public class ClaimController {
 
     private ObservableList<Claim> masterData = FXCollections.observableArrayList();
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 
     @FXML
     public void initialize() {
@@ -183,4 +183,5 @@ public class ClaimController {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
         tableView.setItems(sortedData);
     }
+
 }

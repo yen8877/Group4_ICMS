@@ -79,6 +79,11 @@ public class PolicyHolderNavigationController extends BaseController {
     private void loadProfile() {
         loadUI("/com/example/group4_icms/fxml/Profile.fxml");
     }
+
+    @FXML
+    private void loadUpadteClaimForm() {
+        loadUI("/com/example/group4_icms/fxml/updateClaimForm.fxml");
+    }
     private void loadUI(String ui) {
         Node node;
         try {

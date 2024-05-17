@@ -660,6 +660,16 @@ public class PolicyOwnerNavigationController extends BaseController implements I
         }
     }
 
+    public void loadUpdateClaimForm(ActionEvent actionEvent) {
+        try {
+            Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/updateClaimForm.fxml"));
+            contentArea.getChildren().setAll(form);  // 기존의 컨텐츠를 새 폼으로 대체
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+    }
+
     public void loadAddPolicyOwnerForm(ActionEvent actionEvent) {
         try {
             Node form = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/addPolicyOwnerForm.fxml"));
