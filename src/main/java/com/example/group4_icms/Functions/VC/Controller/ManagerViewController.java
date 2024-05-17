@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,9 +15,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SurveyorViewController implements Initializable {
+public class ManagerViewController implements Initializable {
 
-    private static final Logger logger = LoggerFactory.getLogger(SurveyorViewController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ManagerViewController.class);
 
     @FXML
     private StackPane contentArea;
@@ -24,15 +25,20 @@ public class SurveyorViewController implements Initializable {
     @FXML
     private StackPane TableContentArea;
 
+    @FXML
+    private VBox confirmedClaimContainer;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // 컨트롤러가 로드될 때 자동으로 특정 UI를 로드하도록 초기화 메서드 구현
-        loadClaimTable();
+        // claimManagementContainer가 존재하는지 확인하여 조건적으로 loadClaimTable() 호출
+        if (confirmedClaimContainer != null) {
+            loadConfirmedClaimTable();
+        }
     }
 
     @FXML
-    private void loadClaimTable() {
-        loadUIForTable("/com/example/group4_icms/fxml/Surveyor_ClaimTable.fxml");
+    private void loadConfirmedClaimTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/Manager_ConfirmedClaimTable.fxml");
     }
     @FXML
     private void loadRejectClaimForm() {

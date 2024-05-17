@@ -13,17 +13,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.ManagerNavigationController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.ManagerNavigationController">
     <children>
-        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!--   Main Contents   -->
+        <VBox id="mainContent" prefHeight="1024.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Approve/Reject Claims" wrappingWidth="652.50146484375">
-                    <font>
-                        <Font name="System Bold" size="50.0" />
-                    </font>
+                <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Rejected Claims" wrappingWidth="579.7972412109375">
                     <VBox.margin>
                         <Insets left="30.0" top="30.0" />
                     </VBox.margin>
@@ -33,8 +30,8 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="401.4093017578125" minHeight="49.190765380859375" prefHeight="64.57785034179688" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="770.8092346191406" minHeight="10.0" prefHeight="695.9221496582031" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="401.4093017578125" minHeight="44.8165283203125" prefHeight="63.550384521484375" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="770.8092346191406" minHeight="10.0" prefHeight="696.9496154785156" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <VBox.margin>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
@@ -64,7 +61,6 @@
                                 <TableColumn prefWidth="198.51605224609375" text="Submitted Person" />
                                 <TableColumn minWidth="150.5411376953125" prefWidth="177.48388671875" text="Bank Information" />
                                 <TableColumn minWidth="71.810791015625" prefWidth="71.810791015625" text="Status" />
-                        <TableColumn minWidth="71.810791015625" prefWidth="71.810791015625" text="Action" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

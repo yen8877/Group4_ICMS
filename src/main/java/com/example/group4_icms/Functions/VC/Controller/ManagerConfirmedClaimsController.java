@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
-public class SurveyorClaimsController {
+public class ManagerConfirmedClaimsController {
 
     @FXML
     private TextField filterField;
@@ -38,7 +38,7 @@ public class SurveyorClaimsController {
     @FXML
     private TableColumn<Claims, Void> colDelete;
     @FXML
-    private TableColumn<Claims, Void> colConfirm;
+    private TableColumn<Claims, Void> colApprove;
 
     private ObservableList<Claims> masterData = FXCollections.observableArrayList();
 
@@ -46,7 +46,7 @@ public class SurveyorClaimsController {
     public void initialize() {
         setupColumns();
         setupDeleteColumn();
-        setupConfirmColumn();
+        setupApproveColumn();
         loadData();
         setupFilterAndSorting();
     }
@@ -86,14 +86,14 @@ public class SurveyorClaimsController {
         });
     }
 
-    private void setupConfirmColumn() {
-        colConfirm.setCellFactory(param -> new TableCell<Claims, Void>() {
-            private final Button confirmButton = new Button("confirm");
+    private void setupApproveColumn() {
+        colApprove.setCellFactory(param -> new TableCell<Claims, Void>() {
+            private final Button approveButton = new Button("approve");
 
             {
-                confirmButton.setOnAction(event -> {
+                approveButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
-                    confirmClaim(claim);
+                    approveClaim(claim);
                 });
             }
 
@@ -103,7 +103,7 @@ public class SurveyorClaimsController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(confirmButton);
+                    setGraphic(approveButton);
                 }
             }
         });
@@ -133,8 +133,8 @@ public class SurveyorClaimsController {
         }
     }
 
-    private void confirmClaim(Claims claim) {
-        if (updateClaimStatusInDatabase(claim.getFId(), "CONFIRMED")) {
+    private void approveClaim(Claims claim) {
+        if (updateClaimStatusInDatabase(claim.getFId(), "APPROVED")) {
             masterData.remove(claim);
             tableView.refresh();
         }
@@ -162,7 +162,7 @@ public class SurveyorClaimsController {
         masterData.clear();
         Connection conn = JDBCUtil.connectToDatabase();
 
-        String query = "SELECT * FROM public.claim WHERE status = 'NEW'";
+        String query = "SELECT * FROM public.claim WHERE status = 'CONFIRMED'";
         try (PreparedStatement pstmt = conn.prepareStatement(query); ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 masterData.add(new Claims(

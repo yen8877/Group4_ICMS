@@ -33,11 +33,11 @@ public void start(Stage primaryStage) throws Exception {
     // FXML 파일 로드 (admin)끝
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
 
-    // FXML 파일 로드 (surveyor)
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
+    // FXML 파일 로드 (surveyor)끝
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
 
-    // FXML 파일 로드 (manager)
-//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
+    // FXML 파일 로드 (manager) 설베이어 오버뷰만 남음
+    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
 
     // FXML 파일 로드 (policyOwner)업뎃버튼
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyOwner_Main.fxml"));
