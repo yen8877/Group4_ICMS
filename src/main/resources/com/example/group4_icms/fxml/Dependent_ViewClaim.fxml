@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.DependentNavigationController">
+<Pane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.DependentClaimsController">
     <children>
         <VBox id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/nav.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -40,34 +40,49 @@
                         <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
                     </VBox.margin>
                     <children>
-                        <TextField id="search-field" prefHeight="40.0" stylesheets="@../css/table.css">
-                            <GridPane.margin>
-                                <Insets bottom="10.0" top="10.0" />
-                            </GridPane.margin>
-                        </TextField>
-                        <Button id="search-btn" mnemonicParsing="false" stylesheets="@../css/table.css" GridPane.halignment="RIGHT">
-                            <graphic>
-                                <ImageView id="search-img" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/search.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-                        <TableView prefHeight="696.0" prefWidth="1036.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">
+<!--                        <TextField id="search-field" prefHeight="40.0" stylesheets="@../css/table.css">-->
+<!--                            <GridPane.margin>-->
+<!--                                <Insets bottom="10.0" top="10.0" />-->
+<!--                            </GridPane.margin>-->
+<!--                        </TextField>-->
+<!--                        <Button id="search-btn" mnemonicParsing="false" stylesheets="@../css/table.css" GridPane.halignment="RIGHT">-->
+<!--                            <graphic>-->
+<!--                                <ImageView id="search-img" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                                    <image>-->
+<!--                                        <Image url="@../img/search.png" />-->
+<!--                                    </image>-->
+<!--                                </ImageView>-->
+<!--                            </graphic>-->
+<!--                        </Button>-->
+<!--                        <TableView prefHeight="696.0" prefWidth="1036.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">-->
+<!--                            <columns>-->
+<!--                                <TableColumn prefWidth="97.66748046875" text="Id" />-->
+<!--                                <TableColumn prefWidth="110.28369140625" text="Claim Date" />-->
+<!--                                <TableColumn prefWidth="123.21630859375" text="Exam Date" />-->
+<!--                                <TableColumn prefWidth="135.0" text="Claim Amount" />-->
+<!--                                <TableColumn prefWidth="154.5" text="Insurned Person" />-->
+<!--                                <TableColumn prefWidth="198.51605224609375" text="Submitted Person" />-->
+<!--                        <TableColumn minWidth="150.5411376953125" prefWidth="177.48388671875" text="Bank Information" />-->
+<!--                                <TableColumn minWidth="71.810791015625" prefWidth="71.810791015625" text="Status" />-->
+<!--                            </columns>-->
+<!--                            <columnResizePolicy>-->
+<!--                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />-->
+<!--                            </columnResizePolicy>-->
+<!--                        </TableView>-->
+                        <TextField fx:id="filterField" promptText="Enter search term..." prefWidth="1000.0" stylesheets="@../css/table.css"/>
+                        <TableView fx:id="tableView" prefWidth="1600" prefHeight="550" stylesheets="@../css/table.css">
                             <columns>
-                                <TableColumn prefWidth="97.66748046875" text="Id" />
-                                <TableColumn prefWidth="110.28369140625" text="Claim Date" />
-                                <TableColumn prefWidth="123.21630859375" text="Exam Date" />
-                                <TableColumn prefWidth="135.0" text="Claim Amount" />
-                                <TableColumn prefWidth="154.5" text="Insurned Person" />
-                                <TableColumn prefWidth="198.51605224609375" text="Submitted Person" />
-                        <TableColumn minWidth="150.5411376953125" prefWidth="177.48388671875" text="Bank Information" />
-                                <TableColumn minWidth="71.810791015625" prefWidth="71.810791015625" text="Status" />
+                                <TableColumn text="Claim ID" fx:id="colFId" prefWidth="100"/>
+                                <TableColumn text="Claim Date" fx:id="colClaimDate" prefWidth="150"/>
+                                <TableColumn text="Exam Date" fx:id="colExamDate" prefWidth="150"/>
+                                <TableColumn text="Claim Amount" fx:id="colClaimAmount" prefWidth="150"/>
+                                <TableColumn text="Insured Person ID" fx:id="colInsuredPersonId" prefWidth="150"/>
+                                <TableColumn text="Submitted By ID" fx:id="colSubmittedById" prefWidth="150"/>
+                                <TableColumn text="Status" fx:id="colStatus" prefWidth="150"/>
+                                <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="150"/>
+                                <TableColumn text="Claim Documents" fx:id="colClaimDocuments" prefWidth="150"/>
+                                <TableColumn text="Message" fx:id="colMessage" prefWidth="150"/>
                             </columns>
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                            </columnResizePolicy>
                         </TableView>
                     </children>
                 </GridPane>
