@@ -613,6 +613,10 @@ public class AdminNavigationController extends BaseController implements Initial
     private void loadProfile() {
         loadUI("/com/example/group4_icms/fxml/Profile.fxml");
     }
+    @FXML
+    private void loadLogHistory() {
+        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+    }
 
     @FXML
     private void loadCustomerTable() {

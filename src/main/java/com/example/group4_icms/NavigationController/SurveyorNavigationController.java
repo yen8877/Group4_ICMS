@@ -47,6 +47,10 @@ public class SurveyorNavigationController extends BaseController {
     private void loadRequestedViewClaim() {
         loadUI("/com/example/group4_icms/fxml/Surveyor_RequestClaim.fxml");
     }
+    @FXML
+    private void loadLogHistory() {
+        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+    }
 
     @FXML
     private void loadCustomerOverview() {
@@ -59,6 +63,7 @@ public class SurveyorNavigationController extends BaseController {
     private void loadProfile() {
         loadUI("/com/example/group4_icms/fxml/Profile.fxml");
     }
+
     private void loadUI(String ui) {
         Node node;
         try {

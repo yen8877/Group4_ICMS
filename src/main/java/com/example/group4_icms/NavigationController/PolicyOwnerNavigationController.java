@@ -452,6 +452,10 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     private void loadCalculator() {
         loadUI("/com/example/group4_icms/fxml/PolicyOwner_AnnualCalculator.fxml");
     }
+    @FXML
+    private void loadLogHistory() {
+        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+    }
 
     @FXML
     private void loadClaimTable() {

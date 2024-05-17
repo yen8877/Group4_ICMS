@@ -65,6 +65,10 @@ public class PolicyHolderNavigationController extends BaseController {
     private void loadHome() {
         loadUI("/com/example/group4_icms/fxml/PolicyHolder_Main2.fxml");
     }
+    @FXML
+    private void loadLogHistory() {
+        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+    }
 
     @FXML
     private void loadUserManagement() {

@@ -79,6 +79,17 @@
                         <Insets />
                     </opaqueInsets>
                 </Button>
+                <Button onAction="#loadLogHistory" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Log History">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="10.0" left="30.0" top="10.0" />
+                    </padding>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
                 <Button onAction="#loadProfile" styleClass="nav-btn" text="Profile" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="30.0" />
