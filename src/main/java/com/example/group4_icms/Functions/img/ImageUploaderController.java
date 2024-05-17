@@ -53,7 +53,41 @@ public class ImageUploaderController {
             confirmBtn.setVisible(true);
         }
     }
+    // PDF 파일을 저장하는 메소드
+    public void savePDFFile(File sourceFile, String title) throws IOException {
+        String projectRoot = System.getProperty("user.dir");
+        Path documentsDir = Paths.get(projectRoot, "ICMSProject/documents");
+        String dirPath = documentsDir.toString();
 
+        if (!Files.exists(documentsDir)) {
+            Files.createDirectories(documentsDir);
+        }
+
+        try {
+            // 파일 저장
+            File outputDir = new File(dirPath);
+            if (!outputDir.exists()) {
+                outputDir.mkdirs(); // 디렉토리가 존재하지 않으면 생성
+            }
+
+            Path outputPath = Paths.get(outputDir.getAbsolutePath(), title);
+            Files.copy(sourceFile.toPath(), outputPath);
+            System.out.println("PDF 파일이 성공적으로 저장되었습니다: " + outputPath.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.err.println("PDF 파일 저장 중 오류가 발생했습니다.");
+        }
+    }
+
+    // 파일 확장자를 얻는 메소드
+    private String getFileExtension(File file) {
+        String fileName = file.getName();
+        if (fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
+            return fileName.substring(fileName.lastIndexOf(".") + 1);
+        } else {
+            return "";
+        }
+    }
 //    @FXML
 //    private void handleConfirmButtonAction(ActionEvent event) throws IOException {
 //        if (selectedFile != null) {
@@ -108,16 +142,16 @@ public class ImageUploaderController {
             System.err.println("이미지 파일 저장 중 오류가 발생했습니다.");
         }
     }
-
-    // 파일 확장자를 가져오는 유틸리티 메소드
-    private String getFileExtension(File file) {
-        String name = file.getName();
-        int lastIndexOfDot = name.lastIndexOf('.');
-        if (lastIndexOfDot == -1) {
-            return ""; // 파일에 확장자가 없으면 빈 문자열 반환
-        }
-        return name.substring(lastIndexOfDot + 1);
-    }
+//
+//    // 파일 확장자를 가져오는 유틸리티 메소드
+//    private String getFileExtension(File file) {
+//        String name = file.getName();
+//        int lastIndexOfDot = name.lastIndexOf('.');
+//        if (lastIndexOfDot == -1) {
+//            return ""; // 파일에 확장자가 없으면 빈 문자열 반환
+//        }
+//        return name.substring(lastIndexOfDot + 1);
+//    }
 
     public void displayImage(String imageName) {
         FileChooser fileChooser = new FileChooser();

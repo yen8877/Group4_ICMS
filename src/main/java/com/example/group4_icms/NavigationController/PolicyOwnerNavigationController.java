@@ -297,7 +297,7 @@ public class PolicyOwnerNavigationController extends BaseController implements I
                 c1.setDocument_name(documentName);
                 claimDocumentsDAO.addClaimDocument(c1);
                 ImageUploaderController imageUploaderController = new ImageUploaderController();
-                imageUploaderController.saveOriginalImageFile(documentFile,documentName);
+                imageUploaderController.savePDFFile(documentFile,documentName);
                 ClaimDao.addClaimDocument(claim,c1);
                 documentFile = null;
                 documentName = null;
@@ -491,7 +491,7 @@ public class PolicyOwnerNavigationController extends BaseController implements I
                 c1.setDocument_name(documentName);
                 claimDocumentsDAO.addClaimDocument(c1);
                 ImageUploaderController imageUploaderController = new ImageUploaderController();
-                imageUploaderController.saveOriginalImageFile(documentFile,documentName);
+                imageUploaderController.savePDFFile(documentFile,documentName);
                 ClaimDao.addClaimDocument(claim,c1);
                 documentFile = null;
                 documentName = null;
@@ -499,7 +499,7 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             }
 
             showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
-                        // Log the action
+            // Log the action
             LogHistoryController logHistoryController = new LogHistoryController();
             logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
             clearForm(); // 폼 필드를 모두 클리어합니다.
@@ -508,7 +508,6 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
         }
     }
-
 //    public void saveClaimByPolicyOwner() {
 //        try {
 //            String policyOwnerId = policyOwnerIdField.getText().trim();
@@ -922,7 +921,6 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     public File getSelectedImageFile() {
         return selectedImageFile;
     }
-
     @FXML
     private void uploadButtonAction(ActionEvent event) {
         // 파일 선택 다이얼로그 생성
