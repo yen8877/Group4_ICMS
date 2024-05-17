@@ -24,12 +24,12 @@ public class ManagerNavigationController extends BaseController {
 
     @FXML
     private void loadConfirmedClaim() {
-        loadUI("/com/example/group4_icms/fxml/Manager_ApproveRejectClaim.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_ConfirmedClaim.fxml");
     }
 
     @FXML
     private void loadRejectedClaim() {
-        loadUI("/com/example/group4_icms/fxml/Manager_ApproveRejectClaim.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_RejectedClaim.fxml");
     }
 
     @FXML
