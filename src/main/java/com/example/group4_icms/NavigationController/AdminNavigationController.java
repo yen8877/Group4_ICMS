@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -17,13 +18,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ResourceBundle;
+
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.RadioButton;
 
-public class AdminNavigationController extends BaseController {
+public class AdminNavigationController extends BaseController implements Initializable {
 
     private DependentDAO dependentDao = new DependentDAO();
     private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
@@ -80,10 +84,10 @@ public class AdminNavigationController extends BaseController {
     @FXML
     private ToggleGroup roleToggleGroup;
 
-        public void initialize() {
-        // 컨트롤러가 로드될 때 자동으로 테이블을 로드하도록 초기화 메서드 구현
-        loadCustomerTable();
-    }
+//        public void initialize() {
+//        // 컨트롤러가 로드될 때 자동으로 테이블을 로드하도록 초기화 메서드 구현
+//        loadCustomerTable();
+//    }
 
     // Add Customer
     private String generateCustomerId(Connection conn) throws SQLException {
@@ -591,6 +595,7 @@ public class AdminNavigationController extends BaseController {
         loadUIForTable("/com/example/group4_icms/fxml/Admin_CustomerTable.fxml");
     }
 
+
     @FXML
     private void loadAdminTable() {
         loadUIForTable("/com/example/group4_icms/fxml/Admin_AdminTable.fxml");
@@ -614,6 +619,28 @@ public class AdminNavigationController extends BaseController {
     private void loadUpadteSystemAdminForm() {
         loadUIForTable("/com/example/group4_icms/fxml/Admin_SystemAdminUpdate.fxml");
     }
+
+    @FXML
+    private void loadOwnerCustomerTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/PolicyOwner_CustomerTable.fxml");
+    }
+
+    @FXML
+    private VBox ownerCustomerManagementContainer;
+    @FXML
+    private VBox customerManagementContainer;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // claimManagementContainer가 존재하는지 확인하여 조건적으로 loadClaimTable() 호출
+        if (ownerCustomerManagementContainer != null) {
+            loadOwnerCustomerTable();
+        }
+        if (customerManagementContainer != null) {
+            loadCustomerTable();
+        }
+    }
+
 
 
 

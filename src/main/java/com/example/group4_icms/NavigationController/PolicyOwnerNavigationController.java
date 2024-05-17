@@ -451,6 +451,14 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     private void loadCustomerTable() {
         loadUIForTable("/com/example/group4_icms/fxml/PolicyHolder_CustomerTable.fxml");
     }
+    @FXML
+    private void loadOwnerClaimTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/PolicyOwner_ClaimTable.fxml");
+    }
+    @FXML
+    private void loadOwnerCustomerTable() {
+        loadUIForTable("/com/example/group4_icms/fxml/PolicyOwner_CustomerTable.fxml");
+    }
 
     @FXML
     private void loadProfile() {
@@ -471,6 +479,10 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     private VBox claimManagementContainer; // FXML에서 fx:id로 지정된 컨테이너
     @FXML
     private VBox customerManagementContainer;
+    @FXML
+    private VBox ownerClaimManagementContainer;
+    @FXML
+    private VBox ownerCustomerManagementContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -480,6 +492,12 @@ public class PolicyOwnerNavigationController extends BaseController implements I
         }
         if (customerManagementContainer != null) {
             loadCustomerTable();
+        }
+        if (ownerClaimManagementContainer != null) {
+            loadOwnerClaimTable();
+        }
+        if (ownerCustomerManagementContainer != null) {
+            loadOwnerCustomerTable();
         }
     }
 

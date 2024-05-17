@@ -16,10 +16,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
+<Pane maxHeight="600" maxWidth="1600" minHeight="600" minWidth="1600" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
     <children>
         <!--   Main Contents   -->
-        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <VBox fx:id="ownerClaimManagementContainer" id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Claim" wrappingWidth="579.7972412109375">
                     <VBox.margin>
@@ -49,36 +49,38 @@
                         <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
                     </VBox.margin>
                     <children>
-                        <TextField id="search-field" prefHeight="40.0" stylesheets="@../css/table.css">
-                            <GridPane.margin>
-                                <Insets bottom="10.0" top="10.0" />
-                            </GridPane.margin>
-                        </TextField>
-                        <Button id="search-btn" mnemonicParsing="false" stylesheets="@../css/table.css" GridPane.halignment="RIGHT">
-                            <graphic>
-                                <ImageView id="search-img" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../img/search.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-                        <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">
-                            <columns>
-                                <TableColumn prefWidth="97.66748046875" text="Id" />
-                                <TableColumn prefWidth="110.28369140625" text="Claim Date" />
-                                <TableColumn prefWidth="123.21630859375" text="Exam Date" />
-                                <TableColumn prefWidth="135.0" text="Claim Amount" />
-                                <TableColumn prefWidth="154.5" text="Insurned Person" />
-                                <TableColumn prefWidth="198.51605224609375" text="Submitted Person" />
-                                <TableColumn minWidth="150.5411376953125" prefWidth="193.30029296875" text="Bank Information" />
-                                <TableColumn minWidth="71.810791015625" prefWidth="72.69970703125" text="Status" />
-                                <TableColumn minWidth="125.6099853515625" prefWidth="125.6099853515625" text="Actions" />
-                            </columns>
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                            </columnResizePolicy>
-                        </TableView>
+<!--                        <TextField id="search-field" prefHeight="40.0" stylesheets="@../css/table.css">-->
+<!--                            <GridPane.margin>-->
+<!--                                <Insets bottom="10.0" top="10.0" />-->
+<!--                            </GridPane.margin>-->
+<!--                        </TextField>-->
+<!--                        <Button id="search-btn" mnemonicParsing="false" stylesheets="@../css/table.css" GridPane.halignment="RIGHT">-->
+<!--                            <graphic>-->
+<!--                                <ImageView id="search-img" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">-->
+<!--                                    <image>-->
+<!--                                        <Image url="@../img/search.png" />-->
+<!--                                    </image>-->
+<!--                                </ImageView>-->
+<!--                            </graphic>-->
+<!--                        </Button>-->
+<!--                        <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/table.css" GridPane.rowIndex="1">-->
+<!--                            <columns>-->
+<!--                                <TableColumn prefWidth="97.66748046875" text="Id" />-->
+<!--                                <TableColumn prefWidth="110.28369140625" text="Claim Date" />-->
+<!--                                <TableColumn prefWidth="123.21630859375" text="Exam Date" />-->
+<!--                                <TableColumn prefWidth="135.0" text="Claim Amount" />-->
+<!--                                <TableColumn prefWidth="154.5" text="Insurned Person" />-->
+<!--                                <TableColumn prefWidth="198.51605224609375" text="Submitted Person" />-->
+<!--                                <TableColumn minWidth="150.5411376953125" prefWidth="193.30029296875" text="Bank Information" />-->
+<!--                                <TableColumn minWidth="71.810791015625" prefWidth="72.69970703125" text="Status" />-->
+<!--                                <TableColumn minWidth="125.6099853515625" prefWidth="125.6099853515625" text="Actions" />-->
+<!--                            </columns>-->
+<!--                            <columnResizePolicy>-->
+<!--                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />-->
+<!--                            </columnResizePolicy>-->
+<!--                        </TableView>-->
+                        <StackPane fx:id="TableContentArea" VBox.vgrow="ALWAYS">
+                        </StackPane>
                     </children>
                 </GridPane>
             </children>
