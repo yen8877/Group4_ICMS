@@ -137,7 +137,11 @@ public class CustomerController {
             {
                 deleteButton.setOnAction(event -> {
                     Customer customer = getTableView().getItems().get(getIndex());
-                    deleteCustomer(customer);
+                    try {
+                        deleteCustomer(customer);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -160,7 +164,7 @@ public class CustomerController {
 //        }
 //    }
 
-    private void deleteCustomer(Customer customer) {
+    private void deleteCustomer(Customer customer) throws SQLException {
         boolean deletionSuccess = false;
 
         switch (customer.getRole()) {
@@ -182,6 +186,11 @@ public class CustomerController {
             masterData.remove(customer);
             tableView.refresh();
             System.out.println("Deletion successful for customer with ID: " + customer.getCId());
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Delete User with ID: " + customer.getCId());
+
         } else {
             System.out.println("Deletion failed for customer with ID: " + customer.getCId());
         }

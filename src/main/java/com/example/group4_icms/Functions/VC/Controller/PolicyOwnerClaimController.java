@@ -68,7 +68,11 @@ public class PolicyOwnerClaimController {
             {
                 deleteButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
-                    deleteClaim(claim);
+                    try {
+                        deleteClaim(claim);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -84,10 +88,14 @@ public class PolicyOwnerClaimController {
         });
     }
 
-    private void deleteClaim(Claims claim) {
+    private void deleteClaim(Claims claim) throws SQLException {
         if (deleteClaimFromDatabase(claim.getFId())) {
             masterData.remove(claim);
             tableView.refresh();
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Delete Claim with ID: " + claim.getFId());
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.group4_icms.NavigationController;
 import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
+import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -277,6 +278,11 @@ public class PolicyOwnerNavigationController extends BaseController implements I
 
             showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
             clearForm();
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
@@ -371,6 +377,11 @@ public class PolicyOwnerNavigationController extends BaseController implements I
 
             showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
             clearForm(); // 폼 필드를 모두 클리어합니다.
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());

@@ -61,6 +61,11 @@ public class AdminProviderUpdateController {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 resultLabel.setText("Provider information updated successfully.");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Provider with ID: " + providerIdToUpdate);
+
             } else {
                 resultLabel.setText("No provider found with the given ID.");
             }

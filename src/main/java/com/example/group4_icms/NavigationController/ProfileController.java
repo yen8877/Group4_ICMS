@@ -1,6 +1,7 @@
 package com.example.group4_icms.NavigationController;
 
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
+import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
 import com.example.group4_icms.Functions.VC.Controller.Session;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -116,6 +117,11 @@ public class ProfileController {
             int updatedRows = pstmt.executeUpdate();
             if (updatedRows > 0) {
                 System.out.println("Phone number updated successfully!");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Phone Number: " + newPhoneNumber);
+
             } else {
                 System.out.println("Failed to update phone number.");
             }
@@ -144,6 +150,11 @@ public class ProfileController {
             int updatedRows = pstmt.executeUpdate();
             if (updatedRows > 0) {
                 System.out.println("Email updated successfully!");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Email: " + newEmail);
+
             } else {
                 System.out.println("Failed to update email.");
             }
@@ -172,6 +183,11 @@ public class ProfileController {
             int updatedRows = pstmt.executeUpdate();
             if (updatedRows > 0) {
                 System.out.println("Address updated successfully!");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Address: " + newAddress);
+
             } else {
                 System.out.println("Failed to update address.");
             }
@@ -200,6 +216,11 @@ public class ProfileController {
             int updatedRows = pstmt.executeUpdate();
             if (updatedRows > 0) {
                 System.out.println("password updated successfully!");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Password");
+
             } else {
                 System.out.println("Failed to update password.");
             }

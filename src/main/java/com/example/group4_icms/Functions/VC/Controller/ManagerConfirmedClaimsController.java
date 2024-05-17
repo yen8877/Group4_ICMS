@@ -93,7 +93,11 @@ public class ManagerConfirmedClaimsController {
             {
                 approveButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
-                    approveClaim(claim);
+                    try {
+                        approveClaim(claim);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -133,10 +137,15 @@ public class ManagerConfirmedClaimsController {
         }
     }
 
-    private void approveClaim(Claims claim) {
+    private void approveClaim(Claims claim) throws SQLException {
         if (updateClaimStatusInDatabase(claim.getFId(), "APPROVED")) {
             masterData.remove(claim);
             tableView.refresh();
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("approved Claim with ID: " + claim.getFId());
+
         }
     }
 

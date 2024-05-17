@@ -19,6 +19,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PolicyholderDependentsController {
 
@@ -63,7 +65,11 @@ public class PolicyholderDependentsController {
             {
                 deleteButton.setOnAction(event -> {
                     Customer customer = getTableView().getItems().get(getIndex());
-                    deleteDependent(customer);
+                    try {
+                        deleteCustomer(customer);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -78,30 +84,310 @@ public class PolicyholderDependentsController {
             }
         });
     }
+    private void deleteCustomer(Customer customer) throws SQLException {
+        boolean deletionSuccess = false;
 
-    private void deleteDependent(Customer customer) {
-        if (deleteDependentFromDatabase(customer.getCId())) {
+        switch (customer.getRole()) {
+            case "PolicyOwner":
+                deletionSuccess = deletePolicyowner(customer.getCId());
+                break;
+            case "PolicyHolder":
+                deletionSuccess = deletePolicyholder(customer.getCId());
+                break;
+            case "Dependent":
+                deletionSuccess = deleteDependent(customer.getCId());
+                break;
+            default:
+                System.out.println("Unknown role. No action taken.");
+                break;
+        }
+
+        if (deletionSuccess) {
             masterData.remove(customer);
             tableView.refresh();
+            System.out.println("Deletion successful for customer with ID: " + customer.getCId());
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Delete User with ID: " + customer.getCId());
+
+        } else {
+            System.out.println("Deletion failed for customer with ID: " + customer.getCId());
+        }
+    }
+    private boolean deletePolicyowner(String policyownerId) {
+        Connection conn = JDBCUtil.connectToDatabase();
+        String sqlDeletePolicyOwnerInsuranceCards = "DELETE FROM insurancecard WHERE policyowner = ?";
+        String sqlDeleteDependents = "DELETE FROM dependents WHERE policyholderid = ?";
+        String deleteClaimInsuredSQL = "DELETE FROM claim WHERE insuredpersonid = ?";
+        String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
+        String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE policyownerid = ?";
+        String sqlDeleteCustomer = "DELETE FROM customer WHERE c_id = ?";
+
+
+
+        try {
+            conn.setAutoCommit(false);
+            List<String> dependentIds = new ArrayList<>();
+            List<String> policyholderIds = new ArrayList<>();
+
+            // policyholder 테이블에서 policyholder IDs 조회 및 저장
+            String sqlSelectPolicyholders = "SELECT c_id FROM policyholder WHERE policyownerid = ?";
+            try (PreparedStatement ps = conn.prepareStatement(sqlSelectPolicyholders)) {
+                ps.setString(1, policyownerId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    policyholderIds.add(rs.getString("c_id"));
+                }
+            }
+
+            // dependents 테이블에서 policyholder IDs를 이용해 dependent IDs 조회 및 저장
+            String sqlSelectDependents = "SELECT c_id FROM dependents WHERE policyholderid = ?";
+            for (String policyholderid : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectDependents)) {
+                    ps.setString(1, policyholderid);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        dependentIds.add(rs.getString("c_id"));
+                    }
+                }
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyOwnerInsuranceCards)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+//            // dependents의 insurance cards 삭제
+//            String sqlDeleteDependentInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
+//            for (String id : dependentIds) {
+//                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependentInsuranceCards)) {
+//                    ps.setString(1, id);
+//                    ps.executeUpdate();
+//                }
+//            }
+
+            // dependents 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
+                for (String policyholderId : policyholderIds) {
+                    ps.setString(1, policyholderId);
+                    ps.executeUpdate();
+                }
+            }
+
+
+            // policyholders 및 dependents의 클레임 삭제
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+                try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+
+            // customer 테이블에서 dependents 삭제
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            // policyholders 테이블에서 policyholders 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholderTable)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+            // policyowner 테이블에서 policyowner 삭제
+            String sqlDeletePolicyowner = "DELETE FROM policyowner WHERE c_id = ?";
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyowner)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+//            // policyholders의 insurance cards 삭제
+//            for (String id : policyholderIds) {
+//                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInsuranceCards)) {
+//                    ps.setString(1, id);
+//                    ps.executeUpdate();
+//                }
+//            }
+
+            // customer 테이블에서 policyholders 삭제
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            // customer 테이블에서 policyowner 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteCustomer)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
+            }
+
+            conn.commit();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return false;
         }
     }
 
-    private boolean deleteDependentFromDatabase(String cId) {
+    private boolean deletePolicyholder(String policyholderId) {
         Connection conn = JDBCUtil.connectToDatabase();
+        String sqlDeleteInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
+        String sqlDeleteDependents = "DELETE FROM dependents WHERE policyholderid = ?";
+        String deleteClaimInsuredSQL = "DELETE FROM claim WHERE insuredpersonid = ?";
+        String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
+        String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE c_id = ?";
+        String sqlDeletePolicyholder = "DELETE FROM customer WHERE c_id = ?";
+
+
         try {
-            String deleteSQL = "DELETE FROM public.dependents WHERE c_id = ?";
-            try (PreparedStatement pstmt = conn.prepareStatement(deleteSQL)) {
-                pstmt.setString(1, cId);
-                int affectedRows = pstmt.executeUpdate();
-                return affectedRows > 0;
+            conn.setAutoCommit(false);
+            List<String> dependentIds = new ArrayList<>();
+
+            // dependents 테이블에서 dependent IDs 조회 및 저장
+            String sqlSelectDependents = "SELECT c_id FROM dependents WHERE policyholderid = ?";
+            try (PreparedStatement ps = conn.prepareStatement(sqlSelectDependents)) {
+                ps.setString(1, policyholderId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    dependentIds.add(rs.getString("c_id"));
+                }
             }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+            try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+            try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+
+            // dependents의 insurance cards 삭제
+            String sqlDeleteDependentInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependentInsuranceCards)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+            // customer 테이블에서 dependents 삭제
+            String sqlDeletePolicyholderDependents = "DELETE FROM customer WHERE c_id = ?";
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholderDependents)) {
+                    ps.setString(1, id);
+                    ps.executeUpdate();
+                }
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholderTable)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInsuranceCards)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyholder)) {
+                ps.setString(1, policyholderId);
+                ps.executeUpdate();
+            }
+
+
+            conn.commit();
+            return true;
         } catch (SQLException e) {
-            System.err.println("SQL error during dependent deletion: " + e.getMessage());
+            e.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             return false;
-        } finally {
-            JDBCUtil.close(conn);
         }
     }
+    private boolean deleteDependent(String dependentId) {
+        Connection conn = JDBCUtil.connectToDatabase();
+        String sqlDeleteInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
+        String sqlDeleteDependentTable = "DELETE FROM dependents WHERE c_id = ?";
+        String deleteClaimInsuredSQL = "DELETE FROM claim WHERE insuredpersonid = ?";
+        String sqlDeleteDependent = "DELETE FROM customer WHERE c_id = ?";
+
+        try {
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInsuranceCards)) {
+                ps.setString(1, dependentId);
+                ps.executeUpdate();
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependentTable)) {
+                ps.setString(1, dependentId);
+                ps.executeUpdate();
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
+                ps.setString(1, dependentId);
+                ps.executeUpdate();
+            }
+
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependent)) {
+                ps.setString(1, dependentId);
+                ps.executeUpdate();
+            }
+
+
+            conn.commit();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                conn.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            return false;
+        }
+    }
+
 
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();

@@ -87,6 +87,10 @@ public class AdminCustomerUpdateController {
             // Commit transaction
             connection.commit();
 
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Updated PolicyOwner with ID: " + customerIdToUpdate);
+
             if (customerRowsAffected > 0 && cardRowsAffected > 0) {
                 resultLabel.setText("Customer information updated successfully.");
             } else {

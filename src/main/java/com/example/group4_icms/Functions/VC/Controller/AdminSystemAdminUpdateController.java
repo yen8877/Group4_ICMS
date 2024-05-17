@@ -56,6 +56,11 @@ public class AdminSystemAdminUpdateController {
             int rowsAffected = preparedStatement.executeUpdate();
             if (rowsAffected > 0) {
                 resultLabel.setText("Admin information updated successfully.");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Admin with ID: " + adminIdToUpdate);
+
             } else {
                 resultLabel.setText("No admin found with the given ID.");
             }
