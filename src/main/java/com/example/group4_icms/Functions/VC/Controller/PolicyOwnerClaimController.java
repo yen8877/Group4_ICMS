@@ -101,20 +101,49 @@ public class PolicyOwnerClaimController {
 
     private boolean deleteClaimFromDatabase(String fId) {
         Connection conn = JDBCUtil.connectToDatabase();
+        if (conn == null) {
+            System.err.println("Database connection failed.");
+            return false;
+        }
+
+        String deleteDocumentsSQL = "DELETE FROM public.claimdocuments WHERE claim_id = ?";
+        String deleteClaimSQL = "DELETE FROM claim WHERE f_id = ?";
+
         try {
-            String deleteSQL = "DELETE FROM public.claim WHERE f_id = ?";
-            try (PreparedStatement pstmt = conn.prepareStatement(deleteSQL)) {
+            conn.setAutoCommit(false); // Start transaction
+
+            // Step 1: Delete related documents from claimdocuments table
+            try (PreparedStatement pstmt = conn.prepareStatement(deleteDocumentsSQL)) {
+                pstmt.setString(1, fId);
+                pstmt.executeUpdate();
+            }
+
+            // Step 2: Delete the claim from claim table
+            try (PreparedStatement pstmt = conn.prepareStatement(deleteClaimSQL)) {
                 pstmt.setString(1, fId);
                 int affectedRows = pstmt.executeUpdate();
-                return affectedRows > 0;
+
+                if (affectedRows > 0) {
+                    conn.commit(); // Commit transaction
+                    return true;
+                } else {
+                    conn.rollback(); // Rollback if no claim was deleted
+                    return false;
+                }
             }
         } catch (SQLException e) {
             System.err.println("SQL error during claim deletion: " + e.getMessage());
+            try {
+                conn.rollback(); // Rollback on error
+            } catch (SQLException ex) {
+                System.err.println("Error during rollback: " + ex.getMessage());
+            }
             return false;
         } finally {
             JDBCUtil.close(conn);
         }
     }
+
 
     private void loadData() {
         Connection conn = JDBCUtil.connectToDatabase();

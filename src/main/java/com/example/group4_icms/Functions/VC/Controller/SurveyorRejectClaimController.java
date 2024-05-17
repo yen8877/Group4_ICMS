@@ -48,6 +48,11 @@ public class SurveyorRejectClaimController {
                 int affectedRows = pstmt.executeUpdate();
                 if (affectedRows > 0) {
                     resultLabel.setText("Claim rejected successfully.");
+
+                    // Log the action
+                    LogHistoryController logHistoryController = new LogHistoryController();
+                    logHistoryController.updateLogHistory("Rejected Claim with ID: " + claimId);
+
                 } else {
                     resultLabel.setText("No claim found with the given F_ID.");
                 }

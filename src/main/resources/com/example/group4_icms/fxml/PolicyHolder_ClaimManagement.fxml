@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.layout.HBox?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyOwnerNavigationController">
     <children>
         <!--   Main Contents   -->
@@ -27,15 +28,19 @@
                     </VBox.margin>
                 </Text>
                 <AnchorPane>
-                    <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
+                    <HBox spacing="10" alignment="CENTER_RIGHT">
+                        <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
 
-                    </StackPane>
-                    <children>
-                        <Button id="add-new-btn" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadAddClaimForm" stylesheets="@../css/table.css" text="Add New" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="5.0" />
-                    </children>
-                    <VBox.margin>
-                        <Insets top="10.0" />
-                    </VBox.margin>
+                        </StackPane>
+                        <children>
+                            <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New Claim" onAction="#loadAddClaimForm"/>
+                            <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Update Claim" onAction="#loadUpdateClaimForm"/>
+                        </children>
+
+                        <padding>
+                            <Insets top="10.0" right="30.0" bottom="0.0" left="30.0"/>
+                        </padding>
+                    </HBox>
                 </AnchorPane>
                 <StackPane fx:id="TableContentArea" VBox.vgrow="ALWAYS">
                     <!-- 내부 컨텐츠 -->

@@ -93,7 +93,11 @@ public class SurveyorClaimsController {
             {
                 confirmButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
-                    confirmClaim(claim);
+                    try {
+                        confirmClaim(claim);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 });
             }
 
@@ -133,10 +137,14 @@ public class SurveyorClaimsController {
         }
     }
 
-    private void confirmClaim(Claims claim) {
+    private void confirmClaim(Claims claim) throws SQLException {
         if (updateClaimStatusInDatabase(claim.getFId(), "CONFIRMED")) {
             masterData.remove(claim);
             tableView.refresh();
+
+            // Log the action
+            LogHistoryController logHistoryController = new LogHistoryController();
+            logHistoryController.updateLogHistory("Confirmed Claim with ID: " + claim.getFId());
         }
     }
 

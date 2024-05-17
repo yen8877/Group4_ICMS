@@ -73,6 +73,11 @@ public class UpdateClaimController {
             int rowsAffected = updateClaimStmt.executeUpdate();
             if (rowsAffected > 0) {
                 resultLabel.setText("Claim information updated successfully.");
+
+                // Log the action
+                LogHistoryController logHistoryController = new LogHistoryController();
+                logHistoryController.updateLogHistory("Updated Claim with ID: " + claimId);
+
             } else {
                 resultLabel.setText("No claim found with the given ID.");
             }
