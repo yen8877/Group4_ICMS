@@ -1,27 +1,86 @@
 package com.example.group4_icms.Functions.DTO;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ClaimDTO {
 
+    @Override
+    public String toString() {
+        return "ClaimDTO{" +
+                "Id='" + Id + '\'' +
+                ", ClaimDate=" + ClaimDate +
+                ", InsuredPersonId='" + InsuredPersonId + '\'' +
+                ", CardNum='" + CardNum + '\'' +
+                ", ExamDate=" + ExamDate +
+                ", ClaimAmount=" + ClaimAmount +
+                ", insurancePersonID='" + insurancePersonID + '\'' +
+                ", SubmittedByID='" + SubmittedByID + '\'' +
+                ", Status='" + Status + '\'' +
+                ", BankingInfo='" + BankingInfo + '\'' +
+                ", claim_Documents=" + claim_Documents +
+                ", submittedById='" + submittedById + '\'' +
+                '}';
+    }
+
     private String Id;
-    private LocalDateTime ClaimDate;
+    private Timestamp ClaimDate;
     private String InsuredPersonId;
     private String CardNum;
-    private LocalDate ExamDate;
+    private Date ExamDate;
     private double ClaimAmount;
-
-    private String policyHolderId;
-    private String bankingInfo;
-
-    private String submittedById;
-    private String status;
-
+    private String insurancePersonID;
+    private String SubmittedByID;
+    private String Status;
+    private String BankingInfo;
     private String claim_Documents;
     private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    //    private String policyHolderId;
+
+
+    public String getInsurancePersonID() {
+        return insurancePersonID;
+    }
+
+    public void setInsurancePersonID(String insurancePersonID) {
+        this.insurancePersonID = insurancePersonID;
+    }
+
+    public String getSubmittedByID() {
+        return SubmittedByID;
+    }
+
+    public void setSubmittedByID(String submittedByID) {
+        SubmittedByID = submittedByID;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public String getBankingInfo() {
+        return BankingInfo;
+    }
+
+    public void setBankingInfo(String bankingInfo) {
+        BankingInfo = bankingInfo;
+    }
 
     public String getClaim_Documents() {
         return claim_Documents;
@@ -31,13 +90,8 @@ public class ClaimDTO {
         this.claim_Documents = claim_Documents;
     }
 
-    public String getMessage() {
-        return message;
-    }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    private String submittedById;
 
     public String getSubmittedById() {
         return submittedById;
@@ -47,23 +101,14 @@ public class ClaimDTO {
         this.submittedById = submittedById;
     }
 
-    public String getPolicyHolderId() {
-        return policyHolderId;
-    }
+//    public String getPolicyHolderId() {
+//        return policyHolderId;
+//    }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
-    public void setPolicyHolderId(String policyHolderId) {
-        this.policyHolderId = policyHolderId;
-    }
+
 //    private String ReceiverBankingInfo;
-
 
     public String getId() {
         return Id;
@@ -81,11 +126,11 @@ public class ClaimDTO {
         ClaimAmount = claimAmount;
     }
 
-    public LocalDate getExamDate() {
+    public Date getExamDate() {
         return ExamDate;
     }
 
-    public void setExamDate(LocalDate examDate) {
+    public void setExamDate(Date examDate) {
         ExamDate = examDate;
     }
 
@@ -105,30 +150,11 @@ public class ClaimDTO {
         InsuredPersonId = insuredPersonId;
     }
 
-    public LocalDateTime getClaimDate() {
+    public Timestamp getClaimDate() {
         return ClaimDate;
     }
 
-    public void setClaimDate(LocalDateTime claimDate) {
+    public void setClaimDate(Timestamp claimDate) {
         ClaimDate = claimDate;
     }
-
-    public void setBankingInfo(String bankingInfo) {
-        this.bankingInfo = bankingInfo;
-    }
-
-    public String getBankingInfo() {
-        return bankingInfo;
-    }
-
-//    @Override
-//    public String toString() {
-//        return "ClaimDTO{" +
-//                "id='" + Id + '\'' +
-//                ", examDate=" + ExamDate +
-//                ", claimAmount=" + ClaimAmount +
-//                ", insuredPersonId='" + InsuredPersonId + '\'' +
-//                ", submittedById='" + submittedById + '\'' +
-//                '}';
-//    }
 }

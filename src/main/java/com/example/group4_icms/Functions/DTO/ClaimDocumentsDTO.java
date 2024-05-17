@@ -1,4 +1,4 @@
-package functions;
+package com.example.group4_icms.Functions.DTO;
 
 import java.sql.Timestamp;
 

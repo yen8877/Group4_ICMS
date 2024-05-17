@@ -1,6 +1,7 @@
 package com.example.group4_icms.Functions.DAO;
 
 import com.example.group4_icms.Functions.DTO.ClaimDTO;
+import com.example.group4_icms.Functions.DTO.ClaimDocumentsDTO;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -59,9 +60,8 @@ public class ClaimDAO {
 //            return false;
 //        }
 //        }
-    public static boolean addClaim(ClaimDTO claim) {
-
-        String sql = "INSERT INTO claim (f_id, claimdate,examdate, claimamount, insuredpersonid, submittedbyid, status, bankinginfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean addClaim(ClaimDTO claim) {
+        String sql = "INSERT INTO claim (f_id, claimdate, examdate, claimamount, insuredpersonid, submittedbyid, status,  claim_documents,bankingInfo,message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, claim.getId());
@@ -71,9 +71,13 @@ public class ClaimDAO {
             pstmt.setString(5, claim.getInsuredPersonId());
             pstmt.setString(6, claim.getSubmittedById());
             pstmt.setString(7, claim.getStatus());
-            pstmt.setString(8, claim.getBankingInfo());
+            pstmt.setString(8, claim.getClaim_Documents());
+            pstmt.setString(9, claim.getBankingInfo());
+            pstmt.setString(10, claim.getMessage());
+
 
             int affectedRows = pstmt.executeUpdate();
+
             return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,14 +87,18 @@ public class ClaimDAO {
 
 
     public boolean updateClaim(ClaimDTO claim) {
-        String sql = "UPDATE claim SET examdate = ?, claimamount = ? WHERE f_id = ?";
+        String sql = "UPDATE claim SET examdate = ?, claimamount = ?, status = ?, bankingInfo = ?, claim_documents = ?,message = ? WHERE f_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setObject(1, claim.getExamDate());
             pstmt.setDouble(2, claim.getClaimAmount());
-            pstmt.setString(3, claim.getId());
-
+            pstmt.setString(3, claim.getStatus());
+            pstmt.setString(4, claim.getBankingInfo());
+            pstmt.setString(5, claim.getClaim_Documents());
+            pstmt.setString(6, claim.getId());
+            pstmt.setString(7,claim.getMessage());
             int affectedRows = pstmt.executeUpdate();
+
             return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -120,7 +128,7 @@ public class ClaimDAO {
         return id;
     }
 
-    public void addClaimDocument(ClaimDTO claimDTO, functions.ClaimDocumentsDTO claimDocumentsDTO){
+    public void addClaimDocument(ClaimDTO claimDTO, ClaimDocumentsDTO claimDocumentsDTO){
         String documents = claimDTO.getClaim_Documents() + ","+claimDocumentsDTO.getDocument_name();
         claimDTO.setClaim_Documents(documents);
         updateClaim(claimDTO);
@@ -136,36 +144,36 @@ public class ClaimDAO {
             System.err.println("Failed to update claim after removing document.");
             return false;
         }
-        functions.ClaimDocumentsDAO claimDocumentsDAO = new functions.ClaimDocumentsDAO();
+        ClaimDocumentsDAO claimDocumentsDAO = new ClaimDocumentsDAO();
         return claimDocumentsDAO.deleteDocumentByName(documentName);
     }
-//    public ClaimDTO getClaimByID(String claimID) {
-//        String sql = "SELECT * FROM claim WHERE f_id = ?";
-//        try (Connection conn = JDBCUtil.connectToDatabase();
-//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-//            pstmt.setString(1, claimID);
-//            ResultSet rs = pstmt.executeQuery();
-//
-//            if (rs.next()) {
-//                ClaimDTO claim = new ClaimDTO();
-//                claim.setId(rs.getString("f_id"));
-//                claim.setClaimDate(rs.getTimestamp("claimdate"));
-//                claim.setExamDate(rs.getDate("examdate"));
-//                claim.setClaimAmount(rs.getDouble("claimamount"));
-//                claim.setInsuredPersonId(rs.getString("insuredpersonid"));
-//                claim.setSubmittedById(rs.getString("submittedbyid"));
-//                claim.setStatus(rs.getString("status"));
-//                claim.setBankingInfo(rs.getString("bankinginfo"));
-//                claim.setClaim_Documents(rs.getString("claim_documents"));
-//
-//                return claim;
-//            }
-//        } catch (SQLException e) {
-//            System.err.println("Error fetching claim by ID: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    public ClaimDTO getClaimByID(String claimID) {
+        String sql = "SELECT * FROM claim WHERE f_id = ?";
+        try (Connection conn = JDBCUtil.connectToDatabase();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, claimID);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                ClaimDTO claim = new ClaimDTO();
+                claim.setId(rs.getString("f_id"));
+                claim.setClaimDate(rs.getTimestamp("claimdate"));
+                claim.setExamDate(rs.getDate("examdate"));
+                claim.setClaimAmount(rs.getDouble("claimamount"));
+                claim.setInsuredPersonId(rs.getString("insuredpersonid"));
+                claim.setSubmittedById(rs.getString("submittedbyid"));
+                claim.setStatus(rs.getString("status"));
+                claim.setBankingInfo(rs.getString("bankinginfo"));
+                claim.setClaim_Documents(rs.getString("claim_documents"));
+
+                return claim;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error fetching claim by ID: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }

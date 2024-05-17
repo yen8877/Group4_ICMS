@@ -1,7 +1,6 @@
 package com.example.group4_icms.Functions.img;
 
 import com.example.group4_icms.Functions.DAO.ClaimDAO;
-import com.example.group4_icms.Functions.DTO.ClaimDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -86,21 +85,24 @@ public class ImageUploaderController {
 //    }
 
     // 원본 이미지 파일을 저장하는 메소드
-    private void saveOriginalImageFile(File sourceFile, String destinationDir, String title) {
+    public void saveOriginalImageFile(File sourceFile, String title) throws IOException {
+        String projectRoot = System.getProperty("user.dir");
+        Path imagesDir = Paths.get(projectRoot, "ICMSProject/images");
+        String dirPath = imagesDir.toString();
+        if (!Files.exists(imagesDir)) {
+            Files.createDirectories(imagesDir);
+        }
         try {
             BufferedImage originalImage = ImageIO.read(sourceFile);
 
             // 파일 저장
-            File outputDir = new File(destinationDir);
+            File outputDir = new File(dirPath);
             if (!outputDir.exists()) {
                 outputDir.mkdirs(); // 디렉토리가 존재하지 않으면 생성
             }
-
             String fileExtension = getFileExtension(sourceFile);
-            File outputFile = new File(outputDir, title + "." + fileExtension);
+            File outputFile = new File(outputDir, title);
             ImageIO.write(originalImage, fileExtension, outputFile);
-
-            System.out.println("이미지가 성공적으로 저장되었습니다: " + outputFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("이미지 파일 저장 중 오류가 발생했습니다.");

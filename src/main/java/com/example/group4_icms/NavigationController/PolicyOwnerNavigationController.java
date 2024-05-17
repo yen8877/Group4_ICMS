@@ -4,6 +4,7 @@ import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
 import com.example.group4_icms.Functions.VC.Controller.LogHistoryController;
+import com.example.group4_icms.Functions.img.ImageUploaderController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,9 +14,12 @@ import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -24,6 +28,13 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class PolicyOwnerNavigationController extends BaseController implements Initializable {
+    @FXML
+    private Text fileNameText;
+    private File selectedImageFile;
+    @FXML
+    private Button uploadingBtn;
+    private String documentName = "";
+    private File documentFile;
     private ClaimDAO ClaimDao = new ClaimDAO();
     private DependentDAO dependentDao = new DependentDAO();
     private PolicyHolderDAO policyHolderDao = new PolicyHolderDAO();
@@ -201,8 +212,6 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             e.printStackTrace();
         }
     }
-
-    // save claim
     public void saveClaim() {
         try {
             // Generate a unique Claim ID
@@ -263,31 +272,133 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             // Fill the DTO and attempt to save the claim
             ClaimDTO claim = new ClaimDTO();
             claim.setId(claimId);
-            claim.setClaimDate(LocalDateTime.now());
-            claim.setExamDate(examDate);
+            claim.setClaimDate(Timestamp.valueOf(LocalDateTime.now()));
+            claim.setExamDate(Date.valueOf(examDate));
             claim.setClaimAmount(Double.parseDouble(claimAmountField.getText()));
             claim.setInsuredPersonId(insuredPersonId);
             claim.setSubmittedById(policyHolderIdField.getText());
             claim.setBankingInfo(bankingInfo);
             claim.setStatus("NEW"); // Set status to NEW
-
-            if (!ClaimDao.addClaim(claim)) {
-                showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save the claim.");
-                return;
-            }
-
+            ClaimDao.addClaim(claim);
+//            if (!ClaimDao.addClaim(claim)) {
+//                showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save the claim.");
+//            }else{
             showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
-            clearForm();
 
             // Log the action
             LogHistoryController logHistoryController = new LogHistoryController();
             logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
 
+            if(documentFile != null){
+                /*Save claim document*/
+                ClaimDocumentsDAO claimDocumentsDAO = new ClaimDocumentsDAO();
+                ClaimDocumentsDTO c1 = new ClaimDocumentsDTO();
+                c1.setClaim_id(claimId);
+                c1.setDocument_name(documentName);
+                claimDocumentsDAO.addClaimDocument(c1);
+                ImageUploaderController imageUploaderController = new ImageUploaderController();
+                imageUploaderController.saveOriginalImageFile(documentFile,documentName);
+                ClaimDao.addClaimDocument(claim,c1);
+                documentFile = null;
+                documentName = null;
+            }
+            clearForm();
+
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
         }
+
+
+
     }
+    // save claim
+//    public void saveClaim() {
+//        try {
+//            // Generate a unique Claim ID
+//            String claimId;
+//            boolean isUnique;
+//            int maxAttempts = 10; // Limit to 10 attempts to avoid infinite loop
+//            do {
+//                claimId = "f" + String.format("%010d", (int) (Math.random() * 10000000));
+//                isUnique = !ClaimDao.claimIdExists(claimId); // Check uniqueness
+//                maxAttempts--;
+//            } while (!isUnique && maxAttempts > 0);
+//
+//            if (!isUnique) {
+//                showAlert(Alert.AlertType.ERROR, "ID Error", "Failed to generate a unique ID after multiple attempts.");
+//                return;
+//            }
+//
+//            // Ensure a claim type selection has been made
+//            Toggle selectedToggle = roleToggleGroup.getSelectedToggle();
+//            if (selectedToggle == null) {
+//                showAlert(Alert.AlertType.ERROR, "Selection Error", "Please select a claim type.");
+//                return;
+//            }
+//            String claimType = ((RadioButton) selectedToggle).getText().toLowerCase();
+//
+//            // Validate Policy Holder
+//            PolicyHolderDTO policyHolder = policyHolderDao.findPolicyHolderById(policyHolderIdField.getText());
+//            if (policyHolder == null || !"PolicyHolder".equals(policyHolder.getCustomerType())) {
+//                showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid or non-existent policy holder.");
+//                return;
+//            }
+//
+//            // Determine insured person based on claim type
+//            String insuredPersonId = "self".equals(claimType) ? policyHolderIdField.getText() : dependentIdField.getText();
+//            String customerName = policyHolder.getFullName(); // default to policy holder's name
+//
+//            if ("dependent".equals(claimType)) {
+//                DependentDTO dependent = dependentDao.findDependentByIdAndPolicyHolderId(dependentIdField.getText(), policyHolderIdField.getText());
+//                if (dependent == null) {
+//                    showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid or non-existent dependent or not linked to the policy holder.");
+//                    return;
+//                }
+//                customerName = dependent.getFullName(); // Use dependent's name if applicable
+//            }
+//
+//            // Prepare Banking Info
+//            String bankName = bankNameField.getText().trim();
+//            String bankAccount = bankAccountField.getText().trim();
+//            String bankingInfo = String.format("%s-%s-%s", bankName, bankAccount, customerName);
+//
+//            // Validate Exam Date
+//            LocalDate examDate = examDateField.getValue();
+//            if (examDate == null || examDate.isAfter(LocalDate.now())) {
+//                showAlert(Alert.AlertType.ERROR, "Date Error", "Exam date is required and cannot be in the future.");
+//                return;
+//            }
+//
+//            // Fill the DTO and attempt to save the claim
+//            ClaimDTO claim = new ClaimDTO();
+//            claim.setId(claimId);
+//            claim.setClaimDate(LocalDateTime.now());
+//            claim.setExamDate(examDate);
+//            claim.setClaimAmount(Double.parseDouble(claimAmountField.getText()));
+//            claim.setInsuredPersonId(insuredPersonId);
+//            claim.setSubmittedById(policyHolderIdField.getText());
+//            claim.setBankingInfo(bankingInfo);
+//            claim.setStatus("NEW"); // Set status to NEW
+//
+//            if (!ClaimDao.addClaim(claim)) {
+//                showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save the claim.");
+//                return;
+//            }
+//
+//            showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
+//            clearForm();
+//
+//            // Log the action
+//            LogHistoryController logHistoryController = new LogHistoryController();
+//            logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
+//        }
+//    }
 
 
     private void clearForm() {
@@ -361,8 +472,8 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             // 클레임 DTO를 생성하고 설정합니다.
             ClaimDTO claim = new ClaimDTO();
             claim.setId(claimId);
-            claim.setClaimDate(LocalDateTime.now());
-            claim.setExamDate(examDate);
+            claim.setClaimDate(Timestamp.valueOf(LocalDateTime.now()));
+            claim.setExamDate(Date.valueOf(examDate));
             claim.setClaimAmount(Double.parseDouble(claimAmountField.getText()));
             claim.setInsuredPersonId(insuredPersonId);
             claim.setSubmittedById(policyOwnerId);
@@ -370,23 +481,125 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             claim.setStatus("NEW");
 
             // 데이터베이스에 클레임을 추가합니다.
-            if (!ClaimDAO.addClaim(claim)) {
-                showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save the claim.");
-                return;
+            ClaimDAO claimDAO = new ClaimDAO();
+            claimDAO.addClaim(claim);
+            if(documentFile !=null){
+                /*Save claim document*/
+                ClaimDocumentsDAO claimDocumentsDAO = new ClaimDocumentsDAO();
+                ClaimDocumentsDTO c1 = new ClaimDocumentsDTO();
+                c1.setClaim_id(claimId);
+                c1.setDocument_name(documentName);
+                claimDocumentsDAO.addClaimDocument(c1);
+                ImageUploaderController imageUploaderController = new ImageUploaderController();
+                imageUploaderController.saveOriginalImageFile(documentFile,documentName);
+                ClaimDao.addClaimDocument(claim,c1);
+                documentFile = null;
+                documentName = null;
+
             }
 
             showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
-            clearForm(); // 폼 필드를 모두 클리어합니다.
-
-            // Log the action
+                        // Log the action
             LogHistoryController logHistoryController = new LogHistoryController();
             logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
-
+            clearForm(); // 폼 필드를 모두 클리어합니다.
         } catch (Exception e) {
             e.printStackTrace();
             showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
         }
     }
+
+//    public void saveClaimByPolicyOwner() {
+//        try {
+//            String policyOwnerId = policyOwnerIdField.getText().trim();
+//            // PolicyOwner의 유효성을 검증합니다.
+//            if (!CustomerDAO.isValidPolicyOwner(policyOwnerId)) {
+//                showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid or non-existent policy owner.");
+//                return;
+//            }
+//
+//            String insuredPersonId = null;
+//            String roleType = ((RadioButton) roleToggleGroup.getSelectedToggle()).getText();
+//
+//            // 선택된 역할에 따라 검증 로직을 수행합니다.
+//            if ("PolicyHolder".equals(roleType)) {
+//                insuredPersonId = policyHolderIdField.getText().trim();
+//                if (!CustomerDAO.isValidRole(insuredPersonId, "PolicyHolder")) {
+//                    showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid policy holder or mismatch with policy owner.");
+//                    return;
+//                }
+//                dependentIdField.clear(); // Dependent ID 필드를 클리어합니다.
+//            } else if ("Dependent".equals(roleType)) {
+//                insuredPersonId = dependentIdField.getText().trim();
+//                if (!CustomerDAO.isValidRole(insuredPersonId, "Dependent")) {
+//                    showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid dependent or mismatch with policy owner.");
+//                    return;
+//                }
+//                policyHolderIdField.clear(); // PolicyHolder ID 필드를 클리어합니다.
+//            } else {
+//                showAlert(Alert.AlertType.ERROR, "Selection Error", "Please select a valid claim type.");
+//                return;
+//            }
+//
+//            // 고유한 클레임 ID를 생성합니다.
+//            String claimId = ClaimDAO.generateUniqueClaimId();
+//
+//            // 검사 날짜의 유효성을 검증합니다.
+//            LocalDate examDate = examDateField.getValue();
+//            if (examDate == null || examDate.isAfter(LocalDate.now())) {
+//                showAlert(Alert.AlertType.ERROR, "Date Error", "Exam date is required and cannot be in the future.");
+//                return;
+//            }
+//
+//            // 은행 정보를 준비합니다.
+//            String bankName = bankNameField.getText().trim();
+//            String bankAccount = bankAccountField.getText().trim();
+//            String customerName = CustomerDAO.findFullNameById(insuredPersonId);
+//            String bankingInfo = String.format("%s-%s-%s", bankName, bankAccount, customerName);
+//
+//            // 클레임 DTO를 생성하고 설정합니다.
+//            ClaimDTO claim = new ClaimDTO();
+//            claim.setId(claimId);
+//            claim.setClaimDate(LocalDateTime.now());
+//            claim.setExamDate(examDate);
+//            claim.setClaimAmount(Double.parseDouble(claimAmountField.getText()));
+//            claim.setInsuredPersonId(insuredPersonId);
+//            claim.setSubmittedById(policyOwnerId);
+//            claim.setBankingInfo(bankingInfo);
+//            claim.setStatus("NEW");
+//
+//            // 데이터베이스에 클레임을 추가합니다.
+//            ClaimDAO claimDAO = new ClaimDAO();
+//            claimDAO.addClaim(claim);
+//            if(documentFile !=null){
+//                /*Save claim document*/
+//                ClaimDocumentsDAO claimDocumentsDAO = new ClaimDocumentsDAO();
+//                ClaimDocumentsDTO c1 = new ClaimDocumentsDTO();
+//                c1.setClaim_id(claimId);
+//                c1.setDocument_name(documentName);
+//                claimDocumentsDAO.addClaimDocument(c1);
+//                ImageUploaderController imageUploaderController = new ImageUploaderController();
+//                imageUploaderController.saveOriginalImageFile(documentFile,documentName);
+//                ClaimDao.addClaimDocument(claim,c1);
+//                documentFile = null;
+//                documentName = null;
+//            if (!ClaimDAO.addClaim(claim)) {
+//                showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to save the claim.");
+//                return;
+//            }
+//
+//            showAlert(Alert.AlertType.INFORMATION, "Success", "Claim added successfully.");
+//            clearForm(); // 폼 필드를 모두 클리어합니다.
+//
+//            // Log the action
+//            LogHistoryController logHistoryController = new LogHistoryController();
+//            logHistoryController.updateLogHistory("Added Claim with ID: " + claimId);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred: " + e.getMessage());
+//        }
+//    }
 
 
 //    public void saveClaimByPolicyOwner() {
@@ -703,5 +916,33 @@ public class PolicyOwnerNavigationController extends BaseController implements I
             e.printStackTrace();
             // 에러 처리
         }
+    }
+
+    // 선택된 이미지 파일을 반환하는 메서드
+    public File getSelectedImageFile() {
+        return selectedImageFile;
+    }
+
+    @FXML
+    private void uploadButtonAction(ActionEvent event) {
+        // 파일 선택 다이얼로그 생성
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF files", "*.pdf"));
+
+        // 파일 선택 다이얼로그 열기
+        Stage stage = (Stage) uploadingBtn.getScene().getWindow();
+        selectedImageFile = fileChooser.showOpenDialog(stage); // selectedImageFile에 선택된 이미지 파일 할당
+
+        // 선택된 파일이 있으면
+        if (selectedImageFile != null) {
+            this.documentFile = selectedImageFile;
+            String fileName = selectedImageFile.getName();
+            // 파일 이름을 텍스트로 표시
+            fileNameText.setText(selectedImageFile.getName());
+            this.documentName = fileName;
+//            // 이미지 파일을 표시
+//            Image image = new Image(selectedImageFile.toURI().toString());
+        }
+
     }
 }

@@ -1,6 +1,7 @@
-package functions;
+package com.example.group4_icms.Functions.DAO;
 
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
+import com.example.group4_icms.Functions.DTO.ClaimDocumentsDTO;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class ClaimDocumentsDAO {
 
-    public boolean addClaimDocument(functions.ClaimDocumentsDTO claimDocumentsDTO) {
+    public boolean addClaimDocument(ClaimDocumentsDTO claimDocumentsDTO) {
         String sql = "INSERT INTO claimdocuments (document_name, claim_id) VALUES (?, ?)";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -24,7 +25,7 @@ public class ClaimDocumentsDAO {
         }
     }
 
-    public List<String> getDocumentsByClaimId(functions.ClaimDocumentsDTO claimDocumentsDTO) {
+    public List<String> getDocumentsByClaimId(ClaimDocumentsDTO claimDocumentsDTO) {
         List<String> documents = new ArrayList<>();
         String sql = "SELECT document_name FROM claimdocuments WHERE claim_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
