@@ -36,14 +36,14 @@ public class SurveyorClaimsController {
     @FXML
     private TableColumn<Claims, Double> colClaimAmount;
     @FXML
-    private TableColumn<Claims, Void> colApprove;
+    private TableColumn<Claims, Void> colConfirm;
 
     private ObservableList<Claims> masterData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         setupColumns();
-        setupApproveColumn();
+        setupConfirmColumn();
         loadData();
         setupFilterAndSorting();
     }
@@ -60,15 +60,16 @@ public class SurveyorClaimsController {
         colClaimDocuments.setCellValueFactory(new PropertyValueFactory<>("claimDocuments"));
     }
 
-    private void setupApproveColumn() {
-        colApprove.setCellFactory(param -> new TableCell<Claims, Void>() {
-            private final Button approveButton = new Button("approve");
+
+    private void setupConfirmColumn() {
+        colConfirm.setCellFactory(param -> new TableCell<Claims, Void>() {
+            private final Button confirmButton = new Button("confirm");
 
             {
-                approveButton.setOnAction(event -> {
+                confirmButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
                     try {
-                        approveClaim(claim);
+                        confirmClaim(claim);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
@@ -81,20 +82,44 @@ public class SurveyorClaimsController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(approveButton);
+                    setGraphic(confirmButton);
                 }
             }
         });
     }
 
-    private void approveClaim(Claims claim) throws SQLException {
-        if (updateClaimStatusInDatabase(claim.getFId(), "APPROVED")) {
+    private void deleteClaim(Claims claim) {
+        if (deleteClaimFromDatabase(claim.getFId())) {
+            masterData.remove(claim);
+            tableView.refresh();
+        }
+    }
+
+    private boolean deleteClaimFromDatabase(String fId) {
+        Connection conn = JDBCUtil.connectToDatabase();
+        try {
+            String deleteSQL = "DELETE FROM public.claim WHERE f_id = ?";
+            try (PreparedStatement pstmt = conn.prepareStatement(deleteSQL)) {
+                pstmt.setString(1, fId);
+                int affectedRows = pstmt.executeUpdate();
+                return affectedRows > 0;
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL error during claim deletion: " + e.getMessage());
+            return false;
+        } finally {
+            JDBCUtil.close(conn);
+        }
+    }
+
+    private void confirmClaim(Claims claim) throws SQLException {
+        if (updateClaimStatusInDatabase(claim.getFId(), "CONFIRMED")) {
             masterData.remove(claim);
             tableView.refresh();
 
             // Log the action
             LogHistoryController logHistoryController = new LogHistoryController();
-            logHistoryController.updateLogHistory("approved Claim with ID: " + claim.getFId());
+            logHistoryController.updateLogHistory("Confirmed Claim with ID: " + claim.getFId());
         }
     }
 
