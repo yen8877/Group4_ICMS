@@ -203,6 +203,7 @@ public class CustomerController {
         String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
         String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE policyownerid = ?";
         String sqlDeleteCustomer = "DELETE FROM customer WHERE c_id = ?";
+        String sqlDeleteClaimDocuments = "DELETE FROM claimdocuments WHERE claim_id = ?";
 
 
 
@@ -210,6 +211,7 @@ public class CustomerController {
             conn.setAutoCommit(false);
             List<String> dependentIds = new ArrayList<>();
             List<String> policyholderIds = new ArrayList<>();
+            List<String> claimIds = new ArrayList<>();
 
             // policyholder 테이블에서 policyholder IDs 조회 및 저장
             String sqlSelectPolicyholders = "SELECT c_id FROM policyholder WHERE policyownerid = ?";
@@ -232,10 +234,40 @@ public class CustomerController {
                     }
                 }
             }
+            // Fetch claim IDs
+            String sqlSelectClaims = "SELECT f_id FROM claim WHERE insuredpersonid = ? OR submittedbyid = ?";
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectClaims)) {
+                    ps.setString(1, id);
+                    ps.setString(2, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        claimIds.add(rs.getString("f_id"));
+                    }
+                }
+            }
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectClaims)) {
+                    ps.setString(1, id);
+                    ps.setString(2, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        claimIds.add(rs.getString("f_id"));
+                    }
+                }
+            }
 
             try (PreparedStatement ps = conn.prepareStatement(sqlDeletePolicyOwnerInsuranceCards)) {
                 ps.setString(1, policyownerId);
                 ps.executeUpdate();
+            }
+
+            // Delete claim documents
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteClaimDocuments)) {
+                for (String claimId : claimIds) {
+                    ps.setString(1, claimId);
+                    ps.executeUpdate();
+                }
             }
 
 //            // dependents의 insurance cards 삭제
@@ -247,15 +279,11 @@ public class CustomerController {
 //                }
 //            }
 
-            // dependents 삭제
-            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
-                for (String policyholderId : policyholderIds) {
-                    ps.setString(1, policyholderId);
-                    ps.executeUpdate();
-                }
+
+            try (PreparedStatement ps = conn.prepareStatement(deleteClaimSubmittedSQL)) {
+                ps.setString(1, policyownerId);
+                ps.executeUpdate();
             }
-
-
             // policyholders 및 dependents의 클레임 삭제
             for (String id : dependentIds) {
                 try (PreparedStatement ps = conn.prepareStatement(deleteClaimInsuredSQL)) {
@@ -349,11 +377,14 @@ public class CustomerController {
         String deleteClaimSubmittedSQL = "DELETE FROM claim WHERE submittedbyid = ?";
         String sqlDeletePolicyholderTable = "DELETE FROM policyholder WHERE c_id = ?";
         String sqlDeletePolicyholder = "DELETE FROM customer WHERE c_id = ?";
+        String sqlDeleteClaimDocuments = "DELETE FROM claimdocuments WHERE claim_id = ?";
 
 
         try {
             conn.setAutoCommit(false);
             List<String> dependentIds = new ArrayList<>();
+            List<String> policyholderIds = new ArrayList<>();
+            List<String> claimIds = new ArrayList<>();
 
             // dependents 테이블에서 dependent IDs 조회 및 저장
             String sqlSelectDependents = "SELECT c_id FROM dependents WHERE policyholderid = ?";
@@ -364,7 +395,28 @@ public class CustomerController {
                     dependentIds.add(rs.getString("c_id"));
                 }
             }
-
+            // Fetch claim IDs
+            String sqlSelectClaims = "SELECT f_id FROM claim WHERE insuredpersonid = ? OR submittedbyid = ?";
+            for (String id : policyholderIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectClaims)) {
+                    ps.setString(1, id);
+                    ps.setString(2, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        claimIds.add(rs.getString("f_id"));
+                    }
+                }
+            }
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectClaims)) {
+                    ps.setString(1, id);
+                    ps.setString(2, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        claimIds.add(rs.getString("f_id"));
+                    }
+                }
+            }
             try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
                 ps.setString(1, policyholderId);
                 ps.executeUpdate();
@@ -377,7 +429,13 @@ public class CustomerController {
                 ps.setString(1, policyholderId);
                 ps.executeUpdate();
             }
-
+            // Delete claim documents
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteClaimDocuments)) {
+                for (String claimId : claimIds) {
+                    ps.setString(1, claimId);
+                    ps.executeUpdate();
+                }
+            }
             // dependents의 insurance cards 삭제
             String sqlDeleteDependentInsuranceCards = "DELETE FROM insurancecard WHERE cardholder = ?";
             for (String id : dependentIds) {
@@ -433,6 +491,30 @@ public class CustomerController {
 
         try {
             conn.setAutoCommit(false);
+            List<String> dependentIds = new ArrayList<>();
+            List<String> claimIds = new ArrayList<>();
+
+            // dependents 테이블에서 dependent IDs 조회 및 저장
+            String sqlSelectDependents = "SELECT c_id FROM dependents WHERE c_id = ?";
+            try (PreparedStatement ps = conn.prepareStatement(sqlSelectDependents)) {
+                ps.setString(1, dependentId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    dependentIds.add(rs.getString("c_id"));
+                }
+            }
+            // Fetch claim IDs
+            String sqlSelectClaims = "SELECT f_id FROM claim WHERE insuredpersonid = ? OR submittedbyid = ?";
+            for (String id : dependentIds) {
+                try (PreparedStatement ps = conn.prepareStatement(sqlSelectClaims)) {
+                    ps.setString(1, id);
+                    ps.setString(2, id);
+                    ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        claimIds.add(rs.getString("f_id"));
+                    }
+                }
+            }
 
             try (PreparedStatement ps = conn.prepareStatement(sqlDeleteInsuranceCards)) {
                 ps.setString(1, dependentId);
