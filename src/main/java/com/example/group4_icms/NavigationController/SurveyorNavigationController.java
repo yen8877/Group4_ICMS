@@ -32,6 +32,7 @@ public class SurveyorNavigationController extends BaseController {
 
     @FXML
     private StackPane contentArea;
+    public StackPane TableContentArea;
 
     @FXML
     private void loadHome() {
@@ -51,6 +52,11 @@ public class SurveyorNavigationController extends BaseController {
     private void loadLogHistory() {
         loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
     }
+    @FXML
+    private void loadClaimDocuments() {
+        loadUI("/com/example/group4_icms/fxml/CheckingClaimDocuments.fxml");
+    }
+
 
     @FXML
     private void loadCustomerOverview() {
@@ -64,12 +70,28 @@ public class SurveyorNavigationController extends BaseController {
         loadUI("/com/example/group4_icms/fxml/Profile.fxml");
     }
 
+    @FXML
+    private void loadSearchClaimIdForm() {
+        loadUIForTable("/com/example/group4_icms/fxml/SearchClaimId.fxml");
+    }
+
     private void loadUI(String ui) {
         Node node;
         try {
             node = FXMLLoader.load(getClass().getResource(ui));
             contentArea.getChildren().setAll(node);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadUIForTable(String ui) {
+        Node node;
+        try {
+            node = FXMLLoader.load(getClass().getResource(ui));
+            TableContentArea.getChildren().setAll(node);  // StackPane에 로드
+        } catch (Exception e) {
+            logger.error("Failed to load FXML file: " + ui, e);
             e.printStackTrace();
         }
     }
