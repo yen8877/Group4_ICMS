@@ -686,6 +686,10 @@ public class PolicyOwnerNavigationController extends BaseController implements I
     private void loadOwnerCustomerTable() {
         loadUIForTable("/com/example/group4_icms/fxml/PolicyOwner_CustomerTable.fxml");
     }
+    @FXML
+    private void loadUpadteCustomerForm() {
+        loadUIForTable("/com/example/group4_icms/fxml/Admin_CustomerUpdate.fxml");
+    }
 
     @FXML
     private void loadProfile() {

@@ -4,7 +4,6 @@ import com.example.group4_icms.Functions.DAO.*;
 import com.example.group4_icms.Functions.DTO.*;
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -615,7 +614,7 @@ public class AdminNavigationController extends BaseController implements Initial
     }
     @FXML
     private void loadLogHistory() {
-        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+        loadUI("/com/example/group4_icms/fxml/Admin_LogHistory.fxml");
     }
 
     @FXML

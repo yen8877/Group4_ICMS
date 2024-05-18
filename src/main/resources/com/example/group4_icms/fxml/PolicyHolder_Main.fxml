@@ -56,7 +56,7 @@
                         <Font name="System Bold" size="25.0" />
                     </font>
                 </Button>
-                <Button fx:id="userManagerButton" onAction="#loadUserManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="User Management" BorderPane.alignment="CENTER">
+                <Button fx:id="userManagerButton" onAction="#loadUserManagement" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Dependent Management" BorderPane.alignment="CENTER">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>
