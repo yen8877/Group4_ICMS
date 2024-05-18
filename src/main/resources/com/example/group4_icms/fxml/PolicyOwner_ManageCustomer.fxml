@@ -63,6 +63,7 @@
                     <children>
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New Dependent" onAction="#loadAddCustomerForm"/>
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New PolicyHolder" onAction="#loadAddPolicyHolderForm"/>
+                        <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadUpadteCustomerForm" stylesheets="@../css/table.css" text="Update Customer" />
                     </children>
                     <padding>
                         <Insets top="10.0" right="30.0" bottom="0.0" left="30.0"/>

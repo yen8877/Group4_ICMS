@@ -1,7 +1,6 @@
 package com.example.group4_icms.NavigationController;
 
 import com.example.group4_icms.Functions.VC.Controller.CustomerFormController;
-import com.example.group4_icms.Functions.VC.Controller.LoginController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -33,7 +32,7 @@ public class ManagerNavigationController extends BaseController {
 
     @FXML
     private void loadRejectedClaim() {
-        loadUI("/com/example/group4_icms/fxml/Manager_RejectedClaim.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_CustomerOverview.fxml");
     }
 
     @FXML

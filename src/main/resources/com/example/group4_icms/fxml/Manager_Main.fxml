@@ -67,7 +67,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-                <Button onAction="#loadRejectedClaim" styleClass="nav-btn" stylesheets="@../css/nav.css" text="기능없음">
+                <Button onAction="#loadRejectedClaim" styleClass="nav-btn" stylesheets="@../css/nav.css" text="Customer Overview">
                     <font>
                         <Font name="System Bold" size="25.0" />
                     </font>

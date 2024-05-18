@@ -22,9 +22,9 @@
         <!--   Main Contents   -->
         <VBox id="mainContent" prefHeight="1024.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Claim" wrappingWidth="579.7972412109375">
+                <Text id="h1" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Claims" wrappingWidth="579.7972412109375">
                     <VBox.margin>
-                        <Insets left="30.0" top="30.0" />
+                        <Insets left="0.0" top="0.0" />
                     </VBox.margin>
                 </Text>
                 <HBox alignment="CENTER_RIGHT" spacing="10">
@@ -33,7 +33,7 @@
 
                     </children>
                     <padding>
-                        <Insets bottom="0.0" left="30.0" right="30.0" top="10.0" />
+                        <Insets bottom="0.0" left="0.0" right="0.0" top="10.0" />
                     </padding>
                 </HBox>
                 <GridPane prefHeight="760.0" prefWidth="1036.0">
@@ -45,7 +45,7 @@
                         <RowConstraints maxHeight="770.8092346191406" minHeight="10.0" prefHeight="763.6503143310547" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <VBox.margin>
-                        <Insets bottom="30.0" left="30.0" right="30.0" top="10.0" />
+                        <Insets bottom="30.0" left="0.0" right="0.0" top="10.0" />
                     </VBox.margin>
                     <children>
                         <StackPane fx:id="TableContentArea" VBox.vgrow="ALWAYS">
@@ -54,7 +54,7 @@
                 </GridPane>
             </children>
             <padding>
-                <Insets left="344.0" />
+
             </padding>
         </VBox>
     </children>

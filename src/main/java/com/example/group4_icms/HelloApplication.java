@@ -37,7 +37,7 @@ public void start(Stage primaryStage) throws Exception {
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
 
     // FXML 파일 로드 (manager)
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
 
     // FXML 파일 로드 (policyOwner)업뎃버튼
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyOwner_Main.fxml"));
@@ -46,7 +46,7 @@ public void start(Stage primaryStage) throws Exception {
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Dependent_Main.fxml"));
 
     //FXML 파일 로드 (Login)
-//        Parent root =FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Login.fxml"));
+        Parent root =FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Login.fxml"));
 
     // Scene 생성 및 스테이지 설정
     Scene scene = new Scene(root, 1440, 1024);  // 창의 초기 크기 설정

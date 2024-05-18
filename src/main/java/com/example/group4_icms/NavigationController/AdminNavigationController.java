@@ -605,7 +605,7 @@ public class AdminNavigationController extends BaseController implements Initial
 
     @FXML
     private void loadReportManagement() {
-        loadUI("/com/example/group4_icms/fxml/Admin_ReportManagement.fxml");
+        loadUI("/com/example/group4_icms/fxml/Admin_ClaimManagement.fxml");
     }
 
     @FXML

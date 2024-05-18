@@ -24,7 +24,6 @@
                 <TableColumn text="Status" fx:id="colStatus" prefWidth="150"/>
                 <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="150"/>
                 <TableColumn text="Claim Documents" fx:id="colClaimDocuments" prefWidth="150"/>
-                <TableColumn text="Delete" fx:id="colDelete" prefWidth="80"/>
                 <TableColumn text="Confirm" fx:id="colConfirm" prefWidth="80"/>
             </columns>
         </TableView>

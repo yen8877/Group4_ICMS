@@ -36,17 +36,14 @@ public class SurveyorClaimsController {
     @FXML
     private TableColumn<Claims, Double> colClaimAmount;
     @FXML
-    private TableColumn<Claims, Void> colDelete;
-    @FXML
-    private TableColumn<Claims, Void> colConfirm;
+    private TableColumn<Claims, Void> colApprove;
 
     private ObservableList<Claims> masterData = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         setupColumns();
-        setupDeleteColumn();
-        setupConfirmColumn();
+        setupApproveColumn();
         loadData();
         setupFilterAndSorting();
     }
@@ -63,38 +60,15 @@ public class SurveyorClaimsController {
         colClaimDocuments.setCellValueFactory(new PropertyValueFactory<>("claimDocuments"));
     }
 
-    private void setupDeleteColumn() {
-        colDelete.setCellFactory(param -> new TableCell<Claims, Void>() {
-            private final Button deleteButton = new Button("delete");
+    private void setupApproveColumn() {
+        colApprove.setCellFactory(param -> new TableCell<Claims, Void>() {
+            private final Button approveButton = new Button("approve");
 
             {
-                deleteButton.setOnAction(event -> {
-                    Claims claim = getTableView().getItems().get(getIndex());
-                    deleteClaim(claim);
-                });
-            }
-
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(deleteButton);
-                }
-            }
-        });
-    }
-
-    private void setupConfirmColumn() {
-        colConfirm.setCellFactory(param -> new TableCell<Claims, Void>() {
-            private final Button confirmButton = new Button("confirm");
-
-            {
-                confirmButton.setOnAction(event -> {
+                approveButton.setOnAction(event -> {
                     Claims claim = getTableView().getItems().get(getIndex());
                     try {
-                        confirmClaim(claim);
+                        approveClaim(claim);
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
@@ -107,44 +81,20 @@ public class SurveyorClaimsController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setGraphic(confirmButton);
+                    setGraphic(approveButton);
                 }
             }
         });
     }
 
-    private void deleteClaim(Claims claim) {
-        if (deleteClaimFromDatabase(claim.getFId())) {
-            masterData.remove(claim);
-            tableView.refresh();
-        }
-    }
-
-    private boolean deleteClaimFromDatabase(String fId) {
-        Connection conn = JDBCUtil.connectToDatabase();
-        try {
-            String deleteSQL = "DELETE FROM public.claim WHERE f_id = ?";
-            try (PreparedStatement pstmt = conn.prepareStatement(deleteSQL)) {
-                pstmt.setString(1, fId);
-                int affectedRows = pstmt.executeUpdate();
-                return affectedRows > 0;
-            }
-        } catch (SQLException e) {
-            System.err.println("SQL error during claim deletion: " + e.getMessage());
-            return false;
-        } finally {
-            JDBCUtil.close(conn);
-        }
-    }
-
-    private void confirmClaim(Claims claim) throws SQLException {
-        if (updateClaimStatusInDatabase(claim.getFId(), "CONFIRMED")) {
+    private void approveClaim(Claims claim) throws SQLException {
+        if (updateClaimStatusInDatabase(claim.getFId(), "APPROVED")) {
             masterData.remove(claim);
             tableView.refresh();
 
             // Log the action
             LogHistoryController logHistoryController = new LogHistoryController();
-            logHistoryController.updateLogHistory("Confirmed Claim with ID: " + claim.getFId());
+            logHistoryController.updateLogHistory("approved Claim with ID: " + claim.getFId());
         }
     }
 

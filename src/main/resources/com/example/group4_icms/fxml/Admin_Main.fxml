@@ -79,7 +79,7 @@
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button styleClass="nav-btn" text="Report Management" BorderPane.alignment="CENTER" onAction="#loadReportManagement">
+            <Button styleClass="nav-btn" text="Claim Management" BorderPane.alignment="CENTER" onAction="#loadReportManagement">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
