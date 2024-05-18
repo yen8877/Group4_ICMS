@@ -34,10 +34,10 @@ public void start(Stage primaryStage) throws Exception {
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Admin_Main.fxml"));
 
     // FXML 파일 로드 (surveyor)끝
-    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
+//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Surveyor_Main.fxml"));
 
     // FXML 파일 로드 (manager)
-//    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/Manager_Main.fxml"));
 
     // FXML 파일 로드 (policyOwner)업뎃버튼
 //    Parent root = FXMLLoader.load(getClass().getResource("/com/example/group4_icms/fxml/PolicyOwner_Main.fxml"));

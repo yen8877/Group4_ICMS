@@ -22,7 +22,7 @@ public class ManagerNavigationController extends BaseController {
     }
     @FXML
     private void loadLogHistory() {
-        loadUI("/com/example/group4_icms/fxml/LogHistory.fxml");
+        loadUI("/com/example/group4_icms/fxml/Manager_LogHistory.fxml");
     }
 
     @FXML
