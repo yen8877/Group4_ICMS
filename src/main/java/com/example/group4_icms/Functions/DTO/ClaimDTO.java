@@ -1,33 +1,136 @@
 package com.example.group4_icms.Functions.DTO;
 
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
+/**
+ * @author <Group 4>
+ */
 public class ClaimDTO {
+    public ClaimDTO(String id, Timestamp claimDate, String insuredPersonId, String cardNum, Date examDate, double claimAmount, String insurancePersonID, String submittedByID, String status, String bankingInfo, String claim_Documents, String message, String submittedById) {
+        
+        Id = id;
+        ClaimDate = claimDate;
+        InsuredPersonId = insuredPersonId;
+        CardNum = cardNum;
+        ExamDate = examDate;
+        ClaimAmount = claimAmount;
+        this.insurancePersonID = insurancePersonID;
+        SubmittedByID = submittedByID;
+        Status = status;
+        BankingInfo = bankingInfo;
+        this.claim_Documents = claim_Documents;
+        this.message = message;
+        this.submittedById = submittedById;
+    }
+
+    public ClaimDTO() {
+    }
+
+
+    @Override
+    public String toString() {
+        return "ClaimDTO{" +
+                "Id='" + Id + '\'' +
+                ", ClaimDate=" + ClaimDate +
+                ", InsuredPersonId='" + InsuredPersonId + '\'' +
+                ", CardNum='" + CardNum + '\'' +
+                ", ExamDate=" + ExamDate +
+                ", ClaimAmount=" + ClaimAmount +
+                ", insurancePersonID='" + insurancePersonID + '\'' +
+                ", SubmittedByID='" + SubmittedByID + '\'' +
+                ", Status='" + Status + '\'' +
+                ", BankingInfo='" + BankingInfo + '\'' +
+                ", claim_Documents=" + claim_Documents +
+                ", submittedById='" + submittedById + '\'' +
+                '}';
+    }
 
     private String Id;
-    private LocalDate ClaimDate;
+    private Timestamp ClaimDate;
     private String InsuredPersonId;
-//    private InsuranceCard Card;
     private String CardNum;
-    private LocalDate ExamDate;
+    private Date ExamDate;
     private double ClaimAmount;
-    private Status status;
-    private String insuredPersonId;
+    private String insurancePersonID;
+    private String SubmittedByID;
+    private String Status;
+    private String BankingInfo;
+    private String claim_Documents;
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    //    private String policyHolderId;
+
+
+    public String getInsurancePersonID() {
+        return insurancePersonID;
+    }
+
+    public void setInsurancePersonID(String insurancePersonID) {
+        this.insurancePersonID = insurancePersonID;
+    }
+
+    public String getSubmittedByID() {
+        return SubmittedByID;
+    }
+
+    public void setSubmittedByID(String submittedByID) {
+        SubmittedByID = submittedByID;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public String getBankingInfo() {
+        return BankingInfo;
+    }
+
+    public void setBankingInfo(String bankingInfo) {
+        BankingInfo = bankingInfo;
+    }
+
+    public String getClaim_Documents() {
+        return claim_Documents;
+    }
+
+    public void setClaim_Documents(String claim_Documents) {
+        this.claim_Documents = claim_Documents;
+    }
+
+
     private String submittedById;
 
-//    private String ReceiverBankingInfo;
-    public enum Status {
-        NEW, PROCESSING, DONE
+    public String getSubmittedById() {
+        return submittedById;
     }
-    public ClaimDTO(String id, LocalDate ClaimDate, String InsuredPersonId, String submittedById, LocalDate ExamDate, double ClaimAmount, Status status) {
-        this.Id = id;
-        this.ClaimDate = ClaimDate;
-        this.InsuredPersonId = InsuredPersonId;
+
+    public void setSubmittedById(String submittedById) {
         this.submittedById = submittedById;
-        this.ExamDate = ExamDate;
-        this.ClaimAmount = ClaimAmount;
-        this.status = status;
     }
+
+//    public String getPolicyHolderId() {
+//        return policyHolderId;
+//    }
+
+
+
+
+//    private String ReceiverBankingInfo;
 
     public String getId() {
         return Id;
@@ -45,11 +148,11 @@ public class ClaimDTO {
         ClaimAmount = claimAmount;
     }
 
-    public LocalDate getExamDate() {
+    public Date getExamDate() {
         return ExamDate;
     }
 
-    public void setExamDate(LocalDate examDate) {
+    public void setExamDate(Date examDate) {
         ExamDate = examDate;
     }
 
@@ -69,18 +172,11 @@ public class ClaimDTO {
         InsuredPersonId = insuredPersonId;
     }
 
-    public LocalDate getClaimDate() {
+    public Timestamp getClaimDate() {
         return ClaimDate;
     }
 
-    public void setClaimDate(LocalDate claimDate) {
+    public void setClaimDate(Timestamp claimDate) {
         ClaimDate = claimDate;
-    }
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
     }
 }

@@ -6,7 +6,9 @@
 //import java.util.ArrayList;
 //import java.util.HashMap;
 //import java.util.Map;
-//
+///**
+// * @author <Group 4>
+// */
 //public class Customer {
 //    private String ID = ""; /*Should not be edited*/
 //    private String FullName = ""; /*Should not be edited*/

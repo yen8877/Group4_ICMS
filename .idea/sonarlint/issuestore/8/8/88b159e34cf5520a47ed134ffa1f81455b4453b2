@@ -1,0 +1,34 @@
+
+“
+java:S1192Ç"JDefine a constant instead of duplicating this literal "Dependent" 3 times.(´Úç–ùÿÿÿÿ8Û³ ú÷1J$44b061e2-23fb-420d-9fba-e82b55b6be4f
+š
+java:S1192é"QDefine a constant instead of duplicating this literal "Validation Error" 5 times.(ÐÃáÛúÿÿÿÿ8Û³ ú÷1J$2d962f7e-809a-4c77-9c81-88bb030cc4d2
+–
+java:S1192è"MDefine a constant instead of duplicating this literal "PolicyHolder" 4 times.(³¡Ùžþÿÿÿÿ8Û³ ú÷1J$cd73dbee-bda6-4d6b-a9b0-0279a1f7097e
+Ÿ
+java:S1104§"\Make TableContentArea a static final constant or non-public and provide accessors if needed.(Î¸ž:8Ü³ ú÷1J$893971c3-f2cd-4d1d-9f8d-d9dfbce85b17
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öÏÄŽ8Þ³ ú÷1J$50d8355e-36cf-48a3-94a2-5f49854a47b4
+~	java:S125"<This block of commented-out lines of code should be removed.(ÖÒ™¢8Á´ ú÷1J$ecf0dc2a-4bed-49ab-afef-7dafe1f21d54
+š	java:S116"SRename this field "ClaimDao" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â’â³øÿÿÿÿ8Â´ ú÷1J$cd0504ef-e41d-44af-9f5d-cd8edfc6d981
+	java:S116§"[Rename this field "TableContentArea" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î¸ž:8Â´ ú÷1J$e40ff228-c322-4d7d-9c94-b94b0e8be8ca
+Š
+java:S3416""BUpdate this logger to use "PolicyOwnerNavigationController.class".(™ÙØÊÿÿÿÿÿ8Â´ ú÷1J$72f2b022-6100-4182-bbcb-f83a31933df2
+Ž
+java:S1659]"KDeclare "claimSelfRadio" and all following declarations on a separate line.(ò«ƒË8Ã´ ú÷1J$b48a851a-b43a-462c-867d-8da87c7dea42
+r
+java:S2140Ô")Use "java.util.Random.nextInt()" instead.(Ýù˜ þÿÿÿÿ8Î´ ú÷1J$c9f5442d-4441-49d4-afdc-f403911d6858
+x
+java:S2209Õ"5Change this instance-reference to a static reference.(èÓ²8Ï´ ú÷1J$8db81225-cdce-43e6-940c-c10d148d9ef4
+~
+java:S2209‘"5Change this instance-reference to a static reference.(ÇºÂ¡þÿÿÿÿ8Ñ´ ú÷1J$981ac554-2181-474b-806d-0ffa0fe70a8b
+„	java:S125ý"<This block of commented-out lines of code should be removed.(¯¦¹úÿÿÿÿ8Õ´ ú÷1J$1cbb957c-36de-4c26-8731-6a52313b0954
+„	java:S125Ì"<This block of commented-out lines of code should be removed.(Ù¦ïÛûÿÿÿÿ8Ö´ ú÷1J$01254a0f-3693-4d7e-8435-79fb0567b4a9
+„	java:S125ª"<This block of commented-out lines of code should be removed.(Ï±ó“ýÿÿÿÿ8Ù´ ú÷1J$5a050045-54bb-48bf-990c-aca54540bf7c
+v
+java:S1172û"2Remove this unused method parameter "actionEvent".(à‹ó†8Ú´ ú÷1J$d4291da6-6bd6-4809-ae23-fbc2aa0b725b
+{
+java:S1172…"2Remove this unused method parameter "actionEvent".(ºËŒÏþÿÿÿÿ8Û´ ú÷1J$be24e685-7b49-46e1-8ee2-1c2db7273be4
+v
+java:S1172"2Remove this unused method parameter "actionEvent".(¸ß’¤8Û´ ú÷1J$61e88ddc-bb31-4c99-8279-90de6c2feb23
+w
+java:S1068"/Remove this unused "customerDao" private field.(ÜÈ‚‚ûÿÿÿÿ8Ü´ ú÷1J$5fcd2dfe-cea5-41b1-9b97-46f8dac1c915

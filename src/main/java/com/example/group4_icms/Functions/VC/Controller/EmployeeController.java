@@ -9,7 +9,9 @@
 //import entities.InsuranceEmployee.InsuranceSurveyor;
 //
 //import java.util.ArrayList;
-//
+///**
+// * @author <Group 4>
+// */
 //public class EmployeeController {
 //    private InsuranceEmployee insuranceEmployee = new InsuranceEmployee();
 //    private EmployeeView employeeView;

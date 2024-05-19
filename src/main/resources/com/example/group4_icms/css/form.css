@@ -1,0 +1,55 @@
+#formContainer{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20px;
+
+}
+
+.radioText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 500;
+    -fx-font-size: 18px;
+}
+
+.resultText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 30px;
+    -fx-text-fill:#C00D0D ;
+}
+
+.foarmText{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-font-size: 22px;}
+
+.foarmTextField{
+    -fx-border-color: #7D7F7A;
+    -fx-background-color: rgba(182, 179, 179, 0.3);
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+#customerSave-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #F39C12;
+    -fx-padding: 10 80 10 80;
+    -fx-font-size: 25px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+#customerSave-btn:hover{
+    -fx-border-color: #f37012;
+    -fx-background-color: rgba(243, 112, 18, 0.8);
+}
+
+#customerReset-btn{
+    -fx-font-family: "Arial";
+    -fx-font-weight: 900;
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #B6B3B3;
+    -fx-padding: 10 80 10 80;
+    -fx-font-size: 25px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}

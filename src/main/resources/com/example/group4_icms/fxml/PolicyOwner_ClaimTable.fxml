@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.PolicyOwnerClaimController" prefWidth="1530.0" prefHeight="1024.0">
+    <VBox prefHeight="1024.0" prefWidth="1530.0" spacing="10" stylesheets="@../css/home.css">
+        <TextField fx:id="filterField" promptText="Enter search term..." prefWidth="1000.0" stylesheets="@../css/table.css"/>
+        <TableView fx:id="tableView" prefWidth="1530" prefHeight="550" stylesheets="@../css/table.css">
+            <columns>
+                <TableColumn text="Claim ID" fx:id="colFId" prefWidth="100"/>
+                <TableColumn text="Claim Date" fx:id="colClaimDate" prefWidth="150"/>
+                <TableColumn text="Exam Date" fx:id="colExamDate" prefWidth="150"/>
+                <TableColumn text="Claim Amount" fx:id="colClaimAmount" prefWidth="150"/>
+                <TableColumn text="Insured Person ID" fx:id="colInsuredPersonId" prefWidth="150"/>
+                <TableColumn text="Submitted By ID" fx:id="colSubmittedById" prefWidth="150"/>
+                <TableColumn text="Status" fx:id="colStatus" prefWidth="150"/>
+                <TableColumn text="Banking Info" fx:id="colBankingInfo" prefWidth="150"/>
+                <TableColumn text="Claim Documents" fx:id="colClaimDocuments" prefWidth="150"/>
+                <TableColumn text="Message" fx:id="colMessage" prefWidth="150"/>
+                <TableColumn text="Delete" fx:id="colDelete" prefWidth="80"/>
+            </columns>
+        </TableView>
+        <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
+            <!-- Additional content can be added here -->
+        </StackPane>
+    </VBox>
+</Pane>

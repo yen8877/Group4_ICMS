@@ -1,3 +1,11 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñœïÆÿÿÿÿÿ8ä­¢ò1
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8å­¢ò1
+g	java:S112["FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8óÕìö1
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8è’÷ó1J$6283d2bf-b4ca-4d41-abee-f93fd5ea4c0c
+]	java:S1254"<This block of commented-out lines of code should be removed.(Ã¸ûáşÿÿÿÿ8Öìö1
+{
+java:S1171Q"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ8’Öìö1
+J
+java:S1602",Remove useless curly braces around statement(ò¡¤ë8›Öìö1
+n	java:S106Ÿ"+Replace this use of System.out by a logger.(†ş£–8¹è’÷ó1J$cfa0d413-f1e6-4c9a-a2ba-4171d00776a2
+M	java:S106¬"+Replace this use of System.out by a logger.(€¢Öùÿÿÿÿ8œÖìö1
+M	java:S106±"+Replace this use of System.out by a logger.(ß¤œüÿÿÿÿ8Öìö1

@@ -1,3 +1,7 @@
 
-•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ðéöüJ$6810a60e-eb72-4579-8ff1-f84afd58a033
-^	java:S107"BConstructor has 10 parameters, which is greater than 7 authorized.(èÿÀ÷8Š‰®¯ò1
+k	java:S117l"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÝ”çýÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ðéöü
+b	java:S116"MRename this field "ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÞÒï
+g	java:S116	"SRename this field "FullName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¹úN
+r	java:S116
+"XRename this field "InsuranceCard" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éªž†üÿÿÿÿ

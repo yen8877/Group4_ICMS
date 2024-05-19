@@ -1,0 +1,10 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘öÓ—úÿÿÿÿ8™Ò‘óõ1J$1daca9ca-4df7-4424-856d-9f2a56c27e37
+N
+java:S1172$",Remove this unused method parameter "event".(°ÌĞÇÿÿÿÿÿ8Óœ¯ôõ1
+G	java:S106%"+Replace this use of System.out by a logger.(¬ôÃ8Ôœ¯ôõ1
+\
+java:S1117&":Rename "userID" which hides the field declared at line 25.(ÆçÏÿıÿÿÿÿ8Õœ¯ôõ1
+F	java:S106("+Replace this use of System.out by a logger.(É›œ48Öœ¯ôõ1
+L	java:S106*"+Replace this use of System.out by a logger.(ÆÁì¸ùÿÿÿÿ8×œ¯ôõ1
+G	java:S1066"+Replace this use of System.out by a logger.(ï©•±8Øœ¯ôõ1

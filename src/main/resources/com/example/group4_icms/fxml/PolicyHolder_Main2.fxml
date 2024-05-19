@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyHolderNavigationController">
+    <children>
+        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1440.0" spacing="20" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+            <children>
+                <Text text="Welcome to ICMS" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 48px; -fx-font-family: 'Arial Black'; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets top="20.0" bottom="20.0" />
+                    </VBox.margin>
+                </Text>
+                <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white;">
+                    <children>
+                        <Text text="ICMS" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 36px; -fx-font-family: 'Arial Black'; -fx-font-weight: bold;" />
+                        <Text text="Insurance Claim Management System" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
+                        <Text text="RMIT University" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
+                        <Text text="Further Programming Group 4" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</Pane>

@@ -1,17 +1,35 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$e3300fd3-d60d-497c-98c3-0a88353cf1f4
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿ8£âÓöò1J$5f42419c-e9c7-4717-a640-b9857383b622
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(€½‚™üÿÿÿÿ8«âÓöò1J$db1df49b-1a42-4d86-bfd9-bff2d8ba7f60
 €
-java:S1117"8Rename "conn" which hides the field declared at line 11.(¶şö°ÿÿÿÿÿ8·ú·øñ1J$8fe3a2e8-edb8-419d-bfb6-e6d730f1d7d4
+java:S1117%"8Rename "conn" which hides the field declared at line 16.(¶şö°ÿÿÿÿÿ8¬âÓöò1J$ffe3d9b3-0447-4f89-81c7-e3bbf8f40607
 |
-java:S1117"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8¸ú·øñ1J$8fba39d2-58b8-429f-a0d5-ab1b2d9a2608
+java:S1117&"9Rename "pstmt" which hides the field declared at line 17.(…»‘Š8¬âÓöò1J$d7e293ed-3942-42c8-a2ff-0cb54ec30c4c
+m	java:S106/"+Replace this use of System.err by a logger.(°§‚8­âÓöò1J$3a7ee9c7-d9d2-4241-b8cc-60faa2d95492
 €
-java:S1117!"8Rename "conn" which hides the field declared at line 11.(¶şö°ÿÿÿÿÿ8¹ú·øñ1J$507328f8-12a2-406d-a16b-72decb435397
+java:S11178"8Rename "conn" which hides the field declared at line 16.(¶şö°ÿÿÿÿÿ8®âÓöò1J$c4d58ed3-8837-4dfb-89d1-a81c8d6166ac
 |
-java:S1117""9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8ºú·øñ1J$9352558d-1dcb-41d9-8498-e781bdc24c94
+java:S11179"9Rename "pstmt" which hides the field declared at line 17.(…»‘Š8®âÓöò1J$c205b8e6-8878-4521-8cde-a6b25ad65823
 €
-java:S11174"8Rename "conn" which hides the field declared at line 11.(¶şö°ÿÿÿÿÿ8Çú·øñ1J$72cfa888-4405-40e5-b3e7-3e7668cbb328
-m	java:S106<"+Replace this use of System.out by a logger.(áÏÏŞ8Éú·øñ1J$2d56d1f6-6e84-4610-aa7d-893f99587a6b
+java:S1117K"8Rename "conn" which hides the field declared at line 16.(¶şö°ÿÿÿÿÿ8¯âÓöò1J$1a592e1f-11ed-4e87-881c-8c58432bb588
+m	java:S106S"+Replace this use of System.out by a logger.(áÏÏŞ8°âÓöò1J$6f547858-5c98-452a-a570-0bdfd2bbf4df
 €
-java:S1117D"8Rename "conn" which hides the field declared at line 11.(¶şö°ÿÿÿÿÿ8Éú·øñ1J$2789f1c7-061f-422a-96c2-d1dc825cd627
+java:S1117["8Rename "conn" which hides the field declared at line 16.(¶şö°ÿÿÿÿÿ8±âÓöò1J$ec3eebb5-1eaf-496b-b101-a59eaa55af20
 |
-java:S1117E"9Rename "pstmt" which hides the field declared at line 12.(…»‘Š8Êú·øñ1J$a714cfd0-1424-4136-a7e8-ce4d02d96ed1
+java:S1117\"9Rename "pstmt" which hides the field declared at line 17.(…»‘Š8±âÓöò1J$d3bb6edd-53af-496a-9eb8-28e9acc291fa
+€
+java:S1117i"8Rename "conn" which hides the field declared at line 16.(¶şö°ÿÿÿÿÿ8Ü®Ï¤ó1J$b0d48cef-c5e2-4980-962a-c2573aae47cf
+|
+java:S1117j"9Rename "pstmt" which hides the field declared at line 17.(…»‘Š8Ü®Ï¤ó1J$69c9fbd3-0fff-4faa-9458-59563e6e48d2
+m	java:S106y"+Replace this use of System.err by a logger.(‚åÖ÷8Ş®Ï¤ó1J$9d00f43a-50da-4a59-b695-3404f51c92ac
+s	java:S106¨"+Replace this use of System.err by a logger.(Ú©ÂŞüÿÿÿÿ8°ô·ñ÷1J$a1fbf0c1-103b-403b-942f-0c460f8d836e
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8ïíêñ÷1
+U
+java:S1128"3Remove this unused import 'javafx.geometry.Insets'.(›¨µğûÿÿÿÿ8ğíêñ÷1
+M
+java:S1128"1Remove this unused import 'javafx.scene.control'.(ßõ8ğíêñ÷1
+[
+java:S1128"9Remove this unused import 'javafx.scene.layout.GridPane'.(ÖÀ¹¯ûÿÿÿÿ8ğíêñ÷1
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8ğíêñ÷1

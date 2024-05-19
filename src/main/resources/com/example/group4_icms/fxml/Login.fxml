@@ -14,7 +14,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="login-bg" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/Login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.fxml.Login">
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane id="login-bg" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/Login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.Functions.VC.Controller.LoginController">
    <children>
       <BorderPane id="logo-bg" prefHeight="1024.0" prefWidth="720.0" stylesheets="@../css/Login.css" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -41,7 +42,7 @@
             <RowConstraints maxHeight="436.0" minHeight="10.0" prefHeight="303.17236328125" valignment="BASELINE" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField prefHeight="70.0" prefWidth="642.0" GridPane.rowIndex="2">
+            <TextField fx:id="txtUserId" prefHeight="70.0" prefWidth="642.0" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="20.0" left="30.0" right="30.0" top="10.0" />
                </GridPane.margin>
@@ -53,7 +54,7 @@
                   </InnerShadow>
                </effect>
             </TextField>
-            <TextField prefHeight="70.0" GridPane.rowIndex="3">
+            <PasswordField fx:id="txtPassword" prefHeight="70.0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="20.0" left="30.0" right="30.0" top="10.0" />
                </GridPane.margin>
@@ -64,13 +65,13 @@
                      </color>
                   </InnerShadow>
                </effect>
-            </TextField>
+            </PasswordField>
             <Text id="LoginTitle" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="30.0" left="40.0" />
                </GridPane.margin>
             </Text>
-            <Button id="login-btn" mnemonicParsing="false" stylesheets="@../css/Login.css" text="Login" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+            <Button id="login-btn" fx:id="btnLogin" onAction="#handleLogin"  mnemonicParsing="false" stylesheets="@../css/Login.css" text="Login" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets right="30.0" top="10.0" />
                </GridPane.margin>

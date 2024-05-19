@@ -1,4 +1,8 @@
 
-š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$b1853909-1819-4c14-96e2-e12dc1dc4ec7
-~
-java:S2094"BRemove this empty class, write its code or make it an "interface".(•ÔâçJ$8ff66958-caf1-460a-9e88-bb00c427de74
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(”ûâ£ùÿÿÿÿJ$b82a203d-5152-42c5-b91e-d01506b18c1f
+­
+java:S4165D"eRemove this useless assignment; "success" already holds the assigned value along all execution paths.(Íñˆ¡ÿÿÿÿÿ8ÐÙÆÅ÷1J$5375b915-9705-4f74-81ca-25e3b059708c
+z
+java:S2589G"7Remove this expression which always evaluates to "true"(¡ææú8ÐÙÆÅ÷1J$aae62f28-ed3b-4588-b585-1423ea9e0c5d
+z
+java:S2589"7Remove this expression which always evaluates to "true"(¡ææú8ÐÙÆÅ÷1J$b10145ba-24da-4408-a6da-1932c1427721
