@@ -1,30 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 
-<Pane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.PolicyHolderNavigationController">
+<Pane id="main_BackgroundColor" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/form.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.group4_icms.NavigationController.AdminNavigationController">
     <children>
-        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1440.0" spacing="20" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+        <VBox id="mainContent" prefHeight="1024.0" prefWidth="1096.0" stylesheets="@../css/home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Text text="Welcome to ICMS" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 48px; -fx-font-family: 'Arial Black'; -fx-font-weight: bold;">
+                <Text id="h3" fill="#003366" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to our ICMS!" wrappingWidth="579.7972412109375">
                     <VBox.margin>
-                        <Insets top="20.0" bottom="20.0" />
+                        <Insets left="30.0" top="30.0" />
                     </VBox.margin>
                 </Text>
-                <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white;">
+                <AnchorPane id="formContainer" prefHeight="700.0" prefWidth="1036.0" stylesheets="@../css/form.css">
+                    <VBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                    </VBox.margin>
                     <children>
-                        <Text text="ICMS" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 36px; -fx-font-family: 'Arial Black'; -fx-font-weight: bold;" />
-                        <Text text="Insurance Claim Management System" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
-                        <Text text="RMIT University" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
-                        <Text text="Further Programming Group 4" textAlignment="CENTER" fill="#003366" style="-fx-font-size: 24px; -fx-font-family: 'Arial';" />
+                        <GridPane prefHeight="448.0" prefWidth="996.0" stylesheets="@../css/form.css" AnchorPane.bottomAnchor="312.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" percentWidth="0.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                        <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+                            <children>
+                                <ImageView fitHeight="350.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../img/ICMS.png" />
+                                    </image>
+                                </ImageView>
+                                <Label text="It provides various functionalities for managing insurance claims and Customer information.">
+                                    <VBox.margin>
+                                        <Insets left="50.0" right="50.0" />
+                                    </VBox.margin>
+                                </Label>
+                            </children>
+                        </VBox>
                     </children>
-                </VBox>
+                </AnchorPane>
             </children>
         </VBox>
     </children>
