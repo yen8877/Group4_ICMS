@@ -107,14 +107,7 @@
                         <VBox.margin>
                             <Insets bottom="20.0" right="30.0" top="30.0" />
                         </VBox.margin>
-                        <children>
-                            <Button id="save-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Update">
-                                <HBox.margin>
-                                    <Insets right="20.0" />
-                                </HBox.margin>
-                            </Button>
-                            <Button id="reset-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Reset" />
-                        </children>
+
                         <padding>
                             <Insets bottom="50.0" />
                         </padding>
