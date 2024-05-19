@@ -41,17 +41,6 @@
                                         </BorderPane.margin>
                                     </ImageView>
                                 </center>
-                                <bottom>
-                                    <HBox alignment="CENTER" spacing="10.0" BorderPane.alignment="BOTTOM_CENTER">
-                                        <children>
-                                            <Button id="upload-img-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Upload Img" />
-                                            <Button id="reject-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Reject" />
-                                        </children>
-                                        <padding>
-                                            <Insets top="20.0" />
-                                        </padding>
-                                    </HBox>
-                                </bottom>
                             </BorderPane>
                         </children>
                         <padding>
@@ -61,7 +50,7 @@
                             <Insets top="20.0" />
                         </VBox.margin>
                     </HBox>
-                    <GridPane prefHeight="300.0" prefWidth="1207.0" stylesheets="@../css/profile.css">
+                    <GridPane prefHeight="300.0" prefWidth="800.0" stylesheets="@../css/profile.css">
                         <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="414.1278076171875" minWidth="10.0" prefWidth="176.34967041015625" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="665.6503295898438" minWidth="10.0" prefWidth="665.6503295898438" />
@@ -130,14 +119,7 @@
                         <VBox.margin>
                             <Insets bottom="20.0" right="30.0" top="30.0" />
                         </VBox.margin>
-                        <children>
-                            <Button id="save-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Update">
-                                <HBox.margin>
-                                    <Insets right="20.0" />
-                                </HBox.margin>
-                            </Button>
-                            <Button id="reset-btn" mnemonicParsing="false" stylesheets="@../css/profile.css" text="Reset" />
-                        </children>
+
                         <padding>
                             <Insets bottom="50.0" />
                         </padding>
