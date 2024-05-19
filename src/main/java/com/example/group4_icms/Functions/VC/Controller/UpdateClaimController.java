@@ -35,10 +35,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -78,6 +75,7 @@ public class UpdateClaimController {
 
     @FXML
     private void updateClaim() {
+        ClaimDTO claimDto = new ClaimDTO();
         String claimId = claimIdToUpdateField.getText().trim();
         LocalDate newExamDate = newExamDateField.getValue();
         if (newExamDate == null || newExamDate.isAfter(LocalDate.now())) {
@@ -88,6 +86,13 @@ public class UpdateClaimController {
         String newBankName = newBankNameField.getText().trim();
         String newBankAccount = newBankAccountField.getText().trim();
         String newCustomerName = customerNameField.getText().trim();
+
+        claimDto.setId(claimId);
+        claimDto.setExamDate(Date.valueOf(newExamDate));
+        claimDto.setClaimAmount(newClaimAmount);
+        claimDto.setBankingInfo(String.format("%s-%s-%s", newBankName, newBankAccount, newCustomerName));
+        claimDto.setStatus("NEW"); // 상태를 "New"로 설정
+
 
         Connection connection = null;
         PreparedStatement selectClaimStmt = null;
@@ -107,12 +112,13 @@ public class UpdateClaimController {
             String newBankingInfo = String.format("%s-%s-%s", newBankName, newBankAccount, newCustomerName);
 
             // 업데이트 쿼리 실행
-            String updateClaimSQL = "UPDATE claim SET examdate = ?, claimamount = ?, bankinginfo = ? WHERE f_id = ?";
+            String updateClaimSQL = "UPDATE claim SET examdate = ?, claimamount = ?, bankinginfo = ?, status = ? WHERE f_id = ?";
             updateClaimStmt = connection.prepareStatement(updateClaimSQL);
-            updateClaimStmt.setObject(1, newExamDate);
-            updateClaimStmt.setDouble(2, newClaimAmount);
-            updateClaimStmt.setString(3, newBankingInfo);
-            updateClaimStmt.setString(4, claimId);
+            updateClaimStmt.setObject(1, claimDto.getExamDate());
+            updateClaimStmt.setDouble(2, claimDto.getClaimAmount());
+            updateClaimStmt.setString(3, claimDto.getBankingInfo());
+            updateClaimStmt.setString(4, claimDto.getStatus());
+            updateClaimStmt.setString(5, claimDto.getId());
 
             int rowsAffected = updateClaimStmt.executeUpdate();
             if (rowsAffected > 0) {
@@ -120,14 +126,15 @@ public class UpdateClaimController {
                 if(documentFile != null){
                     ImageUploaderController imageUploaderController = new ImageUploaderController();
                     imageUploaderController.deletePDFFile(claimId);
-                    /*Save claim document*/
+//                    /Save claim document/
                     ClaimDocumentsDAO claimDocumentsDAO = new ClaimDocumentsDAO();
-                    ClaimDocumentsDTO c1 = new ClaimDocumentsDTO();
+                    ClaimDocumentsDTO claimDocumentsDTO = new ClaimDocumentsDTO();
                     ClaimDAO claimDAO = new ClaimDAO();
                     ClaimDTO claimDTO = claimDAO.getClaimByID(claimId);
-                    c1.setDocument_name(documentName);
+                    claimDocumentsDTO .setDocument_name(documentName);
+                    claimDocumentsDTO.setClaim_id(claimId);
                     claimDocumentsDAO.deleteDocumentsByClaimId(claimId);
-                    claimDocumentsDAO.addClaimDocument(c1);
+                    claimDocumentsDAO.addClaimDocument(claimDocumentsDTO );
                     claimDTO.setClaim_Documents(documentName);
                     claimDAO.updateClaim(claimDTO);
                     imageUploaderController.savePDFFile(documentFile,claimId);
@@ -135,7 +142,6 @@ public class UpdateClaimController {
                     documentName = null;
                     LogHistoryController logHistoryController = new LogHistoryController();
                     logHistoryController.updateLogHistory("Updated Claim document with Claim ID: " + claimId);
-
                 }
                 // Log the action
                 LogHistoryController logHistoryController = new LogHistoryController();
