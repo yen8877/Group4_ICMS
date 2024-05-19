@@ -2,6 +2,7 @@ package com.example.group4_icms.Functions.VC.Controller;
 
 import com.example.group4_icms.Functions.DAO.ClaimDocumentsDAO;
 import com.example.group4_icms.Functions.DAO.JDBCUtil;
+import com.example.group4_icms.Functions.DTO.ClaimDTO;
 import com.example.group4_icms.Functions.DTO.ClaimDocumentsDTO;
 import com.example.group4_icms.Functions.img.ImageUploaderController;
 import javafx.event.ActionEvent;
@@ -70,6 +71,7 @@ public class UpdateClaimController {
 
     @FXML
     private void updateClaim() {
+        ClaimDTO claimDto = new ClaimDTO();
         String claimId = claimIdToUpdateField.getText().trim();
         LocalDate newExamDate = newExamDateField.getValue();
         if (newExamDate == null || newExamDate.isAfter(LocalDate.now())) {
@@ -80,6 +82,8 @@ public class UpdateClaimController {
         String newBankName = newBankNameField.getText().trim();
         String newBankAccount = newBankAccountField.getText().trim();
         String newCustomerName = customerNameField.getText().trim();
+//        claimDto.setStatus("NEW"); // Set status to NEW
+
 
         Connection connection = null;
         PreparedStatement selectClaimStmt = null;
@@ -105,6 +109,8 @@ public class UpdateClaimController {
             updateClaimStmt.setDouble(2, newClaimAmount);
             updateClaimStmt.setString(3, newBankingInfo);
             updateClaimStmt.setString(4, claimId);
+//            updateClaimStmt.setString(5, claimDto.getStatus());
+
 
             int rowsAffected = updateClaimStmt.executeUpdate();
             if (rowsAffected > 0) {

@@ -575,7 +575,7 @@ public class AdminNavigationController extends BaseController implements Initial
 
     @FXML
     private void loadHome() {
-        loadUI("/com/example/group4_icms/fxml/PolicyHolder_Main2.fxml");
+        loadUI("/com/example/group4_icms/fxml/MainHomePage.fxml");
     }
 
     @FXML

@@ -311,7 +311,13 @@ public class CustomerController {
                 ps.setString(1, policyownerId);
                 ps.executeUpdate();
             }
-
+            // dependents 삭제
+            try (PreparedStatement ps = conn.prepareStatement(sqlDeleteDependents)) {
+                for (String policyholderId : policyholderIds) {
+                    ps.setString(1, policyholderId);
+                    ps.executeUpdate();
+                }
+            }
 
             // customer 테이블에서 dependents 삭제
             for (String id : dependentIds) {
