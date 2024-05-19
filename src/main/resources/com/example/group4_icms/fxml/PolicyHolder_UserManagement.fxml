@@ -62,7 +62,6 @@
                 <HBox spacing="10" alignment="CENTER_RIGHT">
                     <children>
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New Dependent" onAction="#loadAddCustomerForm"/>
-                        <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" stylesheets="@../css/table.css" text="Add New PolicyHolder" onAction="#loadAddPolicyHolderForm"/>
                         <Button id="add-new-btn" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadUpadteCustomerForm" stylesheets="@../css/table.css" text="Update Dependent" />
                     </children>
                     <padding>
