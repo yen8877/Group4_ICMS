@@ -69,18 +69,19 @@ public class ClaimDAO {
 
 
     public boolean updateClaim(ClaimDTO claim) {
-        String sql = "UPDATE claim SET examdate = ?, claimamount = ?, status = ?, bankingInfo = ?, claim_documents = ?,message = ? WHERE f_id = ?";
+        String sql = "UPDATE claim SET examdate = ?, claimamount = ?, status = ?, bankingInfo = ?, claim_documents = ?, message = ? WHERE f_id = ?";
         try (Connection conn = JDBCUtil.connectToDatabase();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
             pstmt.setObject(1, claim.getExamDate());
             pstmt.setDouble(2, claim.getClaimAmount());
             pstmt.setString(3, claim.getStatus());
             pstmt.setString(4, claim.getBankingInfo());
             pstmt.setString(5, claim.getClaim_Documents());
-            pstmt.setString(6, claim.getId());
-            pstmt.setString(7,claim.getMessage());
-            int affectedRows = pstmt.executeUpdate();
+            pstmt.setString(6, claim.getMessage());
+            pstmt.setString(7, claim.getId());
 
+            int affectedRows = pstmt.executeUpdate();
             return affectedRows > 0;
         } catch (SQLException e) {
             e.printStackTrace();
