@@ -105,7 +105,6 @@ public class AdminCustomerUpdateController {
                     if (customerRowsAffected > 0 && cardRowsAffected > 0) {
                         resultLabel.setText("Customer information updated successfully.");
                     } else {
-                        resultLabel.setText("No updates were made to the database.");
                     }
                 });
 
