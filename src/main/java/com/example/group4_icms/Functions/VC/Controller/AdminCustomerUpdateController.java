@@ -99,7 +99,7 @@ public class AdminCustomerUpdateController {
 
                 // Log the action
                 LogHistoryController logHistoryController = new LogHistoryController();
-                logHistoryController.updateLogHistory("Updated PolicyOwner with ID: " + customerIdToUpdate);
+                logHistoryController.updateLogHistory("Updated Customer with ID: " + customerIdToUpdate);
 
                 Platform.runLater(() -> {
                     if (customerRowsAffected > 0 && cardRowsAffected > 0) {
